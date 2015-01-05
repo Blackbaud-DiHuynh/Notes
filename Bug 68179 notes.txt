@@ -1,0 +1,29 @@
+BatchSpecialCaseUtils.resource
+
+Convio.ErrorInfoUtils.show:
+	- gifttype is undefined
+	- either figure out where gifttype should have been set, or figure out how to find the correct gift type with other information in the element
+
+BatchEntry_js.resource
+	- var StatusField 
+	- errorLink.click( 
+		- collect error links and stuff
+		- calls COnvio.ErrorInfoUtils.show(.., rowElm,...)
+	)
+	- rowElm is in errorLink (which is in the <a> tag)
+
+
+
+Put breakpoints on: 
+
+BatchEntry_js
+2545 - Null but defaults to Single Donation
+1151 - n/a
+1677 - Single Donation
+2787
+3233
+3242
+3322
+3372
+
+BatchSpecialCaseUtils

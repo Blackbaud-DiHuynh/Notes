@@ -1,0 +1,6 @@
+Get list of report folders: 
+  Select Id, name, type, accessType from Folder where Type='Report' and Name like '%'
+
+
+
+

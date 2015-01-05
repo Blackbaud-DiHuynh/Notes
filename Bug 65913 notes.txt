@@ -1,0 +1,38 @@
+
+Tried:
+
+- create batch with tribute
+- check entries, everything should be green
+- change tribute name
+- commit
+Result: batch committed, donation created for the correct tribute
+
+The same thing happens if we change the name BEFORE check entries. 
+
+RCF got "A field value cannot be found. Please review your input" error
+aka "Error_Invalid_Input" thrown in BatchCommitUtils.getErrorMessage()
+This error happens when a field is deleted, iow the sObject id isn't found.
+
+Functions that call BatchCommitUtils.getErrorMessage()
+- BatchDonationEntryHandler.processOpportunityUpsertResults()
+- BatchPledgeEntryHandler.execute()
+- BatchRGEntryHandler.execute()
+
+All three throw the error when Database.insert returns false for isSuccess(). 
+
+"The insert statement automatically sets the ID value of all new sObject records. Inserting a record that already has an ID—and therefore already exists in your organization's data—produces an error"
+
+
+When Committed is set
+BatchCommitBatch.finish()
+- if( numFailedItems==0 && job.NumberOfErrors==0)
+
+BatchCapturePaymentBatchJob.finish()
+- if(numFailedItems == 0 && job.JobItemsProcessed > 0 && job.NumberOfErrors == 0)
+
+BatchCommitJob.finish()
+- if(numFailedItems==0 && job.NumberOfErrors==0) 
+
+
+
+

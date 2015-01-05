@@ -1,0 +1,650 @@
+Visualforce tags
+	Simple exposures to HTML
+		flash			- html for flash
+		iframe			- iframe
+		image			- img
+		includeScript	- script
+		outputLink 		- a
+		outputPanel		- span / div
+	Other pages or views
+		include			- another VF page
+		detail			- detail page for an object
+		relatedList		- show a related list
+		enhancedList	- list page for an object
+		listViews		- shown on main tab for an object
+		page			- outermost tag
+		stylesheet		- link
+	forms
+		form
+		commandButton
+		commandLink
+		inlineEditSupport
+		input
+		inputCheckbox
+		inputField
+		inputFile
+		inputHidden
+		inputSecret
+		inputText
+		inputTextarea
+		selectCheckboxes
+		selectList
+		selectRadio
+			selectOption
+			selectOptions
+	tables and collections https://developer.salesforce.com/forums/ForumsMain?id=906F00000008mOEIAY
+		pageBlockTable (see also page blocks)
+		dataTable
+			column
+		repeat
+		dataList
+		facet
+	Error messages 
+		message
+		messages
+		pageMessage
+		pageMessages
+	display fields and labels and stuff
+		outputField
+		outputLabel
+		outputText
+		sectionHeader
+	page blocks
+		pageBlock
+		pageBlockButtons
+		pageBlockSection
+			pageBlockSectionItem
+		pageBlockTable
+	panels
+		panelBar
+			panelBarItem
+		panelGrid
+		panelGroup
+	tab panel
+		tabPanel
+			tab
+	toolbar
+		toolbar
+			toolbarGroup
+	VF templates, an alternative to components
+		composition
+		define
+		insert
+	components, a small part of a visualforce page
+		component
+		componentBody
+		attribute
+	dynamic apex components // If we ever re-write batch we should look into these!
+		dynamicComponent
+	Things you probably should not use
+		scontrol
+		variable
+		site:previewAsAdmin   // basically no Google results
+		social:profileViewer // social stuff for visualforce https://help.salesforce.com/apex/TViewHelpDoc?id=social_networks_overview.htm&language=en_US
+	flows (wizards?)
+		flow:interview
+	Google Analytics
+		site:googleAnalyticsTracking
+	remote objects
+		remoteObjectField
+		remoteObjectModel
+		remoteObjects
+	AJAX
+		actionFunction
+		actionPoller
+		actionRegion
+		actionStatus
+		actionSupport
+	charts
+		analytics:reportChart
+		areaSeries
+		axis
+		barSeries
+		chart
+		chartLabel
+		chartTips
+		gaugeSeries
+		legend
+		lineSeries
+		pieSeries
+		radarSeries
+		scatterSeries
+	Canvas
+		canvasApp
+	Case Feed
+		emailPublisher
+		logCallPublisher
+		milestoneTracker
+	support
+		support:caseArticles
+		support:caseFeed
+		support:caseUnifiedFiles
+		support:clickToDial
+		support:portalPublisher
+	ideas extended standard controller
+		vote
+		ideas:detailOutputLink
+		ideas:listOutputLink
+		ideas:profileListOutputLink
+	knowlege articles
+		knowledge:articleCaseToolbar
+		knowledge:articleList
+		knowledge:articleRendererToolbar
+		knowledge:articleTypeList
+		knowledge:categoryList
+	Live Agent chat
+		liveAgent:clientChat
+		liveAgent:clientChatAlertMessage
+		liveAgent:clientChatEndButton
+		liveAgent:clientChatFileTransfer
+		liveAgent:clientChatInput
+		liveAgent:clientChatLog
+		liveAgent:clientChatMessages
+		liveAgent:clientChatQueuePosition
+		liveAgent:clientChatSaveButton
+		liveAgent:clientChatSendButton
+		liveAgent:clientChatStatusMessage
+	chatter
+		chatter:feed
+		chatter:feedWithFollowers
+		chatter:follow
+		chatter:followers
+		chatter:newsfeed
+		chatter:userPhotoUpload
+		chatteranswers:aboutme
+		chatteranswers:allfeeds
+		chatteranswers:changepassword
+		chatteranswers:datacategoryfilter
+		chatteranswers:feedfilter
+		chatteranswers:feeds
+		chatteranswers:forgotpassword
+		chatteranswers:forgotpasswordconfirm
+		chatteranswers:guestsignin
+		chatteranswers:help
+		chatteranswers:login
+		chatteranswers:registration
+		chatteranswers:searchask
+		chatteranswers:singleitemfeed
+		topics:widget
+
+
+
+
+
+
+
+
+Expression language - everything between { and }
+	Operators
+		+	sum
+		-	difference
+		*	product
+		/	dividend
+		^	power
+		()	grouping
+		==	equality
+		=	same as == DO NOT USE
+		!=	inequality
+		<>	same as != DO NOT USE
+		<	less than
+		>	greater than
+		<=	less than or equal
+		>=	greater than or equal 	
+		&&	and 					
+		||	or						
+		&	concatenate
+	Functions
+		Date and Time Functions
+			DATE			date value from year, month, and day values you enter
+			DATEVALUE		date value for a date/time or text expressio
+			DATETIMEVALUE	year, month, day and GMT time value
+			DAY				number of the day of the month
+			MONTH			number of the month
+			YEAR			number of the year
+			NOW				datetime representing the current moment.
+			TODAY			date     representing the current day
+		Informational Functions
+			BLANKVALUE		Returns a given value if non-blank, and another value otherwise.
+			NULLVALUE		Returns a given vlaue if non-null,  and another value otherwise
+			ISBLANK			Argument has a non-empty value
+			PRIORVALUE		previous value of a field
+			ISCHANGED		Value of a field is different from the previous value
+			ISNEW			The formula is running during the creation of a new record
+			ISNUMBER		Determines if a text value is a number
+			ISPICKVAL		Value of a picklist field is equal to a text literal
+			CASESAFEID		Converts a 15-character ID to a case-insensitive 18-character ID.
+			GETSESSIONID	User’s session ID.
+		Logical Functions
+			AND				All values are true
+			OR				Any value is true
+			NOT				Returns FALSE for TRUE and TRUE for FALSE.
+			IF				Returns a given value if true and another value if false.
+			CASE			Checks a given expression against a series of values.
+		NUMERIC
+			VALUE			Coerce to number
+			ABS				Absolute value
+			CEILING			Rounds up
+			EXP				e raised to a power
+			FLOOR			Rounds down
+			LN				natural logarithm
+			LOG				base 10 logarithm
+			MAX				highest number from a list
+			MIN				lowest  number from a list
+			MOD				modulus
+			ROUND			rounds to a specified number of digits
+			SQRT			positive square root
+		Text Functions
+			TEXT			Coerce to string
+			BR				line break
+			LEN				Number of characters in a string.
+			BEGINS			text begins with given string
+			FIND			Position of a string within a another string
+			CONTAINS		The first argument contains the second argument.
+			SUBSTITUTE		Substitutes new text for old text in a string.
+			TRIM			Trim whitespace from a string.
+			LOWER			Converts all letters in a string to lowercase.
+			UPPER			Converts all letters in a string to uppercase.
+			LEFT			A number of characters from the beginning of a string.
+			RIGHT			A number of characters from the end of a string.
+			MID				A number of characters from the middle of a string given the starting position.
+			LPAD			Pads the beginning of a string to a given length
+			RPAD			Pads the end of a string to a given length.
+		Advanced Functions
+			GETRECORDIDS	array record IDs for the selected records in a list
+			INCLUDE			import one s-control into another
+			LINKTO			anchor tag for an s-control or page.
+			REGEX			test if a string matches a regex
+			REQUIRESCRIPT	script tag with source for a URL you specify
+			URLFOR			URL for an action, s-control, Visualforce page, or static resource
+			VLOOKUP(returnField, testField, testValue) Return a field on the object where the testField equals the testValue
+		Encoding Functions
+			HTMLENCODE		Encodes string for use in HTML
+			JSENCODE		Encodes string for use in JavaScript
+			JSINHTMLENCODE	Encodes string for use in JavaScript with HTML
+			URLENCODE		Encodes string for use in URLs			
+	Global Variables
+		$Action 
+			All	objects
+				ChangeOwner					Change the owner of a record.	
+				Clone						Clone a record.
+				Delete						Delete a record.
+				Edit						Edit a record.	
+				List						List records of an object.	
+				New							Create a new record.	
+				Tab							Access the tab for an object. (maybe not actually all)
+				Share						Share a record.	(maybe not actually all)
+				View						View a record.	
+			Attachments		
+				Download					Download an attachment.	
+			Campaigns		
+				AddCampaign					Add a member to a campaign.
+				AddInfluence				Add a campaign to an opportunity's list of influential campaigns.
+				AddToCampaign				Add a contact or lead to a campaign.	
+				AdvancedSetup				Launch campaign advanced setup.
+				Create_Opportunity			Create an opportunity based on a campaign member.
+				ManageMembers				Launch the Manage Members page.
+				NewTask						Create a task.
+				ViewAllCampaignMembers		List all campaign members.
+				ViewCampaignInfluenceReport	Display the Campaigns with Influenced Opportunities report.
+			Leads/Accounts/Contacts		
+				AltavistaNews				Launch www.altavista.com/news/.	
+				Convert						Create a new account, contact, and opportunity using the information from a lead.
+				ConvertLead					Convert a lead to a campaign member.
+				FindDup						Display duplicate leads.
+				HooversProfile				Display a Hoovers profile.	
+				IncludeOffline				Include an account record in Connect Offline.
+				GoogleMaps					Plot an address on Google Maps.	
+				GoogleNews					Display www.google.com/news.	
+				GoogleSearch				Display www.google.com.	
+				Merge						Merge contacts.
+				SendGmail					Open a blank email in Gmail.	
+				YahooMaps					Plot an address on Yahoo! Maps.	
+				YahooWeather				Display http://weather.yahoo.com/.
+			Events/Tasks
+				AddToOutlook				Add an event to Microsoft Outlook.
+				Cancel						Cancel an event.
+				Decline						Decline an event.
+				DeleteSeries				Delete a series of events or tasks.	
+				FollowupEvent				Create a follow-up event.
+				FollowupTask				Create a follow-up task.
+			Approval
+				Accept						Accept a record.
+				SubmitforApproval			Submit a record for approval.	
+			Contracts/Activities		
+				Activate					Activate a contract.
+				LogCall						Log a call.
+				MailMerge					Generate a mail merge.
+				RequestUpdate				Request an update.	
+				SendEmail					Send an email.
+			Pricebooks		
+				Add							Add a product to a price book.
+				AddProduct					Add a product to price book.
+				ChoosePricebook				Choose the price book to use.
+				EditAllProduct				Edit all products in a price book.
+				Sort						Sort products in a price book.
+			Cases		
+				CaseSelect					Specify a case for a solution.
+				ChangeStatus				Change the status of a case.	
+				CloneAsChild				Create a related case with the details of a parent case.
+				CloseCase					Close a case.
+				MassClose					Close multiple cases.
+			Portals
+				DisableCustomerPortal		Disable a Customer Portal user.
+				DisableCustomerPortalAccou	Disable a Customer Portal account.
+				DisablePartnerPortal		Disable a Partner Portal user.
+				DisablePartnerPortalAccount	Disable a Partner Portal account.
+				EnableAsPartner				Designate an account as a partner account.
+				EnablePartnerPortalUser		Enable a contact as a Partner Portal user.
+				EnableSelfService			Enable a contact as a Self-Service user.
+				SelfServSelect				Register a user as a Self Service user.
+				ViewPartnerPortalUser		List all Partner Portal users.
+				ViewSelfService				List all Self-Service users.
+		$Api
+			URLS 		defined in WSDLs for versioned servers
+			Session_ID	the session id
+		$Component
+			Gets a DOM id from your page
+		$ComponentLabel
+			The name of a field assocated with an error message. Not actually global?
+		$CurrentPage
+			Name		Name of the current page
+			URL			URL of the current page
+			parameters	Map of the URL parameters
+		$FieldSet
+			Fieldset associated with an sobject. Not actually global?
+		$Label
+			Map of the labels visible to the current user
+		$Label.Site (standard labels)
+			authorization_required		Authorization Required
+			bandwidth_limit_exceeded	Bandwidth Limit Exceeded
+			change_password				Change Password
+			change_your_password		Change Your Password
+			click_forget_password		If you have forgotten your password, click Forgot Password to reset it.
+			community_nickname			Nickname
+			confirm_password			Confirm Password
+			down_for_maintenance		<i>{0}</i> is down for maintenance
+			email						Email
+			email_us					email us
+			enter_password				Did you forget your password? Please enter your username below.
+			error						Error: {0}
+			error2						Error
+			file_not_found				File Not Found
+			forgot_password				Forgot Password
+			forgot_password_confirmation Forgot Password Confirmation
+			forgot_your_password_q		Forgot Your Password?
+			get_in_touch				Please <a href="{0}">{1}</a> if you need to get in touch.
+			go_to_login_page			Go to Login Page
+			img_path					/img/sites
+			in_maintenance				Down For Maintenance
+			limit_exceeded				Limit Exceeded
+			login						Login
+			login_button				Login
+			login_or_register_first		You must first log in or register before accessing this page.
+			logout						Logout
+			new_password				New Password
+			new_user_q					New User?
+			old_password				Old Password
+			page_not_found				Page Not Found
+			page_not_found_detail		Page Not Found: {0}
+			password					Password
+			passwords_dont_match		Passwords did not match.
+			powered_by					Powered by
+			register					Register
+			registration_confirmation	Registration Confirmation
+			site_login					Site Login
+			site_under_construction		Site Under Construction
+			sorry_for_inconvenience		Sorry for the inconvenience.
+			sorry_for_inconvenience_back_shortly Sorry for the inconvenience. We'll be back shortly.
+			stay_tuned					Stay tuned.
+			submit						Submit
+			temp_password_sent			An email has been sent to you with your temporary password.
+			thank_you_for_registering	Thank you for registering. An email has been sent to you with your temporary password.
+			under_construction			<i>{0}</i> is under construction
+			user_registration			New User Registration
+			username					Username
+			verify_new_password			Verify New Password
+		$ObjectType 
+			Syntax is
+				$ObjectType.AnyObject__c.(objectSchemaDetail) or
+					keyPrefix	The three-character prefix code if predictable.
+					label		Often matches the name. (Donation versus Opportunity)
+					labelPlural	Often matches the object name.
+					name		The name.
+					custom		Is custom
+					accessible	The current user can see
+					createable	The current user can create
+					deletable	The current user can delete
+					mergeable	The current user can merge
+					queryable	The current user can query
+					searchable	The current user can search
+					undeletable	The current user can undelete
+					updateable	The current user can update
+				$ObjectType.AnyObject__c.fields.someField.(fieldSchemaDetail)
+					Size
+						byteLength			maximum size in bytes.
+						digits				maximum number of digits
+						length				maximum size in Unicode characters
+						precision			maximum number of digits
+						scale				number of digits to the right of the decimal point
+					Defaults and related machinary
+						calculatedFormula	formula
+						defaultValueFormula	default value
+						calculated			is a custom formula field
+						defaultedOnCreate	receives a default value when created
+					Picklists
+						controller			controlling field, if this is a dependent field.
+						dependentPicklist	is a dependent picklist
+						restrictedPicklist	is a restricted picklist
+						picklistValues		list of picklist items
+					Associated information
+						inlineHelpText		help text
+						label				label
+						localName			name
+						name				name used in Apex
+						soapType			soapType of the field
+						type				displayType of the field
+						autoNumber			is an Auto Number field
+						caseSensitive		is case sensitive
+						custom				is a custom field
+						externalId			is used as an external ID
+						filterable			can be used as part of the filter criteria of a WHERE statement
+						groupable			can be included in the GROUP BY clause of a SOQL query
+						htmlFormatted		has been formatted for HTML and should be encoded for display in HTML
+						idLookup			can be used to specify a record in an upsert
+						nameField			is a name field
+						nillable			is nillable
+						sortable			a query can sort on the field
+						unique				the value for the field must be unique
+						updateable			can be edited or reparented by the current user
+						sObjectField		reference to this field.
+					Relationships
+						referenceTo			parent objects
+						relationshipName	name of the relationship
+						relationshipOrder	1 if the field is a child, 0 otherwise
+						cascadeDelete		object is deleted when the parent object is deleted
+						namePointing		can have multiple types of objects as parents
+						restrictedDelete	the parent object can’t be deleted because it’s referenced by a child object
+						writeRequiresMasterRead	writing to the detail object requires read sharing instead of read/write sharing of the parent.
+					Permissions
+						accessible			the current user can see this field
+						createable			can be created by the current user
+						permissionable		field permissions can be specified for the field
+				$ObjectType.AnyObject__c.fieldSets.someFieldset
+					Must be used in an interation component
+						<apex:repeat value="{!$ObjectType.Contact.FieldSets.properNames}" var="f">
+		$Organization
+			Id
+			Name
+			Division
+			Street
+			City
+			State
+			PostalCode
+			Country
+			Fax
+			Phone
+			GoogleAppsDomain
+			UiSkin
+		$Page
+			Map of page names to urls of those pages
+		$SControl 
+			URLs to pages where scontrols execute
+		$Resource 
+			Map of the static resources. Can access zipped resources with URLFOR
+		$Setup
+			Map of all heirarchy custom settings 
+		$Site 
+			Name				API name of the current site.
+			Domain				Force.com domain name for your organization.
+			CustomWebAddress	Site's custom UR
+			OriginalUrl			original URL for this page if it’s a designated error page for the site
+			CurrentSiteUrl		base URL of the current site that references and links should use. Note that this field might return the referring page's URL instead of the current request's URL. This field's value includes a path prefix and always ends with a / character. If the current request is not a site request, then this field returns an empty string. Use of $Site.CurrentSiteUrl is discouraged. Use $Site.BaseUrl instead.
+			LoginEnabled		is the site associated with an active login-enabled portal?
+			RegistrationEnabled	is the site associated with an active self-registration-enabled Customer Portal?
+			IsPasswordExpired	has currently logged-in user's password is expired?
+			AdminEmailAddress	value of the Site Contact field for the current site.
+			Prefix				URL path prefix of the current site
+			Template			template name associated with the current site
+			ErrorMessage		Error message for the current page if it’s a designated error page
+			ErrorDescription	error description for the current page if it’s a designated error page
+			AnalyticsTrackingCo	tracking code associated with your site
+			BaseUrl				base URL forthe current site that references and links should use
+			BaseRequestUrl		base URL for the current site for the requested URL
+			BaseCustomUrl		base URL for the current site that doesn’t use a Force.com subdomain
+			BaseInsecureUrl		base URL for the current site that uses HTTP instead of HTTPS
+			BaseSecureUrl		base URL for the current site that uses HTTPS instead of HTTP
+			MasterLabel			Master Label field for the current site
+			SiteId				ID of the current site
+			SiteType			API value of the Site Type field for the current site
+			SiteTypeLabel		value of the Site Type field's label for the current site
+		$System.OriginDateTime 
+			 literal value of 1900-01-01 00:00:00.
+		$User.UITheme
+		$User.UIThemeDisplayed 
+			one of the following 
+				Theme1			Obsolete Salesforce theme
+				Theme2			Salesforce theme used prior to Spring ’10
+				PortalDefault	Salesforce Customer Portal theme
+				Webstore		Salesforce AppExchange theme
+				Theme3			Current Salesforce theme, introduced during Spring ’10
+		$Permission
+			Map of the current user's permissions
+		$Profile 
+			Map of the current user's profile fields
+		$User
+			Map of the current user's fields
+		$UserRole 
+			Map of the current user's role
+	Standard controller actions, also see the apex class because this listing in incomplete
+		!save		Inserts a new record or updates an existing record if it is currently in context. After this operation is finished, the save action returns the user to the original page (if known), or navigates the user to the detail page for the saved record.
+		!quicksave	Inserts a new record or updates an existing record if it is currently in context. Unlike the save action, this page does not redirect the user to another page.
+		!edit		Navigates the user to the edit page for the record that is currently in context. After this operation is finished, the edit action returns the user to the page where the user originally invoked the action.
+		!delete		Deletes the record that is currently in content. After this operation is finished, the delete action either refreshes the page or sends the user to tab for the associated object.
+		!cancel		Aborts an edit operation. After this operation is finished, the cancel action returns the user to the page where the user originally invoked the edit.
+		!list		Returns a PageReference object of the standard list page, based on the most recently used list filter for that object. For example, if the standard controller is contact, and the last filtered list that the user viewed is New Last Week, the contacts created in the last week are displayed.
+		Standard controller has access to the object associated with the id provided
+	Standard list controller actions, also see the apex class
+		!save		Inserts new records or updates existing records that have been changed. After this operation is finished, the save action returns the user to the original page, if known, or the home page.
+		!quicksave	Inserts new records or updates existing records that have been changed. Unlike the save action, quicksave does not redirect the user to another page.
+		!list		Returns a PageReference object of the standard list page, based on the most recently used list filter for that object when the filterId is not specified by the user.
+		!cancel		Aborts an edit operation. After this operation is finished, the cancel action returns the user to the page where the user originally invoked the edit.
+		!first		Displays the first page of records in the set.
+		!last		Displays the last page of records in the set.
+		!next		Displays the next page of records in the set.
+		!previous 	Displays the previous page of records in the set.
+		!listviewoptions does this belong here?
+
+
+
+
+
+
+
+
+	Apex Classes Used in Visualforce Controllers
+		ApexPages
+			addMessage(ApexPages.Message)	add a message to the current page context.
+			addMessages(Exception)			adds a list of messages to the current page context based on a thrown exception.
+			currentPage() 					current page's PageReference.
+			getMessages() 					messages associated with the current context.
+			hasMessages()					Are messages associated with the current context?
+			hasMessages(ApexPages.Severity) Are there messages of the specified severity?
+		Action
+			Action(String action)
+			getExpression() 				expression evaluated when the action is invoked
+			invoke() 						runs the action.
+		Cookie
+			Cookie(String name, String data, String path, Integer maxAge, Boolean isSecure)
+			getDomain()						name of the server making the request
+			getMaxAge() 					seconds the cookie is valid
+			getName() 						name of the cookie
+			getPath() 						path from which you can retrieve the cookie
+			getValue() 						data in the cookie
+			isSecure()						Can the cookie can only be accessed through HTTPS?
+		Message
+			Message(ApexPages.Severity severity, String summary) 
+			Message(ApexPages.Severity severity, String summary, String detail)
+			Message(ApexPages.Severity severity, String summary, String detail, String id) 
+			getComponentLabel() 	label of the associated inputField component
+			getDetail() 			detail string
+			getSeverity() 			severity enum
+			getSummary() 			summary string
+		PageReference
+			PageReference(String partialURL)
+			PageReference(SObject record)
+			getHeaders() 			map of the request headers
+			getUrl() 				relative URL
+			getAnchor() 			name of the anchor referenced in the page’s URL after '#'
+			setAnchor(String)	 	set URL’s anchor reference
+			getParameters() 		map of the query string parameters that in the page URL
+			getContent() 			output of the page, as displayed to a user in a Web browser
+			getContentAsPDF() 		page as a PDF
+			getCookies()			map of cookie names and cookie objects
+			setCookies(Cookie[])	set cookies 
+			getRedirect() 			redirect attribute
+			setRedirect(Boolean) 	set the redirect attribute
+		SelectOption
+			SelectOption(String value, String label)
+			SelectOption(String value, String label, Boolean isDisabled)
+		StandardController
+			StandardController(SObject controllerSObject)
+			getId() 				ID of the record that is currently in context
+			getRecord() 			Record that is currently in context
+			reset() 				Discard changes and reacquire access to newly referenced fields
+			addFields(List<String>) dynamically load more fields into the controller
+			cancel() 				PageReference of the cancel page.
+			delete() 				PageReference of the delete page, side effect deletes associated object
+			edit() 					PageReference of the standard edit page.
+			save() 					PageReference of update object after changes saved.
+			view() 					PageReference of the standard detail page.
+		StandardSetController
+			StandardSetController(Database.QueryLocator SObjectList)
+			StandardSetController(List<SObject> controllerSObjects)
+			cancel() 				PageReference of the original page if known, or the home page.
+			first() 				Returns the first page of records.
+			getCompleteResult()		Indicates whether there are more records in the set than the maximum record limit
+			getFilterId() 			ID of the filter that is currently in context.
+			setFilterID(String)		Sets the filter ID of the controller.
+			getHasNext() 			Are there more records after the current page set?
+			getHasPrevious()		Are there more records before the current page set?
+			getListViewOptions() 	Listviews available to the current user.
+			getPageNumber() 		Number of the current page set
+			getPageSize() 			Number of records included in each page set.
+			setPageSize(Integer) 	Sets the number of records in each page set.
+			getRecord() 			sObject that represents the changes to the selected records.
+			getRecords() 			sObjects in the current page set
+			getResultSize()			number of records in the set.
+			getSelected() 			sObjects that have been selected.
+			setSelected(sObject[])	Set the selected records.
+			last() 					last page of records.
+			next() 					next page of records.
+			previous() 				previous page of records.
+			save() 					Inserts new records or updates existing records that have been changed. then calls cancel
+			setpageNumber(Integer)	Sets the page number.
+		IdeaStandardController
+		KnowledgeArticleVersionStandardController
+		IdeaStandardSetController
+		
+		
+
+

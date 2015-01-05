@@ -1,0 +1,339 @@
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-parent ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-parent ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-config ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-config ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-config ---
+
+maven-dependency-plugin:2.8:copy (copy-db-drivers) @ luminate-online-config ---
+
+maven-resources-plugin:2.6:copy-resources (tomcat-user-server) @ luminate-online-config ---
+
+--- maven-resources-plugin:2.6:copy-resources (tomcat-admin-server) @ luminate-online-config ---
+
+maven-assembly-plugin:2.4:directory-single (tomcat) @ luminate-online-config ---
+
+maven-assembly-plugin:2.4:single (test_data) @ luminate-online-config ---
+
+maven-assembly-plugin:2.4:single (deploy-kit) @ luminate-online-config ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-config ---[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/conf_test_data.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-config/15.1.0-SNAPSHOT/luminate-online-config-15.1.0-SNAPSHOT.tar.gz
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-config ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-site-data ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-site-data ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-site-data ---
+
+maven-assembly-plugin:2.4:single (create-site-data) @ luminate-online-site-data ---
+
+maven-assembly-plugin:2.4:single (create-shared-data) @ luminate-online-site-data ---
+
+maven-assembly-plugin:2.4:single (create-scripts-tarball) @ luminate-online-site-data ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-site-data ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-site-data ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-patch-scripts ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-patch-scripts ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-patch-scripts ---
+
+maven-resources-plugin:2.4:copy-resources (copy-filtered-resources) @ luminate-online-patch-scripts ---
+
+maven-assembly-plugin:2.4:single (create-patch-scripts-artifact) @ luminate-online-patch-scripts ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-patch-scripts ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-patch-scripts ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-shared-schema ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-shared-schema ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-shared-schema ---
+
+maven-resources-plugin:2.6:copy-resources (copy-shared-schema) @ luminate-online-shared-schema ---
+
+maven-assembly-plugin:2.4:single (create-shared-schema-artifact) @ luminate-online-shared-schema ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-shared-schema ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-shared-schema ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-schema ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-schema ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-schema ---
+
+maven-resources-plugin:2.6:copy-resources (copy-schema-files) @ luminate-online-schema ---
+
+maven-dependency-plugin:2.8:unpack (unpack-patch-kits) @ luminate-online-schema ---
+
+maven-dependency-plugin:2.8:unpack (unpack-oracle-client) @ luminate-online-schema ---
+
+maven-resources-plugin:2.6:copy-resources (copy-resources) @ luminate-online-schema ---
+
+--- maven-resources-plugin:2.6:testResources (copy-test-resources) @ luminate-online-schema ---[INFO] Copying 1 resource
+
+--- maven-assembly-plugin:2.4:single (create-schema-artifact) @ luminate-online-schema ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-schema ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-schema ---
+
+maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-xmlbeans ---[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-xmlbeans ---
+
+maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-xmlbeans ---
+
+maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-xmlbeans ---
+
+maven-surefire-plugin:2.16:test (default-test) @ luminate-online-xmlbeans ---
+
+maven-jar-plugin:2.4:jar (default-jar) @ luminate-online-xmlbeans ---Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.jar
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-xmlbeans ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-xmlbeans ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-global ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-global ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-global ---
+
+maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-global ---
+
+maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-global ---
+
+maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-global ---
+
+maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-global ---
+
+maven-surefire-plugin:2.16:test (default-test) @ luminate-online-global ---[INFO] No tests to run.
+
+maven-jar-plugin:2.4:jar (default-jar) @ luminate-online-global ---
+
+maven-assembly-plugin:2.4:single (create-patch-kit-includes) @ luminate-online-global ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-global ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-global ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-platform ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-platform ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-platform ---
+
+maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-platform ---
+
+maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-platform ---
+
+maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-platform ---
+
+maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-platform ---
+
+maven-surefire-plugin:2.16:test (default-test) @ luminate-online-platform ---
+
+maven-jar-plugin:2.4:jar (default-jar) @ luminate-online-platform ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-platform ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-platform ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ integration-api ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ integration-api ---
+
+maven-timestamp-plugin:1.0:create (default) @ integration-api ---
+
+maven-resources-plugin:2.6:resources (default-resources) @ integration-api ---
+
+maven-compiler-plugin:3.1:compile (default-compile) @ integration-api ---
+
+maven-resources-plugin:2.6:testResources (default-testResources) @ integration-api ---
+
+maven-compiler-plugin:3.1:testCompile (default-testCompile) @ integration-api ---
+
+maven-surefire-plugin:2.16:test (default-test) @ integration-api ---
+
+maven-jar-plugin:2.4:jar (default-jar) @ integration-api ---
+
+maven-install-plugin:2.3.1:install (default-install) @ integration-api ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ mock-integration-impl ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ mock-integration-impl ---
+
+maven-timestamp-plugin:1.0:create (default) @ mock-integration-impl ---
+
+maven-resources-plugin:2.6:resources (default-resources) @ mock-integration-impl ---
+
+maven-compiler-plugin:3.1:compile (default-compile) @ mock-integration-impl ---
+
+--- maven-resources-plugin:2.6:testResources (default-testResources) @ mock-integration-impl ---
+
+maven-compiler-plugin:3.1:testCompile (default-testCompile) @ mock-integration-impl ---
+
+maven-surefire-plugin:2.16:test (default-test) @ mock-integration-impl ---
+
+maven-jar-plugin:2.4:jar (default-jar) @ mock-integration-impl ---
+
+--- maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-core ---
+
+maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-core ---
+
+maven-jar-plugin:2.4:jar (default-jar) @ luminate-online-teamraiser ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-teamraiser ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-teamraiser ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ integration-impl ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ integration-impl ---
+
+maven-timestamp-plugin:1.0:create (default) @ integration-impl ---
+
+maven-resources-plugin:2.6:resources (default-resources) @ integration-impl ---
+
+maven-compiler-plugin:3.1:compile (default-compile) @ integration-impl ---
+
+maven-resources-plugin:2.6:testResources (default-testResources) @ integration-impl ---
+
+maven-compiler-plugin:3.1:testCompile (default-testCompile) @ integration-impl ---
+
+maven-surefire-plugin:2.16:test (default-test) @ integration-impl ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-apidocs ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-developer-webapp ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-developer-webapp ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-developer-webapp ---
+
+maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-developer-webapp ---
+
+maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-developer-webapp ---
+
+maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-developer-webapp ---[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/webapp/target/config
+
+maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-developer-webapp ---
+
+maven-surefire-plugin:2.16:test (default-test) @ luminate-online-developer-webapp ---
+
+maven-war-plugin:2.2:war (default-war) @ luminate-online-developer-webapp ---
+
+--- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-developer-webapp ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-developer-webapp ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-global-distribution ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-global-distribution ---
+
+maven-enforcer-plugin:1.2:enforce (enforce-global-classpath) @ luminate-online-global-distribution ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-global-distribution ---
+
+--- maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-global-distribution ---
+
+--- maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-global-distribution ---
+
+maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-global-distribution ---
+
+maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-global-distribution ---
+
+maven-surefire-plugin:2.16:test (default-test) @ luminate-online-global-distribution ---
+
+maven-war-plugin:2.2:war (default-war) @ luminate-online-global-distribution ---[INFO] Packaging webapp
+
+maven-assembly-plugin:2.4:single (create-jars-tar) @ luminate-online-global-distribution ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-global-distribution ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-global-distribution ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-platform-distribution ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-platform-distribution ---
+
+maven-timestamp-plugin:1.0:create (default) @ luminate-online-platform-distribution ---
+
+maven-assembly-plugin:2.4:single (create-jars-tar) @ luminate-online-platform-distribution ---
+
+--- maven-assembly-plugin:2.4:single (create-site-data-tar) @ luminate-online-platform-distribution ---
+
+maven-assembly-plugin:2.4:single (create-initdata-tar) @ luminate-online-platform-distribution ---
+
+maven-assembly-plugin:2.4:single (create-full-build-tar) @ luminate-online-platform-distribution ---
+
+maven-assembly-plugin:2.4:single (create-repository) @ luminate-online-platform-distribution ---
+
+maven-install-plugin:2.3.1:install (default-install) @ luminate-online-platform-distribution ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-platform-distribution ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ test-support ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ test-support ---
+
+maven-timestamp-plugin:1.0:create (default) @ test-support ---
+
+--- maven-resources-plugin:2.6:resources (default-resources) @ test-support ---
+
+maven-compiler-plugin:3.1:compile (default-compile) @ test-support ---
+
+--- maven-resources-plugin:2.6:testResources (default-testResources) @ test-support ---
+
+maven-compiler-plugin:3.1:testCompile (default-testCompile) @ test-support ---
+
+maven-surefire-plugin:2.16:test (default-test) @ test-support ---
+
+maven-jar-plugin:2.4:jar (default-jar) @ test-support ---
+
+maven-install-plugin:2.3.1:install (default-install) @ test-support ---
+
+maven-deploy-plugin:2.7:deploy (default-deploy) @ test-support ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ legacy-test ---
+
+maven-enforcer-plugin:1.2:enforce (enforce) @ legacy-test ---
+
+maven-timestamp-plugin:1.0:create (default) @ legacy-test ---
+
+maven-dependency-plugin:2.8:build-classpath (default) @ legacy-test ---
+
+maven-dependency-plugin:2.8:copy-dependencies (copy-dependencies) @ legacy-test ---
+
+--- maven-resources-plugin:2.6:resources (default-resources) @ legacy-test ---
+
+maven-compiler-plugin:3.1:compile (default-compile) @ legacy-test ---
+
+--- maven-dependency-plugin:2.8:unpack (unpack-configuration) @ legacy-test ---[INFO] Expanding: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/conf_test_data.tar.gz into /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/config
+
+maven-dependency-plugin:2.8:copy (copy-db-drivers) @ legacy-test ---
+
+maven-resources-plugin:2.6:testResources (default-testResources) @ legacy-test ---
+
+maven-antrun-plugin:1.7:run (copy-sac) @ legacy-test ---
+
+maven-jar-plugin:2.4:jar (default-jar) @ legacy-test ---
+
+--- maven-install-plugin:2.3.1:install (default-install) @ legacy-test ---
+
+--- maven-deploy-plugin:2.7:deploy (default-deploy) @ legacy-test ---
+
+maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-patch-kit ---

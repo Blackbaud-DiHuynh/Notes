@@ -1,0 +1,110 @@
+
+Expected behavior:
+
+
+LCRM script to reproduce the problem:
+
+boolean reset = false;
+
+Contact[] cons = [SELECT Id, Name, MailingStreet, MailingCity, MailingState FROM Contact WHERE Name='Aaron Brooks'];
+
+Contact con = cons[0];
+
+if (reset){
+  con.MailingStreet =  '11501 Domain Dr';
+  con.MailingCity = 'Austin';
+  con.MailingState = 'TX';
+  con.MailingPostalCode = '78758';
+} else {
+  con.MailingStreet = '123 Bad Str';
+  con.MailingCity = 'New York City';
+  con.MailingState = 'NY';
+  con.MailingPostalCode = '';
+}
+
+update con;
+
+
+LO 
+
+UpsertConsHandler.processUpsertConsSynchMessage()
+  * find the cons in LO
+  * if the cons hasn't synced over yet, we create a new cons, sync all the information as is, no problem here.
+  * if the cons is already in LO, we update with the following flow
+
+  -> UpsertConsHandler.processAsUpdateConsSyncMessage()
+	-> consUniversalFieldMapper.messageToObject()
+	* parses inbound messages from CRM
+	* all the fields have the correct values at this point
+	* process fields and stuff
+	  
+	  -> ConsUniversalFieldMapper.processCustomFieldsFromMessage()
+	  -> ConsMgr.updateCons()
+		-> ConsMgr.transformConsUpdate()
+		  
+		  -> AddressUtil.addAddressChangeAttrs(ConsUpdateArgs cua)     
+			-> AddressUtil.addStdHomeAddressAttrs 
+			* if the the list of attrs are home attrs and we're using the standardization service
+				* merge and 
+			  -> AddressUtil.buildCompleteHomeAddress()
+				* check if any of the Street/City/State/Zip is null and isCanadaOrUS(), then we tried to MERGE them with existing values
+				* got 11501 Domain Dr New York City, NY 78758-3483 
+				  
+				  -> AddressUtil.getMergedAttributes()
+					* get the contact address attributes, if the're not null we merge them in
+		  -> AddressUtil.addDistrictAttrs()
+			* update state to TX instead of NY
+			if (state != null && !splitState) {
+			  attrs.put(AttrID.HOME_STATEPROV, state);
+			  attrs.put(AttrID.STD_HOME_STATEPROV, state);
+			}
+
+Test Case Review
+*** means done. 
+
+*** 1.  Start with an address that has multiple lines for street, (i.e. Line 1 = "11501 Domain Drive", Line 2 = "Suite
+200").  Then clear out just line 2 in LCRM.  Ensure that line 2 is cleared out in Online.
+
+*** 2.  Cover the test case documented in the repro steps for this bug.
+
+3.  Test blanking out each individual piece of the address one at a time and ensure that it's blanked out in the
+receiving system, (Online).
+
+4.  Test changing each individual piece of the address to a new value one at a time and ensure that it's properly
+changed in the receiving system, (Online).
+
+5.  What happens with a standardized address versus a non-standardized address?  We only standardize US and Canada, so
+what about a Mexican or British address?  Will we sync over changes as-is, or will we be unable to sync changes if
+we're unable to standardize them?
+
+6.  If I change the address to a known bad address in LCRM, verify that this known bad address syncs over to Online,
+and does not get standardized.  For instance, if I take the office address and just change city and state to "Houston,
+TX", that bad address should sync over.
+
+7.  Curious what happens here:  if I had a good address and I change it to a bad one, will the districting info get
+cleared out?
+
+Other kinds of addresses:
+Employer      no bugs, works as expected, the entire address (wrong or right) syncs over
+honoree
+next of kin
+delivery  
+tribute
+
+
+where "each case has a blank attribute": 
+street1			    	|   street2   |   street3   	|   stateprov   |   postalCode  |   city      
+""			  	    	|  "Suite 200"| "PO BOX 1022"	|"Texas" 		| 	"78758" 	| 	"Austin"
+"11501 Domain Dr"	|  ""	    	  | "PO BOX 1022"	|"Texas" 		| 	"78758" 	| 	"Austin"
+"11501 Domain Dr"	|  "Suite 200"| ""				    |"Texas" 		| 	"78758" 	| 	"Austin"
+"11501 Domain Dr"	|  "Suite 200"| "PO BOX 1022"	|""		 		| 	"78758" 	| 	"Austin"
+"11501 Domain Dr"	|  "Suite 200"| "PO BOX 1022"	|"Texas" 		| 	"" 			| 	"Austin"
+"11501 Domain Dr"	|  "Suite 200"| "PO BOX 1022"	|"Texas" 		| 	"78758" 	| 	""
+
+
+
+
+getMergedAttributes(cvs, consID, attrsModified)
+	ci.getAttributes().put(attrID, ttrsModified.getStringAttrValue(attrID (from Address.HOME_ADDRESS_ATTR_IDS)))
+
+	

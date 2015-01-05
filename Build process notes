@@ -1,0 +1,168 @@
+Problem: changes to javascript files not showing up on bvt sites
+
+Diagnosis: 
+- Error in alfred logs: /logs/alfred/<site number>
+	Considering what to do with ./static_data/js/crm_donation.js...
+	Error: found that ./static_data/js/crm_donation.js has changed
+
+	Considering what to do with ./static_data/js/crm_don_form.js...
+	Error: found that ./static_data/js/crm_don_form.js has changed
+
+Build process: (a VERY rough high level breakdown)
+
+- grabs the branch information from github
+	- trigger some emails and stuff
+- get all of the maven plugins, nexus artifacts
+- build a snapshot for each of these "modules" with the current version of LO we're building
+	[INFO] Luminate Online Parent POM
+		- download stuff from github
+		- deploy
+	
+	[INFO] Luminate Online Configuration
+		- something with config 
+	
+	[INFO] Luminate Online Site Data
+		- strip HTML files
+		- minify all javascript files in static_data/js
+		- exec-maven-plugin:1.2.1:exec (strip-javascript)
+		- strip templates in site_data/001/000000001/template_sets
+		- install all of the script tarballs
+
+	[INFO] Luminate Online Patch Scripts
+		- set new version for LO
+		- read something in src/main/assembly/patch-scripts.xml
+		- build a patch script tar
+		** a special place in our build process *** 
+		- install more tar balls
+
+	[INFO] Luminate Online Shared Schema
+		- hmm
+
+	[INFO] Luminate Online Schema
+		- reload the database
+		- set up test resources
+		
+	[INFO] Convio Luminate Online XML Beans
+		- compile the module (idk which one)
+
+	[INFO] Luminate Online Global Module
+		- compile more stuff
+		- record some tests
+
+	[INFO] Luminate Online Platform
+		- what happens when we do "mvn install"
+		- compile groovy tests 
+		- run all tests
+
+	[INFO] Luminate Integration API
+		- run integration tests, record ressults
+
+	[INFO] Luminate Integration Mock Implementation
+		- compile, build a jar, 
+		- run tests, record results
+
+	[INFO] Luminate Online Core
+		- compile groovy, java files
+		- run tests
+
+	- Luminate Online 15.1 platform initialized by this time
+
+	[INFO] Convio Data Sync. Connector Web Service Client Parent POM
+		- download stuff, upload stuff to/from nexus
+
+	[INFO] Convio Data Sync. Connector Web Service Client for Komen
+		- compile the module
+		- run tests for this module
+
+	[INFO] Convio Data Sync. Connector Web Service Client for Luminate CRM
+		- compile the module
+		- run tests for this module
+		
+	[INFO] Convio Data Sync. Connector Web Service Client for Salesforce
+		- compile the module
+		- run tests for this module
+		
+	[INFO] Convio Data Sync. Connector Web Service Client for Team Approach
+		- compile the module
+		- run tests for this module
+		
+	[INFO] Convio Data Sync. Connector Web Service Client
+		- compile the module
+		- run tests for this module
+		
+	[INFO] Luminate Online Connectors
+	[INFO] Luminate Online TeamRaiser
+		- download from nexus
+		- compile the module
+		- run tests		
+
+	[INFO] Luminate Integration Implementation
+		- download from nexus
+		- compile the module
+		- run tests	
+
+	[INFO] Luminate Online Tools
+		- download from nexus
+		- compile the module
+		- run tests
+
+	[INFO] Luminate Online API Documentation
+		- download from nexus
+		- compile the module
+		- run tests
+
+	[INFO] Luminate Online Developer Environment Webapp
+		- download from nexus
+		- compile the module
+		- run tests
+	[INFO] Luminate Online Global Distribution
+
+	[INFO] Luminate Online Platform Distribution
+		- download from nexus
+		- compile the module
+		- run tests
+
+	[INFO] Luminate Online Test Support
+		- download from nexus
+		- compile the module
+		- run tests
+	[INFO] Luminate Legacy Tests
+		- download from nexus
+		- compile the module
+		- run tests
+
+	[INFO] Luminate Online Patch Kit
+		- conclude the build
+	[INFO] Luminate Online
+
+
+
+Somewhere in this process (maybe at the "special place"): we 
+- run a differ between the files latest initdata package we have and the new files
+- we save that diff (or deltas) in a file in order to patch the files on the bvt boxes
+- we do the patching process to go from 14.7 -> 14.8 -> 14.9 -> 14.10 -> 14.11 -> 15.1 (yes, 5 subsequent patches)
+- when we get to the setting up site data phase: we apply the patch with apply_patch
+- errors
+
+There were some template collions with these minified javascript files -> the bvt box has been using the version from initdata 14.7 for the past 2 years
+
+Random:
+
+$ find '(' -name "crm_don_form.js" -o -name "crm_donation.js" ')' -ls 
+
+14815605 36 -rw-r--r-- 1 tpinson tpinson 36850 Nov 17 18:09 ./site_data/001/00000001/static_data/js/crm_don_form.js 
+14815901 32 -rw-r--r-- 1 tpinson tpinson 32752 Apr 22 2014 ./site_data/001/00000001/static_data/js/crm_donation.js
+
+ ~/gitprojects/luminate-online 
+ $ find '(' -name "crm_don_form.js" -o -name "crm_donation.js" ')' | xargs md5sum 
+ a2a27e939d149a4e91ca794b33b78464 ./site_data/001/00000001/static_data/js/crm_don_form.js 
+ e89137fd04aa6313946cc344a2152c50 ./site_data/001/00000001/static_data/js/crm_donation.js
+
+PERL5LIB=perl-modules ./strip_js.pl -r --dir=/tmp/extract
+
+~/gitprojects/luminate-online/site_data 
+$ find /tmp/extract/ -type f | xargs md5sum 
+ca3eb10a200d31dc4c1fad1dfffc1fc4 /tmp/extract/crm_don_form.js 
+7bead8145a2f76cd5405d705bac17ec1 /tmp/extract/crm_donation.js 
+
+- search for "buildNumber" to find build number on jenkins logs

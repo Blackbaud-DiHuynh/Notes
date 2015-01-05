@@ -1,0 +1,1165 @@
+Started by user anonymous
+Building remotely on Maven Build Server RHEL 6u2 (M1Large) (i-49b90da8) in workspace /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team
+Checkout:luminate-online-main-feature_LCRM-Quality-Team / /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team - hudson.remoting.Channel@55a844b8:Maven Build Server RHEL 6u2 (M1Large) (i-49b90da8)
+Using strategy: Default
+Last Built Revision: Revision c0460bc7f7dd40a424a651fb1049d03cea659b67 (origin/feature/LCRM-Quality-Team)
+Cloning the remote Git repository
+Cloning repository git@github.com:blackbaud/luminate-online.git
+Fetching upstream changes from git@github.com:blackbaud/luminate-online.git
+Fetching upstream changes from origin
+Commencing build of Revision c0460bc7f7dd40a424a651fb1049d03cea659b67 (origin/feature/LCRM-Quality-Team)
+Checking out Revision c0460bc7f7dd40a424a651fb1049d03cea659b67 (origin/feature/LCRM-Quality-Team)
+No emails were triggered.
+[luminate-online-main-feature_LCRM-Quality-Team] $ /bin/sh /tmp/hudson9010189918302472828.sh
+[luminate-online-main-feature_LCRM-Quality-Team] $ /bin/bash /tmp/hudson2034124659791819836.sh
+######  Verifying that build repository is fully setup ######
+Access Nexus restapi to resolve artifact: nexus.conviocloud.com/service/local/artifact/maven/resolve?g=org.apache.maven.plugins&a=maven-enforcer-plugin&v=1.2&r=luminate-online-LCRM-Quality-Team
+Found the maven enforcer plugin - exiting build step successfully
+Parsing POMs
+[luminate-online-main-feature_LCRM-Quality-Team] $ /mnt/ephemeral/tools/hudson.model.JDK/Java_6/bin/java -Xmx4G -Xms512M -XX:MaxPermSize=2G -cp /mnt/ephemeral/maven3-agent.jar:/mnt/ephemeral/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.0.5/boot/plexus-classworlds-2.4.jar org.jvnet.hudson.maven3.agent.Maven3Main /mnt/ephemeral/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.0.5 /tmp/slave.jar /mnt/ephemeral/maven3-interceptor.jar 51283
+<===[JENKINS REMOTING CAPACITY]===>���channel started
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Executing Maven:  -B -f /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/pom.xml -s /root/.m2/settings-LCRM-Quality-Team.xml -U -Dluminate.nexus.repo=luminate-online-LCRM-Quality-Team-snapshots -Dbuild.type=build -Dlog4j.message.level=warn -Dlog4j.trace.level=warn -Djava.awt.headless=true --batch-mode -Djdbc.base.user=junit_ab42b47d84f6b385284_f -Pbuild-patch-kit,smoke-tests,luminate-online,reload_db clean deploy
+[INFO] Scanning for projects...
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Luminate Online Parent POM
+[INFO] Luminate Online Configuration
+[INFO] Luminate Online Site Data
+[INFO] Luminate Online Patch Scripts
+[INFO] Luminate Online Shared Schema
+[INFO] Luminate Online Schema
+[INFO] Convio Luminate Online XML Beans
+[INFO] Luminate Online Global Module
+[INFO] Luminate Online Platform
+[INFO] Luminate Integration API
+[INFO] Luminate Integration Mock Implementation
+[INFO] Luminate Online Core
+[INFO] Convio Data Sync. Connector Web Service Client Parent POM
+[INFO] Convio Data Sync. Connector Web Service Client for Komen
+[INFO] Convio Data Sync. Connector Web Service Client for Luminate CRM
+[INFO] Convio Data Sync. Connector Web Service Client for Salesforce
+[INFO] Convio Data Sync. Connector Web Service Client for Team Approach
+[INFO] Convio Data Sync. Connector Web Service Client
+[INFO] Luminate Online Connectors
+[INFO] Luminate Online TeamRaiser
+[INFO] Luminate Integration Implementation
+[INFO] Luminate Online Tools
+[INFO] Luminate Online API Documentation
+[INFO] Luminate Online Developer Environment Webapp
+[INFO] Luminate Online Global Distribution
+[INFO] Luminate Online Platform Distribution
+[INFO] Luminate Online Test Support
+[INFO] Luminate Legacy Tests
+[INFO] Luminate Online Patch Kit
+[INFO] Luminate Online
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Parent POM 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+
+[INFO] Storing buildNumber: 46091 at timestamp: 1415825517236
+[INFO] Executing: /bin/sh -c cd /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/parent/target/luminate-online-buildnumber && git rev-parse --verify HEAD
+[INFO] Working directory: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/parent/target/luminate-online-buildnumber
+[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] [master 974b20b] "[Maven] updating build number"
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+[INFO] --- exec-maven-plugin:1.2.1:exec (commit-buildnumber) @ luminate-online-parent ---
+[INFO] 
+[INFO] --- exec-maven-plugin:1.2.1:exec (push-buildnumber) @ luminate-online-parent ---
+Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
+To git@github.com:blackbaud/luminate-online-buildnumber.git
+   2941721..974b20b  master -> master
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/codehaus/plexus/plexus-digest/1.0/plexus-digest-1.0.pom
+
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-parent ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/parent/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-parent/15.1.0-SNAPSHOT/luminate-online-parent-15.1.0-SNAPSHOT.pom
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/codehaus/plexus/plexus-utils/1.5.6/plexus-utils-1.5.6.pom
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Configuration 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-config ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-config ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-config ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-config ---
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1.pom
+
+[INFO] --- maven-dependency-plugin:2.8:copy (copy-db-drivers) @ luminate-online-config ---
+
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] Copying 71 resources
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] --- maven-resources-plugin:2.6:copy-resources (tomcat-user-server) @ luminate-online-config ---
+[INFO] Copying 6 resources
+[INFO] Copying 2 resources
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] [INFO] Copying 6 resources
+--- maven-resources-plugin:2.6:copy-resources (tomcat-admin-server) @ luminate-online-config ---
+[INFO] Copying 2 resources
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.pom
+
+[INFO] --- maven-assembly-plugin:2.4:directory-single (tomcat) @ luminate-online-config ---
+
+[INFO] Reading assembly descriptor: src/main/assembly/tomcat.xml
+[INFO] Reading assembly descriptor: src/main/assembly/config_template.xml
+[INFO] Copying files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/config
+[INFO] Copying files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/config
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/test_data.xml
+
+[INFO] --- maven-assembly-plugin:2.4:single (test_data) @ luminate-online-config ---
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/conf_test_data.tar.gz
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/deploy-kit.xml
+
+[INFO] --- maven-assembly-plugin:2.4:single (deploy-kit) @ luminate-online-config ---
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/luminate-online-config-15.1.0-SNAPSHOT-CONF.tar.gz
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-config/15.1.0-SNAPSHOT/luminate-online-config-15.1.0-SNAPSHOT.pom
+
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-config ---[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/conf_test_data.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-config/15.1.0-SNAPSHOT/luminate-online-config-15.1.0-SNAPSHOT.tar.gz
+
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/luminate-online-config-15.1.0-SNAPSHOT-CONF.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-config/15.1.0-SNAPSHOT/luminate-online-config-15.1.0-SNAPSHOT-CONF.tar.gz
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/online/luminate-online-config/15.1.0-SNAPSHOT/maven-metadata.xml
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-config ---
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Site Data 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-site-data ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-site-data ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-site-data ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-site-data ---
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/com/github/goldin/maven-common/0.2.5/maven-common-0.2.5.pom
+
+[INFO] --- copy-maven-plugin:0.2.5:copy (copy-site-data) @ luminate-online-site-data ---
+
+[INFO] ------------------------------------------------------------------------------
+Stripping HTML Files.....
+------------------------------------------------------------------------------
+Finding all HTML files in the directory structure:  /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/site_data/001/00000001/autoresponder
+
+[INFO] --- exec-maven-plugin:1.2.1:exec (strip-autoresponders) @ luminate-online-site-data ---
+
+Total bytes in originals   154331
+Total bytes stripped:      11505 
+ 
+Total Template Files:      166 
+Elapsed Time:              0 second(s)
+[INFO] 
+[INFO] --- exec-maven-plugin:1.2.1:exec (strip-javascript) @ luminate-online-site-data ---
+
++++++ Searching through directory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/site_data/001/00000001/static_data/js
+Stripping file <>.js ... succeeded  - shrunk by <> bytes (<>%)
+
+***************************************************
+Finished
+Total Bytes Before:   2145431
+Total Bytes After:    1524797
+Total Bytes Stripped: 620634
+% Shrunk:             28%
+***************************************************
+[INFO] ------------------------------------------------------------------------------
+Stripping Templates.....
+------------------------------------------------------------------------------
+Finding all templates in the directory structure:  /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/site_data/001/00000001/template_sets
+
+[INFO] --- exec-maven-plugin:1.2.1:exec (strip-templates) @ luminate-online-site-data ---
+
+Total bytes in originals   14049816
+Total bytes stripped:      4520471 
+ 
+Total Template Files:      7002 
+Elapsed Time:              5 second(s)
+[INFO] 
+[INFO] --- exec-maven-plugin:1.2.1:exec (rename-zips) @ luminate-online-site-data ---
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/site_data.xml
+
+[INFO] --- maven-assembly-plugin:2.4:single (create-site-data) @ luminate-online-site-data ---
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/luminate-online-site-data-15.1.0-SNAPSHOT-site_data.tar.gz
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/shared_data.xml
+
+[INFO] --- maven-assembly-plugin:2.4:single (create-shared-data) @ luminate-online-site-data ---
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/luminate-online-site-data-15.1.0-SNAPSHOT-shared_data.tar.gz
+
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/site_data_scripts.xml
+
+[INFO] --- maven-assembly-plugin:2.4:single (create-scripts-tarball) @ luminate-online-site-data ---
+[INFO] Reading assembly descriptor: src/main/assembly/site_data_patch_kit_includes.xml
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/luminate-online-site-data-15.1.0-SNAPSHOT-site_data_scripts.tar.gz
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/luminate-online-site-data-15.1.0-SNAPSHOT-site_data_patch_kit_includes.tar.gz
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-site-data ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-site-data/15.1.0-SNAPSHOT/luminate-online-site-data-15.1.0-SNAPSHOT.pom
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/luminate-online-site-data-15.1.0-SNAPSHOT-site_data.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-site-data/15.1.0-SNAPSHOT/luminate-online-site-data-15.1.0-SNAPSHOT-site_data.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/luminate-online-site-data-15.1.0-SNAPSHOT-shared_data.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-site-data/15.1.0-SNAPSHOT/luminate-online-site-data-15.1.0-SNAPSHOT-shared_data.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/luminate-online-site-data-15.1.0-SNAPSHOT-site_data_scripts.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-site-data/15.1.0-SNAPSHOT/luminate-online-site-data-15.1.0-SNAPSHOT-site_data_scripts.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/target/luminate-online-site-data-15.1.0-SNAPSHOT-site_data_patch_kit_includes.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-site-data/15.1.0-SNAPSHOT/luminate-online-site-data-15.1.0-SNAPSHOT-site_data_patch_kit_includes.tar.gz
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-site-data ---
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/apache/maven/plugins/maven-resources-plugin/2.4/maven-resources-plugin-2.4.pom
+                                                                        
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Patch Scripts 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-patch-scripts ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-patch-scripts ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-patch-scripts ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-patch-scripts ---
+[INFO] [INFO] No match to regex '-SNAPSHOT' found in '14.11.0'. The initial value '14.11.0' is left as-is...
+
+[INFO] --- build-helper-maven-plugin:1.8:regex-property (get-stripped-luminate-version) @ luminate-online-patch-scripts ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (get-version-info) @ luminate-online-patch-scripts ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:regex-property (set-luminate-new-version) @ luminate-online-patch-scripts ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:regex-property (set-luminate-new-version-dashes) @ luminate-online-patch-scripts ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:regex-property (set-luminate-previous-version-dashes) @ luminate-online-patch-scripts ---
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/apache/maven/shared/maven-filtering/1.0-beta-3/maven-filtering-1.0-beta-3.pom
+
+[INFO] --- maven-resources-plugin:2.4:copy-resources (copy-filtered-resources) @ luminate-online-patch-scripts ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 12 resources
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/patch-scripts.xml
+
+[INFO] --- maven-assembly-plugin:2.4:single (create-patch-scripts-artifact) @ luminate-online-patch-scripts ---
+[INFO] Reading assembly descriptor: src/main/assembly/patch-scripts-from.xml
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/patch_scripts/target/luminate-online-patch-scripts-15.1.0-SNAPSHOT-patch-scripts.tar.gz
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-patch-scripts ---
+
+[INFO] [WARNING] Entry: db/migration/releases/14.8.0/after/V2014.07.14_68376__Bug68376_Disassociating_participant_centers_from_deleted_teamraisers.sql longer than 100 characters.
+
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-patch-scripts ---
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Shared Schema 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-shared-schema ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-shared-schema ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-shared-schema ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-shared-schema ---
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] --- maven-resources-plugin:2.6:copy-resources (copy-shared-schema) @ luminate-online-shared-schema ---
+[INFO] Copying 391 resources
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/shared.xml
+
+[INFO] --- maven-assembly-plugin:2.4:single (create-shared-schema-artifact) @ luminate-online-shared-schema ---
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/shared/target/luminate-online-shared-schema-15.1.0-SNAPSHOT-shared.tar.gz
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/shared/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-shared-schema/15.1.0-SNAPSHOT/luminate-online-shared-schema-15.1.0-SNAPSHOT.pom
+
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-shared-schema ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/shared/target/luminate-online-shared-schema-15.1.0-SNAPSHOT-shared.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-shared-schema/15.1.0-SNAPSHOT/luminate-online-shared-schema-15.1.0-SNAPSHOT-shared.tar.gz
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/online/luminate-online-shared-schema/15.1.0-SNAPSHOT/maven-metadata.xml
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-shared-schema ---
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/jacoco/jacoco-maven-plugin/0.7.0.201403182114/jacoco-maven-plugin-0.7.0.201403182114.pom
+                                                                        
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Schema 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-schema ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-schema ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-schema ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-schema ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:copy-resources (copy-schema-files) @ luminate-online-schema ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 655 resources
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/junit/junit/4.8.2/junit-4.8.2.pom
+
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:prepare-agent (default-prepare-agent) @ luminate-online-schema ---
+
+[INFO] argLine set to -javaagent:/root/.m2/repository-LCRM-Quality-Team/org/jacoco/org.jacoco.agent/0.7.0.201403182114/org.jacoco.agent-0.7.0.201403182114-runtime.jar=destfile=/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/jacoco.exec
+[INFO] [INFO] Configured Artifact: com.blackbaud.luminate.online:luminate-online-patch-scripts:patch-scripts:15.1.0-SNAPSHOT:tar.gz
+
+[INFO] --- maven-dependency-plugin:2.8:unpack (unpack-patch-kits) @ luminate-online-schema ---
+[INFO] Unpacking /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/patch_scripts/target/luminate-online-patch-scripts-15.1.0-SNAPSHOT-patch-scripts.tar.gz to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/patch-scripts/15.1.0-SNAPSHOT with includes "" and excludes ""
+[INFO] Expanding: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/patch_scripts/target/luminate-online-patch-scripts-15.1.0-SNAPSHOT-patch-scripts.tar.gz into /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/patch-scripts/15.1.0-SNAPSHOT
+[INFO] [INFO] Configured Artifact: com.blackbaud.tools:oracle-client:oracle-client:11.2.0.3.0:tar.gz
+
+[INFO] --- maven-dependency-plugin:2.8:unpack (unpack-oracle-client) @ luminate-online-schema ---
+[INFO] Unpacking /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/tools/oracle-client/11.2.0.3.0/oracle-client-11.2.0.3.0-oracle-client.tar.gz to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target with includes "" and excludes ""
+[INFO] Expanding: /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/tools/oracle-client/11.2.0.3.0/oracle-client-11.2.0.3.0-oracle-client.tar.gz into /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:copy-resources (copy-resources) @ luminate-online-schema ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- exec-maven-plugin:1.2.1:exec (reload-convio-db) @ luminate-online-schema ---
+Running util/reload_db.pl --siteId 1 --sid db203dev --siteUser junit_ab42b47d84f6b385284_f1 --convioUser junit_ab42b47d84f6b385284_f --globalUser junit_ab42b47d84f6b385284_f_g --patchDir /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/patch-scripts --customDelta junit_delta.sql --jdbc.url jdbc:oracle:thin:@db203dev.tools.conviocloud.com:1521:db203dev --mvn --newversion 15.1.0
+
+: Current directory:    /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema
+: global schema dir:    ../shared/schema/global
+: convio schema dir:    ../shared/schema/convio
+: util dir:             util
+: site db login:        junit_ab42b47d84f6b385284_f1/junit_ab42b47d84f6b385284_f1@db203dev
+: convio db login:      junit_ab42b47d84f6b385284_f/junit_ab42b47d84f6b385284_f@db203dev
+: global db login:      junit_ab42b47d84f6b385284_f_g/junit_ab42b47d84f6b385284_f_g@db203dev
+: custom delta:         junit_delta.sql
+: patch directory:      /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/patch-scripts
+
+: running patches :
+:                   /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/patch-scripts/15.1.0-SNAPSHOT
+
+reload_db.pl: starting reload: 2014-11-12 15:57:05
++ sqlplus junit_ab42b47d84f6b385284_f1/junit_ab42b47d84f6b385284_f1@db203dev @nuke > /var/tmp/nuke_site.log 2>&1
+reload_db.pl: reload completed successfully.  2014-11-12 16:03:31
+
+--- maven-resources-plugin:2.6:testResources (copy-test-resources) @ luminate-online-schema ---[INFO] Copying 1 resource
+
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/config
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (default-report) @ luminate-online-schema ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/jacoco.exec
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/schema.xml
+
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/schema-patch-kit-includes.xml
+--- maven-assembly-plugin:2.4:single (create-schema-artifact) @ luminate-online-schema ---
+[INFO] Reading assembly descriptor: src/main/assembly/schema-qa-deltas.xml
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/luminate-online-schema-15.1.0-SNAPSHOT-schema.tar.gz
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/luminate-online-schema-15.1.0-SNAPSHOT-schema-patch-kit-includes.tar.gz
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/luminate-online-schema-15.1.0-SNAPSHOT-schema-qa-deltas.tar.gz
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-schema/15.1.0-SNAPSHOT/luminate-online-schema-15.1.0-SNAPSHOT.pom
+
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-schema ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/luminate-online-schema-15.1.0-SNAPSHOT-schema.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-schema/15.1.0-SNAPSHOT/luminate-online-schema-15.1.0-SNAPSHOT-schema.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/luminate-online-schema-15.1.0-SNAPSHOT-schema-patch-kit-includes.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-schema/15.1.0-SNAPSHOT/luminate-online-schema-15.1.0-SNAPSHOT-schema-patch-kit-includes.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/schema/target/luminate-online-schema-15.1.0-SNAPSHOT-schema-qa-deltas.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-schema/15.1.0-SNAPSHOT/luminate-online-schema-15.1.0-SNAPSHOT-schema-qa-deltas.tar.gz
+[INFO] 
+[INFO] --- flyway-maven-plugin:2.2.1:migrate (default) @ luminate-online-schema ---
+
+[INFO] Current version of schema "JUNIT_AB42B47D84F6B385284_F1": 2014.0811.14451
+
+[INFO] Schema "JUNIT_AB42B47D84F6B385284_F1" is up to date. No migration necessary.
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/online/luminate-online-schema/15.1.0-SNAPSHOT/maven-metadata.xml
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-schema ---
+
+
+                                                                        
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Convio Luminate Online XML Beans 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-xmlbeans ---[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/xmlbeans/src/main/resources
+[INFO] Copying 8115 resources
+[INFO] Copying 1 resource
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.pom
+
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-xmlbeans ---
+
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2736 source files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/xmlbeans/target/classes
+
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/xmlbeans/src/test/resources
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/xmlbeans/target/config
+
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-xmlbeans ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-xmlbeans ---
+[INFO] No sources to compile
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/apache/maven/surefire/maven-surefire-common/2.16/maven-surefire-common-2.16.pom
+
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ luminate-online-xmlbeans ---
+
+[INFO] No tests to run.
+[JENKINS] Recording test results
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.jar
+
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ luminate-online-xmlbeans ---Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.jar
+[INFO] Building jar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/xmlbeans/target/luminate-online-xmlbeans-15.1.0-SNAPSHOT.jar
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/xmlbeans/target/luminate-online-xmlbeans-15.1.0-SNAPSHOT.jar to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-xmlbeans/15.1.0-SNAPSHOT/luminate-online-xmlbeans-15.1.0-SNAPSHOT.jar
+
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-xmlbeans ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/xmlbeans/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-xmlbeans/15.1.0-SNAPSHOT/luminate-online-xmlbeans-15.1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-xmlbeans ---
+
+
+                                                                        
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Global Module 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-global ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-global ---
+
+  This artifact has been relocated to org.apache.axis:axis-jaxrpc:1.4.
+
+
+
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-global ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-global ---
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-global ---
+[INFO] Copying 241 resources to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/global/target/filtered-sources/java
+[INFO] Copying 9 resources
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/apache/maven/maven-plugin-api/3.0.3/maven-plugin-api-3.0.3.pom
+
+[INFO] --- replacer:1.5.1:replace (default) @ luminate-online-global ---
+[INFO] Replacement run on 1 file.
+[INFO] [INFO] Changes detected - recompiling the module!
+
+[INFO] Compiling 240 source files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/global/target/classes
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-global ---
+
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-global ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/global/src/test/resources
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/global/target/config
+[INFO] [INFO] No sources to compile
+
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-global ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ luminate-online-global ---[INFO] No tests to run.
+
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ luminate-online-global ---
+[INFO] Building jar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/global/target/luminate-online-global-15.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.4:single (create-patch-kit-includes) @ luminate-online-global ---
+[INFO] Reading assembly descriptor: src/main/assembly/global-patch-kit-includes.xml
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/global/target/luminate-online-global-15.1.0-SNAPSHOT-global-patch-kit-includes.tar.gz
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/global/target/luminate-online-global-15.1.0-SNAPSHOT.jar to /root/.m2/repository-LCRM-
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-global ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/global/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-global/15.1.0-SNAPSHOT/luminate-online-global-15.1.0-SNAPSHOT.pom
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/global/target/luminate-online-global-15.1.0-SNAPSHOT-global-patch-kit-includes.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-global/15.1.0-SNAPSHOT/luminate-online-global-15.1.0-SNAPSHOT-global-patch-kit-includes.tar.gz
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:regex-property (sub-rest-url) @ luminate-online-global ---
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/online/luminate-online-global/15.1.0-SNAPSHOT/maven-metadata.xml
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-global ---
+
+
+
+[INFO] --- exec-maven-plugin:1.2.1:exec (update-jenkins-job-description) @ luminate-online-global ---
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/codehaus/gmaven/gmaven-plugin/1.5/gmaven-plugin-1.5.pom
+                                                                        
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Platform 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-platform ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-platform ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-platform ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-platform ---
+[INFO] 
+[INFO] argLine set to -javaagent:/root/.m2/repository-LCRM-Quality-Team/org/jacoco/org.jacoco.agent/0.7.0.201403182114/org.jacoco.agent-0.7.0.201403182114-runtime.jar=destfile=/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/platform/target/jacoco.exec
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:prepare-agent (default-prepare-agent) @ luminate-online-platform ---
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-platform ---
+[INFO] Copying 552 resources to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/platform/target/filtered-sources/java
+[INFO] Copying 1 resource
+[INFO] [INFO] Replacement run on 1 file.
+
+[INFO] --- replacer:1.5.1:replace (default) @ luminate-online-platform ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-platform ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 550 source files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/platform/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-platform ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/platform/target/config
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-platform ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- gmaven-plugin:1.5:testCompile (default) @ luminate-online-platform ---
+
+[INFO] Compiled 20 Groovy classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ luminate-online-platform ---
+[INFO] Surefire report directory: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/platform/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.convio.session.CVSessionTest
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/root/.m2/repository-LCRM-Quality-Team/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/root/.m2/repository-LCRM-Quality-Team/ch/qos/logback/logback-classic/1.0.1/logback-classic-1.0.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+
+-----------------------------------------------------------------------------
+Luminate Online 15.1 platform initialized
+Branch trunk
+Version 15.1.0.46091 build 46091 at Wed Nov 12 16:05:57 EST 2014
+System time Wed Nov 12 16:06:41 EST 2014
+-----------------------------------------------------------------------------
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.391 sec - in com.convio.extensions.RestRequestParametersTest
+
+Results :
+
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0
+
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (default-report) @ luminate-online-platform ---
+[INFO] Analyzed bundle 'Luminate Online Platform' with 624 classes
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ luminate-online-platform ---
+[INFO] Building jar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/platform/target/platform.jar
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/platform/target/platform.jar to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-platform/15.1.0-SNAPSHOT/luminate-online-platform-15.1.0-SNAPSHOT.jar
+
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-platform ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/platform/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-platform/15.1.0-SNAPSHOT/luminate-online-platform-15.1.0-SNAPSHOT.pom
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/online/luminate-online-platform/15.1.0-SNAPSHOT/maven-metadata.xml
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-platform ---
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Integration API 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ integration-api ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ integration-api ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ integration-api ---
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ integration-api ---
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-api/src/main/resources
+
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ integration-api ---
+[INFO] [INFO] Changes detected - recompiling the module!
+
+[INFO] Compiling 105 source files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-api/target/classes
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ integration-api ---
+
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-api/src/test/resources
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-api/target/config
+
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ integration-api ---
+[INFO] [INFO] No sources to compile
+
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ integration-api ---
+[INFO] [INFO] No tests to run.
+
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ integration-api ---
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ integration-api ---
+[INFO] Building jar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-api/target/integration-api-15.1.0-SNAPSHOT.jar
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-api/target/integration-api-15.1.0-SNAPSHOT.jar to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/integration-api/15.1.0-SNAPSHOT/integration-api-15.1.0-SNAPSHOT.jar
+
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ integration-api ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-api/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/integration-api/15.1.0-SNAPSHOT/integration-api-15.1.0-SNAPSHOT.pom
+[INFO] 
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Integration Mock Implementation 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ mock-integration-impl ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ mock-integration-impl ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ mock-integration-impl ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ mock-integration-impl ---
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/mock-integration-impl/src/main/resources
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mock-integration-impl ---
+[INFO] [INFO] Changes detected - recompiling the module!
+
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ mock-integration-impl ---
+[INFO] Compiling 1 source file to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/mock-integration-impl/target/classes
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/mock-integration-impl/src/test/resources
+[INFO] [INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/mock-integration-impl/target/config
+--- maven-resources-plugin:2.6:testResources (default-testResources) @ mock-integration-impl ---
+[INFO] [INFO] No sources to compile
+
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ mock-integration-impl ---
+[INFO] [INFO] No tests to run.
+
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ mock-integration-impl ---
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ mock-integration-impl ---
+[INFO] Building jar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/mock-integration-impl/target/mock-integration-impl-15.1.0-SNAPSHOT.jar
+
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+--- maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-core ---
+[INFO] Copying 10 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-core ---
+[INFO] Changes detected - recompiling the module!
+Results :
+
+Tests run: 582, Failures: 0, Errors: 0, Skipped: 0
+
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (default-report) @ luminate-online-teamraiser ---
+[INFO] Analyzed bundle 'Luminate Online TeamRaiser' with 2675 classes
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ luminate-online-teamraiser ---
+[INFO] Building jar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/teamraiser/target/teamraiser.jar
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/teamraiser/target/teamraiser.jar to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-teamraiser/15.1.0-SNAPSHOT/luminate-online-teamraiser-15.1.0-SNAPSHOT.jar
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/teamraiser/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-teamraiser/15.1.0-SNAPSHOT/luminate-online-teamraiser-15.1.0-SNAPSHOT.pom
+
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-teamraiser ---
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-teamraiser ---
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Integration Implementation 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ integration-impl ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ integration-impl ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ integration-impl ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ integration-impl ---
+[INFO] [INFO] argLine set to -javaagent:/root/.m2/repository-LCRM-Quality-Team/org/jacoco/org.jacoco.agent/0.7.0.201403182114/org.jacoco.agent-0.7.0.201403182114-runtime.jar=destfile=/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-impl/target/jacoco.exec
+
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:prepare-agent (default-prepare-agent) @ integration-impl ---
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-impl/src/main/resources
+
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ integration-impl ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ integration-impl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 217 source files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-impl/target/classes
+
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-impl/src/test/resources
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-impl/target/config
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ integration-impl ---
+[INFO] [INFO] No sources to compile
+
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ integration-impl ---
+[INFO] 
+[INFO] --- gmaven-plugin:1.5:testCompile (default) @ integration-impl ---
+[INFO] Compiled 52 Groovy classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ integration-impl ---
+[INFO] Surefire report directory: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/integration-impl/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+<Run tests>
+
+-----------------------------------------------------------------------------
+Luminate Online 15.1 platform initialized
+Branch trunk
+Version 15.1.0.46091 build 46091 at Wed Nov 12 16:05:57 EST 2014
+System time Wed Nov 12 16:12:14 EST 2014
+-----------------------------------------------------------------------------
+Results :
+
+Tests run: 75, Failures: 0, Errors: 0, Skipped: 0
+
+[JENKINS] Recording test results
+
+ConsAPI.updateInteraction: This method can be used to update an interaction record with information supplied by the caller. It must be called by a logged-in user within an authenticated session. This method requires an interaction ID. The interaction being updated can only be of the interaction type "Other" or a custom interaction type.
+ConsAPI.logSocialShare: This method can be used to manually log a social share record for the specified constituent containing information supplied by the caller. This method requires the social UID of the constituent who has shared to a social network.
+ConsAPI.loginTest: This method returns a cons_id if the user is already logged in or could be logged in because of a "remember me" cookie.  The method supports HTTP GET requests so that it can be invoked via a redirect.
+
+gen-list-with-flagging:
+
+gen-list:
+
+debug-filter-flag-check:
+
+debug:
+    [debug] DebugAndFilterModule.execute(): Starting...
+debug-and-filter:
+
+debug-filter:
+
+copy-image-check:
+
+copy-image-uplevels:
+
+copy-image-noraml:
+
+copy-image:
+
+copy-html-check:
+
+copy-html:
+
+copy-flag-check:
+
+copy-flag:
+
+copy-subsidiary-check:
+
+copy-subsidiary:
+
+copy-generated-files:
+     [copy] Copying 2 files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/html
+
+copy-files:
+
+conrefpush-check:
+
+conrefpush:
+
+conref-check:
+
+conref:
+   [conref] Processing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/reference/methods/uploadTeamPhoto_method.xml to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/reference/methods/uploadTeamPhoto_method.xml.cnrf
+     [move] Moving 206 files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp
+
+move-meta-entries-check:
+
+move-meta-entries:
+[move-meta] Processing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/reference/methods/updateShortcut_method.xml
+
+keyref-check:
+
+keyref:
+
+coderef-check:
+
+coderef:
+
+mapref-check:
+
+mapref:
+   [mapref] Transforming into /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp
+   [mapref] Processing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/Convio_Open_API_Reference.ditamap to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/Convio_Open_API_Reference.ditamap.ref
+   [mapref] Loading stylesheet /var/lib/dita-ot/xsl/preprocess/mapref.xsl
+     [move] Moving 1 file to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp
+
+mappull-check:
+
+mappull:
+  [mappull] Transforming into /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp
+  [mappull] Processing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/Convio_Open_API_Reference.ditamap to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/Convio_Open_API_Reference.ditamap.pull
+  [mappull] Loading stylesheet /var/lib/dita-ot/xsl/preprocess/mappull.xsl
+     [move] Moving 1 file to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp
+
+chunk-check:
+
+chunk:
+
+maplink-check:
+
+maplink:
+  [maplink] Processing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/Convio_Open_API_Reference.ditamap to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/maplinks.unordered
+  [maplink] Loading stylesheet /var/lib/dita-ot/xsl/preprocess/maplink.xsl
+
+move-links-check:
+
+move-links:
+[move-links] Processing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/reference/methods/uploadPersonalPhoto_method.xml
+
+topicpull-check:
+
+topicpull:
+     [move] Moving 236 files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp
+
+preprocess:
+
+dita.map.xhtml.init:
+
+dita.map.xhtml.toc:
+
+dita.out.map.xhtml.toc:
+     [xslt] Transforming into /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/html
+     [xslt] Processing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/temp/Convio_Open_API_Reference.ditamap to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/html/toc.html
+     [xslt] Loading stylesheet /var/lib/dita-ot/xsl/map2xhtmtoc.xsl
+
+dita.map.xhtml:
+
+copy-revflag:
+
+copy-css:
+     [copy] Copying 2 files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/dita/html
+
+copy-css-user:
+
+dita.topics.xhtml:
+
+dita.inner.topics.xhtml:
+
+checkouterTransform:
+
+dita.outer.topics.xhtml:
+
+dita2xhtml:
+
+clean-temp:
+
+BUILD SUCCESSFUL
+Total time: 1 minute 29 seconds
+[INFO] Building jar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/apidocs/target/luminate-online-apidocs-html.jar
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/online/luminate-online-apidocs/15.1.0-SNAPSHOT/maven-metadata.xml
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-apidocs ---
+                                                                        
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Developer Environment Webapp 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-developer-webapp ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-developer-webapp ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-developer-webapp ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-developer-webapp ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-developer-webapp ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/webapp/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-developer-webapp ---
+[INFO] No sources to compile
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/webapp/src/test/resources
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-developer-webapp ---[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/webapp/target/config
+
+[INFO] [INFO] No sources to compile
+
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-developer-webapp ---
+[INFO] [INFO] No tests to run.
+
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ luminate-online-developer-webapp ---
+[JENKINS] Recording test results
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.pom
+
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ luminate-online-developer-webapp ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [luminate-online-developer-webapp] in [/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/webapp/target/convio-webapp]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/webapp/src/main/webapp]
+[INFO] Webapp assembled in [597 msecs]
+[INFO] Building war: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/webapp/target/convio-webapp.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] 
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/webapp/target/convio-webapp.war to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-developer-webapp/15.1.0-SNAPSHOT/luminate-online-developer-webapp-15.1.0-SNAPSHOT.war
+--- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-developer-webapp ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/webapp/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-developer-webapp/15.1.0-SNAPSHOT/luminate-online-developer-webapp-15.1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-developer-webapp ---
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Global Distribution 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-global-distribution ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-global-distribution ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce-global-classpath) @ luminate-online-global-distribution ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-global-distribution ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-global-distribution ---
+[INFO] 
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+--- maven-resources-plugin:2.6:resources (default-resources) @ luminate-online-global-distribution ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] [INFO] No sources to compile
+--- maven-compiler-plugin:3.1:compile (default-compile) @ luminate-online-global-distribution ---
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/src/test/resources
+
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/target/config
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ luminate-online-global-distribution ---
+[INFO] 
+[INFO] No sources to compile
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ luminate-online-global-distribution ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ luminate-online-global-distribution ---
+[INFO] No tests to run.
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ luminate-online-global-distribution ---[INFO] Packaging webapp
+
+[INFO] Assembling webapp [luminate-online-global-distribution] in [/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/target/convio-global-webapp]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/src/main/webapp]
+[INFO] Webapp assembled in [560 msecs]
+[INFO] Building war: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/target/global.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.4:single (create-jars-tar) @ luminate-online-global-distribution ---
+[INFO] Reading assembly descriptor: src/main/assembly/libs.xml
+[INFO] Reading assembly descriptor: src/main/assembly/global-repository.xml
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/target/convio-global-webapp-LIBS.tar.gz
+o  '*:*:*:tests'
+
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/target/convio-global-webapp-global-repository.tar.gz
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-global-distribution ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/target/global.war to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-global-distribution/15.1.0-SNAPSHOT/luminate-online-global-distribution-15.1.0-SNAPSHOT.war
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-global-distribution/15.1.0-SNAPSHOT/luminate-online-global-distribution-15.1.0-SNAPSHOT.pom
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/target/convio-global-webapp-LIBS.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-global-distribution/15.1.0-SNAPSHOT/luminate-online-global-distribution-15.1.0-SNAPSHOT-LIBS.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_global/target/convio-global-webapp-global-repository.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-global-distribution/15.1.0-SNAPSHOT/luminate-online-global-distribution-15.1.0-SNAPSHOT-global-repository.tar.gz
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/online/luminate-online-global-distribution/15.1.0-SNAPSHOT/maven-metadata.xml
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-global-distribution ---
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Platform Distribution 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-platform-distribution ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ luminate-online-platform-distribution ---
+
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ luminate-online-platform-distribution ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ luminate-online-platform-distribution ---
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.4:single (create-jars-tar) @ luminate-online-platform-distribution ---
+[INFO] Reading assembly descriptor: src/main/assembly/jars.xml
+[INFO] Reading assembly descriptor: src/main/assembly/jars-renamed.xml
+
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-JARFILES.tar.gz
+
+o  'com.blackbaud.luminate.online:luminate-online-core:jar:tests'
+
+
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-JARFILES_RENAMED.tar.gz
+[INFO] 
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/site_data.xml
+--- maven-assembly-plugin:2.4:single (create-site-data-tar) @ luminate-online-platform-distribution ---
+
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-site_data.tar
+
+
+[INFO] --- maven-assembly-plugin:2.4:single (create-initdata-tar) @ luminate-online-platform-distribution ---
+
+o  'com.blackbaud.luminate.online:luminate-online-schema:tar.gz:initdata-db-dmp'
+
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-initdata.tar.gz
+[INFO] [INFO] Reading assembly descriptor: src/main/assembly/full-build.xml
+
+[INFO] --- maven-assembly-plugin:2.4:single (create-full-build-tar) @ luminate-online-platform-distribution ---
+
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-BUILD.tar.gz
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.4:single (create-repository) @ luminate-online-platform-distribution ---
+[INFO] Reading assembly descriptor: src/main/assembly/repository.xml
+
+o  '*:*:*:tests'
+o  '*:BigOhSoftwareCommon'
+o  '*:BigOhSoftwareJDBCProxy'
+o  '*:gdata-youtube'
+o  '*:reflections'
+
+[INFO] Building tar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-repository.tar.gz
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ luminate-online-platform-distribution ---
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-platform-distribution/15.1.0-SNAPSHOT/luminate-online-platform-distribution-15.1.0-SNAPSHOT.pom
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-JARFILES.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-platform-distribution/15.1.0-SNAPSHOT/luminate-online-platform-distribution-15.1.0-SNAPSHOT-JARFILES.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-JARFILES_RENAMED.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-platform-distribution/15.1.0-SNAPSHOT/luminate-online-platform-distribution-15.1.0-SNAPSHOT-JARFILES_RENAMED.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-site_data.tar to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-platform-distribution/15.1.0-SNAPSHOT/luminate-online-platform-distribution-15.1.0-SNAPSHOT-site_data.tar
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-initdata.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-platform-distribution/15.1.0-SNAPSHOT/luminate-online-platform-distribution-15.1.0-SNAPSHOT-initdata.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-BUILD.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-platform-distribution/15.1.0-SNAPSHOT/luminate-online-platform-distribution-15.1.0-SNAPSHOT-BUILD.tar.gz
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/distribution_platform/target/luminate-online-platform-distribution-15.1.0-SNAPSHOT-repository.tar.gz to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/luminate-online-platform-distribution/15.1.0-SNAPSHOT/luminate-online-platform-distribution-15.1.0-SNAPSHOT-repository.tar.gz
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/online/luminate-online-platform-distribution/15.1.0-SNAPSHOT/maven-metadata.xml
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ luminate-online-platform-distribution ---
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Online Test Support 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ test-support ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ test-support ---
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ test-support ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ test-support ---
+[INFO] 
+[INFO] [INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/test-support/src/main/resources
+--- maven-resources-plugin:2.6:resources (default-resources) @ test-support ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ test-support ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/test-support/target/classes
+[INFO] 
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] [INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/test-support/src/test/resources
+[INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/test-support/target/config
+--- maven-resources-plugin:2.6:testResources (default-testResources) @ test-support ---
+[INFO] 
+[INFO] No sources to compile
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ test-support ---
+[INFO] [INFO] No tests to run.
+
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ test-support ---
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ test-support ---
+[INFO] Building jar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/test-support/target/test-support-15.1.0-SNAPSHOT.jar
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/test-support/target/test-support-15.1.0-SNAPSHOT.jar to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/test-support/15.1.0-SNAPSHOT/test-support-15.1.0-SNAPSHOT.jar
+[INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/test-support/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/online/test-support/15.1.0-SNAPSHOT/test-support-15.1.0-SNAPSHOT.pom
+
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ test-support ---
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/online/test-support/15.1.0-SNAPSHOT/maven-metadata.xml
+
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ test-support ---
+
+
+                                                                        
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Luminate Legacy Tests 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ legacy-test ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce) @ legacy-test ---
+
+[INFO] 
+[INFO] --- maven-timestamp-plugin:1.0:create (default) @ legacy-test ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.8:parse-version (build-version) @ legacy-test ---
+[INFO] [INFO] argLine set to -javaagent:/root/.m2/repository-LCRM-Quality-Team/org/jacoco/org.jacoco.agent/0.7.0.201403182114/org.jacoco.agent-0.7.0.201403182114-runtime.jar=destfile=/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/jacoco.exec
+
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:prepare-agent (default-prepare-agent) @ legacy-test ---
+[INFO] [INFO] argLine set to -javaagent:/root/.m2/repository-LCRM-Quality-Team/org/jacoco/org.jacoco.agent/0.7.0.201403182114/org.jacoco.agent-0.7.0.201403182114-runtime.jar=destfile=/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/jacoco.exec
+
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:prepare-agent (prepare-agent-unit) @ legacy-test ---
+[INFO] 
+[INFO] Wrote classpath file '/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/dependencies.classpath'.
+[INFO] --- maven-dependency-plugin:2.8:build-classpath (default) @ legacy-test ---
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:copy-dependencies (copy-dependencies) @ legacy-test ---
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] [INFO] skip non existing resourceDirectory /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/src/main/resources
+--- maven-resources-plugin:2.6:resources (default-resources) @ legacy-test ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ legacy-test ---
+[INFO] No sources to compile
+[INFO] [INFO] Configured Artifact: com.blackbaud.luminate.online:luminate-online-config:?:tar.gz
+
+[INFO] [INFO] Unpacking /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/conf_test_data.tar.gz to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/config with includes "" and excludes ""
+--- maven-dependency-plugin:2.8:unpack (unpack-configuration) @ legacy-test ---[INFO] Expanding: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/conf/target/conf_test_data.tar.gz into /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/config
+
+[INFO] [INFO] Configured Artifact: com.oracle.jdbc:ojdbc14:10.2.0.3:jar
+
+[INFO] Configured Artifact: mysql:mysql-connector-java:5.0.8:jar
+[INFO] --- maven-dependency-plugin:2.8:copy (copy-db-drivers) @ legacy-test ---
+[INFO] Copying ojdbc14-10.2.0.3.jar to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/test-classes/ojdbc14.jar
+[INFO] Copying mysql-connector-java-5.0.8.jar to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/test-classes/mysql-connector-java-5.0.8-bin.jar
+[INFO] [INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ legacy-test ---
+[INFO] Copying 6 resources
+[INFO] Copying 6 resources
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/apache/maven/maven-plugin-api/2.0.11/maven-plugin-api-2.0.11.pom
+[INFO] --- maven-antrun-plugin:1.7:run (copy-sac) @ legacy-test ---
+
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 1 file to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/001/00000001/cons
+     [copy] Copying 1 file to /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/site_data/001/00000001/dataform/donation
+Results :
+
+Tests run: 980, Failures: 0, Errors: 0, Skipped: 4
+
+[JENKINS] Recording test results
+[INFO] [INFO] Skipping JaCoCo execution due to missing classes directory:/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/classes
+
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (default-report) @ legacy-test ---
+[INFO] 
+
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ legacy-test ---
+[INFO] Building jar: /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/legacy-test-15.1.0-SNAPSHOT.jar
+[INFO] [INFO] Skipping JaCoCo execution due to missing classes directory:/mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/classes
+
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report-unit) @ legacy-test ---
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/target/legacy-test-15.1.0-SNAPSHOT.jar to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/legacy-test/15.1.0-SNAPSHOT/legacy-test-15.1.0-SNAPSHOT.jar
+
+[INFO] [INFO] Installing /mnt/ephemeral/workspace/luminate-online-main-feature_LCRM-Quality-Team/legacy-test/pom.xml to /root/.m2/repository-LCRM-Quality-Team/com/blackbaud/luminate/legacy-test/15.1.0-SNAPSHOT/legacy-test-15.1.0-SNAPSHOT.pom
+--- maven-install-plugin:2.3.1:install (default-install) @ legacy-test ---
+[INFO] 
+[INFO] Downloading: http://nexus.conviocloud.com/content/repositories/luminate-online-LCRM-Quality-Team-snapshots/com/blackbaud/luminate/legacy-test/15.1.0-SNAPSHOT/maven-metadata.xml
+--- maven-deploy-plugin:2.7:deploy (default-deploy) @ legacy-test ---
+
+
+[INFO] Downloading: http://nexus.conviocloud.com/content/groups/luminate-online-LCRM-Quality-Team/org/codehaus/mojo/properties-maven-plugin/1.0-alpha-2/properties-maven-plugin-1.0-alpha-2.pom
+------------------------------------------------------------------------
+[INFO] Building Luminate Online Patch Kit 15.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ luminate-online-patch-kit ---
+
+[JENKINS] Archiving disabled
+Waiting for Jenkins to finish collecting data
+channel stopped
+Setting commit status on GitHub for https://github.com/blackbaud/luminate-online/commit/c0460bc7f7dd40a424a651fb1049d03cea659b67
+No emails were triggered.
+Finished: SUCCESS

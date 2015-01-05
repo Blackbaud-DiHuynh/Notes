@@ -1,0 +1,9 @@
+Contact x = new Contact(
+  FirstName = 'haha',
+  LastName = 'sucka'
+);
+
+Map<T, T> x = new Map<T, T> { 
+  blah => bloop,
+  lah => loop
+};

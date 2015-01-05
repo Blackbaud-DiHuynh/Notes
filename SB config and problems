@@ -1,0 +1,68 @@
+SB config and problems
+
+LO
+Data Management -> Luminate Configuration
+
+Configure Real-Time
+	1. Check "Yes, enable real-time integration"
+	2. blank
+	3. Remote System URI - https://www.salesforce.com/services/Soap/u/13.0
+	4. Real-time Authentication
+		-> Service Bus credentials
+		-> password + security token
+	5. 5
+	6. 10
+
+Configure Open API
+	2. Manage API Administrative Accounts
+		-> api_admin, Password0, API, User, di.huynh@blackbaud.com, 
+	3. Convio API key = api_key
+	4. Integration API Secret key = api_secret_key
+	5. Check "Yes, auto-create audit constituent records"
+
+Configure the Luminate Service Bus
+	2. Luminate Bus instance: http://bus.corp.convio.com/developer_v15/
+
+View Status
+  Real-Time status
+    server status: this is the salesforce server, if there's an error, check servicebus credentials
+    
+Deploy custom settings
+Deploy workflows
+
+SERVICE BUS
+
+
+LCRM
+
+Custom Settings
+	-> Manage - Luminate Integration Settings
+		-> Developer Mode is checked
+		-> Convio API Login Name = api_admin
+		-> Convio API Secret Key = api_secret_key
+		-> Convio API Key = api_key
+		-> Convio API login Password = Password0
+		-> Convio_Admin_Base_Url = http://devhub.bvtcommonground.com/dhuynh/
+		-> Convio_IFrame_Base_Url = http://localhost/
+		-> Site Short Name = dhuynh1
+
+Outbound Messages
+	-> remove "corp" from all URLs
+
+Remote Site Settings
+	-> Convio_Service_Bus -> remove corp from url
+
+
+
+ERRORS
+
+
+Error:
+
+Contact page - Interests, Online Interactions
+"unable to complete API call:Status code: 403 with message: The specified record does not exist"
+Reason: the contact's convio id references a constituent that no longer exists in LO. This can happen after "reloadSchema" which wipes out all of the LO data. 
+Fix: nulls out the Convio Id and other stuff
+
+
+

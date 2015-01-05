@@ -1,0 +1,27 @@
+Unsupported visualForce Component:
+
+<analytics:reportChart>
+<apex:detail>
+<apex:emailPublisher>
+<apex:enhancedList>
+<apex:flash>
+<apex:inputField> - for field types that use a widget for input, instead of a basic form field
+<apex:listViews>
+<apex:logCallPublisher>
+<apex:relatedList>
+<apex:scontrol>
+<apex:sectionHeader>
+<apex:selectList>
+<apex:vote>
+
+
+Not recommended components for SF1
+- <apex:pageBlock>
+- <apex:pageBlockButtons>
+- <apex:pageBlockSection>
+- <apex:pageBlockSectionItem>
+- <apex:pageBlockTable>
+
+
+Relevant links to Dup Check problem: 
+http://salesforce.stackexchange.com/questions/24509/error-for-dispatch-page-on-salesforce1 

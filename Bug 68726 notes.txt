@@ -1,0 +1,104 @@
+!!!!!!!!!!!!!!!!!!! USE A REAL ADDRESS TO TEST !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+UTILITIES TAB
+
+********* LCRM SIDE ****************
+UtilitiesTabController
+ - runStandardization
+ 	+ create a batch, executes it right away 
+ ContactStandardizationBatch
+ 	- start
+ 	- execute
+ 		+ calls ContactStandardization.standardizeContacts
+ 		+ update Error log with DatabaseUtils.updateWithErrorLogging
+ 		TODO: check ^ if want to do more logging
+
+ ContactStandization
+ 	- standardizeContacts
+ 		+ create a list of contacts needing standardization
+			^ check if contact is added
+ 		+ call ConvioNormalizationApi.new().normalizeContactData
+ 		+ do additional standardization with zipcode
+
+ConvioNormalizationApi
+	- normalizeContactData
+		+ create XML request
+		- callGetNormalizedXmlResult (requestXML)
+		- processNormalizedXmlResult returns true if there were changes ^ possible logging place + updates ContactUtils.alreadyUpdatedContactNormalization	
+ContactUtils
+	- updateNormalizationStatus
+		^ check if status is updated, or to what
+
+
+Joey's id: 003o0000004HaV4
+
+************ LO SIDE *************
+
+GetNormalizedResultMethod.java
+  - executeMethod(CVRequest request)
+    + creates a new instance of NormalizeResponseRecord
+    + calls requestDocument.getGetNormalizedResultRequest()
+
+AddressDataHandler.java
+  - AddressStandardizationResponse[] getAllAddressData(AddressStandardizationRequest[] resquest)
+    + grab each element of an address from the xml
+    + call AddressUtil.getCorrectedAdderss (CVSession, addr)
+      - call the 3rd party service to get corrected address
+      ^ for this bug, it didn't change the address
+    + standardizedAddress.getWasCorrected() returned false -> responseAddress.setStatus(AddressCorecctionStatus.UNKNOWN
+
+CorrectAddressClient.java
+  + correctAddress - correct address by calling correctAddressService.correctAddress(inputAddress)
+  ^ returns the inputAddress if there's any errors
+
+Order of execution
+
+AddressDataHandler.getallAddressData
+ -> AddressUtil.getCorrectedAddress()
+    -> getCorrectorService().correctAddress()
+       -> CorrectAddressClient.correctAddress()
+            + expect correctAddress to be standardized
+
+
+STANDARDIZE ADDRESS BUTTON
+********* LCRM SIDE *********
+
+Standardize button
+ -> AddressCorrectionContactControllerExt.correctAddressesForContacts (this of contacts)
+    -> AddressCorrection.correctAddressesForContacts()
+       -> sendRequest (list of addresses)
+          -> processResponse (xml and addresses[])
+              + check to see if xml element have corrected addresses and update the array as needed. 
+
+Code to change normalization and standardization status:
+
+Contact con = [SELECT Id, Name, Normalization_Status__c, Standardization_Status__c FROM Contact WHERE Id='003o000000BU6N9'];
+  
+con.Normalization__c = 'Needs normalization';
+con.Standardization_Status__c = 'Standardization Pending';
+
+update con;
+
+
+ExecuteQuery in DistrictResolver.getDistsForZip returns
+distInfo = {com.convio.advocacy.district.DistInfo@14102}"{ state=TX dist_id=C48453+TX_TRA_2 dist_name='Travis - Precinct 02' dist_type=DIRECT region_type=COUNTY }"
+m_areaId = {java.lang.String@14105}"A48453+TX_TRA_2"
+m_state = {java.lang.String@14106}"TX"
+m_districtId = {java.lang.String@14107}"C48453+TX_TRA_2"
+m_parentDistId = {java.lang.String@14108}"C48453"
+m_subDistId = {java.lang.String@14109}"TX_TRA_2"
+m_districtName = {java.lang.String@14110}"Travis - Precinct 02"
+m_districtType = {java.lang.String@14111}"DIRECT"
+m_regionType = {java.lang.String@14112}"COUNTY"
+m_zip5 = {java.lang.String@14113}"78758"
+m_plus4High = {java.lang.String@14114}""
+m_plus4Low = {java.lang.String@14114}""
+
+
+Test addresses:
+sub districts - 6412 Laurel Avenue, Mountain Mesa, CA 93240
+                11501 Domain Drive, Austin, TX 78758
+
+No sub districts  - 2100 Main Street, Stevens Point, WI 54481
+                    801 2nd Street, Stevens Point, WI 54481

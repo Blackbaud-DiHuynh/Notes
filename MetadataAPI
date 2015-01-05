@@ -1,0 +1,33 @@
+// Plan for scontrols upgrades
+
+
+1. Need a metadata service
+  private final MetadataService.MetadataPort service;
+
+  public ScontrolUpgrades(){
+    service = MetadataUtils.createService();
+  }
+
+2. A map of object full names to the ojects themselves
+  private final Map<String, MetadataService.CustomObject> requestedSfdcObjects;
+
+3. Add all the changes to objects in this map
+
+4. Create a list of SaveResults
+  List<MetadataService.SaveResult> scontrolSaveResults = /*something that returns a saveresult*/
+
+5. Call processSaveResults with saveResults
+  MetaData.processSaveResults(scontrolSaveResults)  *this returns a boolean
+
+6. in addAccountDupeCheck()
+  - if (!alreadySwitch()){
+      // switch from scontrol to VF
+    }
+    
+    return;
+
+
+
+
+
+

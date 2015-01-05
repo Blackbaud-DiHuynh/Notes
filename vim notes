@@ -1,0 +1,8 @@
+# Indenting lines
+3>>       indent line #3
+Vj*>      go to Visual Line mode, hit j to choose the number of line to ident
+>%        indent a curly braces block, place cursor at the opening brace
+gg=G      reformat entire file
+
+#replace each occurences of foo with bar in ALL lines
+%s/foo/bar/g

@@ -1,0 +1,74 @@
+Overwrite 'Add Multiple Invitation Button' with VF instead of scontrol (Event_Invitation_Import_Wizard.scf)
+
+
+TODOs: 
+- write queries to get
+  + Report folder  
+      Select Id, name, type, accessType from Folder where Type='Report' and Name like '%' 
+  + Report 
+      Select Id, name, ownerId FROM Report Where OwnerId= <FOLDERID> 
+  + invitation record type: 
+      Schema.DescribeSObjectResult a = Event_Invitation__c.sObjectType.getDescribe(); 
+      List<Schema.RecordTypeInfo> recInfos = a.getRecordTypeInfos();
+      System.debug(recInfos);
+      // Schema.RecordTypeInfo[getName=Master; getRecordTypeId=012000000000000AAA; isAvailable=true; isDefaultRecordTypeMapping=false;])
+  + registration stage: 
+      Schema.sObjectType objType = Event_Invitation__c.getSObjectType();
+
+      // Describe the SObject using its object type.
+      Schema.DescribeSObjectResult objDescribe = objType.getDescribe();       
+
+      // Get a map of fields for the SObject
+      Map<String, Schema.SObjectField> fieldMap = objDescribe.fields.getMap(); 
+
+      // Get the list of picklist values for this field.
+      List<Schema.PicklistEntry> values = fieldMap.get('Stage__c').getDescribe().getPickListValues();
+
+What kind of button
+  Detail Page Button    appear on any page of that object
+  Detail Page Link      a link (duh)
+  List button           appear on "list" of invitations
+
+  So we want list button
+ 
+How does this work
+
+- user selects Report Folder, Report, invitation record type, registration stage -> "import and create"
+- popup: 3 new invitations will be created (0 already had invitations). Are you sure?
+- Results: 
+    3 Record(s) found in the report.
+    3 Valid records.
+    0 Records that already have invitations for this event.
+    3 New invitations created for this event.
+
+- calls requestReport()
+  * get id of rpt (report?)
+  * get reg stage, reg record type ID
+  * get a xmlhttp object for the report
+  -> calls processReqChange2
+    * check to see if the reports have ContactID and AccountID 
+       * if yes keep index, no throw an error
+       * disable the "working" indicator
+    * parse the contact and account ids to create registration
+      * for each line in the report, parse the line to get contactID and accountID
+      * check to see if any of the contacts/accounts already registered
+        * split the contact ids into arrays of size 500 
+        * query: SELECT Id, Contact__c 
+                  FROM Event_Invitation__c 
+                  WHERE Contact__c in ("stringOfIds") 
+                        AND Event__c = 'Event_Detail__c.Id'
+        * add the returned records to "allExistingInvites"
+    * remove the existing registrations from the contactIDs
+    * now we create a new invitation for this Array
+      * inv = new Event_Invitation__c(){ 
+      *   Contact__c = contactID,
+      *   Account__c = accountID,
+      *   Event__c = Event_Detail__c,
+      *   Stage__c = SELECTED_REG_STAGE,
+      *   RecordTypeId = SELECTED_RECORD_TYPE_ID
+      * }
+    * if at our batch size limit (200?), insert the invitations
+
+    
+    
+    

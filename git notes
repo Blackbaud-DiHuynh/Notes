@@ -1,0 +1,37 @@
+#replace local branch with remote branch entirely
+git reset --hard origin/master
+
+#remove a file from index, the opposite of git add
+git reset <file>
+
+#create a branch from sha
+git branch <branch name> <sha>
+
+#search for all conflicting files
+grep -lr '<<<<<<<' *
+
+#resolving obvious conflicts
+git checkout --theirs <path to file>
+git checkout --ours <path to file>
+
+#resolving multiple files //might not work, something with branches
+grep -lr '<<<<<<<' . | xargs git checkout --ours
+grep -lr '<<<<<<<' . | xargs git checkout --theirs
+
+#compare tips of two branches
+git diff <branch1>..<branch2>
+
+#find diff from common ancestor
+git diff <branch1>...<branch2>
+
+#cherry pick stuff
+git cherry-pick <SHA>
+
+#show remote url
+git remote -v
+
+#search through commits of all branches
+git log --all --grep='whateveryouwannasearchfor'
+
+#search through the commit contents of all branches logs
+git grep 'whateveryouwannasearchfor' $(git rev-list --all)

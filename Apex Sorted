@@ -1,0 +1,1964 @@
+Language tools
+	System.Comparable Interface
+		Integer compareTo(Object objectToCompareTo)
+	System.System basic language methods
+		static Boolean equals(Object obj1, Object obj2)
+		static Integer hashCode(Object obj)
+		static Void assert(Boolean condition, Object opt_msg)
+		static Void assertEquals(Object expected, Object actual, Object opt_msg)
+		static Void assertNotEquals(Object expected, Object actual, Object opt_msg)
+		static Void debug(LoggingLevel logLevel, Object msg)
+		static Void debug(Object msg)
+	System.Enum
+		Integer ordinal()
+		List<T> values()
+		String name()
+	System.Exception
+		Methods
+			Exception getCause()
+			Integer getLineNumber()
+			String getMessage()
+			String getStackTraceString()
+			String getTypeName()
+			Void initCause(Exception cause)
+			Void setMessage(String s)
+		Instances
+			AsyncException
+			CalloutException
+			InvalidParameterValueException
+			LimitException
+			JSONException
+			ListException
+			MathException
+			NoAccessException
+			NoDataFoundException
+			NoSuchElementException
+			NullPointerException
+			QueryException
+			RequiredFeatureMissing
+			SearchException
+			SecurityException
+			SerializationException
+			SObjectException
+			StringException
+			TypeException
+			VisualforceException
+			XmlException
+		List Exceptions
+			Methods
+				Integer getDmlIndex(Integer i)
+				Integer getNumDml()
+				List<SObjectField> getDmlFields(Integer i)
+				List<String> getDmlFieldNames(Integer i)
+				StatusCode getDmlType(Integer i)
+				String getDmlId(Integer i)
+				String getDmlMessage(Integer i)
+				String getDmlStatusCode(Integer i) // Deprecated. Use getDmlType instead
+			Instances
+				DmlException
+				EmailException
+
+Numeric types
+	System.Boolean
+		Boolean valueOf(String other)
+		Boolean valueOf(Object other)
+	System.Integer
+		static Integer valueOf(Object other)
+		static Integer valueOf(String other)
+		String format()
+	System.Long
+		Integer intValue()
+		String format()
+	System.Decimal
+		Decimal abs()
+		Decimal divide(Decimal divisor, Integer scale)
+		Decimal divide(Decimal divisor, Integer scale, Object roundingMode)
+		Decimal pow(Integer exponent)
+		Decimal setScale(Integer scale)
+		Decimal setScale(Integer scale, RoundingMode roundingMode)
+		Decimal stripTrailingZeros()
+		Double doubleValue()
+		Integer intValue()
+		Integer precision()
+		Integer scale()
+		Long longValue()
+		Long round()
+		Long round(RoundingMode roundingMode)
+		static Decimal valueOf(Double other)
+		static Decimal valueOf(Long other)
+		static Decimal valueOf(String other)
+		String format()
+		String toPlainString()
+	System.Double
+		Integer intValue()
+		Long longValue()
+		Long round()
+		static Double valueOf(Object other)
+		static Double valueOf(String other)
+		String format()
+	System.Math
+		Constants
+			static final Double E
+			static final Double PI		
+		Trigonometric 
+			static Decimal acos(Decimal d)
+			static Decimal asin(Decimal d)
+			static Decimal atan(Decimal d)
+			static Decimal atan2(Decimal x, Decimal y)
+			static Decimal cos(Decimal d)
+			static Decimal cosh(Decimal d)
+			static Decimal sin(Decimal d)
+			static Decimal sinh(Decimal d)
+			static Decimal tan(Decimal d)
+			static Decimal tanh(Decimal d)
+			static Double acos(Double d)
+			static Double asin(Double d)
+			static Double atan(Double d)
+			static Double atan2(Double x, Double y)
+			static Double cos(Double d)
+			static Double cosh(Double d)
+			static Double sin(Double d)
+			static Double sinh(Double d)
+			static Double tan(Double d)
+			static Double tanh(Double d)
+		Arithmetic
+			static Decimal cbrt(Decimal d)
+			static Decimal exp(Decimal d)
+			static Decimal log(Decimal d)
+			static Decimal log10(Decimal d)
+			static Decimal sqrt(Decimal d)
+			static Double cbrt(Double d)
+			static Double exp(Double d)
+			static Double log(Double d)
+			static Double log10(Double d)
+			static Double pow(Double d, Double exp)
+			static Double sqrt(Double d)
+		Numerical
+			static Decimal abs(Decimal d)
+			static Decimal ceil(Decimal d)
+			static Decimal floor(Decimal d)
+			static Decimal max(Decimal d1, Decimal d2)
+			static Decimal min(Decimal d1, Decimal d2)
+			static Decimal rint(Decimal d)
+			static Decimal signum(Decimal d)
+			static Double abs(Double d)
+			static Double ceil(Double d)
+			static Double floor(Double d)
+			static Double max(Double d1, Double d2)
+			static Double min(Double d1, Double d2)
+			static Double signum(Double d)
+			static Integer abs(Integer i)
+			static Integer max(Integer i1, Integer i2)
+			static Integer min(Integer i1, Integer i2)
+			static Long abs(Long l)
+			static Long max(Long l1, Long l2)
+			static Long min(Long l1, Long l2)
+			static Integer mod(Integer i1, Integer i2)
+			static Long mod(Long L1, Long L2)
+			static Double random()
+		Rounding
+			static Double rint(Double d)
+			static Integer round(Decimal d)
+			static Integer round(Double d)
+			static Long roundToLong(Decimal d)
+			static Long roundToLong(Double d) 
+
+Collection Types
+	System.Set
+		Set<T>()
+		Set<T>(Set<T> setToCopy)
+		Set<T>(List<T> listToCopy)
+		Set<T> clone()
+		Boolean add(Object setElement)
+		Boolean addAll(List<Object> fromList)
+		Boolean addAll(Set<Object> fromSet)
+		Boolean contains(Object setElement)
+		Boolean containsAll(List<Object> listToCompare)
+		Boolean containsAll(Set<Object> setToCompare)
+		Boolean equals(Set<Object> set2)
+		Boolean isEmpty()
+		Boolean remove(Object setElement)
+		Boolean removeAll(List<Object> listOfElementsToRemove)
+		Boolean removeAll(Set<Object> setOfElementsToRemove)
+		Boolean retainAll(List<Object> listOfElementsToRetain)
+		Boolean retainAll(Set setOfElementsToRetain)
+		Integer hashCode()
+		Integer size()
+		Void clear() 
+	System.List
+		List<T>()
+		List<T>(List<T> listToCopy)
+		List<T>(Set<T> setToCopy)
+		Boolean equals(List other)
+		Boolean isEmpty()
+		Integer hashCode()
+		Integer size()
+		Iterator iterator()
+		List<Object> clone()
+		List<Object> deepClone(Boolean opt_preserve_id, Boolean opt_preserve_readonly_timestamps, Boolean opt_preserve_autonumber)
+		Object get(Integer index)
+		Object remove(Integer index)
+		SObjectType getSObjectType()
+		Void add(Integer index, Object listElement)
+		Void add(Object listElement)
+		Void addAll(List fromList)
+		Void addAll(Set fromSet)
+		Void clear()
+		Void set(Integer index, Object listElement)
+		Void sort()
+	System.Map
+		Map<T1,T2>()
+		Map<T1,T2>(Map<T1,T2> mapToCopy)
+		Map<ID,sObject>(List<SObject> recordList)
+		Boolean containsKey(Object key)
+		Boolean equals(Map other)
+		Boolean isEmpty()
+		Integer hashCode()
+		Integer size()
+		List<Object> values()
+		Map<Object,Object> clone()
+		Map<Object,Object> deepClone()
+		Object get(Object key)
+		Object put(Object key, Object value)
+		Object remove(Key key)
+		putAll(List<SObject> objects)
+		Set<Object> keySet()
+		SObjectType getSObjectType()
+		Void clear()
+		Void putAll(Map fromMap)
+
+Strings
+	System.String
+		Static factories
+			static String valueOf(Date other)
+			static String valueOf(Datetime other)
+			static String valueOf(Decimal other)
+			static String valueOf(Double other)
+			static String valueOf(Integer other)
+			static String valueOf(Long other)
+			static String valueOf(Object other)
+			static String valueOfGmt(Datetime other)
+		Escaping
+			static String escapeSingleQuotes(String stringToEscape)
+			String escapeCsv()
+			String escapeEcmaScript()
+			String escapeHtml3()
+			String escapeHtml4()
+			String stripHtmlTags(String htmlInput)
+			String escapeJava()
+			String escapeUnicode()
+			String escapeXml()
+			String unescapeCsv()
+			String unescapeEcmaScript()
+			String unescapeHtml3()
+			String unescapeHtml4()
+			String unescapeJava()
+			String unescapeUnicode()
+			String unescapeXml()
+			Integer offsetByCodePoints(Integer index, Integer codePointOffset)
+			Integer codePointAt(Integer index)
+			Integer codePointBefore(Integer index)
+			Integer codePointCount(Integer beginIndex, Integer endIndex)
+		Character Case
+			Boolean isAllLowerCase()
+			Boolean isAllUpperCase()
+			String capitalize()
+			String swapCase(String open, String close)
+			String toLowerCase()
+			String toLowerCase(String locale)
+			String toUpperCase()
+			String toUpperCase(String locale)
+			String uncapitalize()
+		Substrings
+			Boolean contains(String compString)
+			Boolean containsAny(String compString)
+			Boolean containsIgnoreCase(String compString)
+			Boolean containsNone(String compString)
+			Boolean containsOnly(String compString)
+			Boolean containsWhitespace()
+			Boolean endsWith(String suffix)
+			Boolean endsWithIgnoreCase(String suffix)
+			Boolean startsWith(String prefix)
+			Boolean startsWithIgnoreCase(String prefix)
+			Integer charAt(Integer index)
+			Integer countMatches(String compString)
+			Integer indexOf(String subString)
+			Integer indexOf(String substring, Integer index)
+			Integer indexOfAny(String substring)
+			Integer indexOfAnyBut(String substring)
+			Integer indexOfChar(Integer character)
+			Integer indexOfChar(Integer character)
+			Integer indexOfChar(Integer character, Integer startIndex)
+			Integer indexOfDifference(String stringToCompare)
+			Integer indexOfIgnoreCase(String substring)
+			Integer indexOfIgnoreCase(String substring, Integer startPosition)
+			Integer lastIndexOf(String substring)
+			Integer lastIndexOf(String substring, Integer endPosition)
+			Integer lastIndexOfChar(Integer character, Integer endIndex)
+			Integer lastIndexOfIgnoreCase(String substring)
+			Integer lastIndexOfIgnoreCase(String substring, Integer endPosition)
+			String remove(String substring)
+			String removeEnd(String substring)
+			String removeEndIgnoreCase(String substring)
+			String removeStart(String substring)
+			String removeStartIgnoreCase(String substring)
+			String replace(String target, String replacement)
+			String replaceAll(String regExp, String replacement)
+			String replaceFirst(String regExp, String replacement)
+			String reverse()
+			String substring(Integer startIndex)
+			String substring(Integer startIndex, Integer endIndex)
+			String substringAfter(String separator)
+			String substringAfterLast(String separator)
+			String substringBefore(String separator)
+			String substringBeforeLast(String separator)
+			String substringBetween(String open, String close)
+			String substringBetween(String tag)
+		Splitting and rejoining
+			List<Integer> getChars()
+			List<String> split(String regExp, Integer limit)
+			List<String> splitByCharacterType()
+			List<String> splitByCharacterTypeCamelCase()
+			static String fromCharArray(List<Integer> charArray)
+			static String join(Object iterableObj, String separator)
+			String repeat(Integer numTimes)
+			String repeat(String separator, Integer numTimes)
+		Queries about strings
+			static Boolean isBlank(String inputString)
+			static Boolean isEmpty(String inputString)
+			static Boolean isNotBlank(String inputString)
+			static Boolean isNotEmpty(String inputString)
+			Boolean isAlpha()
+			Boolean isAlphanumeric()
+			Boolean isAlphanumericSpace()
+			Boolean isAlphaSpace()
+			Boolean isAsciiPrintable()
+			Boolean isNumeric()
+			Boolean isNumericSpace()
+			Boolean isWhitespace()
+		Comparison
+			Boolean equals(String compString)
+			Boolean equalsIgnoreCase(String compString)
+			Integer compareTo(String compString)
+			Integer getLevenshteinDistance(String stringToCompare)
+			Integer getLevenshteinDistance(String stringToCompare, Integer threshold)
+			Integer hashCode()
+			String difference(String compString)
+		Whitespace
+			String center(Integer size)
+			String center(Integer size, String padStr)
+			String deleteWhitespace()
+			String left(Integer length)
+			String leftPad(Integer length)
+			String mid(Integer startIndex, Integer length)
+			String normalizeSpace()
+			String right(Integer length)
+			String rightPad(Integer length)
+			String trim()
+		Misc
+			static String format(String stringToFormat, List<String> formattingArguments)
+			static String getCommonPrefix(List<String> strings)
+			Integer length()
+			String abbreviate(Integer maxWidth)
+			String abbreviate(Integer maxWidth, Integer offset)
+	System.Pattern
+		static Pattern compile(String regex)
+		List<String> split(String regex, Integer limit)
+		List<String> split(String s)
+		Matcher matcher(String regex)
+		static Boolean matches(String regex, String s)
+		static String quote(String s)
+		String pattern()
+	System.Matcher
+		Boolean find()
+		Boolean find(Integer group)
+		Boolean hasAnchoringBounds()
+		Boolean hasTransparentBounds()
+		Boolean hitEnd()
+		Boolean lookingAt()
+		Boolean matches()
+		Boolean requireEnd()
+		Integer end()
+		Integer end(Integer groupIndex)
+		Integer groupCount()
+		Integer regionEnd()
+		Integer regionStart()
+		Integer start()
+		Integer start(Integer groupIndex)
+		Matcher region(Integer start, Integer end)
+		Matcher reset()
+		Matcher useAnchoringBounds(Boolean anchoringBounds)
+		Matcher usePattern(Pattern pattern)
+		Matcher useTransparentBounds(Boolean transparentBounds)
+		Matcher reset(String inputSequence)
+		Pattern pattern()
+		static String quoteReplacement(String inputString)
+		String group()
+		String group(Integer groupIndex)
+		String replaceAll(String replacementString)
+		String replaceFirst(String replacementString)
+
+Chronological data types
+	System.Date
+		static Date newInstance(Integer year, Integer month, Integer day)
+		static Date parse(String dateString)
+		static Date today()
+		static Date valueOf(Object other)
+		static Date valueOf(String other)
+		Boolean isSameDay(Date other)
+		Date addDays(Integer d)
+		Date addMonths(Integer m)
+		Date addYears(Integer y)
+		Date toStartOfMonth()
+		Date toStartOfWeek()
+		Integer day()
+		Integer dayOfYear()
+		Integer daysBetween(Date other)
+		Integer month()
+		Integer monthsBetween(Date other)
+		Integer year()
+		static Boolean isLeapYear(Integer year)
+		static Integer daysInMonth(Integer year, Integer month)
+		String format()
+	System.Time
+		static Time newInstance(Integer hour, Integer minutes, Integer seconds, Integer milliseconds)
+		Integer hour()
+		Integer millisecond()
+		Integer minute()
+		Integer second()
+		Time addHours(Integer addlHours)
+		Time addMilliseconds(Integer addlMilliseconds)
+		Time addMinutes(Integer addlMinutes)
+		Time addSeconds(Integer addlSeconds)
+	System.Datetime
+		static Datetime newInstance(Date d, Time t)
+		static Datetime newInstance(Integer year, Integer month, Integer day)
+		static Datetime newInstance(Integer year, Integer month, Integer day, Integer hour, Integer min, Integer sec)
+		static Datetime newInstance(Long miliseconds)
+		static Datetime newInstanceGmt(Date d, Time t)
+		static Datetime newInstanceGmt(Integer year, Integer month, Integer day)
+		static Datetime newInstanceGmt(Integer year, Integer month, Integer day, Integer hour, Integer min, Integer sec)
+		static Datetime now()
+		static Datetime parse(String datetimeString)
+		static Datetime valueOf(Object other)
+		static Datetime valueOf(String other)
+		static Datetime valueOfGmt(String other)
+		Boolean isSameDay(Datetime other)
+		Date date()
+		Date dateGMT()
+		Datetime addDays(Integer d)
+		Datetime addHours(Integer h)
+		Datetime addMinutes(Integer m)
+		Datetime addMonths(Integer m)
+		Datetime addSeconds(Integer s)
+		Datetime addYears(Integer y)
+		Integer day()
+		Integer dayGmt()
+		Integer dayOfYear()
+		Integer dayOfYearGmt()
+		Integer hour()
+		Integer hourGmt()
+		Integer millisecond()
+		Integer millisecondGmt()
+		Integer minute()
+		Integer minuteGmt()
+		Integer month()
+		Integer monthGmt()
+		Integer second()
+		Integer secondGmt()
+		Integer year()
+		Integer yearGmt()
+		Long getTime()
+		String format()
+		String format(String dateFormat)
+		String format(String dateFormat, String timezone)
+		String formatGmt(String dateFormat)
+		String formatLong()
+		Time time()
+		Time timeGmt()
+	System.TimeZone
+		static TimeZone getTimeZone(String Id)
+		Integer getOffset(Datetime date)
+		String getDisplayName()
+		String getID()
+		String toString()
+	System.System Time
+		static Date today() // Use Date.today()
+		static Datetime now() // Use Datetime.now()
+		static Long currentTimeMillis()
+
+Custom Settings
+	System.Custom Settings
+		List Custom Settings
+			Map<String, CustomSetting__c> getAll()
+			CustomSetting__c getInstance(String dataset_name) 
+			CustomSetting__c getValues(String dataset_name)
+		Hierarchy Custom Settings
+			CustomSetting__c getInstance()
+			CustomSetting__c getInstance(ID user_Id)
+			CustomSetting__c getInstance(ID profile_Id)
+			CustomSetting__c getOrgDefaults()
+			CustomSetting__c getValues(ID user_Id)
+			CustomSetting__c getValues(ID Profile_Id)
+
+Test
+	System.Test
+		static Boolean isRunningTest()
+		static Id getStandardPricebookId()
+		static List<sObject> loadData(SObjectType sObjectToken, String resourceName)
+		static Void setFixedSearchResults(List<Id> opt_set_search_results) // for testing SOSL
+		static Void setReadOnlyApplicationMode(Boolean application_mode) // for testing system maintainance
+		static Void startTest()
+		static Void stopTest()
+
+Execution context state
+	System.Limits
+		static Integer getAggregateQueries()
+		static Integer getCallouts()
+		static Integer getChildRelationshipsDescribes()
+		static Integer getCpuTime()
+		static Integer getDMLRows()
+		static Integer getDMLStatements()
+		static Integer getEmailInvocations()
+		static Integer getFieldsDescribes()
+		static Integer getFieldSetsDescribes()
+		static Integer getFindSimilarCalls()
+		static Integer getFutureCalls()
+		static Integer getHeapSize()
+		static Integer getLimitAggregateQueries()
+		static Integer getLimitCallouts()
+		static Integer getLimitChildRelationshipsDescribes()
+		static Integer getLimitCpuTime()
+		static Integer getLimitDMLRows()
+		static Integer getLimitDMLStatements()
+		static Integer getLimitEmailInvocations()
+		static Integer getLimitFieldsDescribes()
+		static Integer getLimitFieldSetsDescribes()
+		static Integer getLimitFindSimilarCalls()
+		static Integer getLimitFutureCalls()
+		static Integer getLimitHeapSize()
+		static Integer getLimitMobilePushApexCalls()
+		static Integer getLimitPicklistDescribes()
+		static Integer getLimitQueries()
+		static Integer getLimitQueryLocatorRows()
+		static Integer getLimitQueryRows()
+		static Integer getLimitQueueableJobs()
+		static Integer getLimitRecordTypesDescribes()
+		static Integer getLimitRunAs()
+		static Integer getLimitSavepointRollbacks()
+		static Integer getLimitSavepoints()
+		static Integer getLimitScriptStatements()
+		static Integer getLimitSoslQueries()
+		static Integer getMobilePushApexCalls()
+		static Integer getPicklistDescribes()
+		static Integer getQueries()
+		static Integer getQueryLocatorRows()
+		static Integer getQueryRows()
+		static Integer getQueueableJobs()
+		static Integer getRecordTypesDescribes()
+		static Integer getRunAs()
+		static Integer getSavepointRollbacks()
+		static Integer getSavepoints()
+		static Integer getScriptStatements()
+		static Integer getSoslQueries() 
+	System.UserInfo
+		static Boolean isCurrentUserLicensed(String namespace)
+		static Boolean isMultiCurrencyOrganization()
+		static String getDefaultCurrency()
+		static String getFirstName()
+		static String getLanguage()
+		static String getLastName()
+		static String getLocale()
+		static String getName()
+		static String getOrganizationId()
+		static String getOrganizationName()
+		static String getProfileId()
+		static String getSessionId()
+		static String getUiTheme()
+		static String getUiThemeDisplayed()
+		static String getUserEmail()
+		static String getUserId()
+		static String getUserName()
+		static String getUserRoleId()
+		static String getUserType()
+		static TimeZone getTimeZone()
+	System.System System State
+		static Boolean isBatch()
+		static Boolean isFuture()
+		static Boolean isScheduled()
+		static ApplicationReadWriteMode getApplicationReadWriteMode() // is under system maintainance
+
+DML
+	DML syntax
+		Insert		sObject/sObject[]
+		Update		sObject/sObject[] 
+		Upsert		sObject/sObject[] opt_external_id
+		Delete		sObject/sObject[] | ID/ID[]
+		Undelete	sObject/sObject[] | ID/ID[]
+		Merge 		sObject sObject/sObject[]/ID/ID[]
+	System.Id
+		static Id valueOf(String other)
+		SObjectType getSObjectType()
+		Void addError(Exception exceptionError)
+		Void addError(Exception exceptionError, Boolean escape)
+		Void addError(String errorMsg)
+		Void addError(String errorMsg, Boolean escape)
+	System.SObject
+		DmlOptions getOptions()
+		List<SObject> getSObjects(SObjectType fieldName)
+		List<SObject> getSObjects(String fieldName)
+		Object get(SObjectField field)
+		Object get(String fieldName)
+		Object put(SObjectField fieldName, Object value)
+		Object put(String fieldName, Object value)
+		SObject clone(Boolean opt_preserve_id, Boolean opt_IsDeepClone, Boolean opt_preserve_readonly_timestamps, Boolean opt_preserve_autonumber)
+		SObject getSObject(SObjectField fieldName)
+		SObject getSObject(String fieldName)
+		SObject putSObject(SObjectType fieldName, SObject value)
+		SObject putSObject(String fieldName, SObject value)
+		SObjectType getSObjectType()
+		String getQuickActionName()
+		Void addError(Exception exceptionError)
+		Void addError(Exception exceptionError, Boolean escape)
+		Void field.addError(String errorMsg)
+		Void field.addError(String errorMsg, Boolean escape)
+		Void clear()
+		Void setOptions(DmlOptions DmlOptions)
+	Database.DmlOptions
+		Boolean allowFieldTruncation
+		AssignmentRuleHeader assignmentRuleHeader
+		EmailHeader emailHeader
+		inner class AssignmentRuleHeader // for cases or leads
+			Id assignmentRuleID
+			Boolean useDefaultRule
+		inner class EmailHeader
+			Boolean triggerAutoResponseEmail
+			Boolean triggerOtherEmail
+			Boolean triggerUserEmail
+	Database.Error
+		List<String> getFields()
+		String getMessage()
+		StatusCode getStatusCode()
+	System.Database
+		SOQL
+			static Integer countQuery(String query)
+			static List<SObject> query(String query)
+		Savepoints
+ 			static Savepoint setSavepoint()
+			static Void rollback(Savepoint sp)
+		Batchable
+			static ID executeBatch(Batchable batchClassObject)
+			static ID executeBatch(Batchable batchClassObject, Integer numberOfRecords)
+			static QueryLocator getQueryLocator(List<SObject> listOfQueries)
+			static QueryLocator getQueryLocator(String query)
+		Historical
+			static GetUpdatedResult getUpdated(String sobjectType, Datetime startDate, Datetime endDate)
+			static GetDeletedResult getDeleted(String sObjectType, Datetime startDate, Datetime endDate)
+		Insert
+			static List<SaveResult> 	insert(List<sObject> recordsToInsert, Boolean opt_allOrNone)
+			static SaveResult 			insert(List<SObject> recordToInsert,  DmlOptions options)
+			static SaveResult 			insert(sObject       recordToInsert,  Boolean opt_allOrNone)
+			static SaveResult 			insert(SObject       recordToInsert,  DmlOptions options)
+		Upsert
+			static List<UpsertResult> 	upsert(List<sObject> recordsToUpsert, SObjectField External_ID_Field, Boolean opt_allOrNone)
+			static UpsertResult 		upsert(sObject       recordToUpsert,  SObjectField external_ID_Field, Boolean opt_allOrNone)
+		Update
+			static List<SaveResult> 	update(List<sObject> recordsToUpdate, Boolean opt_allOrNone)
+			static List<SaveResult> 	update(List<sObject> recordsToUpdate, DmlOptions options)
+			static SaveResult 			update(sObject		 recordToUpdate,  Boolean opt_allOrNone)
+			static SaveResult 			update(sObject		 recordToUpdate,  DmlOptions options)
+		Delete
+			static DeleteResult 		delete(ID 			recordToDelete,  Boolean opt_allOrNone)
+			static DeleteResult 		delete(SObject 		recordToDelete,  Boolean opt_allOrNone)
+			static List<DeleteResult> 	delete(List<ID> 	recordsToDelete, Boolean opt_allOrNone)
+			static List<DeleteResult> 	delete(List<SObject>recordsToDelete, Boolean opt_allOrNone)
+		Undelete
+			static List<UndeleteResult> undelete(List<ID>    	recordsToUndelete, Boolean opt_allOrNone)
+			static List<UndeleteResult> undelete(List<SObject>	recordsToUndelete, Boolean opt_allOrNone)
+			static UndeleteResult 		undelete(ID				recordToUndelete,  Boolean opt_allOrNone)
+			static UndeleteResult 		undelete(sObject 		recordToUndelete,  Boolean opt_allOrNone)
+		Empty Recycle Bin
+			static EmptyRecycleBinResult 		emptyRecycleBin(sObject  		recordToEmpty)
+			static List<EmptyRecycleBinResult>	emptyRecycleBin(List<ID> 		recordsToEmpty)
+			static List<EmptyRecycleBinResult>	emptyRecycleBin(List<SObject>	recordsToEmpty)
+		Convert Lead
+			static LeadConvertResult 		convertLead(LeadConvert 		leadToConvert,  Boolean opt_allOrNone)
+			static List<LeadConvertResult>	convertLead(List<LeadConvert>	leadsToConvert, Boolean opt_allOrNone)
+		Merge
+			static List<MergeResult>	merge(sObject master, List<Id> 		duplicates)
+			static List<MergeResult>	merge(SObject master, List<Id> 		duplicates, Boolean allOrNone)
+			static List<MergeResult>	merge(sObject master, List<SObject> duplicates)
+			static List<MergeResult>	merge(SObject master, List<SObject> duplicates, Boolean allOrNone)
+			static MergeResult 			merge(SObject master, Id 			duplicate)
+			static MergeResult 			merge(SObject master, Id 			duplicate, Boolean allOrNothing)
+			static MergeResult 			merge(SObject master, SObject 		duplicate)
+			static MergeResult 			merge(sObject master, SObject		duplicate, Boolean allOrNone)
+	System.Search // SOSL
+		static List<List<SObject>> query(String query)
+
+DML result containers
+	Database.DeleteResult
+		Boolean isSuccess()
+		ID getId()
+		List<Error> getErrors()
+	Database.EmptyRecycleBinResult
+		List<Error> getErrors()
+		Id getId()
+		Boolean isSuccess()
+	Database.MergeResult
+		Boolean isSuccess()
+		Id getId()
+		List<Error> getErrors()
+		List<String> getMergedRecordIds()
+		List<String> getUpdatedRelatedIds()
+	Database.UndeleteResult
+		Boolean isSuccess()			
+		Id getId()
+		List<Error> getErrors()
+	Database.UpsertResult
+		Boolean isCreated()
+		Boolean isSuccess()			
+		Id getId()
+		List<Error> getErrors()	
+	Database.LeadConvertResult
+		Boolean isSuccess()
+		ID getAccountId()
+		ID getContactId()
+		ID getLeadId()
+		ID getOpportunityId()
+		List<Error> getErrors()
+	Database.GetDeletedResult
+		List<DeletedRecord> getDeletedRecords()
+		Date getEarliestDateAvailable()
+		Date getLatestDateCovered()
+	Database.DeletedRecord
+		Date getDeletedDate()
+		Id getId()
+	Database.GetUpdatedResult
+		List<Id> getIds()
+		Date getLatestDateCovered()
+	Database.SaveResult
+		Boolean isSuccess()			
+		Id getId()
+		List<Error> getErrors()
+	Database.LeadConvert
+		LeadConvert() just a builder bean thingy
+		Boolean isDoNotCreateOpportunity()
+		Boolean isOverWriteLeadSource()
+		Boolean isSendNotificationEmail()
+		ID getAccountId()
+		ID getContactId()
+		ID getLeadID()
+		ID getOwnerID()
+		String getConvertedStatus()
+		String getOpportunityName()
+		Void setAccountId(ID accountID)
+		Void setContactId(ID contactID)
+		Void setConvertedStatus(String Status)
+		Void setDoNotCreateOpportunity(Boolean createOpportunity)
+		Void setLeadId(ID leadID)
+		Void setOpportunityName(String OppName)
+		Void setOverwriteLeadSource(Boolean overwriteLeadSource)
+		Void setOwnerId(ID ownerID)
+		Void setSendNotificationEmail(Boolean sendEmail)
+
+Reflection
+	Schema.ChildRelationship
+		Boolean isCascadeDelete()
+		Boolean isDeprecatedAndHidden()
+		Boolean isRestrictedDelete()
+		SObjectField getField()
+		SObjectType getChildSObject()
+		String getRelationshipName()
+	Schema.DataCategory
+		List<DataCategory> getChildCategories()
+		String getLabel()
+		String getName()
+	Schema.DataCategoryGroupSobjectTypePair
+		DataCategoryGroupSobjectTypePair()
+		String getDataCategoryGroupName()
+		String getSobject()
+		String setDataCategoryGroupName(String name)
+		Void setSobject(String sObjectName)
+	Schema.DescribeColorResult
+		String getColor()
+		String getContext()
+		String getTheme()
+	Schema.DescribeFieldResult
+		Boolean isAccessible()
+		Boolean isAutoNumber()
+		Boolean isCalculated()
+		Boolean isCascadeDelete()
+		Boolean isCaseSensitive()
+		Boolean isCreateable()
+		Boolean isCustom()
+		Boolean isDefaultedOnCreate()
+		Boolean isDependentPicklist()
+		Boolean isDeprecatedAndHidden()
+		Boolean isExternalID()
+		Boolean isFilterable()
+		Boolean isGroupable()
+		Boolean isHtmlFormatted()
+		Boolean isIdLookup()
+		Boolean isNameField()
+		Boolean isNamePointing()
+		Boolean isNillable()
+		Boolean isPermissionable()
+		Boolean isRestrictedDelete()
+		Boolean isRestrictedPicklist()
+		Boolean isSortable()
+		Boolean isUnique()
+		Boolean isUpdateable()
+		Boolean isWriteRequiresMasterRead()
+		DisplayType getType()
+		Integer getByteLength()
+		Integer getDigits()
+		Integer getLength()
+		Integer getPrecision()
+		Integer getRelationshipOrder()
+		Integer getScale()
+		List<PicklistEntry> getPicklistValues()
+		List<SObjectType> getReferenceTo()
+		Object getDefaultValue()
+		SOAPType getSOAPType()
+		SObjectField getController()
+		SObjectField getSObjectField()
+		String getCalculatedFormula()
+		String getDefaultValueFormula()
+		String getInlineHelpText()
+		String getLabel()
+		String getLocalName()
+		String getName()
+		String getReferenceTargetField()
+		String getRelationshipName()
+	Schema.DescribeIconResult
+		String getContentType()
+		Integer getHeight()
+		String getTheme()
+		String getUrl()
+		Integer getWidth()
+	Schema.DescribeSObjectResult
+		Boolean isAccessible()
+		Boolean isCreateable()
+		Boolean isCustom()
+		Boolean isCustomSetting()
+		Boolean isDeletable()
+		Boolean isDeprecatedAndHidden()
+		Boolean isFeedEnabled()
+		Boolean isMergeable()
+		Boolean isQueryable()
+		Boolean isSearchable()
+		Boolean isUndeletable()
+		Boolean isUpdateable()
+		List<ChildRelationship> getChildRelationships()
+		List<RecordTypeInfo> getRecordTypeInfos()
+		Map<Id, RecordTypeInfo> getRecordTypeInfosById()
+		Map<String, RecordTypeInfo> getRecordTypeInfosByName()
+		SObjectType getSobjectType()
+		SObjecTypeFields  fieldSets()
+		SObjecTypeFields fields()
+		String getKeyPrefix()
+		String getLabel()
+		String getLabelPlural()
+		String getLocalName()
+		String getName()
+	Schema.DescribeTabResult
+		Boolean isCustom()
+		List<DescribeColorResult> getColors()
+		List<DescribeIconResult> getIcons()
+		String getIconUrl()
+		String getLabel()
+		String getMiniIconUrl()
+		String getSobjectName()
+		String getUrl()
+	Schema.DescribeTabSetResult
+		Boolean isSelected()
+		List<DescribeTabeResult> getTabs()
+		String getLabel()
+		String getLogoUrl()
+		String getNamespace()
+	Schema.Describe​DataCategoryGroupResult
+		Integer getCategoryCount()
+		String getDescription()
+		String getLabel()
+		String getName()
+		String getSobject()
+	Schema.Describe​DataCategoryGroupStructureResult
+		String getDescription()
+		String getLabel()
+		String getName()
+		String getSobject()
+		List<DataCategory> getTopCategories()
+	Schema.FieldSet
+		String getDescription()
+		String getFields()
+		String getLabel()
+		String getName()
+		String getNamespace()
+		SObjectType getSObjectType()
+	Schema.FieldSetMember
+		Boolean getDBRequired()
+		Boolean getRequired()
+		DisplayType getType()
+		String getFieldPath()
+		String getLabel()
+	Schema.PicklistEntry
+		String getLabel()
+		String getValue()
+		Boolean isActive()
+		Boolean isDefaultValue()
+	Schema.RecordTypeInfo
+		Boolean isAvailable()
+		Boolean isDefaultRecordTypeMapping()
+		Id getRecordTypeId()
+		String getName()
+	Schema.SObjectField
+		DescribeFieldResult getDescribe()
+	Schema.SObjectType
+		DescribeSOjectResult getDescribe()
+		SObject newSObject()
+		SObject newSObject(ID)
+		SObject newSObject(ID, Boolean)
+	Schema.DisplayType Enum
+		anytype
+		base64
+		Boolean
+		Combobox
+		Currency
+		DataCategoryGroupReference
+		Date
+		DateTime
+		Double
+		Email
+		EncryptedString
+		ID
+		Integer
+		MultiPicklist
+		Percent
+		Phone
+		Picklist
+		Reference
+		String
+		TextArea
+		Time
+		URL
+	Schema.SOAPType Enum
+		anytype
+		base64binary
+		Boolean
+		Date
+		DateTime
+		Double
+		ID
+		Integer
+		String
+		Time
+	System.Schema
+		static Map<String, SObjectType> getGlobalDescribe()
+		static List<DescribeDataCategoryGroupResult> describeDataCategoryGroups(String List<String>)
+		static List<DescribeSObjectResult> describeSObjects(List<String> types)
+		static List<DescribeTabSetResult> describeTabs()
+		static List<DescribeDataCategoryGroupStructureResult> describeDataCategory GroupStructures(List<DataCategoryGroupSobjectTypePair> pairs)
+	System.Type
+		static Type forName(String fullyQualifiedName)
+		static Type forName(String namespace, String name)
+		Boolean equals(Object toCompare)
+		Integer hashCode()
+		Object newInstance()
+		String getName()
+		String toString()
+
+Jobs and stuff
+	Database.Batchable Interface
+		QueryLocator start(BatchableContext context)
+		System.Iterable start(BatchableContext context)
+		Void execute(BatchableContext context, List<sObject> scope)
+		Void finish(BatchableContext context)
+	Database.BatchableContext Interface
+		Id getChildJobId()
+		Id getJobId()
+	Database.QueryLocator
+		QueryLocatorIterator iterator()
+		String getQuery()
+	Database.QueryLocatorIterator
+		Boolean hasNext()
+		SObject next()
+	System.Queueable interface
+		Void execute(QueueableContext context)
+	System.QueueableContext interface
+		ID getJobId()
+	System.Schedulable interface
+		Void execute(SchedulableContext context)
+	System.SchedulableContext interface
+		Id getTriggerId()
+	System.System Jobs and tasks
+		static ID enqueueJob(Object queueableObj)
+		static Integer purgeOldAsyncJobs(Date dt)
+		static String schedule(String JobName, String CronExpression, Object schedulable_class)
+		static String scheduleBatch(Database.Batchable batchable, String jobName, Integer minutesFromNow)
+		static String scheduleBatch(Database.Batchable batchable, String jobName, Integer minutesFromNow, Integer scopeSize)
+		static Void abortJob(String Job_ID)
+		static Void runAs(Version version)
+		static Void runAs(User user_var)
+
+Visual Force
+	ApexPages.Action
+		Action(String actionName)
+		String getExpression()
+		System.PageReference invoke()
+	ApexPages.Component
+		Component childComponents
+		String expressions
+		String facets
+	System.ApexPages
+		Boolean hasMessages()
+		Boolean hasMessages(Severity s)
+		List<Message> getMessages()
+		PageReference currentPage()
+		Void addMessage(Message m)
+		Void addMessages(Exception e)
+	ApexPages.Message
+		Message(Severity, summary)
+		Message(Severity, summary, detail)
+		Severity getSeverity()
+		String getComponentLabel()
+		String getDetail()
+		String getSummary()
+	ApexPages.Severity Enum
+		[CONFIRM, ERROR, FATAL, INFO, WARNING]
+	System.RemoteObjectController
+		static Map<String,Object> create(String type, Map<String,Object> fields)
+		static Map<String,Object> del(String type, List<String> recordIds)
+		static Map<String,Object> retrieve(String type, List<String> fields, Map<String,Object> criteria)
+		static Map<String,Object> update(String type, List<String> recordIds, Map<String,Object> fields)
+	System.Test for Visual Force
+		static Void setCurrentPage(PageReference page)
+		static Void setCurrentPageReference(PageReference page)
+	System.System visual force
+		static PageReference currentPageReference()
+
+Visual Force Controllers
+	ApexPages.StandardController
+		StandardController(SObject)
+		SObject getRecord()
+		String getId()
+		System.PageReference cancel()
+		System.PageReference cancel()
+		System.PageReference delete()
+		System.pageReference save()
+		System.pageReference view()
+		Void addFields(List<String> fieldNames)
+		Void reset()
+	ApexPages.StandardSetController
+		StandardSetController(Database.QueryLocator)
+		StandardSetController(List<SObject>)
+		Boolean getCompleteResult()
+		Boolean getHasNext()
+		Boolean getHasPrevious()
+		Integer getPageNumber()
+		Integer getPageSize()
+		Integer getResultSize()
+		List<SObject> getRecords()
+		List<SObject> getSelected()
+		List<System.SelectOption> getListViewOptions()
+		SObject getRecord()
+		String getFilterId()
+		System.PageReference cancel()
+		System.PageReference save()
+		Void first()
+		Void last()
+		Void next()
+		Void setFilterId(String filterId)
+		Void setPageNumber(Integer pageNumber)
+		Void setPageSize(Integer pageSize)
+		Void setSelected(List<SObject> selectedRecords)
+	System.SelectOption
+		SelectOption(String value, String label)
+		SelectOption(String value, String label, Boolean isDisabled)
+		Boolean getDisabled()
+		Boolean getEscapeItem()
+		String getLabel()
+		String getValue()
+		Void setDisabled(Boolean isDisabled)
+		Void setEscapeItem(Boolean itemsEscaped)
+		Void setLabel(String label)
+		Void setValue(String value)
+
+Web datatypes
+	System.Blob
+		Integer size()
+		Blob toPdf(String stringToConvert)
+		String toString()
+		Blob valueOf(String other)
+	Dom.Document
+		Document()
+		String toXmlString()
+		Void load(String xml)
+		XmlNode createRootElement(String name, String namespace, String prefix)
+		XmlNode getRootElement()
+	Dom.XmlNode
+		Boolean removeAttribute(String key, String keyNamespace)
+		Boolean removeChild(XmlNode childNode)
+		Integer getAttributeCount()
+		List<XmlNode> getChildElements()
+		List<XmlNode> getChildren()
+		String getAttribute(String key, String keyNamespace)
+		String getAttributeKeyAt(Integer index)
+		String getAttributeKeyNsAt(Integer index)
+		String getAttributeValue(String key, String keyNamespace)
+		String getAttributeValueNs(String key, String keyNamespace)
+		String getName()
+		String getNamespace()
+		String getNamespaceFor(String prefix)
+		String getPrefixFor(String namespace)
+		String getText()
+		Void setAttribute(String key, String value)
+		Void setAttributeNs(String key, String value, String keyNamespace, String valueNamespace)
+		Void setNamespace(String prefix, String namespace)
+		XmlNode addChildElement(String name, String namespace, String prefix)
+		XmlNode addCommentNode(String text)
+		XmlNode addTextNode(String text)
+		XmlNode getChildElement(String name, String namespace)
+		XmlNode getParent()
+		XmlNodeType getNodeType()
+	System.JSON
+		static JSONGenerator createGenerator(Boolean pretty)
+		static JSONParser createParser(String jsonString)
+		static Object deserialize(String jsonString, System.Type apexType)
+		static Object deserializeStrict(String jsonString, System.Type apexType)      
+		static Object deserializeUntyped(String jsonString)
+		static String serialize(anyType object)
+		static String serializePretty(Object anyType) 
+	System.JSONGenerator
+		Boolean isClosed()
+		String getAsString()
+		Void close()
+		Void writeBlob(Blob blobValue)
+		Void writeBlobField(String fieldName, Blob blobValue)
+		Void writeBoolean(Boolean blobValue)
+		Void writeBooleanField(String fieldName, Boolean booleanValue)
+		Void writeDate(Date dateValue)
+		Void writeDateField(String fieldName, Date dateValue)
+		Void writeDateTime(Datetime datetimeValue)
+		Void writeDateTimeField(String fieldName, Datetime datetimeValue)
+		Void writeEndArray()
+		Void writeEndObject()
+		Void writeFieldName(String fieldName)
+		Void writeId(ID identifier)
+		Void writeIdField(String fieldName, Id identifier)
+		Void writeNull()
+		Void writeNullField(String fieldName)
+		Void writeNumber(Decimal number)
+		Void writeNumber(Double number)
+		Void writeNumber(Integer number)
+		Void writeNumber(Long number)
+		Void writeNumberField(String fieldName, Decimal number)
+	System.JSONParser
+		Blob getBlobValue()
+		Boolean getBooleanValue()
+		Boolean hasCurrentToken()
+		Date getDateValue()
+		Datetime getDatetimeValue()
+		Decimal getDecimalValue()
+		Double getDoubleValue()
+		ID getIdValue()
+		Integer getIntegerValue()
+		Long getLongValue()
+		Object readValueAs(System.Type apexType)
+		Object readValueAsStrict(System.Type apexType)
+		String getCurrentName()
+		String getText()
+		System.JSONToken getCurrentToken()
+		System.JSONToken getLastClearedToken()
+		System.JSONToken nextToken()
+		System.JSONToken nextValue()
+		Time getTimeValue()
+		Void clearCurrentToken()
+		Void skipChildren()
+	System.RestContext
+		RestRequest request {get; set;}
+		RestResponse response {get; set;}
+	System.RestRequest
+		RestRequest()
+		Blob requestBody {get; set;}
+		Map<String,String> headers {get; set;}
+		Map<String,String> params {get; set;}
+		String httpMethod {get; set;}
+		String remoteAddress {get; set;}
+		String requestURI {get; set;}
+		String resourcePath {get; set;}
+		Void addHeader(String name, String value)
+		Void addParameter(String name, String value)		 
+	System.RestResponse
+		RestResponse()
+		Blob responseBody {get; set;}
+		Integer statuscode {get; set;}
+		Map<String,String> headers {get; set;}
+		Void addHeader(String name, String value)
+
+Internet
+	Site.UrlRewriter Interface
+		List<PageReference> generateUrlFor(List<PageReference> urls)
+		PageReference mapRequestUrl(PageReference url)
+	System.Cookie
+		Cookie(String name, String value, String path, Integer maxAge, Boolean isSecure)
+		Boolean isSecure()
+		Integer getMaxAge()
+		String getDomain()
+		String getName()
+		String getPath()
+		String getValue()
+	System.EncodingUtil
+		static Blob base64Decode(String inputString)
+		static Blob convertToHex(String inputString)
+		static String base64Encode(Blob inputBlob)
+		static String convertToHex(Blob inputString)
+		static String urlDecode(String inputString, String encodingScheme)
+		static String urlEncode(String inputString, String encodingScheme)
+	System.PageReference
+		PageReference(SObject record)
+		PageReference(String partialURL)
+		Blob getContent()
+		Blob getContentAsPDF()
+		Boolean getRedirect()
+		Map<String,List<Cookie>> getCookies()
+		Map<String,String> getHeaders()
+		Map<String,String> getParameters()
+		PageReference setAnchor(String anchor)
+		PageReference setRedirect(Boolean redirect)
+		String getAnchor()
+		String getUrl()
+		Void setCookies(List<Cookie> cookies)
+	System.URL
+		Url(String spec)
+		Url(Url context, String spec)
+		Url(String protocol, String host, String file)
+		Url(String protocol, String host, Integer port, String file)
+		static Url getCurrentRequestUrl()
+		Boolean sameFile(Url urlToCompare)
+		Integer getDefaultPort()
+		Integer getPort()
+		static String getFileFieldURL(String entityId, String fieldName)
+		static System.URL getSalesforceBaseUrl()
+		String getAuthority()
+		String getFile()
+		String getHost()
+		String getPath()
+		String getProtocol()
+		String getQuery()
+		String getRef()
+		String getUserInfo()
+		String toExternalForm()
+
+HTTP
+	System.Http
+		HttpResponse send(HttpRequest request)
+		String toString()
+	System.HttpCalloutMock
+		HttpResponse respond(HttpRequest request)
+	System.HttpRequest
+		HttpRequest()
+		Blob getBodyAsBlob()
+		Boolean getCompressed()
+		Dom.Document getBodyDocument()
+		String getBody()
+		String getEndpoint()
+		String getHeader(String key)
+		String getMethod()
+		String toString()
+		Void setBody(String body)
+		Void setBodyAsBlob(Blob body)
+		Void setBodyDocument(Dom.Document document)
+		Void setClientCertificate(String clientCert, String password)
+		Void setClientCertificateName(String certDevName)
+		Void setCompressed(Boolean flag)
+		Void setEndpoint(String endpoint)
+		Void setHeader(String key, String Value)
+		Void setMethod(String method)
+		Void setTimeout(Integer timeout)
+	System.HttpResponse
+		Blob getBodyAsBlob()
+		Document getBodyDocument()
+		Integer getStatusCode()
+		List<String> getHeaderKeys()
+		String getBody()
+		String getHeader(String key)
+		String getStatus()
+		String toString()
+		Void setBody(String body)
+		Void setBodyAsBlob(Blob body)
+		Void setHeader(String key, String value)
+		Void setStatus(String status)
+		Void setStatusCode(Integer statusCode)
+		XmlStreamReader getXmlStreamReader() 
+
+Packaging
+	System.InstallHandler interface
+		Void onInstall(InstallContext context)
+	System.UninstallHandler interface
+		Void onUninstall(UninstallContext context)
+	System.test for packages
+		static Void testInstall(InstallHandler installImp, Version ver, Boolean isPush)
+		static Void testUninstall(UninstallHandler uninstImp)
+	System.System for packages
+		static Version requestVersion() // request is not supported from an unmanaged namespace
+	System.Version
+		Version(Integer major, Integer minor)
+		Version(Integer major, Integer minor, Integer patch)
+		Integer compareTo(Version version)
+		Integer major()
+		Integer minor()
+		Integer patch()
+
+Callouts
+	System.WebServiceCallout
+		static Void invoke(Object stub, Object request, Map<String,Object> response, List<String> info)
+	System.MultiStaticResourceCalloutMock
+		MultiStaticResourceCalloutMock()
+		Void setHeader(String headerName, String headerValue)
+		Void setStaticResource(String endpoint, String resourceName)
+		Void setStatus(String httpStatus)
+		Void setStatusCode(Integer httpStatusCode)
+	System.StaticResourceCalloutMock
+		StaticResourceCalloutMock()
+		Void setHeader(String headerName, String headerValue)
+		Void setStaticResource(String resourceName)
+		Void setStatus(String httpStatus)
+		Void setStatusCode(Integer httpStatusCode)
+	System.WebServiceMock interface
+		Void doInvoke(Object stub, Object request, Map<String,Object> response, String endpoint,
+		String soapAction, String requestName, String responseNS, String responseName, String responseType)
+	System.test for callouts
+		static Void setMock(Type interfaceType, Object instance) // for callouts
+
+Security
+	Auth.AuthConfiguration
+		AuthConfiguration(String cURL, String startURL)
+		AuthConfig getAuthConfig()
+		Boolean getSelfRegistrationEnabled()
+		Boolean getUsernamePasswordEnabled()
+		List<AuthConfigProviders> getAuthConfigProviders()
+		List<AuthProvider> getAuthProviders()
+		List<SamlSsoConfig> getSamlProviders()
+		String getAuthProviderSsoUrl(String cUrl, String startUrl, String developerName)
+		String getBackgroundColor()
+		String getDefaultProfileForRegistration()
+		String getFooterText()
+		String getLogoUrl()
+		String getSamlSsoUrl(String cUrl, String startURL, String samlId)
+		String getSelfRegistrationUrl()
+		String getStartUrl()
+	Auth.AuthToken
+		Map<String, String> getAccessTokenMap(String authProviderId, String providerName)
+		Map<String, String> refreshAccessToken(String authProviderId, String providerName, String oldAccessToken)
+		String getAccessToken(String authProviderId, String providerName)
+	Auth.CommunitiesUtil
+		static Boolean isGuestUser()
+		static Boolean isInternalUser()
+		static String getLogoutUrl()
+		static String getUserDisplayName()
+	Auth.RegistrationHandler Interface
+		User createUser(ID portalId, Auth.UserData userData)
+		Void updateUser(ID userId, ID portalId, Auth.UserData userData)
+	Auth.SessionManagement
+		static Boolean inOrgNetworkRange(String ipAddress)
+		static Map<String, String> getCurrentSession()
+		static Map<String, String> getQrCode()
+	Auth.SessionLevel Enum
+		[LOW, STANDARD, HIGH_ASSURANCE]
+	Auth.UserData
+		UserData(String identifier, String firstName, String lastName, String fullName, String email,
+			String link, String userName, String locale, String provider, String siteLoginUrl,
+			Map<String, String> attributeMap)
+		just a bean (all these fields have getters and setters)
+	System.Crypto
+		static Blob decrypt				(String algorithmName, Blob privateKey, Blob initializationVector, Blob cipherText)
+		static Blob decryptWithManagedIV(String algorithmName, Blob privateKey,							Blob ivAndCipherText)
+		static Blob encrypt				(String algorithmName, Blob privateKey, Blob initializationVector, Blob clearText)
+		static Blob encryptWithManagedIV(String algorithmName, Blob privateKey,							Blob clearText)
+		static Blob signWithCertificate	(String algorithmName, Blob input, String certDevName)
+		static Blob signXML				(XmlNode node, 			String idAttributeName, String certDevName)
+		static Blob generateDigest		(String algorithmName, Blob input)
+		static Blob generateMac			(String algorithmName, Blob input, Blob privateKey)
+		static Blob sign				(String algorithmName, Blob input, Blob privateKey)
+		static Blob generateAesKey(Integer size)
+		static Integer getRandomInteger()
+		static Long getRandomLong()
+	System.Site
+		static Boolean forgotPassword(String username)
+		static Boolean isLoginEnabled()
+		static Boolean isPasswordExpired()
+		static Boolean isRegistrationEnabled()
+		static ID createPersonAccountPortalUser(sObject user, String ownerId, String password)
+		static ID createPersonAccountPortalUser(sObject user, String ownerId, String recordTypeId, String password)
+		static ID createPortalUser(sObject user, String accountId, String opt_password, Boolean opt_sendEmailConfirmation)
+		static ID getAdminId()
+		static PageReference changePassword(String newpassword, String verifynewpassword, String opt_oldpassword)
+		static PageReference getTemplate()
+		static PageReference login(String username, String password, String startUrl)
+		static String getAdminEmail()
+		static String getAnalyticsTrackingCode()
+		static String getBaseCustomUrl()
+		static String getBaseInsecureUrl()
+		static String getBaseRequestUrl()
+		static String getBaseSecureUrl()
+		static String getBaseUrl()
+		static String getCurrentSiteUrl()
+		static String getCustomWebAddress()
+		static String getDomain()
+		static String getErrorDescription()
+		static String getErrorMessage()
+		static String getMasterLabel()
+		static String getName()
+		static String getOriginalUrl()
+		static String getPathPrefix()
+		static String getPrefix()
+		static String getSiteId()
+		static String getSiteType()
+		static String getSyteTypeLabel()
+		static Void setPortalUserAsAuthProvider(sObject user, String contactId)
+	System.System Reset Passwords
+		static ResetPasswordResult resetPassword(ID userID, Boolean send_user_email)
+		static Void setPassword(ID userID, String password)
+	System.ResetPasswordResult
+		String getPassword()
+
+Email
+ 	Messaging.Email 
+		Void setBccSender(Boolean bcc)
+		Void setReplyTo(String replyAddress)
+		Void setTemplateID(ID templateID)
+		Void setSaveAsActivity(Boolean saveAsActivity)
+		Void setSenderDisplayName(String displayName)
+		Void setUseSignature(Boolean useSignature)
+	Messaging.EmailFileAttachment
+		EmailFileAttachment()
+		Void setBody(Blob attachment)
+		Void setContentType(String content_type)
+		Void setFileName(String file_name)
+		Void setInline(Boolean Content-Disposition)
+	Messaging.InboundEmail
+		InboundEmail()
+		Boolean htmlBodyIsTruncated
+		List<BinaryAttachment> binaryAttachments
+		List<Header> headers
+		List<String> ccAddresses
+		List<String> references
+		List<String> toAddresses
+		List<TextAttachment> textAttachements
+		String fromAddress
+		String fromName
+		String htmlBody
+		String inReplyTo
+		String messageId
+		String plainTextBodyIsTruncated
+		String replyTo
+		String subject
+		BinaryAttachment inner class
+			BinaryAttachment()
+			Blob body
+			List<Header> headers
+			String fileName
+			String mimeSubType
+		TextAttachment inner class
+			TextAttachment()
+			Boolean bodyIsTruncated
+			List<Header> headers
+			String body
+			String charset
+			String fileName
+			String mimeTypeSubType
+		Header inner class
+			String name
+			String value
+	Messaging.InboundEmailResult 
+		String message
+		Boolean success
+	Messaging.InboundEnvelope 
+		String fromAddress
+		String toAddress
+	Messaging.MassEmailMessage 
+		MassEmailMessage()
+		Void setDescription(String description)
+		Void setTargetObjectIds(List<Id> targetObjectIds)
+		Void setWhatIds(List<Id> whatIds)
+	Messaging.PushNotification
+		PushNotification()
+		PushNotification(Map<String, Object> payload)
+		void send(String application, Set<String> users)
+		void setPayload(Map<String, Object> payload)
+		void setTtl(Integer ttl)
+	Messaging.PushNotificationPayload
+		static Map<String, Object> apple(
+			String alert, String sound, Integer badgeCount, Map<String, Object> userData)
+		static Map<String, Object> apple(
+			String alertBody, String actionLocKey, String locKey, String[] locArgs, String launchImage,
+			String sound, Integer badgeCount, Map<String, Object> userData)
+	Messaging.SendEmailError
+		List<String> getFields()
+		String getMessage()
+		String getTargetObjectId()
+		System.StatusCode getStatusCode()
+	Messaging.SendEmailResult 
+		List<SendEmailError> getErrors()
+		Boolean isSuccess()
+	Messaging.SingleEmailMessage
+		SingleEmailMessage() 
+		Void setBccAddresses(List<String> bccAddresses)
+		Void setCcAddresses(List<String> ccAddresses)
+		Void setCharset(String charset)
+		Void setDocumentAttachments(List<ID> docAttachments)
+		Void setFileAttachments(List<EmailFileAttachment> fileAttachments)
+		Void setHtmlBody(String htmlBody)
+		Void setInReplyTo(String inReplyTo)
+		Void setPlainTextBody(String plainTextBody)
+		Void setOrgWideEmailAddressId(ID emailAddressId)
+		Void setReferences(String references)
+		Void setSubject(String subject)
+		Void setTargetObjectId(ID targetObjectId)
+		Void setToAddresses(List<String> toAddresses)
+		Void setWhatId(ID whatId)
+	System.Messaging
+		List<SendEmailResult> sendEmail(List<Email> emails, Boolean allOrNothing)
+		List<SendEmailResult> sendEmailMessage(List<ID> emailMessageIds, Boolean allOrNothing)		 
+		Void reserveMassEmailCapacity(Integer amountReserved)
+		Void reserveSingleEmailCapacity(Integer amountReserved)
+
+Process and Flow
+	Process.Plugin Interface
+		PluginDescribeResult describe()
+		PluginResult invoke(PluginRequest request)
+	Process.PluginDescribeResult
+		PluginDescribeResult()
+		List<InputParameter> inputParameters
+		List<OutputParameter> outputParameters
+		String description
+		String name
+		String tag
+		InputParameter inner class
+			InputParameter(String name, String description, ParameterType parameterType, Boolean required)
+			InputParameter(String name,					    ParameterType parameterType, Boolean required)
+			Boolean required
+			ParameterType parameterType 
+			String description
+			String name
+		OutputParameter inner class
+			OutputParameter(String name, String description, ParameterType parameterType)
+			OutputParameter(String name,					 ParameterType parameterType)
+			ParameterType parameterType 
+			String description
+			String name
+	Process.PluginRequest
+		Map<String,Object> inputParameters
+	Process.PluginResult
+		Map<String,Object> outputParameters
+	Flow.Interview
+		Object getVariableValue(String variableName)
+		Void start()
+
+Knowledgebase and communities
+	KbManagement.PublishingService
+		static String editArchivedArticle(String articleId)
+		static String editOnlineArticle(String articleId, Boolean unpublish)
+		static String editPublishedTranslation(String articleId, String language, Boolean unpublish)
+		static String restoreOldVersion(String articleId, Integer versionNumber)
+		static String submitForTranslation(String articleId, String language, String assigneeID, Datetime dueDate)
+		static Void archiveOnlineArticle(String articleId, Datetime scheduledDate)
+		static Void assignDraftArticleTask(String articleId, String assigneeID, String instructions, Datetime dueDate, Boolean sendEmailNotification)
+		static Void assignDraftTranslationTask(String articleVersionId, String assigneeID, String instructions, Datetime dueDate, Boolean sendEmailNotification)
+		static Void cancelScheduledArchivingOfArticle(String articleId)
+		static Void cancelScheduledPublicationOfArticle(String articleId)
+		static Void completeTranslation(String articleVersionId)
+		static Void deleteArchivedArticle(String articleId)
+		static Void deleteArchivedArticleVersion(String articleId, Integer versionNumber)
+		static Void deleteDraftArticle(String articleId)
+		static Void deleteDraftTranslation(String articleVersionId)
+		static Void publishArticle(String articleId, Boolean flagAsNew)
+		static Void scheduleForPublication(String articleId, Datetime scheduledDate)
+		static Void setTranslationToIncomplete(String articleVersionId)
+	ApexPages.KnowledgeArticleVersionStandardController extends StandardController
+		String getSourceId()
+		Void setDataCategory(String categoryGroup, String category)
+	System.Answers
+		List<Id> findSimilar(Question q)
+		Void setBestReply(String questionId, String replyId)
+	System.Ideas
+		static List<Id> findSimilar(Idea idea)
+		static List<Id> getAllRecentReplies(String userID, String communityID)
+		static List<Id> getReadRecentReplies(String userID, String communityID)
+		static List<Id> getUnreadRecentReplies(String userID, String communityID)
+		static Void markRead(String ideaID)		 
+	System.Network // represents a community
+		public Network()
+		static Integer loadAllPackageDefaultNetworkDashboardSettings()
+		static PageReference forwardToAuthPage(String startURL)
+		static String communitiesLanding()
+		static String getLoginUrl(String networkId)
+		static String getLogoutUrl(String networkId)
+		static String getNetworkId()
+		static String getSelfRegUrl(String networkId)
+	ApexPages.IdeaStandardController extends StandardController
+		List<IdeaComment> getCommentList()
+	ApexPages.IdeaStandardSetController extends StandardSetController
+		List<IdeaComment> getCommentList()
+
+Support
+	Support.EmailTemplateSelector Interface
+		Id getDefaultTemplateId(Id caseId)
+	Support.MilestoneTriggerTimeCalculator Interface
+		Integer calculateMilestoneTriggerTime(String caseId, String milestoneTypeId)
+	System.BusinessHours
+		status Datetime add(String businessHoursId, Datetime startDate, Long interval)
+		status Datetime addGmt(String businessHoursId, Datetime startDate, Long interval)
+		static Long diff(String businessHoursId, Datetime startDate, Datetime endDate)
+	System.Cases
+		static ID getCaseIdFromEmailThreadId(String emailThreadId)
+
+Approvals
+	Approval.ProcessRequest
+		List<ID> getNextApproverIds()
+		String getComments()
+		Void setComments(String comments)
+		Void setNextApproverIds(List<ID> nextApproverIds)
+	Approval.ProcessResult
+		Boolean isSuccess()
+		List<Error> getErrors()
+		List<ID> getNewWorkitemIds()
+		String getEntityId()
+		String getInstanceId()
+		String getInstanceStatus()
+	Approval.ProcessSubmitRequest
+		ProcessSubmitRequest()
+		Boolean getSkipEntryCriteria()
+		String getObjectId()
+		String getProcessDefinitionNameOrId()
+		String getSubmitterId()
+		Void setObjectId(String Id)
+		Void setProcessDefinitionNameOrId(String nameOrId)
+		Void setSkipEntryCriteria(Boolean entryCriteria)
+		Void setSubmitterId(String userID)
+	Approval.ProcessWorkitemRequest
+		ProcessWorkitemRequest()
+		String getAction()
+		String getWorkitemId()
+		Void setAction(String s) s must be one of 'Approve', 'Reject', or 'Removed'
+		Void setWorkitemId(String Id)
+	System.Approval
+		ProcessResult process(ProcessRequest processRequest)
+		ProcessResult process(ProcessRequest processRequest, Boolean opt_allOrNone)
+		ProcessResult process(List<ProcessRequest> processRequests)
+		ProcessResult process(List<ProcessRequest> processRequests, Boolean opt_allOrNone)
+	System.System Approvals
+		static List<Id> process(List<Id> WorkItemIDs, String Action, String Comments, String NextApprover)
+		static List<ID> submit(List<ID> workItemIDs, String Comments, String NextApprover)
+
+Canvas
+	Canvas.ApplicationContext Interface
+		String getCanvasUrl()
+		String getDeveloperName()
+		String getName()
+		String getNamespace()
+		String getVersion()
+		Void setCanvasUrlPath(String newPath)
+	Canvas.CanvasLifecycleHandler Interface
+		Set<Canvas.ContextTypeEnum> excludeContextTypes()
+		Void onRender(Canvas.RenderContext renderContext)
+	Canvas.ContextTypeEnum Enum
+		[ORGANZIATION, RECORD_DETAIL, USER]
+	Canvas.EnvironmentContext Interface
+		List<String> getEntityFields()
+		String getDisplayLocation()
+		String getLocationUrl()
+		String getParametersAsJSON()
+		String getSublocation()
+		void addEntityField(String fieldName)
+		void addEntityFields(Set<String> fieldNames)
+		void setParametersAsJSON(String jsonString)
+	Canvas.RenderContext Interface
+		Canvas.ApplicationContext getApplicationContext()
+		Canvas.EnvironmentContext getEnvironmentContext()
+	Canvas.Test
+		KEY_CANVAS_URL			URL key in the ApplicationContext
+		KEY_DEVELOPER_NAME		developer or API name key in the ApplicationContext
+		KEY_DISPLAY_LOCATION	display location key in the EnvironmentContext
+		KEY_LOCATION_URL		location URL key in the EnvironmentContext
+		KEY_NAME				name key in the ApplicationContext
+		KEY_NAMESPACE			namespace key in the ApplicationContext
+		KEY_SUB_LOCATION		sublocation key in the EnvironmentContext
+		KEY_VERSION				version key in the ApplicationContext
+		static Canvas.RenderContext mockRenderContext(
+			Map<String,String> appContextTestValues,
+			Map<String,String> envContextTestValues)
+		static Void testCanvasLifecycle(
+			Canvas.CanvasLifecycleHandler lifecycleHandler,
+			Canvas.RenderContext mockRenderContext)
+	Canvas.CanvasRenderException extends Exception
+
+Chatter
+	ChatterAnswers.AccountCreator Interface
+		String createAccount(String firstname, String lastname, Id siteAdminId)
+	ConnectApi.Announcements
+	ConnectApi.Chatter
+	ConnectApi.ChatterFavorites
+	ConnectApi.ChatterFeeds
+	ConnectApi.ChatterGroups
+	ConnectApi.ChatterMessages
+	ConnectApi.ChatterUsers
+	ConnectApi.Communities
+	ConnectApi.CommunityModeration
+	ConnectApi.Datacloud
+	ConnectApi.ManagedTopics
+	ConnectApi.Mentions
+	ConnectApi.Organization
+	ConnectApi.QuestionAndAnswers
+	ConnectApi.RecordDetails
+	ConnectApi.Records
+	ConnectApi.Topics
+	ConnectApi.UserProfiles
+	ConnectApi.Zones
+	ConnectApi.ConnectApi Inputes
+	ConnectApi.ConnectApi Outputes
+	ConnectApi.ConnectApi Enums
+	ConnectApi.ConnectApi Exceptions
+	QuickAction.DescribeAvailableQuickActionResult
+		String getLabel()
+		String getName()
+		String getType()
+	QuickAction.DescribeLayoutComponent
+		Integer getDisplayLines()
+		String getType()
+		String getValue()
+	QuickAction.DescribeLayoutItem
+		Boolean isEditable()
+		Boolean isPlaceholder()
+		Boolean isRequired()
+		List<DescribeLayoutComponent> getLayoutComponents()
+		String getLabel()
+	QuickAction.DescribeLayoutRow
+		Integer getNumItems()
+		List<DescribeLayoutItem> getLayoutItems()
+	QuickAction.DescribeLayoutSection
+		Boolean isUseCollapsibleSection()
+		Boolean isUseHeading()
+		Integer getColumns()
+		Integer getRows()
+		List<DiscribeLayoutRow> getLayoutRows()
+		String getHeading()
+	QuickAction.DescribeQuickActionDefaultValue
+		String getDefaultValue()
+		String getField()
+	QuickAction.DescribeQuickActionResult
+		DescribeLayoutSection getLayout()
+		Integer getHeight()
+		Integer getWidth()
+		List<DescribeIconResult> getIcons()
+		List<DescribeQuickActionDefaultValue> getDefaultValues()
+		String getCanvasApplicationName()
+		String getIconName()
+		String getIconUrl()
+		String getLabel()
+		String getMiniIconUrl()
+		String getName()
+		String getSourceSobjectType()
+		String getTargetParentField()
+		String getTargetRecordTypeId()
+		String getTargetSobjectType()
+		String getType()
+		String getVisualforcePageName()
+	QuickAction.QuickActionRequest
+		QuickActionRequest()
+		Id getContextId()
+		SObject getRecord()
+		String getQuickActionName()
+		Void setContextId(Id)
+		Void setQuickActionName(String)
+		Void setRecord(SObject)
+	QuickAction.QuickActionResult
+		List<Error> getErrors()
+		List<Id> getIds()
+		Boolean isCreated()
+		Boolean isSuccess()
+	System.QuickAction
+		static List<DescribeAvailableQuickActionResult> describeAvailableQuickActions(String parentType)
+		static List<DescribeQuickActionResult> describeAvailableQuickActions(List<String> sObjectNames)
+		static QuickActionResult performQuickAction(QuickActionRequest performQuickAction)
+		static QuickActionResult performQuickAction(QuickActionRequest performQuickAction, Boolean allOrNothing)
+		static List<QuickActionResult> performQuickActions(List<QuickActionRequest> performQuickActions)
+		static List<QuickActionResult> performQuickActions(List<QuickActionRequest> performQuickActions, Boolean allOrNothing)
+
+Reports
+	Reports.AggregateColumn
+		ColumnDataType getDataType()
+		String getAcrossGroupingContext()
+		String getDownGroupingContext()
+		String getLabel()
+		String getName()
+	Reports.DetailColumn
+		ColumnDataType getDataType()
+		String getLabel()
+		String getName()
+	Reports.Dimension
+		List<GroupingValue> getGroupings()
+	Reports.FilterOperator
+		String getLabel()
+		String getName()			
+	Reports.FilterValue
+		String getLabel()
+		String getName()			
+	Reports.GroupingColumn
+		ColumnDataType getDataType()
+		getGroupingLevel Integer
+		String getLabel()
+		String getName()			
+	Reports.GroupingInfo
+		ColumnSortOrder getSortOrder()
+		DateGranularity getDateGranularity()
+		String getName()			
+		String getSortAggregate()
+	Reports.GroupingValue
+		List<GroupingValue> getGroupings()
+		Object getValue()			
+		String getKey()			
+		String getLabel()			
+	Reports.ReportCurrency
+		Decimal getAmount()
+		String getCurrencyCode()
+	Reports.ReportDataCell
+		String getLabel()
+		String getName()			
+	Reports.ReportDescribeResult
+		ReportExtendedMetadata getReportExtendedMetadata()
+		ReportMetadata getReportMetadata()
+		ReportTypeMetadata getReportTypeMetadata()
+	Reports.ReportDetailRow
+		List<ReportDataCell> getDataCells()
+	Reports.ReportExtendedMetadata
+		Map<String, AgregateColumn> getAggregateColumnInfo()
+		Map<String, DetailColumn> getDetailColumnInfo()
+		Map<String, GroupingColumn> getGroupingColumnInfo()
+	Reports.ReportFact
+		List<SummaryValue> getAggregates()
+		String getKey()
+	Reports.ReportFactWithDetails
+		List<ReportDetailRow> getRows
+		List<SummaryValue> getAggregates()
+		String getKey()
+	Reports.ReportFilter
+		ReportFilter()
+		String getColumn()
+		String getOperator()
+		String getValue()
+		Void setColumn(String)
+		Void setOperator(String)
+		Void setValue(String)
+	Reports.ReportInstance
+		DateTime getCompletionDate()
+		DateTime getRequestDate()
+		Id getId()
+		Id getOwnerId()
+		Id getReportId()
+		ReportResults getReportResults()
+		String getStatus()
+	Reports.ReportManager
+		List<ReportInstance> getReportInstances(Id)
+		Map<String, List<FilterOperator>> getDatatypeFilterOperatorMap()
+		ReportDescribeResult describeReport(Id)
+		ReportInstance getReportInstance(Id)
+		ReportInstance runAsyncReport(Id)
+		ReportInstance runAsyncReport(Id, Boolean)
+		ReportInstance runAsyncReport(Id, Reports.ReportMetadata)
+		ReportInstance runAsyncReport(Id, Reports.ReportMetadata, Boolean)
+		ReportResults runReport(Id)
+		ReportResults runReport(Id, Boolean)
+		ReportResults runReport(Id, Reports.ReportMetadata)
+		ReportResults runReport(Id, Reports.ReportMetadata, Boolean)
+	Reports.ReportMetadata
+		Id getId()
+		List<GroupingInfo> getGroupingsAcross()
+		List<GroupingInfo> getGroupingsDown()
+		List<ReportFilter> getReportFilters()
+		List<String> getAggregates()
+		List<String> getDetailColumns()
+		List<String> getHistoricalSnapshotDates()
+		ReportFormat getReportFormat()
+		ReportType getReportType()
+		String getCurrencyCode()
+		String getDeveloperName()
+		String getName()
+		String getReportBooleanFilter()
+		Void setHistoricalSnapshotDates(List<String>)
+		Void setReportBooleanFilter(String)
+		Void setReportFilters(List<ReportFilter>)
+	Reports.ReportResults
+		Boolean getAllData()
+		Boolean getHasDetailRows()
+		Dimension getGroupingsAcross()
+		Dimension getGroupingsDown()
+		Map<String, ReportFact> getFactMap()
+		ReportExtendedMetadata getReportExtendedMetadata()
+		ReportMetadata getReportMetadata()
+	Reports.ReportType
+		String getLabel()
+		String getType()			
+	Reports.ReportTypeColumn
+		ColumnDataType getDataType()
+		FilterValue getFilterValues()
+		Boolean getFilterable()
+		String getLabel()
+		String getName()
+	Reports.ReportTypeColumnCategory
+		Map<String, ReportTypeColumn> getColumns()
+		String getLabel()
+	Reports.ReportTypeMetadata
+		List<ReportTypeColumnCategory> getCategories()
+	Reports.SummaryValue
+		String getLabel()
+		Object getValue()
+	Reports.ColumnDataType Enum
+		BOOLEAN_DATA	
+		COMBOBOX_DATA	
+		CURRENCY_DATA	
+		DATETIME_DATA	
+		DATE_DATA		
+		DOUBLE_DATA		
+		EMAIL_DATA		
+		ID_DATA			
+		INT_DATA		
+		MULTIPICKLIST_DATA
+		PERCENT_DATA	
+		PHONE_DATA		
+		PICKLIST_DATA	
+		REFERENCE_DATA	
+		STRING_DATA		
+		TEXTAREA_DATA	
+		TIME_DATA
+		URL_DATA
+	Reports.ColumnSortOrder Enum
+		ASCENDING
+		DESCENDING
+	Reports.DateGranularity Enum
+		DAY
+		DAY_IN_MONTH
+		FISCAL_PERIOD
+		FISCAL_QUARTER
+		FISCAL_WEEK
+		FISCAL_YEAR
+		MONTH
+		MONTH_IN_YEAR
+		NONE
+		QUARTER
+		WEEK
+		YEAR
+	Reports.ReportFormat Enum
+		MATRIX
+		SUMMARY
+		TABULAR
+	Reports.FeatureNotSupportedException
+	Reports.InstanceAccessException
+	Reports.InvalidFilterException
+	Reports.InvalidReportMetadataException
+	Reports.InvalidSnapshotDateException
+	Reports.MetadataException
+	Reports.ReportRunException
+	Reports.UnsupportedOperationException
+

@@ -1,0 +1,16 @@
+- Quick intro
+  + mobile application for Major Gift Officers who travels often to meet clients
+  + related to, but a separate product from LCRM
+  + we implemented a prototype of this mobile app at Off The Grid so some of you might have
+    seen this already
+
+- Salesforce1 platform
+  + basically provides the mobile-friendly version of all of the standard pages/layouts/objects of the web application
+  + what we have to do, is to make sure all of our custom stuff are mobile friendly as well
+  + add functionality that makes sense for mobile instead of a desktop application
+    -> finding donors in the nearby area
+    -> seeing donors as they enter an events
+
+- This sprint, I 
+  + worked with our UX designer to have a household contact layout that makes sense, with all the important information on top
+  + check to see if our dup check works on mobile as is. Short answer, it doesn't.

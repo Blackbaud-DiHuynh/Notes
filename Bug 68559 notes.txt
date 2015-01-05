@@ -1,0 +1,99 @@
+
+Stub donations
+When the user creates an RG/P on LO, a seed transaction is created. That seed transaction AND the RG/P object synced over to LCRM. In the case that 
+the RG/P object syncs over first, LCRM creates a STUB DONATION, which is a placeholder for the seed transaction to sync over later. When another
+transaction is processed, the RG/P object is updated, and both got put on the bus. If the object comes over first, LCRM creates a stub donation for
+the transaction. When the transaction syncs over, it overwrites the stub donation. 
+Look in the description of a RG donation: "Donation created as a placeholder by the Luminate CRM integration to keep balances synchronized.  The donation will synchronize from Luminate Online and remove this description."
+
+Problem:
+LCV manually creates their stub donations in LCRM, so when our LCRM code creates its stub donation, we have a duplicate and that messes up the total 
+amount and other stuff. 
+
+
+Repro steps:
+1. Create and sync RG with seed transaction
+2. Mark seed never_send in LO
+3. Delete + recreate seed in LCRM without LO Id
+4. Change something on the RG in LO
+5. Actual: a stub donation in LCRM
+   Expected: no stub donations, since the gift will never sync over
+
+Important fields:
+Object    |    LCRM               |     LO
+Donation  |   Trans_Id            |    Recurring_Pledge - Processor_Ref_ID
+RG        |  Online_Profile_Id    |    Transaction_Sync - Tran_ID (with site id attached, eg 1-1101, 1 = site id, 1101 is trans_id)
+
+
+
+LO
+AbstractUniversalMessageSender.sendDirtyRecordsToBus()
+* grabs all of the dirty records from the database
+* set them as clean
+* put stuff on the bus to send to LCRM
+
+  -> RecurringPledgeUniversalMessageSender.getAndClearDirtyRecords()
+  * grabs all the dirty pledges from the database
+  * put each pledge into a universal message
+
+    -> RecurringPledgeUniversalMessageSender.pledgeToMessage()
+      -> RecurringPledgeUniversalFieldMapper.objectToMessage()
+        -> populateData()
+        -> addLastSuccessPaymentTransactionIdAndAmount()
+        * potentially add the flag for never send here
+ 
+
+
+LCRM
+
+
+BusRecurringPledgeProcessor.buildObjects()
+  -> BusRecurringPledgeProcessor.buildSkeletonTransactions()
+  * create a stub donation if the last successful transaction (from LO) doesn't have an opp in LCRM already
+  * need to add a check for never_send flag
+
+
+
+
+MessageDocument
+<Message xmlns="urn:message.data.convio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Version>1.0</Version>
+  <ObjectType>recurring_pledge</ObjectType>
+  <Action>CREATE</Action>
+  <Origin>
+    <System>Online</System>
+    <Version>15.1</Version>
+  </Origin>
+  <LocalId>
+    <Id>121</Id>
+    <Version>0</Version>
+  </LocalId>
+  <Data>
+    <Field name="QPMCampaignName">Bug68559 - RG</Field>
+    <Field name="QPMFormName">Bug68559 - RG - Bug 68559 RG Don Form</Field>
+    <Field name="CampaignId">701o0000000ZVlaAAG</Field>
+    <Field name="ContactUniversalId">003o000000HQNDuAAP</Field>
+    <Field name="ContactLocalId">1001361</Field>
+    <Field name="ConvioSiteId">1</Field>
+    <Field name="StartDate">2014-11-05Z</Field>
+    <Field name="LastPaymentDate">2014-11-05Z</Field>
+    <Field name="NextPaymentDate">2014-12-05Z</Field>
+    <Field name="Frequency">Monthly</Field>
+    <Field name="Status">Active</Field>
+    <Field name="PaymentDay">5</Field>
+    <Field name="PaymentMonth">11</Field>
+    <Field name="TotalPaymentsProcessed">1</Field>
+    <Field name="TotalPayments">0</Field>
+    <Field name="InstallmentAmount">120.00</Field>
+    <Field name="TotalAmountProcessed">120.00</Field>
+    <Field name="IsDelayedSelfPledge">false</Field>
+    <Field name="LastPaymentStatus">Successful</Field>
+    <Field name="PaymentType">CreditCard</Field>
+    <Field name="PaymentCreditCardType">Visa</Field>
+    <Field name="EcrmGiftOrigin">true</Field>
+    <Field name="SeedTransactionId">1041</Field>
+    <Field name="LastPaymentAmount">120.00</Field>
+    <Field name="LastSuccessfulPaymentTransactionId">1041</Field>
+    <Field name="LastSuccessfulPaymentLCRMId" xsi:nil="true"/>
+  </Data>
+</Message>

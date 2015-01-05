@@ -1,0 +1,228 @@
+../build/namespace.patch:										<fullName>Contact_Create_Button</fullName>
+classes/HouseholdCopyAddressControllerExtTest.cls:				Test.setCurrentPage(Page.Household_Copy_Address_Button);
+classes/RelatedAddressRestoreControllerExtTest.cls:				Test.setCurrentPage(Page.Related_Address_Restore_Button);
+classes/Utils.cls:												new LabelWrapper('Event_Invitation_Import', Label.Event_Invitation_Import), //begin Event_Invitation_Import_Widget
+classes/Utils.cls:												new LabelWrapper('GL_Export', Label.GL_Export),		//begin GL_Export(Donation_Posting_Widget)
+layouts/Account-Household Account Layout.layout:				<customButtons>Contact_Create_Button</customButtons>
+layouts/Account-Household Account Layout.layout:				<page>Household_Copy_Address_Button</page>
+layouts/Account-Organization Account Layout.layout:				<customButtons>Contact_Create_Button</customButtons>
+layouts/Account-Organization Account Layout.layout:				<scontrol>Relationship_Account_Tree_Widget</scontrol>
+layouts/Contact-Household Contact Layout.layout:				<scontrol>Relationship_Contact_Tree_Widget</scontrol>
+layouts/Contact-Organization Contact Layout.layout:				<scontrol>Relationship_Contact_Tree_Widget</scontrol>
+layouts/Opportunity-Grant.layout:								<page>Donation_Allocate_Designations_Widget</page>
+layouts/Opportunity-Major Gift.layout:							<page>Donation_Allocate_Designations_Widget</page>
+layouts/Opportunity-Planned Gift.layout:						<page>Donation_Allocate_Designations_Widget</page>
+layouts/Opportunity-Pledge Installment.layout:					<page>Donation_Allocate_Designations_Widget</page>
+layouts/Opportunity-Pledge Installment.layout:					<scontrol>Donation_Matching_Gift_Create_Button</scontrol>
+layouts/Opportunity-Recurring Donation.layout:					<page>Donation_Allocate_Designations_Widget</page>
+layouts/Opportunity-Recurring Donation.layout:					<scontrol>Donation_Matching_Gift_Create_Button</scontrol>
+layouts/Opportunity-Single Cash Gift Donation Layout.layout:	<page>Donation_Allocate_Designations_Widget</page>
+layouts/Opportunity-Single Cash Gift Donation Layout.layout:	<scontrol>Donation_Matching_Gift_Create_Button</scontrol>
+layouts/Opportunity-Stock or In-Kind Gift.layout:				<page>Donation_Allocate_Designations_Widget</page>
+layouts/Opportunity-Stock or In-Kind Gift.layout:				<scontrol>Donation_List_Contact_Roles_Widget</scontrol>
+layouts/Opportunity-Stock or In-Kind Gift.layout:				<scontrol>Donation_Matching_Gift_Create_Button</scontrol>
+layouts/Recurring_Gift__c-Recurring Gift Layout.layout:			<scontrol>Recurring_Gift_Set_Designation_Widget</scontrol>
+objects/Account.object:											<content>Account_Dupe_Check_Widget</content>
+objects/Campaign.object:										<content>Campaign_Create_Button</content>
+objects/Contact.object:											<fullName>Contact_Create_Button</fullName>
+objects/Contact.object:											<scontrol>Contact_Create_Button</scontrol>
+objects/Event_Expense__c.object:								<scontrol>Donation_Create_From_Event_Expense_Button</scontrol>
+objects/Event_Invitation__c.object:								<scontrol>Donation_Create_From_Event_Registration_Button</scontrol>
+objects/Event_Invitation__c.object:								<scontrol>Event_Invitation_Create_Button</scontrol>
+objects/Event_Invitation__c.object:								<scontrol>Event_Invitation_Create_From_Event_Button</scontrol>
+objects/Event_Invitation__c.object:								<scontrol>Event_Invitation_Import_Widget</scontrol>
+objects/Gift_Asset__c.object:									<scontrol>Gift_Asset_Create_Button</scontrol>
+objects/Opportunity.object:										<scontrol>Donation_Create_From_Recurring_Gift_Button</scontrol>
+objects/Opportunity.object:										<scontrol>Donation_Create_Grant_Button</scontrol>
+objects/Opportunity.object:										<scontrol>Donation_Create_InKind_Gift_Button</scontrol>
+objects/Opportunity.object:										<scontrol>Donation_Create_Major_Gift_Button</scontrol>
+objects/Opportunity.object:										<scontrol>Donation_Create_Planned_Gift_Button</scontrol>
+objects/Opportunity.object:										<scontrol>Donation_Create_Pledge_Check_Account_Button</scontrol>
+objects/Opportunity.object:										<scontrol>Donation_Create_Pledge_Check_Contact_Button</scontrol>
+objects/Opportunity.object:										<scontrol>Donation_Create_Stock_Gift_Button</scontrol>
+objects/Opportunity.object:										{!INCLUDE($SControl.CG_Utils_Snippet_Body)}
+objects/Pledge__c.object:										<scontrol>Pledge_Create_Button</scontrol>
+objects/Recurring_Gift__c.object:								<scontrol>Recurring_Gift_Create_Button</scontrol>
+objects/Related_Address__c.object:								<page>Related_Address_Restore_Button</page>
+objects/Related_Address__c.object:								{!INCLUDE($SControl.CG_Utils_Snippet_Body)} 
+objects/Related_Address_Detail__c.object:						<page>Related_Address_Restore_Button</page>
+objects/Related_Address_Detail__c.object:						{!INCLUDE($SControl.CG_Utils_Snippet_Body)} 
+objects/Volunteer_Job_Shift__c.object:							<scontrol>Volunteer_Job_Shift_Create_Button</scontrol>
+pages/BatchEntry.page:											var newUrl ='{!$SControl.Contact_Convert_to_Constituent_Widget}'.replace('__ENTITY_ID__',recIds[0]);
+pages/BatchEntry.page:											var newUrl ='{!$SControl.Contact_Create_Button}'.replace('__ENTITY_ID__',recIds[0]);
+pages/BatchPage.page:											var newUrl ='{!$SControl.Contact_Convert_to_Constituent_Widget}'.replace('__ENTITY_ID__',contact.id);
+pages/CampaignHierarchy.page:									action="{!URLFOR($SControl.VF_Redirect_Widget, null, [targ=URLFOR($Action.Segment__c.New,null,[retURL='']), retURL=URLFOR($Page.CampaignHierarchy, null, [id=campaign.Id]), Z1Campaign1Z=dr.Name, Z1Campaign1Z_lkid=dr.id])}" 
+pages/Donation_Allocate_Designations_Widget.page-meta.xml:		<label>Donation_Allocate_Designations_Widget</label>
+pages/GL_Export.page:											<!-- <apex:scontrol controlName="Donation_Posting_Widget" height="600" width="-100"/> -->   
+pages/GL_Export.page:											<apex:iframe src="{!$SControl.Donation_Posting_Widget}" width="100%" height="600px" frameborder="0" scrolling="auto"/>
+pages/Household_Copy_Address_Button.page-meta.xml:				<label>Household_Copy_Address_Button</label>
+pages/MailMergeAdmin.page:										<p><apex:iframe src="{!$SControl.MailMerge_Admin_Widget}"
+pages/MailMergeGeneric.page:									<apex:iframe src="{!$SControl.MailMerge_Generic_Widget}" width="100%" height="420px" frameborder="0" scrolling="auto"/>
+pages/Related_Address_Restore_Button.page-meta.xml:				<label>Related_Address_Restore_Button</label>
+pages/Vol_Contact_Center.page:									<apex:commandButton action="{!URLFOR($SControl.VF_Redirect_Widget, null, [targ=URLFOR($Action.Volunteer_Contact_Shift__c.New,null,[retURL='']), retURL=URLFOR($Page.Vol_Contact_Center, null, [id=contact.Id]), Z1Contact1Z=contact.Name, Z1Contact1Z_lkid=contact.Id, Z1Account1Z_lkid=contact.AccountId, Z1Account1Z=contact.Account.name])}" 
+pages/Vol_Contact_Job_Finder.page:								<apex:commandLink styleClass="actionLink" action="{!URLFOR($SControl.VF_Redirect_Widget, null, [targ=URLFOR($Action.Volunteer_Contact_Shift__c.New,null,[retURL='']), retURL=URLFOR($Page.Vol_Contact_Job_Finder, null, [id=contact.Id]), Z1VolunteerXSPXJobXSPXShift1Z=shift.Name, Z1VolunteerXSPXJobXSPXShift1Z_lkid=shift.id, Z1Contact1Z=contact.Name, Z1OrganizationXSPXorXSPXHousehold1Z_lkid=contact.AccountId, Z1OrganizationXSPXorXSPXHousehold1Z=contact.Account.name])}" value="{!$Label.Sign_Up}" id="signUpLink" rendered="{!ISBLANK(shift.Maximum_Number_of_Volunteers_Allowed__c) || ISBLANK(shift.Number_of_Volunteers__c) || shift.Maximum_Number_of_Volunteers_Allowed__c > shift.Number_of_Volunteers__c}"/>
+pages/Vol_Shift_Contact_Finder.page:							<apex:commandLink styleClass="actionLink" action="{!URLFOR($SControl.VF_Redirect_Widget, null, [targ=URLFOR($Action.Volunteer_Contact_Shift__c.New,null,[retURL='']), retURL=URLFOR($Page.Vol_Shift_Contact_Finder, null, [id=ShiftRec.Id]), Z1VolunteerXSPXJobXSPXShift1Z=ShiftRec.Name, Z1VolunteerXSPXJobXSPXShift1Z_lkid=ShiftRec.id, Z1Contact1Z=pv.Contact.Name, Z1OrganizationXSPXorXSPXHousehold1Z_lkid=pv.Contact.AccountId, Z1OrganizationXSPXorXSPXHousehold1Z=pv.Contact.Account.name])}" value="{!$Label.Sign_Up}" id="signUpLink"/>
+permissionsets/Duplicate_Management.permissionset:				<apexPage>Donation_Allocate_Designations_Widget</apexPage>
+permissionsets/Duplicate_Management.permissionset:				<apexPage>Household_Copy_Address_Button</apexPage>
+permissionsets/Duplicate_Management.permissionset:				<apexPage>Related_Address_Restore_Button</apexPage>
+scontrols/Account_Dupe_Check_Widget.scf:						{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Account_Dupe_Check_Widget.scf:						{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Account_Dupe_Check_Widget.scf:						{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Account_Dupe_Check_Widget.scf:						{!INCLUDE($SControl.Resize_IFrame_Snippet)}
+scontrols/Account_Dupe_Check_Widget.scf:						{!INCLUDE($SControl.Utils_Snippet)}
+scontrols/Campaign_Create_Button.scf:							{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/CG_Utils_Snippet.scf:									{!INCLUDE($SControl.CG_Utils_Snippet_Body)}
+scontrols/CG_Utils_Snippet_Body.scf-meta.xml:					<description>Javascript body for the CG_Utils_Snippet Control.  This control depends on files included by CG_Utils_Snippet Control so if you embed this anywhere that those files are not already included, you may get errors.</description>
+scontrols/Constants_Snippet.scf-meta.xml:						<fileName>Constants_Snippet</fileName>
+scontrols/Contact_Convert_to_Constituent_Widget.scf:			{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Contact_Convert_to_Constituent_Widget.scf:			{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Contact_Convert_to_Constituent_Widget.scf:			{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Contact_Create_Button.scf-meta.xml:					<fileName>Contact_Create_Button</fileName>
+scontrols/Contact_Create_Button.scf:							{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Contact_Create_Button.scf:							{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Contact_Create_Button.scf:							{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Contact_Create_Button.scf:							{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Contact_Donation_Summary_Recalc_Button.scf-meta.xml:	<fileName>Contact_Donation_Summary_Recalc_Button</fileName>
+scontrols/DO_NOT_PACKAGE_Contact_Associate.scf-meta.xml:		<fileName>DO_NOT_PACKAGE_Contact_Associate</fileName>
+scontrols/DO_NOT_PACKAGE_Contact_Associate.scf-meta.xml:		<name>DO_NOT_PACKAGE_Contact_Associate</name>
+scontrols/DO_NOT_PACKAGE_Contact_Associate.scf:					{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/DO_NOT_PACKAGE_Contact_Associate.scf:					{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/DO_NOT_PACKAGE_Household_Address_Fix.scf-meta.xml:	<fileName>DO_NOT_PACKAGE_Household_Address_Fix</fileName>
+scontrols/DO_NOT_PACKAGE_Household_Address_Fix.scf-meta.xml:	<name>DO_NOT_PACKAGE_Household_Address_Fix</name>
+scontrols/DO_NOT_PACKAGE_Household_Address_Fix.scf:				{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/DO_NOT_PACKAGE_Household_Address_Fix.scf:				{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/DO_NOT_PACKAGE_Household_Address_Fix.scf:				{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Allocate_Designations_Widget.scf:			<!-- replaced by Donation_Allocate_Designations_Widget.page -->
+scontrols/Donation_Create_From_Event_Expense_Button.scf:		{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Donation_Create_From_Event_Expense_Button.scf:		{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_From_Event_Expense_Button.scf:		{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_From_Event_Expense_Button.scf:		{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_From_Event_Registration_Button.scf:	{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Donation_Create_From_Event_Registration_Button.scf:	{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_From_Event_Registration_Button.scf:	{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_From_Event_Registration_Button.scf:	{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_From_Recurring_Gift_Button.scf-meta.xml:	<fileName>Donation_Create_From_Recurring_Gift_Button</fileName>
+scontrols/Donation_Create_From_Recurring_Gift_Button.scf:		{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Donation_Create_From_Recurring_Gift_Button.scf:		{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_From_Recurring_Gift_Button.scf:		{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_From_Recurring_Gift_Button.scf:		{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_From_Recurring_Gift_Button.scf:		{!INCLUDE($SControl.Utils_Snippet)}
+scontrols/Donation_Create_Grant_Button.scf-meta.xml:			<fileName>Donation_Create_Grant_Button</fileName>
+scontrols/Donation_Create_Grant_Button.scf:						{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_Grant_Button.scf:						{!INCLUDE($SControl.Donation_Create_Snippet)}
+scontrols/Donation_Create_Grant_Button.scf:						{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_Grant_Button.scf:						{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_InKind_Gift_Button.scf-meta.xml:		<fileName>Donation_Create_InKind_Gift_Button</fileName>
+scontrols/Donation_Create_InKind_Gift_Button.scf:				{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_InKind_Gift_Button.scf:				{!INCLUDE($SControl.Donation_Create_Snippet)}
+scontrols/Donation_Create_InKind_Gift_Button.scf:				{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_InKind_Gift_Button.scf:				{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_Major_Gift_Button.scf-meta.xml:		<fileName>Donation_Create_Major_Gift_Button</fileName>
+scontrols/Donation_Create_Major_Gift_Button.scf:				{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_Major_Gift_Button.scf:				{!INCLUDE($SControl.Donation_Create_Snippet)}
+scontrols/Donation_Create_Major_Gift_Button.scf:				{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_Major_Gift_Button.scf:				{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_Planned_Gift_Button.scf-meta.xml:		<fileName>Donation_Create_Planned_Gift_Button</fileName>
+scontrols/Donation_Create_Planned_Gift_Button.scf:				{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_Planned_Gift_Button.scf:				{!INCLUDE($SControl.Donation_Create_Snippet)}
+scontrols/Donation_Create_Planned_Gift_Button.scf:				{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_Planned_Gift_Button.scf:				{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Account_Button.scf-meta.xml: <fileName>Donation_Create_Pledge_Check_Account_Button</fileName>
+scontrols/Donation_Create_Pledge_Check_Account_Button.scf:		{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Account_Button.scf:		{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Account_Button.scf:		{!INCLUDE($SControl.Donation_Create_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Account_Button.scf:		{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Account_Button.scf:		{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Account_Button.scf:		{!INCLUDE($SControl.Utils_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Contact_Button.scf-meta.xml:	<fileName>Donation_Create_Pledge_Check_Contact_Button</fileName>
+scontrols/Donation_Create_Pledge_Check_Contact_Button.scf:		{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Contact_Button.scf:		{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Contact_Button.scf:		{!INCLUDE($SControl.Donation_Create_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Contact_Button.scf:		{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Contact_Button.scf:		{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_Pledge_Check_Contact_Button.scf:		{!INCLUDE($SControl.Utils_Snippet)}
+scontrols/Donation_Create_Race_Registration_Button.scf-meta.xml:	<fileName>Donation_Create_Race_Registration_Button</fileName>
+scontrols/Donation_Create_Race_Registration_Button.scf:			{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_Race_Registration_Button.scf:			{!INCLUDE($SControl.Donation_Create_Snippet)}
+scontrols/Donation_Create_Race_Registration_Button.scf:			{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_Race_Registration_Button.scf:			{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Create_Snippet.scf-meta.xml:					<fileName>Donation_Create_Snippet</fileName>
+scontrols/Donation_Create_Snippet.scf:							{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Donation_Create_Stock_Gift_Button.scf-meta.xml:		<fileName>Donation_Create_Stock_Gift_Button</fileName>
+scontrols/Donation_Create_Stock_Gift_Button.scf:				{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Create_Stock_Gift_Button.scf:				{!INCLUDE($SControl.Donation_Create_Snippet)}
+scontrols/Donation_Create_Stock_Gift_Button.scf:				{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Create_Stock_Gift_Button.scf:				{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_List_Contact_Roles_Widget.scf-meta.xml:		<fileName>Donation_List_Contact_Roles_Widget</fileName>
+scontrols/Donation_Matching_Gift_Create_Button.scf-meta.xml:	<fileName>Donation_Matching_Gift_Create_Button</fileName>
+scontrols/Donation_Matching_Gift_Create_Button.scf:				{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Donation_Matching_Gift_Create_Button.scf:				{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Donation_Matching_Gift_Create_Button.scf:				{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Donation_Matching_Gift_Create_Button.scf:				{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Donation_Posting_ParseResults_Snippet.scf:			// TODO: make this generic and move to CG_Utils_Snippet_Body.scf
+scontrols/Donation_Posting_ParseResults_Snippet.scf:			{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Donation_Posting_Widget.scf:							<a id="helpPageMouseOver" title="Help for this Page (New Window)" href="javascript:openPopupFocusEscapePounds('{!$SControl.GL_Export_HelpLink}', 'Help', 700, 600, 'width=700,height=600,resizable=yes,toolbar=yes,status=no,scrollbars=yes,menubar=yes,directories=no,location=no,dependant=no', false, false);">
+scontrols/Donation_Posting_Widget.scf:							{!INCLUDE($SControl.Donation_Posting_ParseResults_Snippet)}
+scontrols/Donation_Posting_Widget.scf:							{!INCLUDE($SControl.MailMerge_Report_Finder_Snippet)}
+scontrols/Event_Import_ParseResults_Snippet.scf:				{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Event_Invitation_Create_Button.scf:					{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Event_Invitation_Create_Button.scf:					{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Event_Invitation_Create_Button.scf:					{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Event_Invitation_Create_Button.scf:					{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Event_Invitation_Create_From_Event_Button.scf:		{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Event_Invitation_Create_From_Event_Button.scf:		{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Event_Invitation_Create_From_Event_Button.scf:		{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Event_Invitation_Create_From_Event_Button.scf:		{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Event_Invitation_Import_Widget.scf:					{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Event_Invitation_Import_Widget.scf:					{!INCLUDE($SControl.Event_Import_ParseResults_Snippet)}
+scontrols/Event_Invitation_Import_Widget.scf:					{!INCLUDE($SControl.MailMerge_Report_Finder_Snippet)}
+scontrols/Event_Invitation_Import_Widget.scf:					{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Gift_Asset_Create_Button.scf-meta.xml:				<fileName>Gift_Asset_Create_Button</fileName>
+scontrols/Gift_Asset_Create_Button.scf:							{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Gift_Asset_Create_Button.scf:							{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Gift_Asset_Create_Button.scf:							{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Gift_Asset_Create_Button.scf:							{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/Household_Copy_Address_Button.scf-meta.xml:			<fileName>DELETED - Household_Copy_Address_Button</fileName>
+scontrols/Household_Copy_Address_Button.scf:					<!-- replaced by Household_Copy_Address_Button.page and Contact_Copy_Address_Button.page -->
+scontrols/MailMerge_Admin_Widget.scf:							{!INCLUDE($SControl.MailMerge_ParseResults_Snippet)}
+scontrols/MailMerge_Admin_Widget.scf:							{!INCLUDE($SControl.MailMerge_Report_Finder_Snippet)}
+scontrols/MailMerge_ColumnMapper_Snippet.scf-meta.xml:			<fileName>MailMerge_ColumnMapper_Snippet</fileName>
+scontrols/MailMerge_Field_Mapper_Snippet.scf-meta.xml:			<fileName>MailMerge_Field_Mapper_Snippet</fileName>
+scontrols/MailMerge_Field_Mapper_Snippet.scf-meta.xml:			<name>MailMerge_Field_Mapper_Snippet</name>
+scontrols/MailMerge_Field_Mapper_Snippet.scf:					{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/MailMerge_Generic_ParseResults_Snippet.scf:			{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/MailMerge_Generic_Widget.scf:							{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/MailMerge_Generic_Widget.scf:							{!INCLUDE($SControl.MailMerge_ColumnMapper_Snippet)}
+scontrols/MailMerge_Generic_Widget.scf:							{!INCLUDE($SControl.MailMerge_Generic_ParseResults_Snippet)}
+scontrols/MailMerge_Generic_Widget.scf:							{!INCLUDE($SControl.MailMerge_Report_Finder_Snippet)}
+scontrols/MailMerge_Generic_Widget.scf:							{!INCLUDE($SControl.Record_Types_Lookup_Snippet)}
+scontrols/MailMerge_ParseResults_Snippet.scf:					<-- called in by MailMerge_Admin_Widget.scf -->
+scontrols/MailMerge_ParseResults_Snippet.scf:					File: MailMerge_ParseResults_Snippet.scf
+scontrols/MailMerge_ParseResults_Snippet.scf:					{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/MailMerge_ParseResults_Snippet.scf:					{!INCLUDE($SControl.MailMerge_ColumnMapper_Snippet)}
+scontrols/MailMerge_ParseResults_Snippet.scf:					{!INCLUDE($SControl.MailMerge_Preview_Snippet)}
+scontrols/Pledge_Create_Button.scf-meta.xml:					<fileName>Pledge_Create_Button</fileName>
+scontrols/Pledge_Create_Button.scf:								{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Pledge_Create_Button.scf:								{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Pledge_Create_Button.scf:								{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Record_Types_Lookup_Snippet.scf-meta.xml:				<fileName>Record_Types_Lookup_Snippet</fileName>
+scontrols/Recurring_Gift_Create_Button.scf-meta.xml:			<fileName>Recurring_Gift_Create_Button</fileName>
+scontrols/Recurring_Gift_Create_Button.scf:						{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Recurring_Gift_Create_Button.scf:						{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Recurring_Gift_Create_Button.scf:						{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Related_Address_Restore_Button.scf-meta.xml:			<fileName>Related_Address_Restore_Button</fileName>
+scontrols/Related_Address_Restore_Button.scf:					<!-- Replaced by Related_Address_Restore_Button.page -->
+scontrols/Relationship_Account_Tree_Widget.scf:					window.open('{!$SControl.Relationship_HelpLink}');
+scontrols/Relationship_Account_Tree_Widget.scf:					{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Relationship_Account_Tree_Widget.scf:					{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Relationship_Contact_Tree_Widget.scf:					window.open('{!$SControl.Relationship_HelpLink}');
+scontrols/Relationship_Contact_Tree_Widget.scf:					{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Relationship_Contact_Tree_Widget.scf:					{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Relationship_HelpLink.scf-meta.xml:					<fileName>Relationship_HelpLink</fileName>
+scontrols/Resize_IFrame_Snippet.scf-meta.xml:					<fileName>Resize_IFrame_Snippet</fileName>
+scontrols/Sample_Data_Cleanup_Button.scf-meta.xml:				<fileName>Sample_Data_Cleanup_Button</fileName>
+scontrols/Sample_Data_Cleanup_Button.scf:						{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/VF_Redirect_Widget.scf:								{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}
+scontrols/Volunteer_Job_Shift_Create_Button.scf:				{!INCLUDE($SControl.CG_Utils_Snippet)}
+scontrols/Volunteer_Job_Shift_Create_Button.scf:				{!INCLUDE($SControl.Constants_Snippet)}
+scontrols/Volunteer_Job_Shift_Create_Button.scf:				{!INCLUDE($SControl.Form_Field_Identifier_Snippet)}

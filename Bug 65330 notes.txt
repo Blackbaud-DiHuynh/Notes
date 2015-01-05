@@ -1,0 +1,96 @@
+Bug 65330
+
+Problem: 
+Creates a new contact while entering TR gifts in Batch - valid date (past or present, no future) Somehow the Service Bus creates a duplicate record
+
+From the customer:
+- TR team and TR participant: required
+- all TR teams are affected
+- events occured in LO or CRM are both affected
+- processing credit cards happen within 3 days of receiving donation
+- cash, check
+- no RGs
+- PREDUP_MATCH_ENABLED - false
+Theory: 
+
+Flow: 
+enter a gift in batch 
+      |
+creates a new record (this somehow gets stuck on the bus)
+      | 
+    commit
+      |
+the gift record syncs over the bus
+      | 
+LO doesn't find the record, creates a new one
+      | 
+the record now syncs over
+      | 
+   duplicate yo
+
+Comparing original and duplicate
+
+Original - created when batch is created, has transaction in CRM but NOT LO
+Dup      - created when batch is committed, has transactions in LO but NOT CRM
+
+More detailed flow:
+
+- Click "Save new contact"
+  -> var newContactHandler (ContactSearchWidget.resource): calls BatchContactController.newContact(), which inserts contacts into CRM
+    -> ContactAll.trigger calls BusSyncUtils.initializeContactRevision(), which calls initializeFieldGroupRevisionIds, which initializes the field group revision ID for that contact, also initialize all null field group IDs to 0
+    
+- Click "Commit"
+  -> BatchPageUtils.resource, this.commitBatch
+    -> var performCommit calls BatchController.commitBatch()  
+      ->  calls BatchUtils.commitBatch (batchId)
+        -> BatchUtils.executeBatchCommitJob
+          -> Database.executeBatchJob
+
+BatchController.getPaymentPaneUrl()
+
+BatchController.getDonationFormUrl() - get the URL for the iframe donation form
+  -> DonationIframeController.getDonationDataParams()
+    ->ConvioForceApi.getParamsForDonation
+      -> ConvioForceApi.setDonorData
+
+
+
+LO
+
+UpsertConsHandler.processSyncMessage()
+  -> UpsertRegistrationHandler.performSyncMessageAction
+
+CRMOfflineDonationMethod
+- fillDonationBean: populate the donation with memberId, consInfo and all that good stuff
+  * creates a constiuent if consInfo == null
+  -> createConstituent: define a bunch of attributes
+    -> ConsMgr.addCons(): starts a 4 tier chain of calls to overloaded addCons()
+      -> ConsData.addCons() - add new constituent to the database
+
+After hitting save contact
+SyncMessageBatchProcessor.processBatchOfSyncMessages()
+  -> SynchMessageBatchProcessor.processSingleSyncMessage()
+    -> UpsertConsHandler.processSyncMessage()
+      -> UpsertConsHandler.processAsCreateConsSyncMessage -> calls ConsMgr.addCons
+
+After entering credit card information
+CRMPaymentAuthorizationMethod 
+  -> CRMOfflineDonationMethod.fillDonationBean
+    -> DonateOnlineFormMethod.fillDonationBean
+
+Creating a contact the normal way in CRM
+-> UpsertConsHandler.processSyncMessage()
+  -> UpsertConsHandler.processUpsertConsSyncMessage()
+    -> UpsertConsHandler.processAsCreateConsSyncMessage()
+      -> ConsMgr.addCons()
+
+
+Deactivated ContactSync workflow
+- CRMOfflineDonationMethod.fillDonationBean()
+
+Offline TR gifts with contactSync deactivated
+SyncMessageBatchProcessor.processBatchOfSyncMessages()
+  -> BaseTeamraiserSyncActionHandler.processSyncMessage
+    -> UpsertGiftActioHandler.performSyncMessageAction - donor is null if the donor in batch doesn't exist, throws a transient error "Donor referenced can't be found" 
+      -> UpsertRegistrationHandler.performSyncMessageAction() - has valid convioID from fieldmap from the xml message, thus has memberID
+

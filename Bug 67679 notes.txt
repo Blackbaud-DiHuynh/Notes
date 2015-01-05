@@ -1,0 +1,75 @@
+Bug67679
+
+
+RefreshTicketClassAvailableInventory
+	-> updateEventDetails
+		-> updateTicketClasses
+			-> addMissingTicketClasses
+				-> getEventDetail
+					-> getEventInfoFromCG ---- line 281, SOQLQUERY looks for Attendees_included = 1
+
+LCRM
+
+"Link to Online Event" button
+  -> EventSyncController.updateConvioId()
+    * if the event already has a Convio_ID (aka if it's already in LO), don't do anything, otherwise
+    -> ConvioCalendarSyncApi.callGetCalendarEvent()
+      -> call(getSyncParams(event))
+
+LO
+
+General flow, when click on an event:
+
+OrgEventEditHandler.parseRequest
+  -> for mirrored events: call refreshTicketClassAvailableInventory()
+    -> EventManager.refreshTicketClassAvailableInventory()
+      -> ICGEventDetailsSync.updateEventDetails
+      -> CGEventDetailSync.updateEventDetails()
+        -> CGGalaEventInfo.getEventDetail(session, event)
+        -> CGEventDetailSync.updateTicketClasses - probably make changes here
+          -> CGEventDetailCacheMgr.buildXrefMap() - create cross references to ticket classes
+          -> 
+  
+TicketClassDB.getTicketClasses()
+* to get the ticket classes, this method makes a query to dhuynh1.cal_ticket_class to grab all of the ticket classes that belonged to the event
+*************** the cal_ticket_class table does not have anything to determined if the corresponding LCRM ticket level is deleted ****************
+* so we have to remove it from the table completely
+
+TicketClass.delete(CVSession) - deletes the calling ticket class from the database
+CGGalaEventLevelInfo has a boolean for isDeleted
+
+
+
+
+Questions to consider:
+- how often does this code gets executed? 
+  probably everytime you access the page
+- does LCRM send over the deleted information?
+  if yes, great! just process that correctly
+    else, figure out a way to add it to the API request, then process it
+
+- first time syncing to LO -> assuming that if a ticket level is already deleted, it would not get sync over, thus we don't need to check in CGEventDetailSync.addMissingTicketClasses if the level is already deleted. 
+
+
+Edit Ticket Type page
+-> getOrderedData(request)
+  -> getEvent(session, eventID)
+  -> EventInfo.getTicketClasses() - get tickets classes for that event
+    -> TicketClassDB.getTicketClasses(siteID, ivId)
+        ** we don't have a way to figure out if a ticket class is already deleted at this point, so we have to delete it at an earlier step
+
+
+OrgEventCreateFromCGCommonGroundHandler.configureEvent
+  * setting up for mirrored events, set up all the xreferences and stuff
+  * so it makes sense to only call it once, when you first mirror the event
+  -> CGGalaEventInfo.getGalaEventLevelInfoList() - x.addAll (galaEventLevelInfoList //private variable)
+  
+SOLUTION:
+
+Fix: add remove functionality for ticket classes that are deleted in LCRM
+Implementation details:
+- change addMissingTicketClasses to do add AND remove in CGEventDetailSync
+- removing a ticket class = removing it from the database AND the xref table
+- when a user hit "purchase tickets", the next page process engine calls refreshTicketClassInventory TWICE which does the add/remove ticket classes TWICE. This is not efficient (at all). For code, see UserRsvpViewer.render and UserTicketViewer.fillTemplate.
+- when an admin loads the "Configure Ticket Types" page, the process page for that also calls refreshTicketClassInventory. 
+- The ideal solution would be to update the database as soon as the user deletes an event level in LCRM. This solution loads up the updated info whenever a user/admin access the page.

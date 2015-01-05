@@ -1,0 +1,58 @@
+URL encode
+	%2F 		/ 
+	%2F 		space
+ 	%40			@
+  %3D     =
+  %3F     ?
+
+
+Empty create new account page:
+	https://cs10.salesforce.com/
+	001/
+	e?
+	retURL=%2F001%2Fo&
+	RecordType=012U0000000Xwe1&
+	ent=Account&
+	nooverride=1
+
+Labels on the page:
+	acc2			account name
+	acc17street		Billing Street
+	acc17city		Billing city
+	acc17state		Billing state
+	acc17country	Billing Country
+	acc17zip		Billing Postal Code
+	acc10			Phone
+	acc12			Website
+	RecordType		record type id
+
+Yeah buddy!
+	https://na17.salesforce.com/
+	001/
+	e?
+	cancelURL=%2Fapex%2Faccount_dupe_check&
+	ent=Account&
+	acc2=Houston%20Rockets&
+	acc17street=something&
+	nooverride=1&
+	retURL=%2F001%2Fo
+	
+
+
+	figure out: account record type
+
+
+searchAccounts()
+	go through each fields, if it's not empty, set it to a Account object
+	send to BatchUtils.wsAccountSearch()
+	build result table
+
+
+BatchUtils.wsAccountSearch()
+	-> makeAccountSoqlSafe() - escape all single quotes
+
+
+Test Case Review
+ - create one without no duplicates
+ - create one with similar names
+ - check duplicate check logic (same name different street, etc)
