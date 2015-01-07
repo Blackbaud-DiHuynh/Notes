@@ -1,33 +1,38 @@
-// Plan for scontrols upgrades
+Metadata 101
 
+1. Get a metadata service
+  MetadataService.MetadataPort service = MetadataUtils.createService();
 
-1. Need a metadata service
-  private final MetadataService.MetadataPort service;
+2. Get the metadata for the object you're making changes to
+  MetadataService.CustomObject eventInvitationObject = MetadataUtils.getCustomObjectByFullName
+        (service, getFullName('Event_Invitation__c'));
 
-  public ScontrolUpgrades(){
-    service = MetadataUtils.createService();
-  }
+3. Check MetadataService.CustomObject to see all of the metadata types you can make changes to
+  
 
-2. A map of object full names to the ojects themselves
-  private final Map<String, MetadataService.CustomObject> requestedSfdcObjects;
+4. Figure out what the metadata you're changing is called in this API, ie actionOverride, weblinks...
 
-3. Add all the changes to objects in this map
+5. Make changes. Duh
+  newAction.actionName = 'New';
+  newAction.content = 'Account_Dupe_Check';
+  newAction.type_x = 'visualforce';
+  newAction.comment = '';
 
-4. Create a list of SaveResults
-  List<MetadataService.SaveResult> scontrolSaveResults = /*something that returns a saveresult*/
+6. Push/update/upsert your changes with 
+  service.updateMetadata( new List<MetadataService.Metadata> { customObject }); 
 
-5. Call processSaveResults with saveResults
+7. Call processSaveResults with saveResults
   MetaData.processSaveResults(scontrolSaveResults)  *this returns a boolean
 
-6. in addAccountDupeCheck()
-  - if (!alreadySwitch()){
-      // switch from scontrol to VF
-    }
-    
-    return;
 
 
 
+Sustainer upgrades
+- set the upgrade status in a boolean in Convio_Protected_Settings__c (or something like that)
+- if (upgradeStatus) don't show the button
+- else show the button
+- if ANY of the upgrades was not successful, upgradeStatus is set to false -> show the button 
+- when the customer presses the button again, the completed upgrades won't be affected.  
 
 
 
