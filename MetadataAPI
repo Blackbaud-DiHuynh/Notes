@@ -25,6 +25,10 @@ Metadata 101
   MetaData.processSaveResults(scontrolSaveResults)  *this returns a boolean
 
 
+Pro-tip
+  - MetadataService.updateMetadata makes an api call (well duh), so consolidate all the updates of the same type and make one call per type
+    ie: make 1 call for all updates to custom objects, 1 call for all layouts
+    same with readMetadata
 
 
 Sustainer upgrades
