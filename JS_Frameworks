@@ -1,0 +1,101 @@
+Grunt - task runner
+  automate tedious processes like minification, compilation, and unit testing
+
+
+Karma - test runner
+  runs on NodeJS
+
+Jasmine - JS testing framework
+  behavior-driven development
+  reads like a sentence
+  does not depend on any other JS frameworks
+  does not require a DOM
+  Suites: 
+    a bunch of tests
+    describe - global function
+      parameters: a string (description of the test) and a function (implementation)
+    can be nested, should be done with care
+      variables are accessible according to the nested structure
+  
+  Disable suites
+    xdescribe ad xit
+    won't be executed
+
+  Specs: 
+    it - also a global function, takes the same args as describe
+    
+  Expectation:
+    takes "actual", chains with a Matcher function which takes the expected
+    matcher:
+      each implements a boolean comparison between actual and expected
+      can be chained with 'not' to negate the assert
+        ie: expect(false).not.toBe(true);
+      custom matcher
+        ie: toMatch(/regex/), toBeDefined(), 
+   
+  Setup and teardown:
+    beforeEach and afterEach - both are global
+    is called before/after each spec in describe
+    'this' is shared across beforeEach/it/afterEach
+    each spec's beforeEach/it/afterEach is reset back to an empty object before the next spec
+
+  Pending specs:
+    do not execute, but their names will show up as 'pending'
+    specs declared with xit   
+    specs without a function body 
+    if 'pending' is called anywhere
+
+  Spies
+    JS objects
+    can stub any function and track calls to it and all arguments
+      ie: spyOn(<object>, "function")
+    can only exist in describe and it block
+    will be removed after each spec
+    have special matchers
+    toHaveBeenCalled returns true if spy was called
+    toHaveBeenCalledWith returns true if arg list matches any of the recorded calls to the spy
+    Chains
+      'callThrough' - execute the implementation and still keep track of calls to it
+      'returnValue' - all calls will return the same thing
+          ie: spyOn(foo, "getBar").and.returnValue(1)
+      'callFake' - all calls to the spy will delegate to the supplied function
+          ie: spyOn(foo, "getBar").and.callFake(function(){ return nullAlways;});
+      'throwError' - all calls will throw the specified error
+      'stub' - gets back to the original stub behavior
+      'calls' - tracking stuff
+          ie: .calls.any() return false if the spy has not been called at all, true when at least 1 call happen
+          has a lot of functions (explore later)
+          reset() - clears all tracking for a spy
+  
+  Jasmine class method
+    createSpy - if there are no functions to spy on, this creates a bare spy
+      no implementation, tracks calls and vars
+    
+    createSpyObj - create a mock with multiple spies 
+      ie: tape = jasmine.createSpyObj('tape', ['play', 'pause', 'stop', 'rewind']); 
+          expect(tape.pause).toBeDefined()
+    
+    any - match anything (kind of like _ in Spock)
+      ie: expect(foo).toHaveBeenCalledWith(jasmine.any(Number), jasmine.any(Function));
+    
+    ojectContaining - partial matching, when we only care about certain key/value in the actual
+      ie: expect(foo).toEquals(jasmine.objectContaining({ bar: 'baz'}))
+    
+  Jasmine Clock
+    mock JS timeout function
+    for test suites that need setTimeout or setInterval
+    jasmine.clock().install to start
+    jasmine.clock().tick takes in a number of milliseconds
+    jasmine.clock().uninstall to reset the original timer
+
+  Async support
+    calls to beforeEach, it and afterEach takes an optional single arg that should be called when the async work is done
+    by default, jasmine waits for 5 secs for an async call to finish before throwing a timeout error
+    that can be alter by changing jasmine.DEFAULT_TIMEOUT_INTERVAL, that var can be set globally as well
+
+
+
+
+
+
+
