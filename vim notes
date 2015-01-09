@@ -6,3 +6,6 @@ gg=G      reformat entire file
 
 #replace each occurences of foo with bar in ALL lines
 %s/foo/bar/g
+
+#set a language for a file
+setf <language>
