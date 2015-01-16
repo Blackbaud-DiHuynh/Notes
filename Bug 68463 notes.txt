@@ -1,0 +1,67 @@
+
+Problem: the portion of the xref page times out because of high admin jvm usage
+
+Solution: 
+  - query the number of active campaigns, n (from CRM)
+  - if n < our threshold -> display page as is
+    else only query the first n active campaigns (either alphabetical order or time)
+  - load those campaigns to memory, store where the query locator left off
+  - add prev/next button and warning to the screen
+  - if the customer click prev/next, load the correct set of campaigns
+  - need to remove everything BUT the set of campaign in the UI
+
+
+Things to consider:
+  - what is our threshold? 
+    Salesforce query limit is: 100 (synch), 200 (async)
+    needs QA to test with various number of campaigns
+  - How to use query locator?
+  - Does RE need this?
+
+  - ways to break up this big story: 
+      back end (how to use query locator, CRM-LO data transfers, how to handle different sets of campaigns)
+      front end (pagination, how to talk to back end)
+
+
+QueryResults
+  QueryLocator queryLocator
+  Boolean done
+  sObject[] records
+  int size
+
+Query Locator
+  - example without a specific number of records
+      https://www.salesforce.com/developer/docs/api/Content/sforce_api_calls_query.htm#topic-title
+  - queryLocator value exprires after 15 mins of inactivity
+  - can use standard Apex or Batch Apex(higher limit)
+  - can be used in a loop, queryMore() is called implicitlyac
+    List<Account> accounts = new List<Account>();
+    for ( List<Account> accountBatch : [SELECT Id, Name FROM Account] )
+        accounts.addAll( accountBatch );
+  - only 10 query cursors at a time, the oldest will be released when the 11th one is used. INVALID_QUERY_LOCATOR
+    will be thrown if a released/expired cursor is called
+
+  - Doc:
+      String getQuery()
+      Database.QueryLocatorIterator iterator()  - hasNext() and next()
+
+
+LO code path 
+  pageTag = campaign_edit_xrefs
+  CampaignHandler.processRequest
+
+
+
+  XRefType.getFieldInfoList()     - get a list of stuff to xref, like Campaigns and Designation
+  GenericFieldChoices.getChoicesFiltered  - choiceMap is the list of Campaigns to choose from, should probably look for where this is populated
+  m_foreignType of field(IXRefFieldInfo) is Select c.Id, c.Name from Campaign c where c.IsActive = true
+  
+
+  Check:
+    where m_foreignType is passed in
+    where fieldChoices is populated (XRefFKChoices)
+
+
+Oh inheritance and LO
+  XrefType implements IXRefFieldInfo
+  FieldInfo implements IXRefFieldInfo
