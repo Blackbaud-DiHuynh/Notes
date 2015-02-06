@@ -9,7 +9,6 @@ Metadata 101
 
 3. Check MetadataService.CustomObject to see all of the metadata types you can make changes to
   
-
 4. Figure out what the metadata you're changing is called in this API, ie actionOverride, weblinks...
 
 5. Make changes. Duh

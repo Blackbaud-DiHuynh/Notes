@@ -71,4 +71,11 @@ How does this work
 
     
     
-    
+TESTING PLAN
+1. creating lots of invitation
+2. recognizing duplicates
+3. basic summary report with Contact/Acc ID as groupings
+4. basic summary report with Contact/Acc ID NOT as groupings
+5. Matrix with Contact/Acc ID as groupings
+6. Matrix with ContactID/Acc NOT as groupings
+
