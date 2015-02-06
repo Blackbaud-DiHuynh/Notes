@@ -1,4 +1,7 @@
 // Script to generate donations to test the Find Nearby Donors page.
+// This script will generate a list of donations in text form.
+// Copy the debug statements and replace ~ with \n in your favorite text editor 
+// Use the data loader to import them into your desired org. 
 // Assuming a lot of contacts exist in the system.
 
 Campaign camp = getCampaign();
@@ -17,7 +20,6 @@ printDonationList(getDonationsForContacts(contactsOutsideZip, 10, new List<Decim
 System.debug('1k donations for contact ' + contactsInZip[0].Name);
 printDonationList(getDonationsForContacts(new List<Contact>{contactsInZip[0]}, 1000, new List<Decimal>{122}));
 
-// helpers
 // returns a random integer strictly less than upperBound
 public static Integer getRandomInt(Integer upperBound){
 	return Math.mod(Integer.valueOf(Math.roundToLong(Math.random()*upperBound)),upperBound);
@@ -25,7 +27,6 @@ public static Integer getRandomInt(Integer upperBound){
 
 public static void printDonationList(List<Opportunity> opps){
 	String csv = 'Contact__c,Amount,CampaignId,CloseDate,RecordTypeId,Name,AccountId,StageName,Type' + '\n';
-
 	for (Opportunity opp : opps){
 		csv += opp.cv__Contact__c + ',' +
 				opp.Amount + ',' +
@@ -35,7 +36,7 @@ public static void printDonationList(List<Opportunity> opps){
 				opp.Name + ',' +
 				opp.AccountId + ',' +
 				opp.StageName + ',' +
-				opp.Type +'~';
+				opp.Type +'~'; 
 	}
 	System.debug(csv);
 }
