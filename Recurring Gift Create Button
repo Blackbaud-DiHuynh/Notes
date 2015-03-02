@@ -1,0 +1,33 @@
+Recurring Gift Create Button
+
+This button is a custom button on the Recurring Gift object. 
+It creates a new Recurring Gift on a Household Contact or an Organization Account. 
+
+If the button is clicked on a Contact layout, it will bring up a page to create a new RG with
+the following fields prepopulated: 
+Fields that can be seen:	
+	accountName
+	contactName
+	RG donation type - Individual Gift
+	primaryEngagementChannelName (if exists)
+	name - [Set by workflow rules]
+	startDate - today
+	RG status - Active
+Fields that are behind-the-scene
+	returnUrl
+	contactId
+	accountId
+
+On an organization account record, the following fields are prepopulated: 
+Fields that can be seen:	
+	accountName
+	contactName
+	RG donation type - Organization Gift
+	primaryEngagementChannelName (if exists)
+	name - [Set by workflow rules]
+	startDate - today
+	RG status - Active
+Fields that are behind-the-scene
+	returnUrl
+	contactId
+	accountId

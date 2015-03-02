@@ -1,0 +1,96 @@
+Reports.ReportResults
+[allData=true, 
+factMap=
+{
+0!0 = Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=0, value=0]), 
+	key=0!0, 
+	rows=null], 
+0!1 = Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=1, value=1]), 
+	key=0!1, 
+	rows=(Reports.ReportDetailRow[
+		dataCells=(
+			Reports.ReportDataCell[label=001o000000NAjrv, value=001o000000NAjrvAAD], 
+			Reports.ReportDataCell[label=Motiejunas, value=003o000000OCOlkAAH], 
+			Reports.ReportDataCell[label=Donatas Motiejunas Household, value=001o000000NAjrvAAD])])], 
+0!2 = Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=0, value=0]), 
+	key=0!2, 
+	rows=null], 
+0!3=Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=0, value=0]), 
+	key=0!3, 
+	rows=null], 
+0!T = Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=1, value=1]), 
+	key=0!T, 
+	rows=null], 
+1!0=Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=1, value=1]), 
+	key=1!0, 
+	rows=(Reports.ReportDetailRow[
+		dataCells=(
+			Reports.ReportDataCell[label=001o000000N9ivp, value=001o000000N9ivpAAB], 
+			Reports.ReportDataCell[label=Johnson, value=003o000000Mtd3lAAB], 
+			Reports.ReportDataCell[label=Nick Johnson Household, value=001o000000N9ivpAAB])])], 
+1!1 = Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=0, value=0]), 
+	key=1!1, 
+	rows=null], 
+1!2 = Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=0, value=0]), 
+	key=1!2, 
+	rows=null], 
+1!3=Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=0, value=0]), 
+	key=1!3, 
+	rows=null], 
+1!T=Reports.ReportFactWithDetails[
+	aggregates=(Reports.SummaryValue[label=1, value=1]), 
+	key=1!T, 
+	rows=null], ...}, 
+
+groupingsAcross=
+	Reports.Dimension[groupings=(
+		Reports.GroupingValue[groupings=null, key=0, label=003o000000Mtd3l, value=003o000000Mtd3lAAB], 
+		Reports.GroupingValue[groupings=null, key=1, label=003o000000OCOlk, value=003o000000OCOlkAAH], 
+		Reports.GroupingValue[groupings=null, key=2, label=003o000000ODhqP, value=003o000000ODhqPAAT], 
+		Reports.GroupingValue[groupings=null, key=3, label=003o000000ODhqZ, value=003o000000ODhqZAAT])], 
+
+groupingsDown=
+	Reports.Dimension[groupings=(
+		Reports.GroupingValue[groupings=null, key=0, label=-, value=null], 
+		Reports.GroupingValue[groupings=null, key=1, label=Houston, value=Houston], 
+		Reports.GroupingValue[groupings=null, key=2, label=New York, value=New York])], 
+
+hasDetailRows=true, 
+reportExtendedMetadata=
+	Reports.ReportExtendedMetadata[
+		aggregateColumnInfo={
+			RowCount=Reports.AggregateColumn[acrossGroupingContext=null, dataType=INT_DATA, downGroupingContext=null, label=Record Count, name=RowCount]}, 
+			detailColumnInfo={
+				ACCOUNT.NAME=Reports.DetailColumn[dataType=STRING_DATA, label=Account Name, name=ACCOUNT.NAME], 
+				ACCOUNT_ID=Reports.DetailColumn[dataType=ID_DATA, label=Account ID, name=ACCOUNT_ID], 
+				LAST_NAME=Reports.DetailColumn[dataType=STRING_DATA, label=Last Name, name=LAST_NAME]}, 
+
+		groupingColumnInfo={
+			ADDRESS2_CITY=Reports.GroupingColumn[dataType=STRING_DATA, groupingLevel=0, label=Mailing City, name=ADDRESS2_CITY], 
+			CONTACT_ID=Reports.GroupingColumn[dataType=ID_DATA, groupingLevel=0, label=Contact ID, name=CONTACT_ID]}],
+
+reportMetadata=Reports.ReportMetadata[
+		aggregates=(RowCount), 
+		currencyCode=null, 
+		detailColumns=(ACCOUNT_ID, LAST_NAME, ACCOUNT.NAME), 
+		developerName=Scontrolss_Summary, 
+		groupingsAcross=
+			(Reports.GroupingInfo[dateGranularity=NONE, name=CONTACT_ID, sortAggregate=null, sortOrder=ASCENDING]), 
+		groupingsDown=
+			(Reports.GroupingInfo[dateGranularity=NONE, name=ADDRESS2_CITY, sortAggregate=null, sortOrder=ASCENDING]), 
+		historicalSnapshotDates=null, 
+		id=00Oo00000045NNOEA2, 
+		name=Scontrolss-Summary, 
+		reportBooleanFilter=null, 
+		reportFilters=null, 
+		reportFormat=MATRIX, 
+		reportType=Reports.ReportType[label=Contacts & Accounts, type=ContactList]]]

@@ -1,0 +1,2048 @@
+{
+	"attributes": {
+		"describeUrl": "/services/data/v31.0/analytics/reports/00Oo00000045NNOEA2/describe",
+		"instancesUrl": "/services/data/v31.0/analytics/reports/00Oo00000045NNOEA2/instances",
+		"reportId": "00Oo00000045NNOEA2",
+		"reportName": "Scontrolss-Summary",
+		"type": "Report"
+	},
+	"allData": true,
+	"factMap": {
+		"T!T": {
+			"aggregates": [
+				{
+					"label": "88",
+					"value": 88
+				}
+			],
+			"rows": []
+		},
+		"9!T": {
+			"aggregates": [
+				{
+					"label": "1",
+					"value": 1
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233ds",
+							"value": "003o000000233dsAAA"
+						},
+						{
+							"label": "001o0000002xBDq",
+							"value": "001o0000002xBDqAAM"
+						},
+						{
+							"label": "Stumuller",
+							"value": "003o000000233dsAAA"
+						},
+						{
+							"label": "Pyramid Construction Inc.",
+							"value": "001o0000002xBDqAAM"
+						}
+					]
+				}
+			]
+		},
+		"3!T": {
+			"aggregates": [
+				{
+					"label": "1",
+					"value": 1
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233du",
+							"value": "003o000000233duAAA"
+						},
+						{
+							"label": "001o0000002xBDs",
+							"value": "001o0000002xBDsAAM"
+						},
+						{
+							"label": "Barr",
+							"value": "003o000000233duAAA"
+						},
+						{
+							"label": "Grand Hotels & Resorts Ltd",
+							"value": "001o0000002xBDsAAM"
+						}
+					]
+				}
+			]
+		},
+		"0!T": {
+			"aggregates": [
+				{
+					"label": "49",
+					"value": 49
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o0000003NVHM",
+							"value": "003o0000003NVHMAA4"
+						},
+						{
+							"label": "001o0000004Bhys",
+							"value": "001o0000004BhysAAC"
+						},
+						{
+							"label": "Olajuwon",
+							"value": "003o0000003NVHMAA4"
+						},
+						{
+							"label": "Olajuwon Household",
+							"value": "001o0000004BhysAAC"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000093c7j",
+							"value": "003o00000093c7jAAA"
+						},
+						{
+							"label": "001o0000009zuAJ",
+							"value": "001o0000009zuAJAAY"
+						},
+						{
+							"label": "Bug",
+							"value": "003o00000093c7jAAA"
+						},
+						{
+							"label": "Dup1 Bug Household",
+							"value": "001o0000009zuAJAAY"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000093cG6",
+							"value": "003o00000093cG6AAI"
+						},
+						{
+							"label": "001o0000009zuIx",
+							"value": "001o0000009zuIxAAI"
+						},
+						{
+							"label": "Bug",
+							"value": "003o00000093cG6AAI"
+						},
+						{
+							"label": "Dup3 Bug Household",
+							"value": "001o0000009zuIxAAI"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dh",
+							"value": "003o000000233dhAAA"
+						},
+						{
+							"label": "001o0000002xBDt",
+							"value": "001o0000002xBDtAAM"
+						},
+						{
+							"label": "Levy",
+							"value": "003o000000233dhAAA"
+						},
+						{
+							"label": "Express Logistics and Transport",
+							"value": "001o0000002xBDtAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233di",
+							"value": "003o000000233diAAA"
+						},
+						{
+							"label": "001o0000002xBDt",
+							"value": "001o0000002xBDtAAM"
+						},
+						{
+							"label": "Davis",
+							"value": "003o000000233diAAA"
+						},
+						{
+							"label": "Express Logistics and Transport",
+							"value": "001o0000002xBDtAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dp",
+							"value": "003o000000233dpAAA"
+						},
+						{
+							"label": "001o0000002xBDo",
+							"value": "001o0000002xBDoAAM"
+						},
+						{
+							"label": "Gonzalez",
+							"value": "003o000000233dpAAA"
+						},
+						{
+							"label": "Edge Communications",
+							"value": "001o0000002xBDoAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dq",
+							"value": "003o000000233dqAAA"
+						},
+						{
+							"label": "001o0000002xBDo",
+							"value": "001o0000002xBDoAAM"
+						},
+						{
+							"label": "Forbes",
+							"value": "003o000000233dqAAA"
+						},
+						{
+							"label": "Edge Communications",
+							"value": "001o0000002xBDoAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dv",
+							"value": "003o000000233dvAAA"
+						},
+						{
+							"label": "001o0000002xBDs",
+							"value": "001o0000002xBDsAAM"
+						},
+						{
+							"label": "Bond",
+							"value": "003o000000233dvAAA"
+						},
+						{
+							"label": "Grand Hotels & Resorts Ltd",
+							"value": "001o0000002xBDsAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dw",
+							"value": "003o000000233dwAAA"
+						},
+						{
+							"label": "001o0000002xBDv",
+							"value": "001o0000002xBDvAAM"
+						},
+						{
+							"label": "Pavlova",
+							"value": "003o000000233dwAAA"
+						},
+						{
+							"label": "United Oil & Gas Corp.",
+							"value": "001o0000002xBDvAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dy",
+							"value": "003o000000233dyAAA"
+						},
+						{
+							"label": "001o0000002xBDu",
+							"value": "001o0000002xBDuAAM"
+						},
+						{
+							"label": "Grey",
+							"value": "003o000000233dyAAA"
+						},
+						{
+							"label": "University of Arizona",
+							"value": "001o0000002xBDuAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233e0",
+							"value": "003o000000233e0AAA"
+						},
+						{
+							"label": "001o0000002xBDm",
+							"value": "001o0000002xBDmAAM"
+						},
+						{
+							"label": "James",
+							"value": "003o000000233e0AAA"
+						},
+						{
+							"label": "United Oil & Gas, UK",
+							"value": "001o0000002xBDmAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233e1",
+							"value": "003o000000233e1AAA"
+						},
+						{
+							"label": "001o0000002xBDn",
+							"value": "001o0000002xBDnAAM"
+						},
+						{
+							"label": "Ripley",
+							"value": "003o000000233e1AAA"
+						},
+						{
+							"label": "United Oil & Gas, Singapore",
+							"value": "001o0000002xBDnAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233e2",
+							"value": "003o000000233e2AAA"
+						},
+						{
+							"label": "001o0000002xBDn",
+							"value": "001o0000002xBDnAAM"
+						},
+						{
+							"label": "D'Cruz",
+							"value": "003o000000233e2AAA"
+						},
+						{
+							"label": "United Oil & Gas, Singapore",
+							"value": "001o0000002xBDnAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233e4",
+							"value": "003o000000233e4AAA"
+						},
+						{
+							"label": "001o0000002xBDv",
+							"value": "001o0000002xBDvAAM"
+						},
+						{
+							"label": "Green",
+							"value": "003o000000233e4AAA"
+						},
+						{
+							"label": "United Oil & Gas Corp.",
+							"value": "001o0000002xBDvAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000093c9d",
+							"value": "003o00000093c9dAAA"
+						},
+						{
+							"label": "001o0000009zuBG",
+							"value": "001o0000009zuBGAAY"
+						},
+						{
+							"label": "Bug",
+							"value": "003o00000093c9dAAA"
+						},
+						{
+							"label": "Dup2 Bug Household",
+							"value": "001o0000009zuBGAAY"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000003A2PV",
+							"value": "003o0000003A2PVAA0"
+						},
+						{
+							"label": "001o0000003aoWu",
+							"value": "001o0000003aoWuAAI"
+						},
+						{
+							"label": "Wolovitz",
+							"value": "003o0000003A2PVAA0"
+						},
+						{
+							"label": "Wolovitz Household",
+							"value": "001o0000003aoWuAAI"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000003A1GV",
+							"value": "003o0000003A1GVAA0"
+						},
+						{
+							"label": "001o0000003anvU",
+							"value": "001o0000003anvUAAQ"
+						},
+						{
+							"label": "Cooper",
+							"value": "003o0000003A1GVAA0"
+						},
+						{
+							"label": "Cooper Household",
+							"value": "001o0000003anvUAAQ"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000002pE43",
+							"value": "003o0000002pE43AAE"
+						},
+						{
+							"label": "001o0000003Y6AG",
+							"value": "001o0000003Y6AGAA0"
+						},
+						{
+							"label": "LO Connection test",
+							"value": "003o0000002pE43AAE"
+						},
+						{
+							"label": "LO Connection test Household",
+							"value": "001o0000003Y6AGAA0"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000002pERZ",
+							"value": "003o0000002pERZAA2"
+						},
+						{
+							"label": "001o0000003Y7Ff",
+							"value": "001o0000003Y7FfAAK"
+						},
+						{
+							"label": "Test2",
+							"value": "003o0000002pERZAA2"
+						},
+						{
+							"label": "Test2 Household",
+							"value": "001o0000003Y7FfAAK"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000002s2rg",
+							"value": "003o0000002s2rgAAA"
+						},
+						{
+							"label": "001o0000003a8tK",
+							"value": "001o0000003a8tKAAQ"
+						},
+						{
+							"label": "Test4",
+							"value": "003o0000002s2rgAAA"
+						},
+						{
+							"label": "Boo Test4 Household",
+							"value": "001o0000003a8tKAAQ"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000002sDLl",
+							"value": "003o0000002sDLlAAM"
+						},
+						{
+							"label": "001o0000003aGvd",
+							"value": "001o0000003aGvdAAE"
+						},
+						{
+							"label": "Eriksen",
+							"value": "003o0000002sDLlAAM"
+						},
+						{
+							"label": "Marshall Eriksen Household",
+							"value": "001o0000003aGvdAAE"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000002sCAi",
+							"value": "003o0000002sCAiAAM"
+						},
+						{
+							"label": "001o0000003aFL1",
+							"value": "001o0000003aFL1AAM"
+						},
+						{
+							"label": "Moo",
+							"value": "003o0000002sCAiAAM"
+						},
+						{
+							"label": "Moo",
+							"value": "001o0000003aFL1AAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000004szH1",
+							"value": "003o0000004szH1AAI"
+						},
+						{
+							"label": "001o0000005wbTA",
+							"value": "001o0000005wbTAAAY"
+						},
+						{
+							"label": "Mail",
+							"value": "003o0000004szH1AAI"
+						},
+						{
+							"label": "Accept Mail Household",
+							"value": "001o0000005wbTAAAY"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000962rD",
+							"value": "003o000000962rDAAQ"
+						},
+						{
+							"label": "001o000000A1Omf",
+							"value": "001o000000A1OmfAAF"
+						},
+						{
+							"label": "Bug1",
+							"value": "003o000000962rDAAQ"
+						},
+						{
+							"label": "Dup3 Bug1 Household",
+							"value": "001o000000A1OmfAAF"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000004q4AQ",
+							"value": "003o0000004q4AQAAY"
+						},
+						{
+							"label": "001o0000005tlH8",
+							"value": "001o0000005tlH8AAI"
+						},
+						{
+							"label": "uys",
+							"value": "003o0000004q4AQAAY"
+						},
+						{
+							"label": "no uys Household",
+							"value": "001o0000005tlH8AAI"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000961zS",
+							"value": "003o000000961zSAAQ"
+						},
+						{
+							"label": "001o000000A1OI8",
+							"value": "001o000000A1OI8AAN"
+						},
+						{
+							"label": "Bug1",
+							"value": "003o000000961zSAAQ"
+						},
+						{
+							"label": "Dup2 Bug1 Household",
+							"value": "001o000000A1OI8AAN"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000B09uw",
+							"value": "003o000000B09uwAAB"
+						},
+						{
+							"label": "001o000000B6uZu",
+							"value": "001o000000B6uZuAAJ"
+						},
+						{
+							"label": "Bug2",
+							"value": "003o000000B09uwAAB"
+						},
+						{
+							"label": "Dup5 Bug2 Household",
+							"value": "001o000000B6uZuAAJ"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000B08KQ",
+							"value": "003o000000B08KQAAZ"
+						},
+						{
+							"label": "001o000000B6tOe",
+							"value": "001o000000B6tOeAAJ"
+						},
+						{
+							"label": "Bug2",
+							"value": "003o000000B08KQAAZ"
+						},
+						{
+							"label": "Dup3 Bug2 Household",
+							"value": "001o000000B6tOeAAJ"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000B07Lb",
+							"value": "003o000000B07LbAAJ"
+						},
+						{
+							"label": "001o000000B6seB",
+							"value": "001o000000B6seBAAR"
+						},
+						{
+							"label": "Bug2",
+							"value": "003o000000B07LbAAJ"
+						},
+						{
+							"label": "Dup0 Bug2 Household",
+							"value": "001o000000B6seBAAR"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000Mtd3l",
+							"value": "003o000000Mtd3lAAB"
+						},
+						{
+							"label": "001o000000N9ivp",
+							"value": "001o000000N9ivpAAB"
+						},
+						{
+							"label": "Johnson",
+							"value": "003o000000Mtd3lAAB"
+						},
+						{
+							"label": "Nick Johnson Household",
+							"value": "001o000000N9ivpAAB"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000B08Jk",
+							"value": "003o000000B08JkAAJ"
+						},
+						{
+							"label": "001o000000B6tOL",
+							"value": "001o000000B6tOLAAZ"
+						},
+						{
+							"label": "Bug2",
+							"value": "003o000000B08JkAAJ"
+						},
+						{
+							"label": "Dup3 Bug2 Household",
+							"value": "001o000000B6tOLAAZ"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000B07Uj",
+							"value": "003o000000B07UjAAJ"
+						},
+						{
+							"label": "001o000000B6slU",
+							"value": "001o000000B6slUAAR"
+						},
+						{
+							"label": "Bug2",
+							"value": "003o000000B07UjAAJ"
+						},
+						{
+							"label": "Dup1 Bug2 Household",
+							"value": "001o000000B6slUAAR"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000OCOlk",
+							"value": "003o000000OCOlkAAH"
+						},
+						{
+							"label": "001o000000NAjrv",
+							"value": "001o000000NAjrvAAD"
+						},
+						{
+							"label": "Motiejunas",
+							"value": "003o000000OCOlkAAH"
+						},
+						{
+							"label": "Donatas Motiejunas Household",
+							"value": "001o000000NAjrvAAD"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000B135F",
+							"value": "003o000000B135FAAR"
+						},
+						{
+							"label": "001o000000B7g2A",
+							"value": "001o000000B7g2AAAR"
+						},
+						{
+							"label": "Bug3",
+							"value": "003o000000B135FAAR"
+						},
+						{
+							"label": "Dup0 Bug3 Household",
+							"value": "001o000000B7g2AAAR"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000BIrOk",
+							"value": "003o000000BIrOkAAL"
+						},
+						{
+							"label": "001o000000BHPXt",
+							"value": "001o000000BHPXtAAP"
+						},
+						{
+							"label": "Bug5",
+							"value": "003o000000BIrOkAAL"
+						},
+						{
+							"label": "Dup1 Bug5 Household",
+							"value": "001o000000BHPXtAAP"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000B13J5",
+							"value": "003o000000B13J5AAJ"
+						},
+						{
+							"label": "001o000000B7gA4",
+							"value": "001o000000B7gA4AAJ"
+						},
+						{
+							"label": "Bug3",
+							"value": "003o000000B13J5AAJ"
+						},
+						{
+							"label": "Dup2 Bug3 Household",
+							"value": "001o000000B7gA4AAJ"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000B3Gxu",
+							"value": "003o000000B3GxuAAF"
+						},
+						{
+							"label": "001o000000BAtv4",
+							"value": "001o000000BAtv4AAD"
+						},
+						{
+							"label": "Bug4",
+							"value": "003o000000B3GxuAAF"
+						},
+						{
+							"label": "Dup1 Bug4 Household",
+							"value": "001o000000BAtv4AAD"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000093Crf",
+							"value": "003o00000093CrfAAE"
+						},
+						{
+							"label": "001o0000009zdUA",
+							"value": "001o0000009zdUAAAY"
+						},
+						{
+							"label": "Bug",
+							"value": "003o00000093CrfAAE"
+						},
+						{
+							"label": "Dup Bug Household",
+							"value": "001o0000009zdUAAAY"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000BIqpy",
+							"value": "003o000000BIqpyAAD"
+						},
+						{
+							"label": "001o000000BHOzV",
+							"value": "001o000000BHOzVAAX"
+						},
+						{
+							"label": "Bug5",
+							"value": "003o000000BIqpyAAD"
+						},
+						{
+							"label": "Dup0 Bug5 Household",
+							"value": "001o000000BHOzVAAX"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000B2G2K",
+							"value": "003o000000B2G2KAAV"
+						},
+						{
+							"label": "001o000000B8ppA",
+							"value": "001o000000B8ppAAAR"
+						},
+						{
+							"label": "Bug3",
+							"value": "003o000000B2G2KAAV"
+						},
+						{
+							"label": "Dup6 Bug3 Household",
+							"value": "001o000000B8ppAAAR"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000094Lpf",
+							"value": "003o00000094LpfAAE"
+						},
+						{
+							"label": "001o0000009zxmJ",
+							"value": "001o0000009zxmJAAQ"
+						},
+						{
+							"label": "Bug",
+							"value": "003o00000094LpfAAE"
+						},
+						{
+							"label": "Dup5 Bug Household",
+							"value": "001o0000009zxmJAAQ"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000094Hwi",
+							"value": "003o00000094HwiAAE"
+						},
+						{
+							"label": "001o0000009zxVv",
+							"value": "001o0000009zxVvAAI"
+						},
+						{
+							"label": "Bug",
+							"value": "003o00000094HwiAAE"
+						},
+						{
+							"label": "Dup4 Bug Household",
+							"value": "001o0000009zxVvAAI"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000095aFC",
+							"value": "003o00000095aFCAAY"
+						},
+						{
+							"label": "001o000000A0yec",
+							"value": "001o000000A0yecAAB"
+						},
+						{
+							"label": "Bug1",
+							"value": "003o00000095aFCAAY"
+						},
+						{
+							"label": "Dup Bug1 Household",
+							"value": "001o000000A0yecAAB"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000BHBnq",
+							"value": "003o000000BHBnqAAH"
+						},
+						{
+							"label": "001o000000BFlLf",
+							"value": "001o000000BFlLfAAL"
+						},
+						{
+							"label": "Bug4",
+							"value": "003o000000BHBnqAAH"
+						},
+						{
+							"label": "Dup2 Bug4 Household",
+							"value": "001o000000BFlLfAAL"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000BHFCT",
+							"value": "003o000000BHFCTAA5"
+						},
+						{
+							"label": "001o000000BFoUO",
+							"value": "001o000000BFoUOAA1"
+						},
+						{
+							"label": "Bug4",
+							"value": "003o000000BHFCTAA5"
+						},
+						{
+							"label": "Dup109 Bug4 Household",
+							"value": "001o000000BFoUOAA1"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000K2nON",
+							"value": "003o000000K2nONAAZ"
+						},
+						{
+							"label": "001o000000JBDf5",
+							"value": "001o000000JBDf5AAH"
+						},
+						{
+							"label": "Bug",
+							"value": "003o000000K2nONAAZ"
+						},
+						{
+							"label": "Dupbc Bug Household",
+							"value": "001o000000JBDf5AAH"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000K2nO3",
+							"value": "003o000000K2nO3AAJ"
+						},
+						{
+							"label": "001o000000JBDf5",
+							"value": "001o000000JBDf5AAH"
+						},
+						{
+							"label": "Bug",
+							"value": "003o000000K2nO3AAJ"
+						},
+						{
+							"label": "Dupbc Bug Household",
+							"value": "001o000000JBDf5AAH"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000JlDts",
+							"value": "003o000000JlDtsAAF"
+						},
+						{
+							"label": "001o000000JAry0",
+							"value": "001o000000JAry0AAD"
+						},
+						{
+							"label": "Howard",
+							"value": "003o000000JlDtsAAF"
+						},
+						{
+							"label": "Dwight Howard Household",
+							"value": "001o000000JAry0AAD"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000K2MOm",
+							"value": "003o000000K2MOmAAN"
+						},
+						{
+							"label": "001o000000JAgLS",
+							"value": "001o000000JAgLSAA1"
+						},
+						{
+							"label": "Houston Rockets 2",
+							"value": "003o000000K2MOmAAN"
+						},
+						{
+							"label": "Houston Rockets 2",
+							"value": "001o000000JAgLSAA1"
+						}
+					]
+				}
+			]
+		},
+		"8!T": {
+			"aggregates": [
+				{
+					"label": "2",
+					"value": 2
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dx",
+							"value": "003o000000233dxAAA"
+						},
+						{
+							"label": "001o0000002xBDv",
+							"value": "001o0000002xBDvAAM"
+						},
+						{
+							"label": "Boyle",
+							"value": "003o000000233dxAAA"
+						},
+						{
+							"label": "United Oil & Gas Corp.",
+							"value": "001o0000002xBDvAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dz",
+							"value": "003o000000233dzAAA"
+						},
+						{
+							"label": "001o0000002xBDv",
+							"value": "001o0000002xBDvAAM"
+						},
+						{
+							"label": "Song",
+							"value": "003o000000233dzAAA"
+						},
+						{
+							"label": "United Oil & Gas Corp.",
+							"value": "001o0000002xBDvAAM"
+						}
+					]
+				}
+			]
+		},
+		"1!T": {
+			"aggregates": [
+				{
+					"label": "24",
+					"value": 24
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o0000004HQg2",
+							"value": "003o0000004HQg2AAG"
+						},
+						{
+							"label": "001o00000054G6U",
+							"value": "001o00000054G6UAAU"
+						},
+						{
+							"label": "Kaplan",
+							"value": "003o0000004HQg2AAG"
+						},
+						{
+							"label": "Rachel Green Household",
+							"value": "001o00000054G6UAAU"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000004HaV4",
+							"value": "003o0000004HaV4AAK"
+						},
+						{
+							"label": "001o00000054SAc",
+							"value": "001o00000054SAcAAM"
+						},
+						{
+							"label": "Tribiani",
+							"value": "003o0000004HaV4AAK"
+						},
+						{
+							"label": "Joey Tribiani Household",
+							"value": "001o00000054SAcAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000002pS4q",
+							"value": "003o0000002pS4qAAE"
+						},
+						{
+							"label": "001o0000003YKjA",
+							"value": "001o0000003YKjAAAW"
+						},
+						{
+							"label": "Roth",
+							"value": "003o0000002pS4qAAE"
+						},
+						{
+							"label": "Test4 Household",
+							"value": "001o0000003YKjAAAW"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000002sDLb",
+							"value": "003o0000002sDLbAAM"
+						},
+						{
+							"label": "001o0000003aGvT",
+							"value": "001o0000003aGvTAAU"
+						},
+						{
+							"label": "Mosby",
+							"value": "003o0000002sDLbAAM"
+						},
+						{
+							"label": "Ted Mosby Household",
+							"value": "001o0000003aGvTAAU"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000002sDLg",
+							"value": "003o0000002sDLgAAM"
+						},
+						{
+							"label": "001o0000003aGvY",
+							"value": "001o0000003aGvYAAU"
+						},
+						{
+							"label": "Stinson",
+							"value": "003o0000002sDLgAAM"
+						},
+						{
+							"label": "Barney Stinson Household",
+							"value": "001o0000003aGvYAAU"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000003MBh1",
+							"value": "003o0000003MBh1AAG"
+						},
+						{
+							"label": "001o0000004ABOl",
+							"value": "001o0000004ABOlAAO"
+						},
+						{
+							"label": "Granger",
+							"value": "003o0000003MBh1AAG"
+						},
+						{
+							"label": "Granger Household",
+							"value": "001o0000004ABOlAAO"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000096Ckz",
+							"value": "003o00000096CkzAAE"
+						},
+						{
+							"label": "001o000000A1Vq4",
+							"value": "001o000000A1Vq4AAF"
+						},
+						{
+							"label": "Bug1",
+							"value": "003o00000096CkzAAE"
+						},
+						{
+							"label": "Dup4 Bug1 Household",
+							"value": "001o000000A1Vq4AAF"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000009NDMY",
+							"value": "003o0000009NDMYAA4"
+						},
+						{
+							"label": "001o000000A1d1X",
+							"value": "001o000000A1d1XAAR"
+						},
+						{
+							"label": "Bug1",
+							"value": "003o0000009NDMYAA4"
+						},
+						{
+							"label": "Dup7 Bug1 Household",
+							"value": "001o000000A1d1XAAR"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000005PoRj",
+							"value": "003o0000005PoRjAAK"
+						},
+						{
+							"label": "001o0000006YRQm",
+							"value": "001o0000006YRQmAAO"
+						},
+						{
+							"label": "Harden",
+							"value": "003o0000005PoRjAAK"
+						},
+						{
+							"label": "James Harden Household",
+							"value": "001o0000006YRQmAAO"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000009a3rn",
+							"value": "003o0000009a3rnAAA"
+						},
+						{
+							"label": "001o000000ASGPv",
+							"value": "001o000000ASGPvAAP"
+						},
+						{
+							"label": "Grassi",
+							"value": "003o0000009a3rnAAA"
+						},
+						{
+							"label": "Mitch Grassi Household",
+							"value": "001o000000ASGPvAAP"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000007XVcS",
+							"value": "003o0000007XVcSAAW"
+						},
+						{
+							"label": "001o0000009HeUG",
+							"value": "001o0000009HeUGAA0"
+						},
+						{
+							"label": "Weasley",
+							"value": "003o0000007XVcSAAW"
+						},
+						{
+							"label": "Ron Weasley Household",
+							"value": "001o0000009HeUGAA0"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000009NFCw",
+							"value": "003o0000009NFCwAAO"
+						},
+						{
+							"label": "001o000000A1ey2",
+							"value": "001o000000A1ey2AAB"
+						},
+						{
+							"label": "Bug1",
+							"value": "003o0000009NFCwAAO"
+						},
+						{
+							"label": "Dup8 Bug1 Household",
+							"value": "001o000000A1ey2AAB"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000095aJ8",
+							"value": "003o00000095aJ8AAI"
+						},
+						{
+							"label": "001o000000A0yhF",
+							"value": "001o000000A0yhFAAR"
+						},
+						{
+							"label": "Bug1",
+							"value": "003o00000095aJ8AAI"
+						},
+						{
+							"label": "Dup1 Bug1 Household",
+							"value": "001o000000A0yhFAAR"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o00000094OVZ",
+							"value": "003o00000094OVZAA2"
+						},
+						{
+							"label": "001o0000009zxqD",
+							"value": "001o0000009zxqDAAQ"
+						},
+						{
+							"label": "Bug",
+							"value": "003o00000094OVZAA2"
+						},
+						{
+							"label": "Dup6 Bug Household",
+							"value": "001o0000009zxqDAAQ"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000009N9p8",
+							"value": "003o0000009N9p8AAC"
+						},
+						{
+							"label": "001o000000A1YmV",
+							"value": "001o000000A1YmVAAV"
+						},
+						{
+							"label": "Bug1",
+							"value": "003o0000009N9p8AAC"
+						},
+						{
+							"label": "Dup6 Bug1 Household",
+							"value": "001o000000A1YmVAAV"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000HQNOR",
+							"value": "003o000000HQNORAA5"
+						},
+						{
+							"label": "001o000000GIg9w",
+							"value": "001o000000GIg9wAAD"
+						},
+						{
+							"label": "Murray",
+							"value": "003o000000HQNORAA5"
+						},
+						{
+							"label": "Bill Murray Household",
+							"value": "001o000000GIg9wAAD"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000HQNeA",
+							"value": "003o000000HQNeAAAX"
+						},
+						{
+							"label": "001o000000GIg9w",
+							"value": "001o000000GIg9wAAD"
+						},
+						{
+							"label": "Murray",
+							"value": "003o000000HQNeAAAX"
+						},
+						{
+							"label": "Bill Murray Household",
+							"value": "001o000000GIg9wAAD"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000HQNoU",
+							"value": "003o000000HQNoUAAX"
+						},
+						{
+							"label": "001o000000GIgZf",
+							"value": "001o000000GIgZfAAL"
+						},
+						{
+							"label": "Ariza",
+							"value": "003o000000HQNoUAAX"
+						},
+						{
+							"label": "Trevor Ariza Household",
+							"value": "001o000000GIgZfAAL"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000FV45K",
+							"value": "003o000000FV45KAAT"
+						},
+						{
+							"label": "001o000000EEmzL",
+							"value": "001o000000EEmzLAAT"
+						},
+						{
+							"label": "Blooop",
+							"value": "003o000000FV45KAAT"
+						},
+						{
+							"label": "Blah Blooop Household",
+							"value": "001o000000EEmzLAAT"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000BVFuK",
+							"value": "003o000000BVFuKAAX"
+						},
+						{
+							"label": "001o000000Bc3cz",
+							"value": "001o000000Bc3czAAB"
+						},
+						{
+							"label": "Zero",
+							"value": "003o000000BVFuKAAX"
+						},
+						{
+							"label": "Net Zero Household",
+							"value": "001o000000Bc3czAAB"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000BU6N9",
+							"value": "003o000000BU6N9AAL"
+						},
+						{
+							"label": "001o000000BbCFN",
+							"value": "001o000000BbCFNAA3"
+						},
+						{
+							"label": "Mandalo",
+							"value": "003o000000BU6N9AAL"
+						},
+						{
+							"label": "Kirstie Mandalo Household",
+							"value": "001o000000BbCFNAA3"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000IQ8m4",
+							"value": "003o000000IQ8m4AAD"
+						},
+						{
+							"label": "001o000000HmTcr",
+							"value": "001o000000HmTcrAAF"
+						},
+						{
+							"label": "Beverley",
+							"value": "003o000000IQ8m4AAD"
+						},
+						{
+							"label": "Patrick Beverley Household",
+							"value": "001o000000HmTcrAAF"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000K2Mfs",
+							"value": "003o000000K2MfsAAF"
+						},
+						{
+							"label": "001o000000JAgcx",
+							"value": "001o000000JAgcxAAD"
+						},
+						{
+							"label": "Houston Rockets 3",
+							"value": "003o000000K2MfsAAF"
+						},
+						{
+							"label": "Houston Rockets 3",
+							"value": "001o000000JAgcxAAD"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000K2Lhk",
+							"value": "003o000000K2LhkAAF"
+						},
+						{
+							"label": "001o000000JAfXr",
+							"value": "001o000000JAfXrAAL"
+						},
+						{
+							"label": "Blackbaud",
+							"value": "003o000000K2LhkAAF"
+						},
+						{
+							"label": "Blackbaud",
+							"value": "001o000000JAfXrAAL"
+						}
+					]
+				}
+			]
+		},
+		"11!T": {
+			"aggregates": [
+				{
+					"label": "3",
+					"value": 3
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o0000005Pnfs",
+							"value": "003o0000005PnfsAAC"
+						},
+						{
+							"label": "001o0000006YR7m",
+							"value": "001o0000006YR7mAAG"
+						},
+						{
+							"label": "Griffin",
+							"value": "003o0000005PnfsAAC"
+						},
+						{
+							"label": "Peter Griffin Household",
+							"value": "001o0000006YR7mAAG"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000005PnfB",
+							"value": "003o0000005PnfBAAS"
+						},
+						{
+							"label": "001o0000006YR7N",
+							"value": "001o0000006YR7NAAW"
+						},
+						{
+							"label": "Timberlake",
+							"value": "003o0000005PnfBAAS"
+						},
+						{
+							"label": "Justin Timberlake Household",
+							"value": "001o0000006YR7NAAW"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o0000005Pml0",
+							"value": "003o0000005Pml0AAC"
+						},
+						{
+							"label": "001o0000006YQai",
+							"value": "001o0000006YQaiAAG"
+						},
+						{
+							"label": "Oldman",
+							"value": "003o0000005Pml0AAC"
+						},
+						{
+							"label": "Gary Oldman Household",
+							"value": "001o0000006YQaiAAG"
+						}
+					]
+				}
+			]
+		},
+		"5!T": {
+			"aggregates": [
+				{
+					"label": "2",
+					"value": 2
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o000000K2XHb",
+							"value": "003o000000K2XHbAAN"
+						},
+						{
+							"label": "001o000000IZrss",
+							"value": "001o000000IZrssAAD"
+						},
+						{
+							"label": "Harden",
+							"value": "003o000000K2XHbAAN"
+						},
+						{
+							"label": "Houston Rockets",
+							"value": "001o000000IZrssAAD"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000JlDhT",
+							"value": "003o000000JlDhTAAV"
+						},
+						{
+							"label": "001o000000IZrss",
+							"value": "001o000000IZrssAAD"
+						},
+						{
+							"label": "Houston Rockets",
+							"value": "003o000000JlDhTAAV"
+						},
+						{
+							"label": "Houston Rockets",
+							"value": "001o000000IZrssAAD"
+						}
+					]
+				}
+			]
+		},
+		"2!T": {
+			"aggregates": [
+				{
+					"label": "1",
+					"value": 1
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dr",
+							"value": "003o000000233drAAA"
+						},
+						{
+							"label": "001o0000002xBDp",
+							"value": "001o0000002xBDpAAM"
+						},
+						{
+							"label": "Rogers",
+							"value": "003o000000233drAAA"
+						},
+						{
+							"label": "Burlington Textiles Corp of America",
+							"value": "001o0000002xBDpAAM"
+						}
+					]
+				}
+			]
+		},
+		"6!T": {
+			"aggregates": [
+				{
+					"label": "1",
+					"value": 1
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233dt",
+							"value": "003o000000233dtAAA"
+						},
+						{
+							"label": "001o0000002xBDr",
+							"value": "001o0000002xBDrAAM"
+						},
+						{
+							"label": "Young",
+							"value": "003o000000233dtAAA"
+						},
+						{
+							"label": "Dickenson plc",
+							"value": "001o0000002xBDrAAM"
+						}
+					]
+				}
+			]
+		},
+		"4!T": {
+			"aggregates": [
+				{
+					"label": "1",
+					"value": 1
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o000000K2M6I",
+							"value": "003o000000K2M6IAAV"
+						},
+						{
+							"label": "001o000000JAfxq",
+							"value": "001o000000JAfxqAAD"
+						},
+						{
+							"label": "Komen",
+							"value": "003o000000K2M6IAAV"
+						},
+						{
+							"label": "Komen",
+							"value": "001o000000JAfxqAAD"
+						}
+					]
+				}
+			]
+		},
+		"10!T": {
+			"aggregates": [
+				{
+					"label": "2",
+					"value": 2
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233e5",
+							"value": "003o000000233e5AAA"
+						},
+						{
+							"label": "001o0000002xBDw",
+							"value": "001o0000002xBDwAAM"
+						},
+						{
+							"label": "Nedaerk",
+							"value": "003o000000233e5AAA"
+						},
+						{
+							"label": "sForce",
+							"value": "001o0000002xBDwAAM"
+						}
+					]
+				},
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233e6",
+							"value": "003o000000233e6AAA"
+						},
+						{
+							"label": "001o0000002xBDw",
+							"value": "001o0000002xBDwAAM"
+						},
+						{
+							"label": "Llorrac",
+							"value": "003o000000233e6AAA"
+						},
+						{
+							"label": "sForce",
+							"value": "001o0000002xBDwAAM"
+						}
+					]
+				}
+			]
+		},
+		"7!T": {
+			"aggregates": [
+				{
+					"label": "1",
+					"value": 1
+				}
+			],
+			"rows": [
+				{
+					"dataCells": [
+						{
+							"label": "003o000000233e3",
+							"value": "003o000000233e3AAA"
+						},
+						{
+							"label": "001o0000002xBDl",
+							"value": "001o0000002xBDlAAM"
+						},
+						{
+							"label": "Frank",
+							"value": "003o000000233e3AAA"
+						},
+						{
+							"label": "GenePoint",
+							"value": "001o0000002xBDlAAM"
+						}
+					]
+				}
+			]
+		}
+	},
+	"groupingsAcross": {
+		"groupings": []
+	},
+	"groupingsDown": {
+		"groupings": [
+			{
+				"groupings": [],
+				"key": "0",
+				"label": "-",
+				"value": null
+			},
+			{
+				"groupings": [],
+				"key": "1",
+				"label": "Austin",
+				"value": "Austin"
+			},
+			{
+				"groupings": [],
+				"key": "2",
+				"label": "Burlington",
+				"value": "Burlington"
+			},
+			{
+				"groupings": [],
+				"key": "3",
+				"label": "Chicago",
+				"value": "Chicago"
+			},
+			{
+				"groupings": [],
+				"key": "4",
+				"label": "Dallas",
+				"value": "Dallas"
+			},
+			{
+				"groupings": [],
+				"key": "5",
+				"label": "Houston",
+				"value": "Houston"
+			},
+			{
+				"groupings": [],
+				"key": "6",
+				"label": "Lawrence",
+				"value": "Lawrence"
+			},
+			{
+				"groupings": [],
+				"key": "7",
+				"label": "Mountain View",
+				"value": "Mountain View"
+			},
+			{
+				"groupings": [],
+				"key": "8",
+				"label": "New York",
+				"value": "New York"
+			},
+			{
+				"groupings": [],
+				"key": "9",
+				"label": "Paris",
+				"value": "Paris"
+			},
+			{
+				"groupings": [],
+				"key": "10",
+				"label": "San Francisco",
+				"value": "San Francisco"
+			},
+			{
+				"groupings": [],
+				"key": "11",
+				"label": "Toronto",
+				"value": "Toronto"
+			}
+		]
+	},
+	"hasDetailRows": true,
+	"reportExtendedMetadata": {
+		"aggregateColumnInfo": {
+			"RowCount": {
+				"acrossGroupingContext": null,
+				"dataType": "int",
+				"downGroupingContext": null,
+				"label": "Record Count"
+			}
+		},
+		"detailColumnInfo": {
+			"CONTACT_ID": {
+				"dataType": "id",
+				"label": "Contact ID"
+			},
+			"ACCOUNT_ID": {
+				"dataType": "id",
+				"label": "Account ID"
+			},
+			"LAST_NAME": {
+				"dataType": "string",
+				"label": "Last Name"
+			},
+			"ACCOUNT.NAME": {
+				"dataType": "string",
+				"label": "Account Name"
+			}
+		},
+		"groupingColumnInfo": {
+			"ADDRESS2_CITY": {
+				"dataType": "string",
+				"groupingLevel": 0,
+				"label": "Mailing City"
+			}
+		}
+	},
+	"reportMetadata": {
+		"aggregates": [
+			"RowCount"
+		],
+		"currency": null,
+		"detailColumns": [
+			"CONTACT_ID",
+			"ACCOUNT_ID",
+			"LAST_NAME",
+			"ACCOUNT.NAME"
+		],
+		"developerName": "Scontrolss_Summary",
+		"groupingsAcross": [],
+		"groupingsDown": [
+			{
+				"dateGranularity": "None",
+				"name": "ADDRESS2_CITY",
+				"sortAggregate": null,
+				"sortOrder": "Asc"
+			}
+		],
+		"historicalSnapshotDates": [],
+		"id": "00Oo00000045NNOEA2",
+		"name": "Scontrolss-Summary",
+		"reportBooleanFilter": null,
+		"reportFilters": [],
+		"reportFormat": "MATRIX",
+		"reportType": {
+			"label": "Contacts & Accounts",
+			"type": "ContactList"
+		}
+	}
+}

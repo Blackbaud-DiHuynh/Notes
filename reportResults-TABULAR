@@ -1,0 +1,169 @@
+
+Reports.ReportResults[
+allData=true, 
+factMap={
+T!T=Reports.ReportFactWithDetails[
+
+aggregates=(Reports.SummaryValue[label=17, value=17]), 
+key=T!T, 
+rows=(
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000HQNOR, value=003o000000HQNORAA5], 
+		Reports.ReportDataCell[label=001o000000GIg9w, value=001o000000GIg9wAAD], 
+		Reports.ReportDataCell[label=Bill, value=003o000000HQNORAA5], 
+		Reports.ReportDataCell[label=Murray, value=003o000000HQNORAA5], 
+		Reports.ReportDataCell[label=11501 Domain Dr Ste 200, value=11501 Domain Dr Ste 200], 
+		Reports.ReportDataCell[label=Austin, value=Austin], 
+		Reports.ReportDataCell[label=TX, value=TX], 
+		Reports.ReportDataCell[label=78758-3599, value=78758-3599], 
+		Reports.ReportDataCell[label=Bill Murray Household, value=001o000000GIg9wAAD])], 
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000HQNeA, value=003o000000HQNeAAAX], 
+		Reports.ReportDataCell[label=001o000000GIg9w, value=001o000000GIg9wAAD], 
+		Reports.ReportDataCell[label=Billy, value=003o000000HQNeAAAX], 
+		Reports.ReportDataCell[label=Murray, value=003o000000HQNeAAAX], 
+		Reports.ReportDataCell[label=11501 Domain Dr Ste 200, value=11501 Domain Dr Ste 200], 
+		Reports.ReportDataCell[label=Austin, value=Austin], 
+		Reports.ReportDataCell[label=TX, value=TX], 
+		Reports.ReportDataCell[label=78758-3599, value=78758-3599], 
+		Reports.ReportDataCell[label=Bill Murray Household, value=001o000000GIg9wAAD])], 
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000HQNoU, value=003o000000HQNoUAAX], 
+		Reports.ReportDataCell[label=001o000000GIgZf, value=001o000000GIgZfAAL], 
+		Reports.ReportDataCell[label=Trevor, value=003o000000HQNoUAAX], 
+		Reports.ReportDataCell[label=Ariza, value=003o000000HQNoUAAX], 
+		Reports.ReportDataCell[label=11501 Domain Dr, value=11501 Domain Dr], 
+		Reports.ReportDataCell[label=Austin, value=Austin], 
+		Reports.ReportDataCell[label=TX, value=TX], 
+		Reports.ReportDataCell[label=78758-3483, value=78758-3483], 
+		Reports.ReportDataCell[label=Trevor Ariza Household, value=001o000000GIgZfAAL])], 
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000IQ8m4, value=003o000000IQ8m4AAD], 
+		Reports.ReportDataCell[label=001o000000HmTcr, value=001o000000HmTcrAAF], 
+		Reports.ReportDataCell[label=Patrick, value=003o000000IQ8m4AAD], 
+		Reports.ReportDataCell[label=Beverley, value=003o000000IQ8m4AAD], 
+		Reports.ReportDataCell[label=11501 Domain Dr, value=11501 Domain Dr], 
+		Reports.ReportDataCell[label=Austin, value=Austin], 
+		Reports.ReportDataCell[label=TX, value=TX], 
+		Reports.ReportDataCell[label=78758-3483, value=78758-3483], 
+		Reports.ReportDataCell[label=Patrick Beverley Household, value=001o000000HmTcrAAF])], 
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000JlDhT, value=003o000000JlDhTAAV], 
+		Reports.ReportDataCell[label=001o000000IZrss, value=001o000000IZrssAAD], 
+		Reports.ReportDataCell[label=-, value=003o000000JlDhTAAV], 
+		Reports.ReportDataCell[label=Houston Rockets, value=003o000000JlDhTAAV], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=Houston, value=Houston], 
+		Reports.ReportDataCell[label=Texas, value=Texas], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=Houston Rockets, value=001o000000IZrssAAD])], 
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000JlDts, value=003o000000JlDtsAAF], 
+		Reports.ReportDataCell[label=001o000000JAry0, value=001o000000JAry0AAD], 
+		Reports.ReportDataCell[label=Dwight, value=003o000000JlDtsAAF], 
+		Reports.ReportDataCell[label=Howard, value=003o000000JlDtsAAF], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=Dwight Howard Household, value=001o000000JAry0AAD])], 
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000K2Lhk, value=003o000000K2LhkAAF], 
+		Reports.ReportDataCell[label=001o000000JAfXr, value=001o000000JAfXrAAL], 
+		Reports.ReportDataCell[label=-, value=003o000000K2LhkAAF], 
+		Reports.ReportDataCell[label=Blackbaud, value=003o000000K2LhkAAF], 
+		Reports.ReportDataCell[label=11501 Domain Drive, value=11501 Domain Drive], 
+		Reports.ReportDataCell[label=Austin, value=Austin], 
+		Reports.ReportDataCell[label=Texas, value=Texas], 
+		Reports.ReportDataCell[label=78758, value=78758], 
+		Reports.ReportDataCell[label=Blackbaud, value=001o000000JAfXrAAL])], 
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000K2M6I, value=003o000000K2M6IAAV], 
+		Reports.ReportDataCell[label=001o000000JAfxq, value=001o000000JAfxqAAD], 
+		Reports.ReportDataCell[label=-, value=003o000000K2M6IAAV], 
+		Reports.ReportDataCell[label=Komen, value=003o000000K2M6IAAV], 
+		Reports.ReportDataCell[label=12345 Houston St, value=12345 Houston St], 
+		Reports.ReportDataCell[label=Dallas, value=Dallas], 
+		Reports.ReportDataCell[label=Texas, value=Texas], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=Komen, value=001o000000JAfxqAAD])], 
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000K2MOm, value=003o000000K2MOmAAN], 
+		Reports.ReportDataCell[label=001o000000JAgLS, value=001o000000JAgLSAA1], 
+		Reports.ReportDataCell[label=-, value=003o000000K2MOmAAN], 
+		Reports.ReportDataCell[label=Houston Rockets 2, value=003o000000K2MOmAAN], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=Texas, value=Texas], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=Houston Rockets 2, value=001o000000JAgLSAA1])], 
+
+	Reports.ReportDetailRow[dataCells=(
+		Reports.ReportDataCell[label=003o000000K2Mfs, value=003o000000K2MfsAAF], 
+		Reports.ReportDataCell[label=001o000000JAgcx, value=001o000000JAgcxAAD], 
+		Reports.ReportDataCell[label=-, value=003o000000K2MfsAAF], 
+		Reports.ReportDataCell[label=Houston Rockets 3, value=003o000000K2MfsAAF], 
+		Reports.ReportDataCell[label=-, value=null],
+		Reports.ReportDataCell[label=Austin, value=Austin], 
+		Reports.ReportDataCell[label=-, value=null], 
+		Reports.ReportDataCell[label=-, value=null],
+		Reports.ReportDataCell[label=Houston Rockets 3, value=001o000000JAgcxAAD])], ...)
+}, 
+
+groupingsAcross=Reports.Dimension[groupings=null], 
+groupingsDown=Reports.Dimension[groupings=null], 
+hasDetailRows=true, 
+reportExtendedMetadata=Reports.ReportExtendedMetadata[
+	aggregateColumnInfo={
+		RowCount=Reports.AggregateColumn[
+			acrossGroupingContext=null, 
+			dataType=INT_DATA, 
+			downGroupingContext=null, 
+			label=Record Count, 
+			name=RowCount]}, 
+		detailColumnInfo={
+			ACCOUNT.NAME=Reports.DetailColumn[
+				dataType=STRING_DATA, 
+				label=Account Name, 
+				name=ACCOUNT.NAME
+			], 
+			ACCOUNT_ID=Reports.DetailColumn[
+				dataType=ID_DATA, 
+				label=Account ID, 
+				name=ACCOUNT_ID
+			], 
+			ADDRESS2_CITY=Reports.DetailColumn[
+				dataType=STRING_DATA, 
+				label=Mailing City, 
+				name=ADDRESS2_CITY], 
+			ADDRESS2_STATE=Reports.DetailColumn[
+				dataType=STRING_DATA, 
+				label=Mailing State/Province, 
+				name=ADDRESS2_STATE], 
+			ADDRESS2_STREET=Reports.DetailColumn[dataType=STRING_DATA, label=Mailing Street, name=ADDRESS2_STREET], ADDRESS2_ZIP=Reports.DetailColumn[dataType=STRING_DATA, label=Mailing Zip/Postal Code, name=ADDRESS2_ZIP], CONTACT_ID=Reports.DetailColumn[dataType=ID_DATA, label=Contact ID, name=CONTACT_ID], FIRST_NAME=Reports.DetailColumn[dataType=STRING_DATA, label=First Name, name=FIRST_NAME], LAST_NAME=Reports.DetailColumn[dataType=STRING_DATA, label=Last Name, name=LAST_NAME]}, 
+		groupingColumnInfo=null],
+
+reportMetadata=Reports.ReportMetadata[
+	aggregates=(RowCount), 
+	currencyCode=null, 
+	detailColumns=
+	(CONTACT_ID, ACCOUNT_ID, FIRST_NAME, LAST_NAME, ADDRESS2_STREET, ADDRESS2_CITY, ADDRESS2_STATE, ADDRESS2_ZIP, ACCOUNT.NAME), 
+	developerName=TABULAR, 
+	groupingsAcross=null, 
+	groupingsDown=null, 
+	historicalSnapshotDates=null, 
+	id=00Oo0000004DyHHEA0, 
+	name=TABULAR, 
+	reportBooleanFilter=null, 
+	reportFilters=null, 
+	reportFormat=TABULAR, 
+	reportType=Reports.ReportType[label=Contacts & Accounts, type=ContactList]]]

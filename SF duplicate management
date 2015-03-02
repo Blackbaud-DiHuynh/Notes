@@ -1,0 +1,102 @@
+SF duplicate management
+
+http://docs.releasenotes.salesforce.com/en-us/spring15/release-notes/rn_sales_duplicate_management_intro.htm
+https://cs17.salesforce.com/help/pdfs/en/salesforce_data_quality_duplicate_prevention.pdf
+
+New Apex classes/methods for Dupe Management
+http://docs.releasenotes.salesforce.com/en-us/spring15/release-notes/rn_apex_new_classes_methods.htm#rn_apex_new_classes_methods
+
+
+Limitations:
+
+Duplicate rules don't run when:
+	records are created with Quick Create
+	a record is restored with Undelete
+	records are manually merged
+	
+fuzzy matching only works for Latin characters
+deactivating/removing a field on a object -> matching rules will ignore this field, might affect matching algorithms
+customizable alert text in duplicate rules sin't supported by Translation Bench
+
+http://www.salesforce.com/_app/video/Data_dot_com/Help/Using_Matching_Rules.jsp
+
+Contact Matching algorithm
+	(Match on First Name) + 
+	(Match on Last Name) + 
+	(Match on at least one of the following: Address, Phone, Email) + 
+	(No difference in the following: Gender, Suffix, Birthdate) 
+	= Possible Duplicate 
+
+In other words
+	<first name> AND 
+	<last name> AND
+
+	(Address OR Phone OR Email) AND
+
+	Gender AND
+	Suffix AND 
+	Birthdate
+
+hasRequiredCriteriaForMatching
+	has lastName && lastNameDblMetaphone1 && lastNameDblMetaphone2
+	has firstName && firstNameDbtMetaphone1 && firstNameDbtMetaphone2
+	matchable address
+		check if AddressHash, MailingStreet, MailingCity, MailingState, and MailingPostalCode is null
+		check if ONE of the Related Addresses's Street/City/State/Zip is null
+	matchable email
+		email or other_email is not null
+		check if ONE of the related emails has a valid Name
+	must have AT LEAST 1 of the following
+		phoneHash, HomePhoneHash, AssistantPhoneHash
+		mobilePhoneHash, otherPhoneHash, 
+		phone, homePhone, assistantPhone, mobilePhone, otherPhone, 
+		hasMatchableEmail, hasMatchableAddress
+
+
+getLastNameClause
+		Contact.LastNameDblMetaphone1__c + '=\''+String.escapeSingleQuotes(con.LastNameDblMetaphone1__c)+'\' +' OR '+ 
+		Contact.LastNameDblMetaphone2__c + '=\''+String.escapeSingleQuotes(con.LastNameDblMetaphone1__c)+'\' ';
+		' OR ' Contact.LastNameDblMetaphone1__c+'=\''+String.escapeSingleQuotes(con.LastNameDblMetaphone2__c)+'\' ';
+			' OR '+contact_prefix + Contact.LastNameDblMetaphone2__c+'=\''+String.escapeSingleQuotes(con.LastNameDblMetaphone2__c)+'\' ';
+		}
+		//handle exact matching on last name if we don't have metaphone information yet
+		if( !String.isBlank( con.LastName ) ) {
+			if( lastNameClause.length()>0 )
+				' OR ';
+			       contact_prefix + Contact.LastName+'=\''+String.escapeSingleQuotes(con.LastName)+'\' ';
+
+	
+
+
+Logic flow
+
+ContactDupeCheckController.search()
+	-> ContactMatching
+		-> findPotentialDupes(Con, fieldsToInclude, maxResults)
+			-> findPotentialDupes (con, relatedAddress list, related email list, fieldsToReturn, maxResults)
+				* if has all required criteria
+					-> getMatchingQuery(con, relatedAddresses, relatedEmails)
+						-> getLastNameClause(con, '')
+						-> getFirstNameClause(con, '')
+						-> getPhoneEmailAddrClause(con, relatedEmails,relatedAddresses)
+						-> getGenderBdaySuffixClause(con, '')
+						-> getNonDupeClause(con)
+						* build query
+
+
+
+Using Metadata API
+	https://www.salesforce.com/us/developer/docs/api_meta/Content/meta_matchingrule.htm#meta_matchingrule
+	Notes:
+		MatchingRule is available in API version 33.0 and later.
+
+
+
+Solution
+	update to API version 33.0
+	update MetadataService
+	create MatchingRule with Metadata API
+		set <ruleStatus> to ACTIVE
+		This rule will apply whenever a customer tries to save a record with a matching rules
+	we need to create and activate the duplicate rule MANUALLY
+	need to change ContactDupeCheck and AccountDupeCheck

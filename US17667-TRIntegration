@@ -1,0 +1,81 @@
+
+Goal: add Fundraising Goal to the XML bus message from LO -> LCRM and back
+
+Classes involved
+  LO -> LCRM
+  LCRM -> LO
+    LCRM
+      CGServiceEndpoint
+        the workflow will pick up a bunch of IDs of objects that are dirty to send to the service bus
+        the service bus sends those IDs back to LCRM to create the messages to send to LO
+        processIDs() - creates messages from IDs
+          look in QUERY_PROCESSOR_MAP to see which queryProcessor to use
+          make changes in the class that extends BusQueryProcessor
+    LO
+      Upsert<insert object here>Handler
+      unless object is donation, then it's UpsertGIFTHandler
+      performSyncMessageAction()
+       
+
+
+LO
+  RegistrationUniversalFieldMapper.java
+    objectToMessage()
+      add goal to the message
+
+  Message
+    <Message xmlns="urn:message.data.convio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Version>1.0</Version>
+    <ObjectType>tr_reg</ObjectType>
+    <Action>CREATE</Action>
+    <Origin>
+      <System>Online</System>
+      <Version>15.4</Version>
+    </Origin>
+    <UniversalId>
+      <Id xsi:nil="true"/>
+      <Version xsi:nil="true"/>
+    </UniversalId>
+    <LocalId>
+      <Id>1001</Id>
+      <Version>0</Version>
+    </LocalId>
+    <Data>
+      <Field name="CampaignId">701o0000000a6PTAAY</Field>
+      <Field name="RegistrationDesignation">a0Ao0000000JVhCEAW</Field>
+      <Field name="GiftDesignation">a0Ao0000000JVhCEAW</Field>
+      <Field name="UpsellDesignation">a0Ao0000000JVhCEAW</Field>
+      <Field name="ParticipantRole">Add'l Race Participant</Field>
+      <Field name="ConvioParticipantId">1001125</Field>
+      <Field name="UniversalParticipantId">003o000000IQ8m4AAD</Field>
+      <Field name="ParticipantPageUrl">http://localhost/site/TR?px=1001125&amp;pg=personal&amp;fr_id=1000</Field>
+      <Field name="ConvioRegistrationId">1001</Field>
+      <Field name="Captain">false</Field>
+      <Field name="ParticipationType">Run</Field>
+      <Field name="ConvioParticipationTypeId">1001</Field>
+      <Field name="RegistrationDate">2015-02-24T20:34:43Z</Field>
+      <Field name="RegistrationFee">0.00</Field>
+      <Field name="ExtraGift">0.00</Field>
+      <Field name="UpsellAmount">0.00</Field>
+      <Field name="ParentRegistrationId">0</Field>
+      <Field name="TrCampaignName">DiTest</Field>
+      <Field name="TrCampaignId">1000</Field>
+      <Field name="TrCampaignInternalName">DiTest</Field>
+    </Data>
+  </Message>  
+
+  UpsertRegistrationHandler
+    performSyncMessageAction()
+      upsertRegistration
+        
+
+LCRM
+  BusTrRegProcessor.buildObject()
+    * add the new field to the object and saves
+    preload cache mapping for LCRM Campaign IDs to LO Campaign Ids
+    
+
+  UniversalTrReg.registrationFromMessage()
+    * create a TR registration from the bus message
+    * go through each fields in the field map, validate the integrity of the field
+    * set the fields to its correct correspondent
