@@ -1,0 +1,21 @@
+SOQL
+
+Aggregate functions: 
+  COUNT()
+  COUNT(fieldName)
+  AVG()
+  MIN()
+  MAX()
+  GROUP_BY()
+  SUM()
+  COUNT_DISTINCT()
+  
+
+  ORDER BY fieldName
+  OFFSET
+  LIMIT
+  HAVING
+  TYPEOF
+  FOR VIEW
+  FOR REFERENCE
+

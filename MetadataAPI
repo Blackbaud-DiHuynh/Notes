@@ -3,15 +3,14 @@ Metadata 101
 1. Get a metadata service
   MetadataService.MetadataPort service = MetadataUtils.createService();
 
-2. Get the metadata for the object you're making changes to
-  MetadataService.CustomObject eventInvitationObject = MetadataUtils.getCustomObjectByFullName
-        (service, getFullName('Event_Invitation__c'));
+2. Get the metadata for the object you're making changes to using readMetadata
+  readMetadata (<type name that extends Metadata>, <list of FULL NAMES (with namespace if changing packaged components)>)
 
 3. Check MetadataService.CustomObject to see all of the metadata types you can make changes to
   
 4. Figure out what the metadata you're changing is called in this API, ie actionOverride, weblinks...
 
-5. Make changes. Duh
+5. Make changes.
   newAction.actionName = 'New';
   newAction.content = 'Account_Dupe_Check';
   newAction.type_x = 'visualforce';
@@ -23,19 +22,23 @@ Metadata 101
 7. Call processSaveResults with saveResults
   MetaData.processSaveResults(scontrolSaveResults)  *this returns a boolean
 
-
 Pro-tip
-  - MetadataService.updateMetadata makes an api call (well duh), so consolidate all the updates of the same type and make one call per type
+  - MetadataService.updateMetadata makes an api call, so consolidate all the updates of the same type and make one call per type
     ie: make 1 call for all updates to custom objects, 1 call for all layouts
-    same with readMetadata
-
-
+    
 Sustainer upgrades
 - set the upgrade status in a boolean in Convio_Protected_Settings__c (or something like that)
-- if (upgradeStatus) don't show the button
-- else show the button
 - if ANY of the upgrades was not successful, upgradeStatus is set to false -> show the button 
 - when the customer presses the button again, the completed upgrades won't be affected.  
 
 
+LAYOUTS
+  - managed vs unmanaged layouts
+    - we want to make changes to unmanaged layouts
+    - unmanaged layouts have no namespaces
+    - for standard objects, no namespaces is needed
+
+  - Custom objects
+    - need namespace in 2 spots
+    - cv__TeamRaiser_Registration__C-cv__TeamRaiser_Registration_Layout
 
