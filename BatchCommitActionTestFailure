@@ -1,0 +1,60 @@
+BatchCommitActionTest
+	testPledgeIncludeFirstPayment
+		if (m.matches() ) {
+			System.debug('first case');
+			System.assertEquals(opps[0].Id, m.group(2));
+			System.assert(! String.isBlank(m.group(1)));			
+		} else {
+			System.debug('second case');
+			System.assertEquals('Matching failed for ' + opps[0].Id, e1value);
+		}
+
+		m (matcher):
+			[delegate=Matcher[pattern=^.*CreatedPledgeId=([^&]*)&.*CreatedOpportunityId=([^&]*)&.*$ region=0,709 lastmatch=]]
+		e1value: 
+		ACTIVATED: 
+			rowIx=1
+			isValidated=statusCommitted
+			Opportunity$Type=Individual Gift
+			Opportunity$CloseDate=2010-08-17
+			Opportunity$Contact__c=003o000000TSmF6AAL
+			validatedContactId=003o000000TSmF6AAL
+			validatedContact=whatever
+			Opportunity$AccountId=001o000000SpjWHAAZ
+			Opportunity$CampaignId=701o0000000aZhOAAU:Test Name0
+			Pledge__c$Pledge_Amount_Precise__c=600
+			Opportunity$Amount=50
+			Opportunity$DESIGNATION=Unit Test DefaultDesignation
+			Pledge__c$Number_of_Payments__c=12
+			Pledge__c$SCHEDULE=RecurrenceType__c:recursMonthly;RecurrenceDayOfMonth__c:1;RecurrenceInterval__c:1
+			Pledge__c$Start_Date__c=2011-08-17
+			Pledge__c$INCLUDE_PAYMENT=true
+			CreatedOpportunityId=006o0000009uikYAAQ <------------------------------------------
+			CreatedPledgeId=a0To0000001qvzkEAA <------------------------------------------
+			isCommitted=true
+
+		DEACTIVATED:
+			Opportunity$Amount=50
+			Pledge__c$Number_of_Payments__c=12
+			Pledge__c$INCLUDE_PAYMENT=true
+			CreatedPledgeId=a0To0000001qvzuEAA	<------------------------------------------
+			isCommitted=true
+			Opportunity$Contact__c=003o000000TSmHAAA1
+			Pledge__c$Start_Date__c=2011-08-17
+			Pledge__c$SCHEDULE=RecurrenceType__c:recursMonthly;RecurrenceDayOfMonth__c:1;RecurrenceInterval__c:1
+			validatedContactId=003o000000TSmHAAA1
+			Pledge__c$Pledge_Amount_Precise__c=600
+			Opportunity$AccountId=001o000000SpjXRAAZ
+			Opportunity$DESIGNATION=Unit Test DefaultDesignation
+			validatedContact=whatever
+			CreatedOpportunityId=006o0000009uimPAAQ <------------------------------------------
+			rowIx=1
+			Opportunity$CampaignId=701o0000000aZhnAAE:Test Name0
+			Opportunity$Type=Individual Gift
+			isValidated=statusCommitted
+			Opportunity$CloseDate=2010-08-17
+
+		- The pattern matcher is looking for "CreatedPledgeId" first then "CreatedOpportunityId" in the string. 
+		- when the option is NOT activated, we get the first case
+		- when the option is activated, we get the second case
+

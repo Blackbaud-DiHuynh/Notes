@@ -1,0 +1,104 @@
+
+LCRM
+ 
+BusRecurringPledgeProcessor
+	buildObjects()
+		 fetch all of the rg's 
+		 get campaigns, opportunities
+		 go through the list of messages
+			 throws Transient Errors 
+				if no contacts found
+				if last successful transaction id is stale
+				if missing last successful transaction id
+
+
+BusOpportunityProcessor
+	buildObjects()
+		throws Transient Errors when
+			missing referenced contact
+			missing referenced pledge
+			missing referenced RG
+			missing referened fund registration
+			missing referenced fund team
+			missing referenced tribute
+
+
+
+
+
+
+
+
+Credit Card RG
+monthly
+Let seed gift sync over to LCRM
+
+in LO, change Bus so Opps don't sync to LCRM 
+in LO, process it again, change the date, run Task to process CC (ask Stark)
+
+
+RG change -> LCRM
+CC donation -/> LCRM
+
+RG would log TransientError
+
+
+if (one RG gets a fatal error)
+	mark the rest of the RGs transient
+	send back to the bus
+
+Read RG code in LCRM
+
+Type: MSG_TRANSIENT_ERROR
+Date: Mar 10, 2015 8:39:59 AM
+Summary: Received transient error sending to CG endpoint
+Detail:
+null
+
+XML:
+
+<?xml version="1.0" encoding="UTF-8"?><Message:Message xmlns:Message="urn:message.data.convio.com"
+xmlns="urn:message.data.convio.com" xmlns:ns2="urn:soap.sb.convio.com">
+  <Version>1.0</Version>
+  <ObjectType>recurring_pledge</ObjectType>
+  <Action>UPSERT</Action>
+  <Origin>
+    <System>Online</System>
+    <Version>15.1.1</Version>
+  </Origin>
+  <LocalId>
+    <Id>68628</Id>
+    <Version>6</Version>
+  </LocalId>
+  <Data>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="QPMCampaignName">Become A Financial Supporter Updated
+December 23 2013</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="QPMFormName">Become A Financial Supporter Updated
+December 23 2013 - Copy of Become a financial supporter now</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="CampaignId">701A0000000Ud7bIAC</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="ContactUniversalId">003F0000017EcrVIAS</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="ContactLocalId">1048565</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="ConvioSiteId">3745</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="StartDate">2014-12-09Z</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="LastPaymentDate">2015-03-09Z</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="NextPaymentDate">2015-04-09Z</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="Frequency">Monthly</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="Status">Active</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="PaymentDay">9</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="PaymentMonth">1</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="TotalPaymentsProcessed">4</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="TotalPayments">0</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="InstallmentAmount">10.00</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="TotalAmountProcessed">40.00</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="IsDelayedSelfPledge">false</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="LastPaymentStatus">Successful</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="PaymentType">CreditCard</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="PaymentCreditCardType">MasterCard</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="EcrmGiftOrigin">true</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="SeedTransactionId">318671</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="LastPaymentAmount">10.00</Field>
+    <Field xmlns="" xmlns:ns5="urn:message.data.convio.com" name="LastSuccessfulPaymentTransactionId">354694</Field>
+    <Field xmlns="" xmlns:ns6="urn:message.data.convio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+name="LastSuccessfulPaymentLCRMId" xsi:nil="true"/>
+  </Data>
+</Message:Message>

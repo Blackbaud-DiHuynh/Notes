@@ -1,0 +1,12 @@
+# create new session 
+tmux new -s <name>
+
+# Attach to a session
+tmux a # <number> 
+tmux a -t <name>
+
+# list session
+tmux ls
+
+
+

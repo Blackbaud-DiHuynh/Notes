@@ -1,0 +1,50 @@
+Environment Hub
+https://help.salesforce.com/apex/HTViewSolution?id=000206256&language=en_US
+
+- replaces Partner Portal
+- view, connect, create, log in to several Salesforce Organization
+- choose ONE as the hub organization
+  - single sign on between hub org and other orgs
+- auto-discovery
+  - connected orgs are automatically discovered on log in
+  - for a release org -> all patch orgs are auto discovered
+  - for all org -> all sandbox orgs
+  - for a TrialForce Management Org -> all TrialForce orgs created from it
+  - for a License Management Org (LMO) -> any release org that has a managed package registered in the LMO
+
+CREATING ORGS FROM ENVIRONMENT HUB
+  Org Name              Purpose                                     Expiration
+  Partner DE    Development of a Managed Package (Developer Edition)  Never Expires
+  Partner EE        Test/Demo (Enterprise Edition)                       1 Year
+  Partner PE        Test/Demo (Professional Edition)                     1 Year
+  Partner GE        Test/Demo (Group Edition)                            1 Year
+  Enterprise Ed     Testing                                             30 days
+  Professional Ed   Testing                                             30 days
+  Group Edition     Testing                                             30 days
+  Trialforce (TSO)  Creation of Trialforce Source Orgs (templates)      1 Year
+  Consulting        Robust demo org for Consulting Partners             1 Year
+
+
+
+
+
+
+
+
+
+Best practices:
+  - use Partner Business org as the master org (or hub org)
+    - https://partners.salesforce.com/s/education/general/Partner_Business_Org
+    - give all users access
+```
+You should never enable Environment Hub in the DE org that contains your managed package — this could cause issues when you try to upload a new package version or pushing an upgrade to your customers.
+```
+    -> so no packaging org
+
+- enable SSO for all users
+  - use roles and profiles to set up permissions
+  
+
+Questions for QA:
+  - How are we currently creating new org? 
+ 
