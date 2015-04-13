@@ -1,0 +1,3 @@
+
+#To figure out which crm flavor it is  
+busConfig.getCrmFlavor(session).isLuminateCrm()

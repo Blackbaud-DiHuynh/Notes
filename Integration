@@ -1,0 +1,72 @@
+LCRM -> LO
+
+in LCRM:
+
+in LO: 
+  Upsert.java
+  UpsertResult.java
+  UpsertColumn.java
+  DBUpsertRowWithMerge.java
+  UpsertRecurringPledgeHandler.java
+  UpsertTeamRaiserTeamHandler.java
+  UpsertRegistrationHandler.java
+  UpsertGiftActionHandler.java
+  UpsertConsHandler.java
+  UpsertTeamDocument.java
+  UpsertGiftDocument.java
+  UpsertRegistrationDocument.java
+  UpsertRegistrationDocumentImpl.java
+  UpsertTeamDocumentImpl.java
+  UpsertGiftDocumentImpl.java
+
+
+L0 -> LCRM
+
+in LO: 
+  AbstractUniversalFieldMapper.java
+  AnnotationBasedUniversalFieldMapper.java
+  CenterMembersUniversalFieldMapper.java
+  ConsUniversalFieldMapper.java
+  DonationUniversalFieldMapper.java
+  ECommerceOrderUniversalFieldMapper.java
+  EnhancedFieldMapper.java
+  EventAttendeesUniversalFieldMapper.java
+  FieldMapper.java
+  FieldMapperMgr.java
+  IFieldMapper.java
+  IUniversalFieldMapper.java
+  PfFundUniversalFieldMapper.java
+  PfUniversalFieldMapper.java
+  RecurringPledgeUniversalFieldMapper.java
+  RegistrationUniversalFieldMapper.java
+  TeamraiserUniversalFieldMapper.java
+  TeamUniversalFieldMapper.java
+  UniversalFieldMapperException.java
+
+in LCRM:
+  BusOpportunityQueryProcessor.cls
+  BusContactQueryProcessor.cls
+  BusPledgeQueryProcessor.cls
+  BusTrTeamProcessor.cls
+  UniversalContactSubdomainProcessor.cls
+  UniversalContactProcessor.cls
+  BusOpportunityProcessor.cls
+  DirectResponseRollupProcessor.cls
+  BusCenterMemberQueryProcessor.cls
+  BusTrRegProcessor.cls
+  BusQueryProcessor.cls
+  BusPfFundProcessor.cls
+  BusCenterMemberProcessor.cls
+  UniversalContactUncatSubdomainProcessor.cls
+  BusContactProcessor.cls
+  RecurringPledgeProcessor.cls
+  BusEventAttendeesProcessor.cls
+  BusTrRegQueryProcessor.cls
+  BusTrTeamQueryProcessor.cls
+  BusRecurringGiftQueryProcessor.cls
+  UniversalContactEmplSubdomainProcessor.cls
+  BusRecurringPledgeProcessor.cls
+  UniversalContactAddrSubdomainProcessor.cls
+  UniversalContactOtherSubdomainProcessor.cls
+  BusProcessor.cls
+

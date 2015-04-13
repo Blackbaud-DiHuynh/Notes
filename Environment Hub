@@ -25,13 +25,6 @@ CREATING ORGS FROM ENVIRONMENT HUB
   Consulting        Robust demo org for Consulting Partners             1 Year
 
 
-
-
-
-
-
-
-
 Best practices:
   - use Partner Business org as the master org (or hub org)
     - https://partners.salesforce.com/s/education/general/Partner_Business_Org
@@ -39,12 +32,21 @@ Best practices:
 ```
 You should never enable Environment Hub in the DE org that contains your managed package — this could cause issues when you try to upload a new package version or pushing an upgrade to your customers.
 ```
-    -> so no packaging org
+    -> so no packaging org as the master org
 
 - enable SSO for all users
   - use roles and profiles to set up permissions
-  
 
 Questions for QA:
   - How are we currently creating new org? 
- 
+
+
+Conclusions: (Di's opinions)
+- Environment Hub's main purpose is to provide all users with access to certain number of organizations in the same place. 
+  This provides little benefits to our dev orgs since each developer should keep track of his/her own orgs. There is no
+  need for a central place for ALL dev orgs. Creating a new org would be about the same amount of work. 
+
+- On the QA side, LENARD/Alfred has been our Environment Hub. I don't know how our site creation/setup work, so I can't 
+  say how much 
+
+
