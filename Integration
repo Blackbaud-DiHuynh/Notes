@@ -1,12 +1,28 @@
-LCRM -> LO
+Break down of LO Integration code: 
 
-in LCRM:
+Upsert*Handler.java
+  - performSyncMessageAction
+  - create or update records coming off the bus from LCRM
 
-in LO: 
+*UniversalFieldMapper.java
+  - messageToObject
+  - objectToMessage
+  - contains type converters (date time converter, boolean converter)
+  - contains fields mapping from LCRM/RE to LO
+
+*UniversalMessageSender.java
+  - sendDirtyRecordsToBus
+  - getAndClearDirtyRecords
+
+*SyncStatusDao.java
+  - getBatchOfDirtySyncRecords
+  - to be picked up by the BulkRecordSweeperTask.java to send to the service bus
+
+File names
+Upsert*
   Upsert.java
   UpsertResult.java
   UpsertColumn.java
-  DBUpsertRowWithMerge.java
   UpsertRecurringPledgeHandler.java
   UpsertTeamRaiserTeamHandler.java
   UpsertRegistrationHandler.java
@@ -19,10 +35,7 @@ in LO:
   UpsertTeamDocumentImpl.java
   UpsertGiftDocumentImpl.java
 
-
-L0 -> LCRM
-
-in LO: 
+*UniversalFieldMapper
   AbstractUniversalFieldMapper.java
   AnnotationBasedUniversalFieldMapper.java
   CenterMembersUniversalFieldMapper.java
@@ -43,30 +56,48 @@ in LO:
   TeamUniversalFieldMapper.java
   UniversalFieldMapperException.java
 
-in LCRM:
+*UniversalMessageSender
+  IUniversalMessageSender.java
+  EventAttendeesUniversalMessageSender.java
+  PfFundUniversalMessageSender.java
+  RecurringPledgeUniversalMessageSender.java
+  DonationUniversalMessageSender.java
+  ConsUniversalMessageSender.java
+  CenterMembersUniversalMessageSender.java
+  TeamUniversalMessageSender.java
+  RegistrationUniversalMessageSender.java
+  AbstractUniversalMessageSender.java
+
+*SyncStatusDao
+  ISyncStatusDao.java
+  EventAttendeesSyncStatusDao.java
+  PfFundSyncStatusDao.java
+  RecurringPledgeSyncStatusDao.java
+  DonationSyncStatusDao.java
+  CenterMembersSyncStatusDao.java
+  ConstituentSyncStatusDao.java
+  TeamRaiserTeamSyncStatusDao.java
+  TeamRaiserRegistrationSyncStatusDao.java
+  AbstractSyncStatusDao.java
+
+LCRM:
+All integration code in LCRM:
   BusOpportunityQueryProcessor.cls
   BusContactQueryProcessor.cls
   BusPledgeQueryProcessor.cls
   BusTrTeamProcessor.cls
-  UniversalContactSubdomainProcessor.cls
   UniversalContactProcessor.cls
   BusOpportunityProcessor.cls
-  DirectResponseRollupProcessor.cls
   BusCenterMemberQueryProcessor.cls
   BusTrRegProcessor.cls
   BusQueryProcessor.cls
   BusPfFundProcessor.cls
   BusCenterMemberProcessor.cls
-  UniversalContactUncatSubdomainProcessor.cls
   BusContactProcessor.cls
   RecurringPledgeProcessor.cls
   BusEventAttendeesProcessor.cls
   BusTrRegQueryProcessor.cls
   BusTrTeamQueryProcessor.cls
   BusRecurringGiftQueryProcessor.cls
-  UniversalContactEmplSubdomainProcessor.cls
   BusRecurringPledgeProcessor.cls
-  UniversalContactAddrSubdomainProcessor.cls
-  UniversalContactOtherSubdomainProcessor.cls
   BusProcessor.cls
-
