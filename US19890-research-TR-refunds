@@ -1,0 +1,57 @@
+
+
+Scenario: 
+- Create TeamRaiser Gift, the donation type will be "TeamRaiser Gift"
+- Refund that gift
+- LCRM will 
+  mark it refunded
+  change type to "Donation"
+  remove link to registration
+
+Desired behavior:
+  keep donation type as "TeamRaiser Gift"
+
+
+
+Our integration
+  only syncs donations tied to a Teamraiser back to LO
+
+
+LO sends a message to LCRM after the customer hit "Refund" (full amount)
+
+Code flow: 
+
+	LO: 		
+		Sweeper task runs, calls getAndDirtyRecords from all the message senders
+		RegistrationUniversalFieldMapper.objectToMessage()
+			-> RegistrationUniversalFieldMapper.addTransactionFields()
+				-> DonationUniversalFieldMapper.setDonationTypeFields()
+					-> DonationUniversalFieldMapper.getUniversalDonationTypeField()
+						* in here, we set the default type to SINGLE donation
+						* then do logic to reset to TeamRaiser Gift or Personal Fundraising
+						* but the payment.getDonationType() is REFUND at this point
+						* thus we set the Donation Type as Single
+
+	LCRM: 
+		UniversalOpportunity.opportunityFromTrRegMessage creates the Opportunity from the TR reg message from LO
+			at this point, the message contains <Field name="DonationType">Single</Field>
+		
+		UniversalOpportunity.addFieldsFromMessage adds the transaction type as expressed in the message
+			opp.Transaction_Type__c = TRANSACTION_TYPE_MAP.get(getDataString(msgFields, DONATION_TYPE));
+
+
+		Thus the transaction type of a refunded LCRM 
+
+
+
+Temporary fix: 
+	Add to the end of addFieldsFromMessage
+
+	if (getDataBoolean(msgFields, 'Refunded')){
+		opp.Transaction_Type__c = TRANSACTION_TYPE_MAP.get(DONATION_TYPE_TR_REG);
+	}
+
+	problem: stageName remains Received.... why??
+	Who set it to Refunded? 
+	all of the refunded tr regs got set their stage to refunded....
+

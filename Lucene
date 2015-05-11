@@ -1,0 +1,142 @@
+Lucene
+
+What is it? 
+  An information retrieval LIBRARY, not engine
+  indexes and searches files in any format that can be extracted out to text
+
+Search engine architecture:
+
+  Users
+  ^
+  |
+  search user interface
+  ^             ^
+  |             |
+  build query   render results
+  ^
+  Run query
+  ^
+  index document
+  ^
+  analyze documents
+  ^
+  acquire content
+  ^
+  raw content
+
+
+INDEX
+  data structure that allows fast random access
+  stored on the file system as a set of index files
+
+SCALING
+  net amount of content
+  net query output
+  if (lots of content)
+    divide them into shards
+    have separate computer searches each shard
+    a front end reducer coagulates the results
+  if (high search throughput during peak traffic)
+    take the same index and replicate across computers
+    a front end load balancer sends each incoming query to the least loaded backend computer
+  if (both)
+    do both
+
+
+LUCENE COMPONENTS
+  
+  CORE INDEXING CLASSES - classes used when indexing a document
+    IndexWriter
+      creates, opens, adds, removes, updates documents in an index
+      no read or search
+    Directory
+      storage for indexes
+      abstract class, allows its subclasses to store index however they want
+    Analyzer
+      text has to be analyzed before being put into an index
+      extracting tokens
+      deal with skip words, case sensitivity, root words
+    Document
+      collection of fields
+      chunk of data
+    Field
+      each documents contain one or more named fields
+      each field has a name, value, and a bunch of options that control how Lucene will index that field's value
+      a document may have more than one field with the same name
+      values of the fields are appended during indexing
+      ie: title - Harry Potter and the Socerer's Stone, 
+          contents - Once upon a time....
+          author - J.K Rowling
+          name of the field - value of the field
+
+  CORE SEARCHING CLASSES
+    example code: 
+      Directory dir = FSDirectory.open(new File("/tmp/index"));
+      IndexSearcher searcher = new IndexSearcher(dir);
+      Query q = new TermQuery(new Term("contents", "lucene"));
+      TopDocs hits = searcher.search(q, 10);
+      searcher.close();
+
+    IndexSearcher
+      opens an index in read-only mode
+      requires a Directory instance
+      
+    Term
+      basic unit for searching
+      pair of string elements: name of the field, text value of that field
+      created by Lucene's internals during indexing process
+      
+    Query
+      abstract class, Lucene provides several implementation of subclasses
+      ie: TermQuery, BooleanQuery, PhraseQuery, PrefixQuery,...
+      contains util methods for dealing with queries (duh)
+      setBoost - enable the devs to specify that certain queries should have a higher relevance score
+
+    TermQuery
+      look above  
+
+    TopDocs
+      container of pointers to the top N ranked results
+
+LUCENE CONCEPTS
+  CONCURRENCY, THREAD-SAFETY, AND LOCKING
+    Thread and multi-jvm safety
+      any number of read-only IndexReaders may be open at once on a single index
+      same or different jvms
+      multiple threads may search the index in parallel
+    Only a single writer may be open on an index at once
+      use write.lock file for this
+      release write.lock when the writer is closed
+    IndexReader may be open even while an IndexWriter is writing
+    IndexWriter and IndexReader are threadsafe, any number of threads can share an instance of those classes
+
+  ACCESSING THREAD OVER A REMOTE FILE SYSTEM
+    maximize performance by replicating the index files to local systems
+    remote file systems have problems due to client side caching
+    
+    
+DEBUGGING LUCENE
+  Indexing
+    IndexWriter.setInfoStream(System.out)
+    
+
+ACID TRANSACTION
+  Atomic - all or nothing
+  Consistency - never see a delete without an add first
+  Isolation - no changes is visible until writer commits
+  Durability - unhandled exception, JVM crashes, OS crashes -> index is still consistent
+
+
+PERFORMANCE TUNING
+  better hardware
+  use multiple threads
+  use a few number of indexWriters and indexReaders as possible
+  turn off fields/features we're not using
+  gropu multiple text fields into a single text field
+
+
+ADVANCED SEARCH TECHNIQUES
+  Field cache
+    for fast access to certain fields for every documents
+    sorting results by field values uses field caching
+  

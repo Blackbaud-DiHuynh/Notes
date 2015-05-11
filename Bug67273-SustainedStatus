@@ -1,0 +1,287 @@
+Bug69273
+
+Sustained Status
+0 = Unknown status
+1 = Never a sustaining donor (not used)
+2 = Active sustaining donor
+3 = Formerly a sustaining donor (deprecated)
+4 = Postponed sustaining donor (one or more payments are being skipped)
+5 = Completed sustaining donor
+6 = Terminated due to payment failures
+7 = Terminated by user
+8 = Terminated by admin
+9 = Lapsed sustaining donor (transactions are failing, but still being attempted)
+10 = Partially lapsed sustaining donor (At least one active sustainer gift and at least one lapsed sustaining gift)"
+
+
+Questions to answer:
+
+- Does the contact get put on the bus when the Sustained Status is changed?
+- Does the message contain Sustained Status?
+
+<Message xmlns="urn:message.data.convio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Version>1.0</Version>
+  <ObjectType>contact</ObjectType>
+  <Action>UPDATE</Action>
+  <Origin>
+    <System>Online</System>
+    <Version>15.5</Version>
+  </Origin>
+  <UniversalId>
+    <Id>003o000000UhQQZAA3</Id>
+    <Version>1</Version>
+  </UniversalId>
+  <LocalId>
+    <Id>1001281</Id>
+    <Version>8</Version>
+  </LocalId>
+  <Data>
+    <Field name="UniversalId">003o000000UhQQZAA3</Field>
+    <Field name="LastName">Jackson</Field>
+    <Field name="LastLoginDate">2015-04-22</Field>
+    <Field name="EmailOptOut">false</Field>
+    <Field name="EmailStatus">Unknown</Field>
+    <Field name="CongressDistrict">10</Field>
+    <Field name="DonorStatus">Direct</Field>
+    <Field name="FirstName">Banana</Field>
+    <Field name="ConvioId">1001281</Field>
+    <Field name="StateSenateDistrict">14</Field>
+    <Field name="CountyDistrict">TX_TRA_2</Field>
+    <Field name="Email">devnull+banan@convio.com</Field>
+    <Field name="PostalMailOptOut">false</Field>
+    <Field name="MiddleName">Pineapple</Field>
+    <Field name="StateHouseDistrict">49</Field>
+    <Field name="AccountId">001o000000TAojGAAT</Field>
+    <Field name="Origin">TeamRaiser Family Participant</Field>
+    <Field name="PreferredAddress">Home</Field>
+    <Field name="HomeStreet1">11501 Domain Dr</Field>
+    <Field name="HomeCity">Austin</Field>
+    <Field name="HomeState">TX</Field>
+    <Field name="HomePostalCode">78758-3483</Field>
+    <Field name="HomeCountry">United States</Field>
+    <Field name="HomeCounty">Travis</Field>
+    <Field name="ImportId" xsi:nil="true"/>
+    <Field name="HomeAddressImportId" xsi:nil="true"/>
+    <Field name="SpouseImportId" xsi:nil="true"/>
+    <Field name="Salutation" xsi:nil="true"/>
+    <Field name="Suffix" xsi:nil="true"/>
+    <Field name="ProfessionalSuffix" xsi:nil="true"/>
+    <Field name="Gender" xsi:nil="true"/>
+    <Field name="BirthDate" xsi:nil="true"/>
+    <Field name="EmailOptOutDate" xsi:nil="true"/>
+    <Field name="CongressDistrictOverride" xsi:nil="true"/>
+    <Field name="StateSenateDistrictOverride" xsi:nil="true"/>
+    <Field name="StateHouseDistrictOverride" xsi:nil="true"/>
+    <Field name="HomeCountyOverride" xsi:nil="true"/>
+    <Field name="CountyDistrictOverride" xsi:nil="true"/>
+    <Field name="HomeMunicipality" xsi:nil="true"/>
+    <Field name="HomeMunicipalityOverride" xsi:nil="true"/>
+    <Field name="HomePhone" xsi:nil="true"/>
+    <Field name="HomeFax" xsi:nil="true"/>
+    <Field name="WorkPhone" xsi:nil="true"/>
+    <Field name="MobilePhone" xsi:nil="true"/>
+    <Field name="PreferredPhone" xsi:nil="true"/>
+    <Field name="Employer" xsi:nil="true"/>
+    <Field name="EmployerStreet1" xsi:nil="true"/>
+    <Field name="EmployerStreet2" xsi:nil="true"/>
+    <Field name="EmployerStreet3" xsi:nil="true"/>
+    <Field name="EmployerCity" xsi:nil="true"/>
+    <Field name="EmployerState" xsi:nil="true"/>
+    <Field name="EmployerPostalCode" xsi:nil="true"/>
+    <Field name="Occupation" xsi:nil="true"/>
+    <Field name="SpouseTitle" xsi:nil="true"/>
+    <Field name="SpouseFirstName" xsi:nil="true"/>
+    <Field name="SpouseLastName" xsi:nil="true"/>
+    <Field name="SpouseSuffix" xsi:nil="true"/>
+    <Field name="FirstGiftDate" xsi:nil="true"/>
+    <Field name="FirstGiftAmount" xsi:nil="true"/>
+    <Field name="LastGiftDate" xsi:nil="true"/>
+    <Field name="LastGiftAmount" xsi:nil="true"/>
+    <Field name="LargestGiftDate" xsi:nil="true"/>
+    <Field name="LargestGiftAmount" xsi:nil="true"/>
+    <Field name="YearToDateGiftAmount" xsi:nil="true"/>
+    <Field name="YearToDateGiftCount" xsi:nil="true"/>
+    <Field name="LifetimeGiftAmount" xsi:nil="true"/>
+    <Field name="LifetimeGiftCount" xsi:nil="true"/>
+    <Data name="SubDomainRevisions">
+      <Data name="ONLINE">
+        <Field name="AddressRevision">0</Field>
+        <Field name="BiographicalRevision">1</Field>
+        <Field name="EmailRevision">2</Field>
+        <Field name="PhoneRevision">0</Field>
+        <Field name="ActivityRevision">1</Field>
+        <Field name="SpouseRevision">0</Field>
+        <Field name="EmployerRevision">0</Field>
+        <Field name="MembershipRevision">0</Field>
+      </Data>
+      <Data name="CRM">
+        <Field name="AddressRevision">0</Field>
+        <Field name="BiographicalRevision">1</Field>
+        <Field name="EmailRevision">0</Field>
+        <Field name="PhoneRevision">0</Field>
+        <Field name="ActivityRevision">0</Field>
+        <Field name="SpouseRevision" xsi:nil="true"/>
+        <Field name="EmployerRevision">0</Field>
+        <Field name="MembershipRevision">0</Field>
+      </Data>
+    </Data>
+  </Data>
+</Message>
+
+Attrs: { 
+	accepts_email='true' 
+	accepts_postal_mail='true' 
+	active='Active' 
+	active_detail='Known to Contact' 
+	admin_status='Not an Administrator' 
+	cat_id='0' 
+	cong_dist_id='10' 
+	cons_id='1001281' 
+	county_dist_id='TX_TRA_2' 
+	county_id='C48453' 
+	created_by='1001164' 
+	creation_date='Apr 14, 2015' 
+	curr_year_alert_response_count='0' 
+	curr_year_total_trans_amount='$0.00' 
+	curr_year_total_trans_count='0' 
+	donor_status='Donor' 
+	email_opt_in_status='Single Opt-In' 
+	email_opt_out_nonce='1284286169' 
+	email_status='Unknown' 
+	first_name='Banana' 
+	hard_bounce_count='0' 
+	home_city='Austin' 
+	home_country='United States' 
+	home_county='Travis' 
+	home_stateprov='TX' 
+	home_street1='11501 Domain Dr' 
+	home_zip='78758-3483' 
+	individual_rel_link='001o000000TAojGAAT' 
+	last_change_by='1000000' 
+	last_login_date='Apr 22, 2015' 
+	last_name='Jackson' 
+	last_password_change_date='Apr 22, 2015' 
+	last_sync_timestamp='2015-4-22.9.16. 56. 707000000' 
+	lifetime_alert_response_count='0' 
+	lifetime_total_trans_amount='$0.00' 
+	lifetime_total_trans_count='0' 
+	matched_donor='false' 
+	member_id='003o000000UhQQZAA3' 
+	middle_name='Wha' 
+	modify_date='Apr 22, 2015' 
+	origin='TeamRaiser Family Participant' 
+	origin_ref_id='1001164' 
+	password_type='Convio' 
+	preferred_address='Home' 
+	prev_year_alert_response_count='0' 
+	prev_year_total_trans_amount='$0.00' 
+	prev_year_total_trans_count='0' 
+	primary_email='devnull+banan@convio.com' 
+	reg_opt_in_nonce='40068410' 
+	soft_bounce_count='0' 
+	state_house_dist_id='49' 
+	state_senate_dist_id='14' 
+	std_home_city='Austin' 
+	std_home_country='United States' 
+	std_home_modify_date='Apr 22, 2015' 
+	std_home_stateprov='TX' 
+	std_home_status='Corrected' 
+	std_home_street1='11501 Domain Dr' 
+	std_home_zip='78758-3483' 
+	user_name='banana' 
+	user_password='/+DES_v1+/:2e9dc55c0d3680101476b3b1fb095d35'
+}
+
+
+ConvioFieldMap
+{
+	so_last_name = SpouseLastName, 
+***	sustained_status = SustainedStatusOnline, 
+	external_ytd_gift_count = YearToDateGiftCount, 
+	so_middle_name = SpouseMiddleName, 
+	so_suffix = SpouseSuffix, 
+	external_last_gift_amount = LastGiftAmount, 
+	sustained_recent_fail_code = SustainedFailureCode, 
+	employer_city = EmployerCity, 
+	county_dist_id_override = CountyDistrictOverride, 
+	home_fax = HomeFax, 
+	cons_gender = Gender, 
+	first_name = FirstName, 
+	home_municipality_override = HomeMunicipalityOverride, 
+	cons_religion = Religion, 
+	salutation_casual = SalutationCasual, 
+	employer_country = EmployerCountry, 
+	employer_stateprov = EmployerState, 
+	external_largest_gift_amount = LargestGiftAmount, 
+	external_largest_gift_date = LargestGiftDate, 
+	deceased = Deceased, 
+	membership_expiration_date = MembershipExpiration, 
+	external_lifetime_gift_amount = LifetimeGiftAmount, 
+	cons_occupation = Occupation, 
+	birth_date = BirthDate, 
+	nickname = Nickname, 
+	middle_name = MiddleName, 
+	last_login_date = LastLoginDate, 
+	individual_rel_link = AccountId, 
+	cong_dist_id = CongressDistrict, 
+	maiden_name = MaidenName, 
+	so_import_id = SpouseImportId, 
+	salutation_formal = SalutationFormal, 
+	donor_status = DonorStatus, 
+	accepts_email = EmailOptOut, 
+	external_lifetime_gift_count = LifetimeGiftCount, 
+	work_phone = WorkPhone, 
+	last_name = LastName, 
+	state_house_dist_id = StateHouseDistrict, 
+	home_addr_import_id = HomeAddressImportId, 
+	sustained_eligible_gift_count = SustainedEligibleGiftCount, 
+	sustained_actual_end_date = SustainedActualEndDate, 
+	home_county_override = HomeCountyOverride, 
+	so_gender = SpouseGender, 
+	external_ytd_gift_amount = YearToDateGiftAmount, 
+	position = WorkTitle, 
+	cons_marital_status = MaritalStatus, 
+	county_dist_id = CountyDistrict, 
+	external_last_gift_date = LastGiftDate, 
+	so_title = SpouseTitle, 
+	employer = Employer, 
+	cons_id = ConvioId, 
+	home_municipality = HomeMunicipality, 
+	exchange_id = ImportId, 
+	sustained_card_expiration_date = SustainedCardExpirationDate, 
+	so_first_name = SpouseFirstName, 
+	external_first_gift_date = FirstGiftDate, 
+	mobile_phone = MobilePhone, 
+	cons_prof_suffix = ProfessionalSuffix, 
+	employer_zip = EmployerPostalCode, 
+	email_opt_out_date = EmailOptOutDate, 
+	primary_email = Email, 
+	membership_status = MembershipStatus, 
+	cons_ethnicity = Ethnicity, 
+	accepts_postal_mail = PostalMailOptOut, 
+	sustained_planned_end_date = SustainedPlannedEndDate, 
+	cons_title = Salutation, 
+	cons_suffix = Suffix, 
+	preferred_phone = PreferredPhone, 
+	email_status = EmailStatus, 
+	employer_street3 = EmployerStreet3, 
+	employer_street2 = EmployerStreet2, 
+	employer_street1 = EmployerStreet1, 
+	state_house_dist_id_override = StateHouseDistrictOverride, 
+	cong_dist_id_override = CongressDistrictOverride, 
+	origin = Origin, 
+	sustained_start_date = SustainedStartDate, 
+	sustained_recent_fail_count = SustainedFailureCount, 
+	membership_id = MembershipId, 
+	state_senate_dist_id_override = StateSenateDistrictOverride, 
+	member_id = UniversalId, 
+	sustained_monthly_amount = SustainedMonthlyAmount, 
+	membership_level_id = MembershipLevelId, 
+	state_senate_dist_id = StateSenateDistrict, 
+	preferred_address = PreferredAddress, 
+	external_first_gift_amount = FirstGiftAmount, 
+	home_phone = HomePhone, 
+	secondary_email = SecondaryEmail, 
+	member_since_date = MemberSince
+}
+

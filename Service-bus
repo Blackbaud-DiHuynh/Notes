@@ -1,0 +1,66 @@
+Service Bus
+
+Webapp    <---      HornetQ
+
+- has its own database for errors
+- 1 endpoint for each record type
+
+QPM errors = SB errors + LO errors
+
+Message life cycle
+  LCRM: outbound messages
+  ^
+  |
+  Service bus: routing messages to the correct queue
+  ^
+  |
+  LO: show the message in QPM
+  
+
+
+PROCESSES:
+  Rebuild Search Indexes:
+    - delete everything in Lucene
+    - get udpated information from LO database
+    - rebuild Lucene indexes
+    - this will get stuff back in sync
+
+
+PRODUCTION PROBLEMS:
+  Lucene and DBs get out of sync
+    - problem: race conditions, TODO: why?
+    - workaround: rebuild search indexes
+    - fix: wait for DB deletes to succeed before deleting in Lucene
+  
+  Bus crashes due to overload
+    - problem: customers share the bus, when Komen (or a large customer) does a lot of something -> bus crashes
+      
+    - fix: put a threshold on the number of errors customers can operate on, 
+        ie: customers can only rebuild/delete/export 50K errors at a time
+    - What happens after customer click "SELECT ALL"
+      - the code looks at hornetQ, get the number of errors in the queue
+      - get the number of pending messages, ie dirty records in the LO DB before the sweeper tasks run
+      - these two numbers are added then compare to the throttled value (50k)
+
+  Garbage collection errors
+    - problem: Lucene was out of date, have problems with java compatibility
+    - fix: updated Lucene
+  
+  Too many IndexWriter/IndexReaders bug
+    - problem: too many IndexWriters and IndexReaders, this lead to deadlock in some cases, race conditions when trying to 
+      acquire write.lock files
+    - fix: spawn as few numbers of IndexWriters and IndexReaders as possible
+        put them in a map and referencethem when needed, instead of spawning new ones
+        use Singleton map pattern
+
+
+QUEUE STATUS PAGE
+  Contact
+  Fundraising
+  Event
+  Other
+
+Each has its own query to get the count -> slowwwwwwwwww
+Guillaume's suggestion: use UNION ALL since Oracle can do that really fast
+
+

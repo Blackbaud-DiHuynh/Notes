@@ -1,0 +1,29 @@
+
+SDP: DON_MINIMUM_MANUAL_DONATION
+
+Current implementation: 
+ - this doesn't apply to Event Gifts, entered on the admin side in LO
+ - in LCRM, when entering a CC donation, there is an error message "Minimum donation: 5.00"
+ and the donation wouldn't process
+ - Sign in as a constituent, give a gift to another TR participant - limit seems to be $5.00 no matter what
+ - Sign in as a constituent, go to that constituent's TR, enter gift - the limit applies here if the gift is CC
+
+in LCRM, admin enters 
+- cash gift
+- CC gift from TR reg
+- ACH gift
+- CC gift in Batch
+
+in LO, cons enters
+- CC gift 
+- Cash gift
+
+
+Expected behaviors:
+- any donations entered in LCRM should not subject to this SDP
+- additional gifts should respect this SDP
+- if a user manually enters donations, only CC transactions should respect this SDP
+
+Test cases: 
+- make sure Bug 45566 still works, ie additional gifts below SDP should NOT work
+- all kinds of TR gifts from LCRM works: Cash, Check, CC offline, ACH Offline

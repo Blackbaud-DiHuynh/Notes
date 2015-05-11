@@ -1,0 +1,26 @@
+Chapter 1: intro
+  Quality != test
+    - quality is in development stage
+    - developers should test incrementally
+  Roles 
+    - Software engineer: write features
+    - Software engineer in Test: refactor code to be more testable, write tests, more concerned with quality
+    - Test engineer: write automation, try to break stuff, analyze risks
+  Structure
+    - small number of test engineers rotating around projects
+  Process
+    - canary channel: builds that fails often
+    - dev channel: daily builds, what devs pull from
+    - test channel: montly build for tests, pass most sustained testing
+    - beta/release channel: stable test channel builds
+  Types of tests
+    scope over form, automated or manual
+    - small: automated, unit tests, functional issues, data corruption
+    - medium: automated, test interacting features, nearest neighbor functions
+    - large: real user scenarios, real user data sources, can take hours, in production environment
+
+Chapter 2: Life of Software Engineer in Test
+  Development and workflow
+    testing should be owned by engineering team
+    reuse is rewarded more than complexity or cleverness
+    
