@@ -62,5 +62,5 @@ QUEUE STATUS PAGE
 
 Each has its own query to get the count -> slowwwwwwwwww
 Guillaume's suggestion: use UNION ALL since Oracle can do that really fast
-
+TODO: research Lucene best practices for optimizing queries and make this page faster
 
