@@ -1,0 +1,20 @@
+
+
+
+curl -v -H 
+"Content-Type: application/json" 
+-H 
+"Cookie:JSESSIONID=82DD0C4E9E736BB8D28B4A25255BBAA4; JSESSIONID=9F581BC896C5A3444D3AB26CD9A5408D" 
+-X POST -d 
+'{
+        "originatingRecordId":"1001000", 
+        "originatingRecordType":"contact", 
+        
+        "body":"<?xml version=\"1.0\" encoding=\"UTF-8\"?><Message:Message xmlns:Message=\"urn:message.data.convio.com\" xmlns=\"urn:message.data.convio.com\" xmlns:ns2=\"urn:soap.sb.convio.com\"><Version>1.0</Version><ObjectType>contact</ObjectType><Action>UPDATE</Action><Origin><System>Online</System><Version>14.8</Version></Origin><UniversalId><Id>003o0000003QzuFAAS</Id><Version>1</Version></UniversalId><LocalId><Id>1001000</Id><Version>0</Version></LocalId><Data><Field name=\"UniversalId\">003o0000003QzuFAAS</Field><Field name=\"Deceased\">false</Field><Field name=\"LastName\">Bolton</Field><Field name=\"SalutationFormal\">Ramsay Bolton</Field><Field name=\"EmailOptOut\">false</Field><Field name=\"FirstName\">Ramsay</Field></Data></Message:Message>",
+
+        "recordTypeId":"84", 
+        "error":"Link Mismatch", 
+        "log":"MSG_FATAL_ERROR;|Link Mismatch;|2014-06-27T11:42:11-05:00;|Link Mismatch: This is a link mismatch."
+}' 
+
+http://localhost:8081/convio-service-bus/resources/qpmerror/

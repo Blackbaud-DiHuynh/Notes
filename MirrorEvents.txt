@@ -4,7 +4,8 @@ On LCRM
 1. Create a new Gala event (goft event won't work)
 2. Enter a start date that's in the future
 3. Link to a primary campaign
-
+4. Create a level with 1 attendees included
+  * all event levels with > 1 attendees included will be ignored 
 
 
 On LO

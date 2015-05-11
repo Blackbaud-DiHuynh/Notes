@@ -1,0 +1,40 @@
+
+Problem:
+
+Cannot delete QPM Error. 
+
+Error log:
+
+MessageCountException: Unexpected exception counting messages for queue 'ControlQueue-servicebus'. -- Caused by: NoSuchElementException
+JmsManagerImpl.countMessages(JmsManagerImpl.java:406) 
+JmsManagerImpl.countMessages(JmsManagerImpl.java:332) 
+JmsServiceImpl.countMessages(JmsServiceImpl.java:37) 
+
+control.ControlMessageSender.signalWork(ControlMessageSender.java:60) 
+lcrm.LuminateCrmIdTransferAgent.processResponses(LuminateCrmIdTransferAgent.java:207)
+lcrm.LuminateCrmIdTransferAgent.transfer(LuminateCrmIdTransferAgent.java:116)
+
+BaseRecordTypeHandler.process(BaseRecordTypeHandler.java:85)
+control.ControlQRecordWorker.processRecordTypes(ControlQRecordWorker.java:233)
+control.ControlQRecordWorker.processControlWithinLogContext(ControlQRecordWorker.java:173)
+control.ControlQRecordWorker.processControl(ControlQRecordWorker.java:146)
+control.ControlQWorker.process(ControlQWorker.java:207).control.ControlQWorker.run(ControlQWorker.java:86)
+
+
+LO
+
+CgeProblemSearchResultsHandler				- the page with errors with check boxes for the user to select, or select all
+	deleteSelectedSearchResults(request)	- send all of the selected ids to the BusMonitor
+		BusMonitor.deleteByIds				- set all the necessary info and make a call to the bus
+
+
+SB
+
+MonitorService.deleteErrorById()			- deleting the error
+
+
+
+BaseRecordTypeHandler.process()
+	LuminateCrmIdTransferAgent.transfer()
+		processRespones()
+			* process results to 

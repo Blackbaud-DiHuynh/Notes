@@ -1,0 +1,26 @@
+Bug65279 - Mirrored Tickets Remaining doesn't update
+
+
+LO side of things:
+  the user side shows the correct amount because the code did some math logic with the cal_attendees table 
+  to get the correct amount
+
+  the Cal_Ticket_Class table contains the incorrect quantity remaining amount 
+  -> the admin UI shows the incorrect quantity remaining amount
+  -> this value should only be changed in LCRM (which also 
+
+Potential fix: 
+  
+
+Problems: 
+  - adding a new attendee in LCRM does not
+
+
+
+Test Case Review:
+  RSVP 
+    give anchor level $0 price
+
+  Ticketed
+    give anchor level > $0 price
+
