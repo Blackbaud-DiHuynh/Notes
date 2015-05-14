@@ -134,9 +134,22 @@ PERFORMANCE TUNING
   turn off fields/features we're not using
   gropu multiple text fields into a single text field
 
+MANAGING RESOURCES
+  
 
 ADVANCED SEARCH TECHNIQUES
   Field cache
     for fast access to certain fields for every documents
     sorting results by field values uses field caching
-  
+ 
+
+OPTIMIZING SEARCH - https://wiki.apache.org/lucene-java/ImproveSearchingSpeed
+  use 1 instance of IndexSearcher
+  re-open IndexSearcher only when necessary
+  decrease mergeFactor
+  limit usage of stored fields and term vectors
+  use FieldSelector to pick which fields are loaded
+  don't iterate over more hits than needed
+
+
+

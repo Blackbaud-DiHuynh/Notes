@@ -1,0 +1,12 @@
+
+LUMINATE MANAGEMENT PAGE
+
+Process page: cg.manage.process.xml
+https://github.com/blackbaud/service-bus/compare/martell/lucene_research
+
+CgeProblemSummaryHandler.java
+	-> processRequest()	
+		-> CgeBaseManageHandler.processRequest
+			* checks to see if the bus is in maintenance mode, bus is enabled, hornetq is down, controls are disabled -> show message
+			-> BaseCRMHandler.processRequest()
+				-> BaseProcessPageHandler.processRequest()

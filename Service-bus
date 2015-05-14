@@ -28,9 +28,13 @@ PROCESSES:
 
 PRODUCTION PROBLEMS:
   Lucene and DBs get out of sync
-    - problem: race conditions, TODO: why?
+    - problem: race conditions
+      - Delete from Lucene -> bugs in Lucene, UncaughtException
+      - delete from DB -> async calls, uncaughtExceptions
+
     - workaround: rebuild search indexes
     - fix: wait for DB deletes to succeed before deleting in Lucene
+        ErrorSearchSupport.delete
   
   Bus crashes due to overload
     - problem: customers share the bus, when Komen (or a large customer) does a lot of something -> bus crashes
@@ -50,7 +54,7 @@ PRODUCTION PROBLEMS:
     - problem: too many IndexWriters and IndexReaders, this lead to deadlock in some cases, race conditions when trying to 
       acquire write.lock files
     - fix: spawn as few numbers of IndexWriters and IndexReaders as possible
-        put them in a map and referencethem when needed, instead of spawning new ones
+        put them in a map and reference them when needed, instead of spawning new ones
         use Singleton map pattern
 
 
