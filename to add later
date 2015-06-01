@@ -1,0 +1,13 @@
+
+0. Add LCRM integration classifier to your maven settings
+    * Log into your luminate-online container `docker exec -it luminate-online /bin/bash`
+    * Open `/home/www/.m2/settings.xml`
+    * If you are connecting to a dev org (no namespace), add the following line to your CLO profile
+
+            <lcrm_integration.classifier>dev</lcrm_integration.classifier>
+
+    * If your Salesforce organization has the package installed instead of dev code, add this line to your CLO profile
+
+            <lcrm_integration.classifier>cv</lcrm_integration.classifier>
+    
+    * Exit the container and re-deploy

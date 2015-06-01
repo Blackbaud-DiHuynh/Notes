@@ -52,7 +52,7 @@ Post Installation Upgrades Manual Steps
 		- if it says "Account_Dupe_Check(Visualforce Page)", you can skip this step. 
 	- Click Edit
 	- Choose Visualforce Page
-	- Select "Account_Dupe_Check[cv__Account_Dupe_Check]"
+	- Select "Account_Dupe_Check[cv.Account_Dupe_Check]"
 	- Click Save
 
 - Update Campaign Create Button page
@@ -61,7 +61,7 @@ Post Installation Upgrades Manual Steps
 		- if it says "CampaignCreateButton(Visualforce Page)", you can skip this step. 
 	- Click Edit
 	- Choose Visualforce Page
-	- Select "CampaignCreateButton[cv__CampaignCreateButton]"
+	- Select "CampaignCreateButton[cv.CampaignCreateButton]"
 	- Click Save
 
 12.10 (Mobile)
@@ -83,7 +83,7 @@ Post Installation Upgrades Manual Steps
 	- Setup -> Customize -> Contacts -> Buttons, Links, Actions
 	- On the action with a label of "New" and a name of “NewContact”, click on the Edit link for this entry.
 	- On the following page, in the section called “Override With”, choose “Visualforce Page”.
-	- In the drop-down list next to this radio button, look for an entry that says “Contact Select Record Type [cv__Contact_Select_Record_Type]”, and select that entry.
+	- In the drop-down list next to this radio button, look for an entry that says “Contact Select Record Type [cv.Contact_Select_Record_Type]”, and select that entry.
 	- Click “Save” at the bottom.
 
 12.12.1 (12.11 in the code)
@@ -96,4 +96,88 @@ Post Installation Upgrades Manual Steps
 		- In the field choose at the top of the screen, click on Visualforce Pages, drag the Donation_Matching_Gift_Create_Button to where the deprecated button was
 		- Click on the wrench icon, change the height to 25. 
 		- Click Save
+
+12.7.2
+	New objects - make sure all of the fields on this new object 
+		cv.Recurring_Gift_Forgiveness
+		cv.Recurring_Gift_Commitments
+
+	New fields
+		cv.Next_Due_Date__c
+		cv.Paid_Through__c
+		cv.Balance__c
+		cv.Total_Committed__c
+		cv.Total_Forgiven__c
+	
+	New classes
+		cv.RecurringGiftSetScheduleController
+		cv.RecurringGiftSetDesignationController
+		
+	New pages
+		cv.Recurring_Gift_Set_Schedule
+		cv.Recurring_Gift_Set_Designation
+		cv.Recurring_Gift_Forgiveness_HelpPage
+
+12.9
+	New classes: 
+	New pages: 
+		cv.Account_Dupe_Check
+		cv.CampaignCreateButton
+	
+12.10
+	New fields
+	New classes: 
+		cv.ContactSelectRecordTypeController
+		cv.ContactSummaryController
+		cv.NearbyDonorsController
+		cv.ContactSelectRecordTypeController
+	New pages: 
+		cv.ContactSummary(component)
+		cv.ContactSummary(page)
+		cv.Contact_Select_Record_Type
+		cv.NearbyDonors
+
+12.12.1
+	New fields
+		Fundraising_Goal
+	New classes
+		cv.DonationCreationButtonController
+		cv.DonationCreationButtonControllerTests
+		cv.DonationCreationButtonFromRGController
+		cv.DonationCreationButtonFromRGTest
+		cv.DonationCreationFromAcctConsController
+		cv.DonationCreationFromAcctConsTest
+		cv.EventInvitationCreationButtonController
+		cv.GiftAssetCreationButtonController
+		cv.TeamRaiserProgressWidgetController
+		cv.VolunteerJobShiftButtonController
+
+	New pages
+		cv.CreateEventInvitation
+		cv.CreateGiftAsset
+		cv.Donation_Create_From_Event_Reg_Button
+		cv.Donation_Create_InKind_Gift_Button
+		cv.Donation_Matching_Gift_Create_Button
+		cv.NewSingleDonation
+		cv.PledgeCreateButton
+		cv.RecurringGiftCreateButton
+		cv.RecurringGiftPayment
+		cv.TeamRaiserProgressWidget
+		cv.VolunteerJobShiftCreateButton
+
+12.13
+	New fields:
+		cv.Emergency_Name
+		cv.Emergency_Phone
+		cv.Primary_TeamRaiser_Registration
+
+
+Error on cv.Contact-Mobile Contact Layout. Invalid field:cv.Next_Due_Date__c in related list:cv.Recurring_Gift__c.cv.Contact__c (FIELD_INTEGRITY_EXCEPTION).
+
+	Setup -> Manage users -> Profiles
+	Select the profile you wish to edit
+	In the Field-level Security section, choose the object that contains this field (in the example above, it's Recurring Gift)
+	Click Edit
+	Check the Visible box on the field's name (in the example above, it's Next Due Date)
+	Click Save
 

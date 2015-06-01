@@ -1,0 +1,19 @@
+
+
+System.CalloutException: You have uncommitted work pending. Please commit or rollback before calling out metadata
+
+Why? You're calling a webservice AFTER doing a DB update
+How to fix? Do all the webservice calls first, THEN update DB
+
+ERROR
+Transient error: Missing Teamraiser Participation Type
+
+REASON
+LCRM does not have the Participation Type in the XML message
+
+FIX
+Manually create it in LCRM: 
+TeamRaiser_Participation_Type__c type = new TeamRaiser_Participation_Type__c();
+type.Convio_Participation_Type_ID__c = 1003;
+type.Campaign__c = '701o0000000bP7s';
+insert type;
