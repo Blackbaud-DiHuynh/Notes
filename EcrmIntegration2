@@ -1,0 +1,9 @@
+LO makes a call to one of the webservices in EcrmIntegration2
+
+
+EcrmIntegration2.linkTeamRaiser(campaignId, onlineInfo)
+  -> grabs the campaign from SF database
+  -> TeamRaiser_Campaign_SyncController.updateTeamraiser(campaign, response)
+    -> linkTeamraiser()
+      -> processResponse()
+      -> getCampaignPage()

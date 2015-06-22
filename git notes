@@ -34,7 +34,7 @@ git remote -v
 git log --all --grep='whateveryouwannasearchfor'
 
 #search through the commit contents of all branches logs
-git grep 'whateveryouwannasearchfor' $(git rev-list --all)
+git rev-list --all --grep='whateveryouwannasearchfor' --pretty=oneline
 
 #remove untracked files from git status
 git clean -fd *

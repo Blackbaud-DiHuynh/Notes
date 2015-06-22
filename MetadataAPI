@@ -38,8 +38,7 @@ LAYOUTS
     - unmanaged layouts have no namespaces
     - for standard layouts on standard objects, no namespaces is needed
     - standard object, custom layout -> Contact-cv__Some new layout
-
-  - Custom objects
+    - Custom objects
     - need namespace in 2 spots
     - cv__TeamRaiser_Registration__C-cv__TeamRaiser_Registration_Layout
 
