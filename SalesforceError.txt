@@ -1,6 +1,0 @@
-
-
-System.CalloutException: You have uncommitted work pending. Please commit or rollback before calling out metadata
-
-Why? You're calling a webservice AFTER doing a DB update
-How to fix? Do all the webservice calls first, THEN update DB
