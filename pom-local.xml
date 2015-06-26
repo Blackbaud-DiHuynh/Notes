@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.convio</groupId>
+	<artifactId>luminate-crm</artifactId>
+	<version>12.16-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Luminate CRM</name>
+	<description>Save LCRM to a Salesforce org, run the tests, update cgupgrade, and create a managed package release.</description>
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+	<!-- Super POM shared by most Convio projects to define global repository and deployment state -->
+	<parent>
+		<artifactId>convio-super-pom</artifactId>
+		<groupId>com.convio</groupId>
+		<version>1.6</version>
+	</parent>
+	<scm>
+		<url>https://github.com/blackbaud/lcrm.git</url>
+		<tag>HEAD</tag>
+		<connection>scm:git:git@github.com:blackbaud/lcrm.git</connection>
+		<developerConnection>scm:git:git@github.com:blackbaud/lcrm.git</developerConnection>
+	</scm>
+	<ciManagement>
+		<system>jenkins</system>
+		<url>http://jenkins.conviocloud.com/</url>
+	</ciManagement>
+	<organization>
+		<name>Blackbaud</name>
+		<url>blackbaud.com</url>
+	</organization>
+	<properties>
+		<sfdc.maxPoll>1000</sfdc.maxPoll>
+		<sfdc.pollWaitMillis>60000</sfdc.pollWaitMillis>
+		<targetDirectory>${project.build.directory}/ForcePlatform/src</targetDirectory>
+		<lcrm.major.version>11</lcrm.major.version>
+		<lcrm.build.number>unofficial-build</lcrm.build.number>
+	</properties>
+	<profiles>
+		<!-- Credentials for an org that is reserved for testing the build from Maven -->		
+		<profile>
+			<id>diOrg</id>
+			<activation>
+				<!-- If no other org is provided, this one will be used by default -->
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<org.userName>di.huynh@convio.com</org.userName>
+				<org.password>9GlEO8hgQfcz</org.password>
+				<org.securityToken>LGxvby9yB87XXq95CtLRA3Kc</org.securityToken>
+				<org.serverUrl>https://login.salesforce.com</org.serverUrl>
+			</properties>
+		</profile>
+		<profile>
+			<id>defaultOrg</id>
+			<activation>
+				<!-- If no other org is provided, this one will be used by default -->
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<org.userName>lcrm-default-org@blackbaud.com</org.userName>
+				<org.password>Password123</org.password>
+				<org.securityToken>2FBuvsxWpND0Z3J7GTf5Mv8C3</org.securityToken>
+				<org.serverUrl>https://login.salesforce.com</org.serverUrl>
+			</properties>
+		</profile>
+		<!-- Credentials for an org that Joseph made that has a non CV package namespace -->
+		<profile>
+			<id>orgWithNonCVPackage</id>
+			<properties>
+				<org.userName>joseph.zelada.flashnew@blackbaud.com</org.userName>
+				<org.password>Password1234</org.password>
+				<org.serverUrl>https://login.salesforce.com</org.serverUrl>
+				<org.securityToken>dfs1ZZH5IzhR37MBwnnEypPbq</org.securityToken>
+				<package.namespace>bbcvt</package.namespace>
+			</properties>
+		</profile>
+		<!-- Credentials for the LCRM packaging org -->
+		<profile>
+			<id>packagingOrg</id>
+			<properties>
+				<org.userName>jenkins.cv@convio.com</org.userName>
+				<org.password>Build1tN0w</org.password>
+				<org.securityToken>2ChIKoaBiNeqmbw7GKhOdOU6G</org.securityToken>
+				<org.serverUrl>https://login.salesforce.com</org.serverUrl>
+				<!-- Settings for the CV managed package in the LCRM packaging org-->
+				<!-- Details at https://na2.salesforce.com/03340000000CroQ?tab=PackageExports -->
+				<package.versionName>Q3 2015</package.versionName>
+				<!-- This is only used while making the REST call to the external system -->
+				<package.codeName>${package.versionName}</package.codeName>
+				<package.namespace>cv</package.namespace>
+				<package.password />
+				<package.productName>Luminate CRM</package.productName>
+				<!-- Eventually Lenard will replace Alfred -->
+				<package.restHost>alfred.conviocloud.com</package.restHost>
+				<package.restPath>/rest/salesforcePackages/save</package.restPath>
+				<package.restPort>8080</package.restPort>
+				<package.lenardRestHost>lenard.blackbaudcloud.com</package.lenardRestHost>
+				<package.lenardRestPath>/v3/packages</package.lenardRestPath>
+				<package.lenardRestPort>80</package.lenardRestPort>
+				<package.applyNamespaceDiff>true</package.applyNamespaceDiff>
+				<!-- If creating a package, tests will be run anyway -->
+				<!--<skipTests />-->
+			</properties>
+		</profile>
+		<!-- Credentials for the test LCRM patch server -->
+		<profile>
+			<id>testPatchServer</id>
+			<properties>
+				<patchServer.url>test.cgupgrade.com</patchServer.url>
+				<patchServer.userName>cgupgrade</patchServer.userName>
+				<patchServer.keyFile>/home/build/.ssh/test-cgupgrade.pem</patchServer.keyFile>
+			</properties>
+		</profile>
+		<!-- Credentials for the live LCRM patch server -->
+		<profile>
+			<id>livePatchServer</id>
+			<properties>
+				<patchServer.url>www.cgupgrade.com</patchServer.url>
+				<patchServer.userName>root</patchServer.userName>
+				<patchServer.keyFile>/home/build/.ssh/live-cgupgrade.pem</patchServer.keyFile>
+			</properties>
+		</profile>
+		<!-- If we are inside of Jenkins, BUILD_NUMBER will be defined we will use it for lcrm.build.number
+		Otherwise the build number will default to unofficial-build as defined in the project properties
+		This has the side effect of disabing defaultOrg in Jenkins because activeByDefault is only active when nothing else is -->
+		<profile>
+			<id>jenkins</id>
+			<activation>
+				<property>
+					<name>BUILD_NUMBER</name>
+				</property>
+			</activation>
+			<properties>
+				<lcrm.build.number>${BUILD_NUMBER}</lcrm.build.number>
+			</properties>
+			<!-- Jenkins has the credentials to deploy to Nexus (this is set to none in the default build) -->
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>default-deploy</id>
+								<phase>deploy</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<!-- Apply the diff to set the CV namespaces correctly for the CV org -->
+		<profile>
+			<id>applyNamespaceDiffProfile</id>
+			<activation>
+				<property>
+					<name>package.applyNamespaceDiff</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-patch-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>applyNamespaceDiffExecution</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>apply</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<patchDirectory>build</patchDirectory>
+							<patches>
+								<patch>namespace.patch</patch>
+							</patches>
+							<targetDirectory>${project.build.directory}/ForcePlatform</targetDirectory>
+							<strip>0</strip>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<!-- Profile used during the mvn release:perform goal to make an official release candidate in salesforce.
+		Only activate if you are really sure what you are doing!
+		Once a release candidate has been created, nothing can be removed from the package! -->
+		<profile>
+			<id>createReleaseCandidate</id>
+			<activation>
+				<property>
+					<name>package.createReleaseCandidate</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.convio.maven.plugins</groupId>
+						<artifactId>lcrm-build-plugin</artifactId>
+						<configuration>
+							<packageType>release</packageType>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<build>
+		<resources>
+			<!-- Filter the cgupgrade patch files -->
+			<resource>
+				<directory>salesforce-patches</directory>
+				<filtering>true</filtering>
+			</resource>
+			<!-- Only filter the constants file. If you need a pom variable in Apex, it is your gateway -->
+			<resource>
+				<directory>src</directory>
+				<targetPath>${targetDirectory}</targetPath>
+				<excludes>
+					<exclude>**/classes/Constants.cls</exclude>
+				</excludes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src</directory>
+				<targetPath>${targetDirectory}</targetPath>
+				<includes>
+					<include>**/classes/Constants.cls</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<!-- These are some scripts for cgupgrade that apparently also need filtering -->
+			<resource>
+				<directory>${project.basedir}/scripts</directory>
+				<targetPath>${project.build.directory}/ssh-scripts</targetPath>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- maven-deploy-plugin should only run if we are in Jenkins, because only it has permissions for Nexus -->
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-deploy</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- maven-compiler-plugin can't compile for us so don't let it try -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-testCompile</id>
+						<phase>none</phase>
+					</execution>
+					<execution>
+						<id>default-compile</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- maven-resources-plugin should not run against the test directory - we don't have one -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-testResources</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- maven-site-plugin fails upon deploy -->
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+					<skipDeploy>true</skipDeploy>
+				</configuration>
+			</plugin>
+			<!-- maven-surefire-plugin should not run because there are no jUnits to run -->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-test</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- lcrm-build-plugin handles creating a package and creating a new component report -->
+			<plugin>
+				<!-- mvn help:describe -Dplugin=com.convio:lcrm-build-plugin -Ddetail -->
+				<!-- Source is in Blackbaud's github repo lcrm-build-plugin -->
+				<groupId>com.convio</groupId>
+				<artifactId>lcrm-build-plugin</artifactId>
+				<version>2.0.9</version>
+				<configuration>
+					<salesforceUsername>${org.userName}</salesforceUsername>
+					<salesforcePassword>${org.password}</salesforcePassword>
+					<packageNamespace>${package.namespace}</packageNamespace>
+					<packageCodeName>${package.codeName}</packageCodeName>
+					<packagePassword>${package.password}</packagePassword>
+					<packageVersionName>${package.versionName}</packageVersionName>
+					<packageVersionNumber>${project.version}</packageVersionNumber>
+					<productName>${package.productName}</productName>
+					<packageType>beta</packageType>
+					<restHost>${package.restHost}</restHost>
+					<restPort>${package.restPort}</restPort>
+					<restPath>${package.restPath}</restPath>
+					<lenardRestHost>${package.lenardRestHost}</lenardRestHost>
+					<lenardRestPort>${package.lenardRestPort}</lenardRestPort>
+					<lenardRestPath>${package.lenardRestPath}</lenardRestPath>
+					<packageInfoFile>${project.build.directory}/lcrm-build-info.txt</packageInfoFile>
+					<outputFile>${project.build.directory}/lcrm_reports/new_component_report.md</outputFile>
+				</configuration>
+			</plugin>
+			<!-- maven-release-plugin TODO what do we use this for? -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			<!-- maven-antrun-plugin has executions for saving to server, running tests, and deploying patch scripts -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<!-- Save the code to the defined Salesforce org -->
+					<!-- Monitor at https://na17.salesforce.com/changemgmt/monitorDeployment.apexp -->
+					<execution>
+						<id>saveToServerExecution</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<customTaskPrefix>sf</customTaskPrefix>
+							<target name="saveToServer" unless="skipSaveToServer">
+								<!-- Documentation at http://www.salesforce.com/us/developer/docs/daas/index.htm -->
+								<taskdef name="saveToServer" classname="com.salesforce.ant.DeployTask" classpathref="maven.plugin.classpath" />
+								<saveToServer username="${org.userName}"
+									password="${org.password}${org.securityToken}"
+									serverurl="${org.serverUrl}" 
+									deployRoot="${targetDirectory}"
+									runAllTests="false"
+									logType="None" 
+									maxPoll="${sfdc.maxPoll}" 
+									pollWaitMillis="${sfdc.pollWaitMillis}" />
+								</target>
+							</configuration>
+						</execution>
+						<!-- Run all the unit tests on the defined Salesforce org -->
+						<!-- Monitor at https://na17.salesforce.com/changemgmt/monitorDeployment.apexp -->
+						<execution>
+							<id>runTestsExecution</id>
+							<phase>test</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<customTaskPrefix>sf</customTaskPrefix>
+								<target name="runTests" unless="skipTests">
+									<!-- Documentation at https://code.google.com/p/force-deploy-with-xml-report-task/ -->
+									<taskdef 
+										name="runTests" 
+										classname="com.claimvantage.force.ant.DeployWithXmlReportTask" 
+										classpathref="maven.plugin.classpath" />
+									<delete dir="${project.build.directory}/apex-test-reports" quiet="true" />
+
+									<runTests 
+										username="${org.userName}"
+										password="${org.password}${org.securityToken}"
+										serverurl="${org.serverUrl}" 
+										deployRoot="emptyPackage" 
+										runalltests="true"
+										logType="None" 
+										maxPoll="${sfdc.maxPoll}" 
+										pollWaitMillis="${sfdc.pollWaitMillis}" 
+										junitreportdir="${project.build.directory}/apex-test-reports">
+									</runTests>
+								</target>
+							</configuration>
+						</execution>
+
+						<!-- Deploy the patch scripts to the cgupgrade server -->
+						<execution>
+							<id>deploy-patch-scripts</id>
+							<phase>deploy</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target name="deployPatchScripts" if="patchServer.url">
+									<scp 
+										file="${project.build.directory}/${project.artifactId}-${project.version}-patch-kit.tar.gz" 
+										todir="${patchServer.userName}@${patchServer.url}:" 
+										keyfile="${patchServer.keyFile}" 
+										verbose="true" 
+										failonerror="true" 
+										trust="true" />
+									<sshexec 
+										command="tar -xzf ${project.artifactId}-${project.version}-patch-kit.tar.gz" 
+										host="${patchServer.url}" 
+										username="${patchServer.userName}" 
+										keyfile="${patchServer.keyFile}" 
+										failonerror="true" 
+										trust="true" 
+										verbose="true" />
+									<sshexec 
+										command="/bin/sh ~/deploy-lcrm-patch-script.sh" 
+										host="${patchServer.url}" 
+										username="${patchServer.userName}" 
+										keyfile="${patchServer.keyFile}" 
+										failonerror="true" 
+										trust="true" 
+										verbose="true" />
+								</target>
+							</configuration>
+						</execution>
+					</executions>
+					<dependencies>
+						<dependency>
+							<groupId>com.force</groupId>
+							<artifactId>ant-migration-tools</artifactId>
+							<version>23.0</version>
+						</dependency>
+						<dependency>
+							<groupId>com.force</groupId>
+							<artifactId>ant-migration-tools-reports</artifactId>
+							<version>1.1</version>
+						</dependency>
+						<dependency>
+							<groupId>com.jcraft</groupId>
+							<artifactId>jsch</artifactId>
+							<version>0.1.45</version>
+						</dependency>
+						<dependency>
+							<groupId>org.apache.ant</groupId>
+							<artifactId>ant-jsch</artifactId>
+							<version>1.8.2</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<!-- maven-assembly-plugin patchkit tarball to deploy to cgupgrade.com. -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>patch-kit</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<!-- Describes the files to include. -->
+						<descriptors>
+							<descriptor>maven-src/main/assembly/patch-kit.xml</descriptor>
+						</descriptors>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</project>

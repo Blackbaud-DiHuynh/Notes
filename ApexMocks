@@ -9,7 +9,11 @@ Links:
     https://code4cloud.wordpress.com/2014/06/27/new-improved-apex-mocks-generator/
 
   Dependencies in Unit Test:
-    https://code4cloud.wordpress.com/2014/05/15/stubbing-dependencies-in-a-unit-test/ Tutorials/examples: http://jessealtman.com/2014/06/real-unit-tests-using-apexmocks/ 
+    https://code4cloud.wordpress.com/2014/05/15/stubbing-dependencies-in-a-unit-test/ 
+  
+  Tutorials/examples: 
+    http://jessealtman.com/2014/06/real-unit-tests-using-apexmocks/ 
+  
   Github repo:
     https://github.com/financialforcedev/fflib-apex-mocks
 
@@ -33,37 +37,44 @@ Dependency Injection
     makes code hard to read since it separates behavior from construction
     diminishes encapsulation by requiring users of a system to know how it work and not merely what task or job it performs. 
 
-
 Focuses for us:
   reduce DML operations in unit tests
+
+ApexMocks features:
+  verify method was called with the correct arguments
+  verify a method was called n number of times
+  verify a method was never called
+  stub a method call with a particular set of arguments to return a particular value
+  stub a method call with a particular set of arguments to throw a particular exception
+
+apex-mock-generator
+  generates mock implementation automatically
+
+Questions to answer: 
+  How should we approach incorporating ApexMocks into your existing unit tests? 
+    - new unit tests should use ApexMocks
+    - how to convert the old ones? 
+      - by code coverage? 
+      - by runtime?
+      - difficult since some of our code are not unit testable
+  
+  How are we going to organize mock classes? 
+  Code convention
+    - given, when, then: good practice for Spock tests in LO, cucumber, and unit testing in general
+    - mocks.startStubbing(); mocks.stopStubbing()
+    - Test.startTest(), Test.stopTest()
+    - method names
+  this interface business
+  Trigger tests should still have DML operations
+  
+
+Tips: 
+  refactor all SOQL queries to their own method, makes it easier to stub
+  use CampaignTestUtils.getDefaultCampaign()
+  use fflib_IDGenerator.generate(Contact.SObjectType)
   
 
 
-SETUP STEPS:
-  Install ANT
-    sudo apt-get install ant
-    add 'export ANT_HOME='/usr/local/ant'' to .bashrc
+STEPS TO STUBBING OUT SOMETHING
+  - check Mocks.cls to see if the class you're mocking already exists
 
-  Install Force.com Migration Tools
-    Setup -> Develop -> Tools -> download zip file for Force.com Migration Tools
-    unzip
-    go to the sample directory, in build.properties, add your SF credentials, make sure to append security token at the end of your password
-    run 'ant test' in the sample directory
-
-    Go to dev org, setup -> Create -> Objects. Check to see if myObj is listed. 
-
-  Install 
-    clone the fflib-apex-mocks repo. 
-    copy build.xml, build.properties, ant-salesforce.jar to the fflib-apex-mocks folder
-    run 'ant deployApexMocks'
-    Go to dev org, setup -> Develop -> Apex Classes -> click on the letter F
-    Make sure you see the following classes: 
-      fflib_ApexMocks
-      fflib_ApexMocksTest
-      fflib_IDGenerator
-      fflib_IDGeneratorTest
-      fflib_MethodCountRecorder
-      fflib_MethodReturnValue
-      fflib_MethodReturnValueRecorder
-      fflib_Mocks
-      fflib_MyList
