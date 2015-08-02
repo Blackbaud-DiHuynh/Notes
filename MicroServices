@@ -1,0 +1,57 @@
+Building Microservices
+
+
+Chapter 1: Microservices
+
+What are Microservices? 
+  - small, autonomous services that work together
+  - “Gather together those things that change for the same reason, and separate those things that change for different reasons."
+  - can be deployed in isolation
+  - able to be changed independently of each other
+  - services expose APIs for others to consume
+
+Key Benefits
+  - able to embrace different technologies, choose the right tool for each job
+  - if something fails, the rest can carry on. Unlike in a monolithic application where everything has to stop
+  - in monolithic application, scaling = scaling everything as one piece
+  - in smaller services, scaling = scale only those that need scaling, better distribution of hardware
+  - deployment time
+  - easy to spread out teams
+  - reusability of services
+  - optimized for replacibility, faster to rewrite/sunset
+
+Service oriented architecture
+  - SOA = design approach where multiple services collaborate to provide some end set of capabilities
+  - microservices : soa :: scrum : agile development
+
+Other decompositional techniques
+  - Shared libraries: 
+    - lose techonology heterogenetity, libraries need to be in the same language
+    - cannot desploy a new library without redeploying the entire process
+  
+  - modules
+    - Open Source Gateway Initiative framework to allow plugins to be installed on Eclipse, now used as a way to retrofit a module concept in Java via a library
+
+Chapter 3: How to Model Services
+  
+Good services
+  - loose coupling
+    - knows as little as possible about the services being consumed
+    - limit the number of calls from one service to another
+  - high cohesion
+
+Bounded context
+  - Shared and hidden models
+    - only knows what you should know
+  - Modules and services
+  - premature decomposition
+    - code reuse very early on -> lots of changes later across services
+
+Business Capabilities
+  - keep this in mind when breaking up modules/services
+
+Turtles all the way down
+  - nested boundaries might not be necessary, can lead to complication for testing
+
+The Technical Boundary
+  - 

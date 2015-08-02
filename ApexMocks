@@ -72,9 +72,35 @@ Tips:
   refactor all SOQL queries to their own method, makes it easier to stub
   use CampaignTestUtils.getDefaultCampaign()
   use fflib_IDGenerator.generate(Contact.SObjectType)
-  
-
 
 STEPS TO STUBBING OUT SOMETHING
+  - Let's assume you're trying to mock out ReversalUtils.
   - check Mocks.cls to see if the class you're mocking already exists
+  - Create an Apex interface for the class you want to mock out.
+    - name it I<class name>, ie IReversalUtils
+  - Make sure there isn't a space between your method name and the parentheses for parameters
+    - in other words: 
+        YES: void setEngagementChannelOnGift(Opportunity[] newOpportunity);
+        NO:  void setEngagementChannelOnGift (Opportunity[] newOpportunity);
+  - the apex-mocks-generator has a couple parsing bugs so make sure your parameters have the spaces in the right places
+    - in other words:
+        YES: void foo (Map<Id, Opportunity> opps);
+        NO:  void foo (Map<Id, Opportunity>opps);
+
+  - Edit interfaces.properties with your new interface
+    - IReversalUtils=ReversalUtils
+
+  - Run the following command:
+    - java -jar apex-mocks-generator-3.1.2.jar ./src/classes/ interfaces.properties Mocks ./src/classes/
+    - this will create a mocked version of your class in the file src/classes/Mocks.cls
+
+  - Save to server to check for syntax errors. 
+    - If you find syntax errors, fix the spacing in your interface file (IReversalUtils), and run the command again.
+    - DO NOT MODIFY Mocks.cls directly!
+    - We want to keep the interfaces.properties file a central place for all of the mocks so Mocks.cls stays consistent
+
+  
+
+    
+
 
