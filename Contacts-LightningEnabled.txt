@@ -1,0 +1,14 @@
+Contact object page
+
+Edit (on contact)
+	has Contact Summary at the top
+	has Wealth Analytics summary in the middle
+
+
+New Pledge button: 
+	PledgeId is null
+	Visualforce Page: /apex/Pledge_Set_Recurrence_Info
+	caused by: System.QueryException: List has no rows for assignment to SObject
+
+	Class.PledgeRecurrenceInfoController.getPledge: line 87, column 1
+	Class.PledgeRecurrenceInfoController.<init>: line 23, column 1

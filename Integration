@@ -1,103 +1,163 @@
-Break down of LO Integration code: 
+Break down of LCRM-LO Integration code: 
 
-Upsert*Handler.java
-  - performSyncMessageAction
-  - create or update records coming off the bus from LCRM
 
-*UniversalFieldMapper.java
-  - messageToObject
-  - objectToMessage
-  - contains type converters (date time converter, boolean converter)
-  - contains fields mapping from LCRM/RE to LO
+LCRM  ================================================================> LO
+Universal*.messageFromObject()                                     Upsert*Handler.java
 
-*UniversalMessageSender.java
-  - sendDirtyRecordsToBus
-  - getAndClearDirtyRecords
 
-*SyncStatusDao.java
-  - getBatchOfDirtySyncRecords
-  - to be picked up by the BulkRecordSweeperTask.java to send to the service bus
 
-File names
-Upsert*
-  Upsert.java
-  UpsertResult.java
-  UpsertColumn.java
-  UpsertRecurringPledgeHandler.java
-  UpsertTeamRaiserTeamHandler.java
-  UpsertRegistrationHandler.java
-  UpsertGiftActionHandler.java
-  UpsertConsHandler.java
-  UpsertTeamDocument.java
-  UpsertGiftDocument.java
-  UpsertRegistrationDocument.java
-  UpsertRegistrationDocumentImpl.java
-  UpsertTeamDocumentImpl.java
-  UpsertGiftDocumentImpl.java
+LO    ================================================================> LCRM
+*UniversalMessageSender.sendDirtyRecords()                         Bus*Processor.cls  
 
-*UniversalFieldMapper
-  AbstractUniversalFieldMapper.java
-  AnnotationBasedUniversalFieldMapper.java
-  CenterMembersUniversalFieldMapper.java
-  ConsUniversalFieldMapper.java
-  DonationUniversalFieldMapper.java
-  ECommerceOrderUniversalFieldMapper.java
-  EnhancedFieldMapper.java
-  EventAttendeesUniversalFieldMapper.java
-  FieldMapper.java
-  FieldMapperMgr.java
-  IFieldMapper.java
-  IUniversalFieldMapper.java
-  PfFundUniversalFieldMapper.java
-  PfUniversalFieldMapper.java
-  RecurringPledgeUniversalFieldMapper.java
-  RegistrationUniversalFieldMapper.java
-  TeamraiserUniversalFieldMapper.java
-  TeamUniversalFieldMapper.java
-  UniversalFieldMapperException.java
+LO
+	Upsert*Handler.java
+		- performSyncMessageAction
+		- create or update records coming off the bus from LCRM
 
-*UniversalMessageSender
-  IUniversalMessageSender.java
-  EventAttendeesUniversalMessageSender.java
-  PfFundUniversalMessageSender.java
-  RecurringPledgeUniversalMessageSender.java
-  DonationUniversalMessageSender.java
-  ConsUniversalMessageSender.java
-  CenterMembersUniversalMessageSender.java
-  TeamUniversalMessageSender.java
-  RegistrationUniversalMessageSender.java
-  AbstractUniversalMessageSender.java
+	*UniversalFieldMapper.java
+		- messageToObject
+		- objectToMessage
+		- contains type converters (date time converter, boolean converter)
+		- contains fields mapping from LCRM/RE to LO
 
-*SyncStatusDao
-  ISyncStatusDao.java
-  EventAttendeesSyncStatusDao.java
-  PfFundSyncStatusDao.java
-  RecurringPledgeSyncStatusDao.java
-  DonationSyncStatusDao.java
-  CenterMembersSyncStatusDao.java
-  ConstituentSyncStatusDao.java
-  TeamRaiserTeamSyncStatusDao.java
-  TeamRaiserRegistrationSyncStatusDao.java
-  AbstractSyncStatusDao.java
+	*UniversalMessageSender.java
+		- sendDirtyRecordsToBus
+		- getAndClearDirtyRecords
+
+	*SyncStatusDao.java
+		- getBatchOfDirtySyncRecords
+		- to be picked up by the BulkRecordSweeperTask.java to send to the service bus
+
+	File names
+	Upsert*
+		Upsert.java
+		UpsertResult.java
+		UpsertColumn.java
+		UpsertRecurringPledgeHandler.java
+		UpsertTeamRaiserTeamHandler.java
+		UpsertRegistrationHandler.java
+		UpsertGiftActionHandler.java
+		UpsertConsHandler.java
+		UpsertTeamDocument.java
+		UpsertGiftDocument.java
+		UpsertRegistrationDocument.java
+		UpsertRegistrationDocumentImpl.java
+		UpsertTeamDocumentImpl.java
+		UpsertGiftDocumentImpl.java
+
+	*UniversalFieldMapper
+		AbstractUniversalFieldMapper.java
+		AnnotationBasedUniversalFieldMapper.java
+		CenterMembersUniversalFieldMapper.java
+		ConsUniversalFieldMapper.java
+		DonationUniversalFieldMapper.java
+		ECommerceOrderUniversalFieldMapper.java
+		EnhancedFieldMapper.java
+		EventAttendeesUniversalFieldMapper.java
+		FieldMapper.java
+		FieldMapperMgr.java
+		IFieldMapper.java
+		IUniversalFieldMapper.java
+		PfFundUniversalFieldMapper.java
+		PfUniversalFieldMapper.java
+		RecurringPledgeUniversalFieldMapper.java
+		RegistrationUniversalFieldMapper.java
+		TeamraiserUniversalFieldMapper.java
+		TeamUniversalFieldMapper.java
+		UniversalFieldMapperException.java
+
+	*UniversalMessageSender
+		IUniversalMessageSender.java
+		EventAttendeesUniversalMessageSender.java
+		PfFundUniversalMessageSender.java
+		RecurringPledgeUniversalMessageSender.java
+		DonationUniversalMessageSender.java
+		ConsUniversalMessageSender.java
+		CenterMembersUniversalMessageSender.java
+		TeamUniversalMessageSender.java
+		RegistrationUniversalMessageSender.java
+		AbstractUniversalMessageSender.java
+
+	*SyncStatusDao
+		ISyncStatusDao.java
+		EventAttendeesSyncStatusDao.java
+		PfFundSyncStatusDao.java
+		RecurringPledgeSyncStatusDao.java
+		DonationSyncStatusDao.java
+		CenterMembersSyncStatusDao.java
+		ConstituentSyncStatusDao.java
+		TeamRaiserTeamSyncStatusDao.java
+		TeamRaiserRegistrationSyncStatusDao.java
+		AbstractSyncStatusDao.java
 
 LCRM:
-All integration code in LCRM:
-  BusOpportunityQueryProcessor.cls
-  BusContactQueryProcessor.cls
-  BusPledgeQueryProcessor.cls
-  BusTrTeamProcessor.cls
-  UniversalContactProcessor.cls
-  BusOpportunityProcessor.cls
-  BusCenterMemberQueryProcessor.cls
-  BusTrRegProcessor.cls
-  BusQueryProcessor.cls
-  BusPfFundProcessor.cls
-  BusCenterMemberProcessor.cls
-  BusContactProcessor.cls
-  RecurringPledgeProcessor.cls
-  BusEventAttendeesProcessor.cls
-  BusTrRegQueryProcessor.cls
-  BusTrTeamQueryProcessor.cls
-  BusRecurringGiftQueryProcessor.cls
-  BusRecurringPledgeProcessor.cls
-  BusProcessor.cls
+	BusOpportunityQueryProcessor.cls
+	BusContactQueryProcessor.cls
+	BusPledgeQueryProcessor.cls
+	BusTrTeamProcessor.cls
+	BusOpportunityProcessor.cls
+	BusCenterMemberQueryProcessor.cls
+	BusTrRegProcessor.cls
+	BusQueryProcessor.cls
+	BusPfFundProcessor.cls
+	BusCenterMemberProcessor.cls
+	BusContactProcessor.cls
+	RecurringPledgeProcessor.cls
+	BusEventAttendeesProcessor.cls
+	BusTrRegQueryProcessor.cls
+	BusTrTeamQueryProcessor.cls
+	BusRecurringGiftQueryProcessor.cls
+	BusRecurringPledgeProcessor.cls
+	BusProcessor.cls
+
+	IUniversalData.cls
+		UniversalData.cls
+
+	IUniversalIdentifier.cls
+	IUniversalMessage.cls
+		UniversalMessage.cls
+
+	IUniversalObject.cls
+	IUniversalVersionValidator.cls
+
+	UniversalAction.cls
+	UniversalActionConverter.cls
+	UniversalCenterMember.cls
+
+	UniversalEndpointResponse.cls
+	UniversalEndpointState.cls
+	UniversalEventAttendees.cls
+	UniversalError.cls
+	UniversalBusException.cls
+		UniversalDeserializeException.cls
+			UniversalTransientDeserializeException.cls 
+		UniversalIgnoredException.cls
+		UniversalSerializeException.cls
+		UniversalUnsupportedObjectException.cls
+		UniversalUnsupportedVersionException.cls
+
+	UniversalContact.cls
+		UniversalContactAddrSubdomainProcessor.cls
+		UniversalContactEmplSubdomainProcessor.cls
+		UniversalContactOtherSubdomainProcessor.cls
+		UniversalContactProcessor.cls
+		UniversalContactSubdomainProcessor.cls
+		UniversalContactUncatSubdomainProcessor.cls
+
+	UniversalDmlHolder.cls
+	UniversalDmlItem.cls
+	UniversalEcommerceOrder.cls
+	UniversalEcommerceOrderFields.cls
+	UniversalIdentifier.cls
+	UniversalMessageManager.cls
+	UniversalObjectManager.cls
+	UniversalOpportunity.cls
+	UniversalPfFund.cls
+	UniversalRecurringGift.cls
+	UniversalRecurringPledge.cls
+	UniversalTrReg.cls
+
+	UniversalTypeConverter.cls
+	UniversalUtils.cls
+	UniversalVersionStatus.cls
+	UniversalVersionValidator.cls

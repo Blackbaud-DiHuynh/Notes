@@ -1,0 +1,59 @@
+Definitive team coding style
+
+
+Use tabs, 4 spaces
+
+Line continuation - one more indent than the original line
+	jobTrackingRecord = WealthAnalyticsJobTrackingUtils.logExportJobFailedToStart(
+		jobId, wealthAnalyticsJobId, e.getMessage());
+
+	not
+
+	jobTrackingRecord = WealthAnalyticsJobTrackingUtils.logExportJobFailedToStart(
+									jobId, wealthAnalyticsJobId, e.getMessage());
+
+
+Spaces around operators: 
+	space between class name and opening brace
+		public with sharing class AnalyticsApi {
+		not
+		public with sharing class AnalyticsApi{
+
+	NO spaces between method parens and opening brace
+		public void a(){
+		not 
+		public void a() {
+
+	NO spaces between method name and method paren
+		public void a(){
+		not 
+		public void a (){
+
+	NO spaces between for and open paren
+		for()
+		not
+		for ()
+
+	NO spaces between while and open paren
+		while()
+		not
+		while ()
+
+	NO spaces between if and open paren
+		if()
+		not
+		if ()
+
+	spaces around try, do
+		try {}, do {}
+		not 
+	
+	NO spaces between array initializer and left brace
+		List<String>{}
+		not
+		List<String> {}
+		
+Line end - linux
+
+Brackets
+	brackets for single line scopes

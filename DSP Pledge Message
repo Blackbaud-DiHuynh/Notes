@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<Message:Message xmlns:Message="urn:message.data.convio.com" xmlns="urn:message.data.convio.com" xmlns:ns2="urn:soap.sb.convio.com">
+	<Version xmlns="urn:message.data.convio.com">1.0</Version>
+	<ObjectType xmlns="urn:message.data.convio.com">recurring_pledge</ObjectType>
+	<Action xmlns="urn:message.data.convio.com">CREATE</Action>
+	<Origin xmlns="urn:message.data.convio.com">
+	<System>Online</System>
+	<Version>16.1</Version>
+	</Origin>
+	<LocalId xmlns="urn:message.data.convio.com">
+		<Id>104</Id>
+		<Version>0</Version>
+	</LocalId>
+	<Data xmlns="urn:message.data.convio.com">
+		<Field name="QPMCampaignName">Trail of Lights Donation Campaign</Field>
+		<Field name="QPMFormName">Offline Donation</Field>
+		<Field name="CampaignId">701o0000000NOt3AAG</Field>
+		<Field name="ContactUniversalId">003o000000IQ8m4AAD</Field>
+		<Field name="ContactLocalId">1001070</Field>
+		<Field name="ConvioSiteId">1</Field>
+		<Field name="StartDate">2015-12-09Z</Field>
+		<Field name="LastPaymentDate">2015-12-09Z</Field>
+		<Field name="NextPaymentDate">2016-01-09Z</Field>
+		<Field name="Frequency">Monthly</Field>
+		<Field name="Status">Delayed</Field>
+		<Field name="PaymentDay">9</Field>
+		<Field name="PaymentMonth">12</Field>
+		<Field name="TotalPaymentsProcessed">1</Field>
+		<Field name="TotalPayments">2</Field>
+		<Field name="InstallmentAmount">80.00</Field>
+		<Field name="TotalAmountProcessed">20.00</Field>
+		
+		<Field name="IsDelayedSelfPledge">true</Field>
+
+		<Field name="LastPaymentStatus">Successful</Field>
+		<Field name="PaymentType">CreditCard</Field>
+		<Field name="PaymentCreditCardType">Visa</Field>
+		<Field name="CreditCardExpirationDate">12/2015</Field>
+		<Field name="CreditCardNumberMasked">************1111</Field>
+		<Field name="EcrmGiftOrigin">true</Field>
+		<Field name="SeedTransactionId">1006</Field>
+		<Field name="GatewayType">TEST</Field>
+		<Field name="PaymentToken" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+		<Field name="ProcessorTransactionId">T1006</Field>
+		<Field name="LastPaymentAmount">20.00</Field>
+		<Field name="LastSuccessfulPaymentTransactionId">1006</Field>
+		<Field name="LastSuccessfulPaymentLCRMId" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+	</Data>
+</Message:Message>

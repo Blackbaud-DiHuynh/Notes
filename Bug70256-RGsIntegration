@@ -1,0 +1,18 @@
+Bug 70256-RGsIntegration
+
+If you have a gift with 1 donation, then refund that donation, the status in LO becomes "Admin Cancelled - Other". 
+
+The donation and recurring pledge messages are dirtied and sent to LCRM. The recurring gift status in the message is changed to "Other" (RecurringPledgeUniversalFieldMapper.addStatusField()). On the UI however, we show "Cancelled". 
+
+In LCRM, in the UniversalRecurringGift.STATUS MAP, we mapped "Other" to 'Written Off - Admin Canceled'. So if the sync was successful, we would change the status of the gift to 'Written Off - Admin Canceled'. However, the sync was NOT successful because we don't have a LastSuccessfulTransactionId in the message, so we throw a MissingLastSuccessfulTransactionId transient error. 
+
+
+The StaleLastSuccessfulTransationId error was created for an edge case of Forgivenesses synchronization. Might be a related fix. 
+
+
+I reproduced the bug with a recurring gift with ONE payment which is refunded.
+
+From our QPM docs: 
+
+MissingLastSuccessfulTransactionId- A Sustaining Gift payment from Luminate Online is trying to synchronize to Luminate CRM, but an extraneous Forgiveness is trying to synchronize along with it, so the system automatically marked the Luminate Online message as transient. Click Rebuild.
+

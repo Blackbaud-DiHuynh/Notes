@@ -1,0 +1,289 @@
+19.0 APEX_CODE,DEBUG;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,INFO;WORKFLOW,INFO
+08:38:13.034 (34954964)|EXECUTION_STARTED
+08:38:13.034 (34986645)|CODE_UNIT_STARTED|[EXTERNAL]|01po0000000dlkT|CGServiceEndpoint.processMessages
+08:38:13.044 (44894025)|SYSTEM_MODE_ENTER|false
+08:38:13.237 (237880431)|SYSTEM_MODE_EXIT|false
+08:38:13.237 (237918852)|SYSTEM_MODE_ENTER|false
+08:38:13.238 (238078711)|USER_DEBUG|[30]|INFO|tr_reg
+08:38:13.238 (238156079)|USER_DEBUG|[54]|INFO|(
+  <?xml version="1.0" encoding="UTF-8"?>
+    <Message:Message xmlns:Message="urn:message.data.convio.com" xmlns="urn:message.data.convio.com" xmlns:ns2="urn:soap.sb.convio.com">
+    <Version xmlns="urn:message.data.convio.com">1.0</Version>
+    <ObjectType xmlns="urn:message.data.convio.com">tr_reg</ObjectType>
+    <Action xmlns="urn:message.data.convio.com">UPSERT</Action>
+    <Origin xmlns="urn:message.data.convio.com">
+    <System>Online</System>
+    <Version>16.1</Version>
+    </Origin>
+    <UniversalId xmlns="urn:message.data.convio.com">
+    <Id xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Version xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    </UniversalId>
+    <LocalId xmlns="urn:message.data.convio.com">
+    <Id>1003</Id>
+    <Version>1</Version>
+    </LocalId>
+    <Data xmlns="urn:message.data.convio.com">
+    <Field name="CampaignId">701o0000000NOt3AAG</Field>
+    <Field name="RegistrationDesignation">a0Ao0000000JVhCEAW</Field>
+    <Field name="GiftDesignation">a0Ao0000000JVhCEAW</Field>
+    <Field name="UpsellDesignation">a0Ao0000000JVhCEAW</Field>
+    <Field name="ParticipantRole">Donor</Field>
+    <Field name="ConvioParticipantId">1001070</Field>
+    <Field name="UniversalParticipantId">003o000000IQ8m4AAD</Field>
+    <Field name="ParticipantPageUrl">http://localhost/site/TR?px=1001070&amp;pg=personal&amp;fr_id=1004</Field>
+    <Field name="ConvioRegistrationId">1003</Field>
+    <Field name="Captain">false</Field>
+    <Field name="ParticipationType">DSP</Field>
+    <Field name="ConvioParticipationTypeId">1017</Field>
+    <Field name="RegistrationDate">2015-12-09T15:10:12Z</Field>
+    <Field name="RegistrationFee">20.00</Field>
+    <Field name="ExtraGift">0.00</Field>
+    <Field name="UpsellAmount">0.00</Field>
+    <Field name="ParentRegistrationId">0</Field>
+    <Field name="FundraisingGoal">100.00</Field>
+    <Field name="EmergencyPhone" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="EmergencyName" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="TrCampaignName">Trail of Lights</Field>
+    <Field name="TrCampaignId">1004</Field>
+    <Field name="TrCampaignInternalName">Trail of Lights</Field>
+    <Field name="HonoreeFirstName" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="HonoreeLastName" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="HonoreeMiddleName" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="HonoreeEmail" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="HonoreeStreet1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="HonoreeStreet2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="HonoreeCity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="HonoreeState" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="HonoreeZip" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="HonoreeCountry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="DonationDate">2015-12-09Z</Field>
+    <Field name="FormId">1019</Field>
+    <Field name="FormName">Trail of Lights Donation Form</Field>
+    <Field name="CampaignName">Trail of Lights Donation Campaign</Field>
+    <Field name="ConvioSiteId">1</Field>
+    <Field name="AchAccountNumber"> </Field>
+    <Field name="AchRoutingNumber"> </Field>
+    <Field name="AchAccountType">CHECKING</Field>
+    <Field name="BankName"> </Field>
+    <Field name="CreditCardExpirationDate">2016-01-01T00:00:00Z</Field>
+    <Field name="CreditCardNumberMasked">4111********1111</Field>
+    <Field name="CheckNumber"> </Field>
+    <Field name="ConfirmationCode"> </Field>
+    <Field name="UserConfirmCode">1-1005-3-1006-1006</Field>
+    <Field name="ContributionMethod">1</Field>
+    <Field name="PaymentType">Credit Card</Field>
+    <Field name="CreditCardType">Visa</Field>
+    <Field name="ReferenceId">T1006</Field>
+    <Field name="ReceiptId">0</Field>
+    <Field name="SettlementBatchId" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="SettlementStatus">0</Field>
+    <Field name="ProcessorTransactionId">T1006</Field>
+    <Field name="Amount">20.00</Field>
+    <Field name="DiscountAmount">0.00</Field>
+    <Field name="BillingStreet1">11501 Domain Dr</Field>
+    <Field name="BillingStreet2"/>
+    <Field name="BillingStreet3"/>
+    <Field name="BillingCity">Austin</Field>
+    <Field name="BillingState">TX</Field>
+    <Field name="BillingPostalCode">78758-3483</Field>
+    <Field name="BillingCountry">United States</Field>
+    <Field name="ECRMGiftOrigin">true</Field>
+    <Field name="Title"/>
+    <Field name="FirstName">Patrick</Field>
+    <Field name="LastName">Beverley</Field>
+    <Field name="Email">devnull+beverley@convio.com</Field>
+    <Field name="DonationType">PledgeInstallment</Field>
+    <Field name="ReceiptAmount">0.00</Field>
+    <Field name="ReceiptDate">2015-12-09Z</Field>
+    <Field name="ReceiptNumber">0</Field>
+    <Field name="ReceiptTemplate">DEFAULT</Field>
+    <Field name="Currency">USD</Field>
+    <Field name="MerchantAccountId">101</Field>
+    <Field name="MerchantAccountName">Default Merchant Account</Field>
+    <Field name="GatewayType">TEST</Field>
+    <Field name="TaxDeductibleAmount">0.00</Field>
+    <Field name="ConvioTransactionId">1006</Field>
+    <Field name="PledgeLocalId">104</Field>
+    <Field name="RecurringGiftUniversalId" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="RecurringGiftLocalId" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <Field name="PaymentNumber">1</Field>
+    <Field name="TotalPayments">2</Field>
+    <Field name="RunningTotalAmount">20.00</Field>
+    <Field name="RegistrationDesignationAmount">20.00</Field>
+    <Field name="GiftDesignationAmount">0.00</Field>
+    <Field name="UpsellDesignationAmount">0.00</Field>
+    </Data>
+    </Message:Message>)
+08:38:13.285 (285089941)|USER_DEBUG|[109]|DEBUG|ParticipationTypeId: 1017
+08:38:13.288 (288617048)|SOQL_EXECUTE_BEGIN|[159]|Aggregations:0|SELECT Id, Name, Teamraiser_ID__c FROM Campaign 
+08:38:13.306 (306663592)|SOQL_EXECUTE_END|[159]|Rows:1
+08:38:13.307 (307350576)|USER_DEBUG|[165]|INFO|Preloaded COM ID for 1 campaigns.
+08:38:13.307 (307795141)|SOQL_EXECUTE_BEGIN|[274]|Aggregations:0|SELECT Id, Name FROM Campaign 
+08:38:13.312 (312722925)|SOQL_EXECUTE_END|[274]|Rows:1
+08:38:13.313 (313594095)|USER_DEBUG|[280]|DEBUG|Preloaded name for 1 campaigns.
+08:38:13.314 (314564064)|SOQL_EXECUTE_BEGIN|[153]|Aggregations:0|SELECT Id, Contact__c, Convio_Registration_ID__c, Revision_ID__c, External_Revision__c, Opportunity__c FROM TeamRaiser_Registration__c WHERE (Id IN :tmpVar1 OR Convio_Registration_ID__c IN :tmpVar2)
+08:38:13.339 (339588491)|SOQL_EXECUTE_END|[153]|Rows:0
+08:38:13.339 (339906743)|SOQL_EXECUTE_BEGIN|[158]|Aggregations:0|SELECT Id, Name FROM Campaign WHERE Id = :tmpVar1
+08:38:13.349 (349833866)|SOQL_EXECUTE_END|[158]|Rows:1
+08:38:13.350 (350902675)|SOQL_EXECUTE_BEGIN|[444]|Aggregations:0|SELECT Id, Convio_ID__c, FirstName, LastName FROM Contact WHERE (Convio_ID__c IN :tmpVar1 OR Id IN :tmpVar2)
+08:38:13.388 (388542090)|SOQL_EXECUTE_END|[444]|Rows:1
+08:38:13.389 (389816199)|USER_DEBUG|[480]|DEBUG|ParticipationTypeIdList: (1017.0)
+08:38:13.392 (392079269)|SOQL_EXECUTE_BEGIN|[482]|Aggregations:0|SELECT Id, Name, Convio_Participation_Type_Id__c FROM TeamRaiser_Participation_Type__c WHERE Convio_Participation_Type_Id__c IN :tmpVar1
+08:38:13.416 (416238233)|SOQL_EXECUTE_END|[482]|Rows:1
+08:38:13.416 (416870017)|USER_DEBUG|[486]|DEBUG|ParticipationType: TeamRaiser_Participation_Type__c:{Id=a0go0000001Txm2AAC, Name=DSP, Convio_Participation_Type_ID__c=1017}
+08:38:13.424 (424784037)|SOQL_EXECUTE_BEGIN|[503]|Aggregations:1|SELECT id, ExternalId__c, Amount, Settlement_Date__c, (SELECT Id, Amount__c, Designation__c, UniqueId__c FROM R00N40000001X8reEAC) FROM Opportunity WHERE ExternalId__c IN :tmpVar1
+08:38:13.484 (484151166)|SOQL_EXECUTE_END|[503]|Rows:0
+08:38:13.484 (484601111)|USER_DEBUG|[183]|INFO|()
+08:38:13.484 (484647349)|USER_DEBUG|[184]|INFO|(1003.0)
+08:38:13.484 (484691551)|USER_DEBUG|[185]|INFO|{}
+08:38:13.484 (484728983)|USER_DEBUG|[186]|INFO|{}
+08:38:13.484 (484771919)|USER_DEBUG|[187]|INFO|{}
+08:38:13.485 (485563732)|USER_DEBUG|[192]|DEBUG|Processing 0: UniversalMessage:[ACTION_ELEMENT_NAME=Action, CLIENT_ELEMENT_NAME=Client, CRM_SYSTEM=CRM, CRM_VERSION=1.0, DATA_ELEMENT_NAME=Data, FIELD_ELEMENT_NAME=Field, LID_ELEMENT_NAME=LocalId, MESSAGE_ELEMENT_NAME=Message, MESSAGE_NS=urn:message.data.convio.com, MESSAGE_ROOT_NAME=Message, OBJECT_TYPE_ELEMENT_NAME=ObjectType, ORIGIN_ELEMENT_NAME=Origin, SYSTEM_ELEMENT_NAME=System, UID_ELEMENT_NAME=UniversalId, VERSION_ELEMENT_NAME=Version, action=M_UPSERT, clientId=null, data=UniversalData:[dataMap={}, fieldMap={AchAccountNumber= , AchAccountType=CHECKING, AchRoutingNumber= , Amount=20.00, BankName= , BillingCity=Austin, BillingCountry=United States, BillingPostalCode=78758-3483, BillingState=TX, BillingStreet1=11501 Domain Dr, ...}, name=null], localId=UniversalIdentifier:[id=1003, version=1], objectType=tr_reg, origin=nullSystem Online, Version 16.1, universalId=UniversalIdentifier:[id=null, version=null], version=1.0]
+08:38:13.747 (747928778)|USER_DEBUG|[356]|DEBUG|Looking for participationType based on participationTypeId: 1017.0
+08:38:13.748 (748091514)|USER_DEBUG|[357]|DEBUG|All participation types: {1017.0=TeamRaiser_Participation_Type__c:{Id=a0go0000001Txm2AAC, Name=DSP, Convio_Participation_Type_ID__c=1017}}
+08:38:13.748 (748771332)|USER_DEBUG|[562]|INFO|Transaction will be created.
+08:38:13.750 (750201318)|SOQL_EXECUTE_BEGIN|[472]|Aggregations:0|SELECT Id, Name, DeveloperName, SobjectType, Description FROM RecordType WHERE IsActive = TRUE
+08:38:13.755 (755835262)|SOQL_EXECUTE_END|[472]|Rows:34
+08:38:13.791 (791398145)|USER_DEBUG|[405]|INFO|Create/Update Registration Fee Designation
+08:38:13.791 (791846216)|USER_DEBUG|[436]|INFO|creating a new ddr, amount: 20.00, designation: a0Ao0000000JVhCEAW
+08:38:13.792 (792244573)|USER_DEBUG|[409]|INFO|Create/Update Additional Gift Designation
+08:38:13.792 (792338271)|USER_DEBUG|[454]|INFO|adding amount to a ddr, amount: 0.00, designation: a0Ao0000000JVhCEAW
+08:38:13.792 (792527712)|USER_DEBUG|[413]|INFO|Create/Update Upsell Designation
+08:38:13.792 (792596562)|USER_DEBUG|[454]|INFO|adding amount to a ddr, amount: 0.00, designation: a0Ao0000000JVhCEAW
+08:38:13.792 (792905113)|USER_DEBUG|[420]|INFO|Designations to be inserted/updated: 1
+08:38:13.793 (793338811)|USER_DEBUG|[373]|DEBUG|Message upsells: ()
+08:38:13.793 (793395242)|USER_DEBUG|[402]|INFO|Message has upsells: ()
+08:38:13.794 (794205495)|USER_DEBUG|[620]|INFO|Creating the following objects: (Opportunity:{ExternalId__c=1-1006, CampaignId=701o0000000NOt3AAG, RecordTypeId=012o0000000J40IAAS, Description=Pledge Payment 1 of 2, Recognition__c=null, Form_Name__c=Trail of Lights Donation Form, Form_ID__c=1019, StageName=Received, Type=Individual Gift, eCRM_Gift_Origin__c=true, CloseDate=2015-12-09 00:00:00, ACH_Account_Number__c= , ACH_Routing_Number__c= , Bank_Name__c= , Card_Expiration_Date__c=2015-12, Card_Number__c=4111********1111, Check_Number_Text__c= , Confirmation_Code__c= , User_Confirmation_Code__c=1-1005-3-1006-1006, Contribution_Method__c=1, Credit_Card_Type__c=Visa, Payment_Type__c=Credit Card, Reference_Number_Full__c=T1006, Settlement_Batch__c=null, Settlement_Date__c=null, Refund_Date__c=null, Transaction_ID__c=T1006, Transaction_Type__c=Donation, Receipt_ID__c=0, Merchant_Account__c=Default Merchant Account, Merchant_Account_ID__c=101, Amount=20.0, Discount_Amount__c=0.0, Benefit_Value__c=20.0, Source__c=null, Sub_Source__c=null, Do_Not_Assign_Default_Designation__c=true, Billing_Street__c=11501 Domain Dr
+
+, Billing_City__c=Austin, Billing_State__c=TX, Billing_Postal_Code__c=78758-3483, Billing_Country__c=United States, Refund_Processed__c=false, Name=Patrick Beverley $20.00 Pledge Installment 12/09/2015, Contact__c=003o000000IQ8m4AAD})
+08:38:13.794 (794272905)|DML_BEGIN|[622]|Op:Insert|Type:Opportunity|Rows:1
+08:38:15.958 (2958405848)|CODE_UNIT_STARTED|[EXTERNAL]|01qo0000000EAIf|OpportunityAll on Opportunity trigger event BeforeInsert for [new]
+08:38:15.960 (2960124580)|SOQL_EXECUTE_BEGIN|[119]|Aggregations:0|SELECT id, Contact__c, Engagement_Channel__c FROM Constituent_Engagement_Channel__c 
+08:38:15.970 (2970504880)|SOQL_EXECUTE_END|[119]|Rows:1
+08:38:15.971 (2971852241)|SOQL_EXECUTE_BEGIN|[158]|Aggregations:0|SELECT id, AccountId FROM Contact 
+08:38:15.987 (2987198209)|SOQL_EXECUTE_END|[158]|Rows:1
+08:38:15.988 (2988916117)|SOQL_EXECUTE_BEGIN|[889]|Aggregations:0|SELECT Id, First_Contact__c, Second_Contact__c, First_Account__c, Second_Account__c FROM Relationship_Detail__c WHERE ((First_Contact__c IN :tmpVar1 OR Second_Contact__c IN :tmpVar2) AND Employer__c = TRUE)
+08:38:16.010 (3010187098)|SOQL_EXECUTE_END|[889]|Rows:0
+08:38:16.012 (3012906498)|SYSTEM_MODE_ENTER|false
+08:38:16.012 (3012997675)|SYSTEM_MODE_EXIT|false
+08:38:16.013 (3013095039)|SYSTEM_MODE_ENTER|false
+08:38:16.013 (3013225474)|SYSTEM_MODE_EXIT|false
+08:38:16.013 (3013297845)|SYSTEM_MODE_ENTER|false
+08:38:16.013 (3013401616)|SYSTEM_MODE_EXIT|false
+08:38:16.013 (3013660041)|SYSTEM_MODE_ENTER|false
+08:38:16.013 (3013670641)|SYSTEM_MODE_EXIT|false
+08:38:16.020 (3020428092)|SYSTEM_MODE_ENTER|false
+08:38:16.020 (3020896360)|SYSTEM_MODE_EXIT|false
+08:38:16.020 (3020953588)|SYSTEM_MODE_ENTER|false
+08:38:16.021 (3021971975)|SYSTEM_MODE_EXIT|false
+08:38:16.022 (3022008090)|CUMULATIVE_LIMIT_USAGE
+08:38:16.022 (3022008090)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 11 out of 100
+  Number of query rows: 41 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 161 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+08:38:16.022 (3022008090)|CUMULATIVE_LIMIT_USAGE_END
+
+08:38:16.023 (3023304803)|CODE_UNIT_FINISHED|OpportunityAll on Opportunity trigger event BeforeInsert for [new]
+08:38:16.025 (3025100556)|CODE_UNIT_STARTED|[EXTERNAL]|01qo0000000EAIt|TeamRaiserGiftValidateComDetails on Opportunity trigger event BeforeInsert for [new]
+08:38:16.025 (3025305234)|USER_DEBUG|[4]|DEBUG|Before upserting gifts ...
+08:38:16.043 (3043992534)|SYSTEM_MODE_ENTER|false
+08:38:16.044 (3044008635)|SYSTEM_MODE_EXIT|false
+08:38:16.044 (3044593538)|USER_DEBUG|[191]|INFO|Convio.ComValidator: Object 1 of 1 was valid.
+08:38:16.044 (3044633838)|CUMULATIVE_LIMIT_USAGE
+08:38:16.044 (3044633838)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 11 out of 100
+  Number of query rows: 41 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 161 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+08:38:16.044 (3044633838)|CUMULATIVE_LIMIT_USAGE_END
+
+08:38:16.044 (3044723165)|CODE_UNIT_FINISHED|TeamRaiserGiftValidateComDetails on Opportunity trigger event BeforeInsert for [new]
+08:38:16.095 (3095635286)|CODE_UNIT_STARTED|[EXTERNAL]|Validation:Opportunity:new
+08:38:16.095 (3095653382)|VALIDATION_RULE|03do0000000IBpC|Amount_Provided
+08:38:16.095 (3095759461)|VALIDATION_FORMULA|ISNULL( Amount )|Amount=20.0
+08:38:16.095 (3095766047)|VALIDATION_PASS
+08:38:16.095 (3095768913)|VALIDATION_RULE|03do0000000IBpE|Closed_If_Posted
+08:38:16.095 (3095936285)|VALIDATION_FORMULA|Posted__c && ( (!IsClosed &#124;&#124; !IsWon) && NOT(ISPICKVAL(StageName, "Refunded")) )|Posted__c=0 , StageName=Received , IsWon=1 , IsClosed=1
+08:38:16.095 (3095945904)|VALIDATION_PASS
+08:38:16.095 (3095948485)|VALIDATION_RULE|03do0000000IBpF|Donor_Account_Match
+08:38:16.096 (3096205814)|VALIDATION_FORMULA|AND(  LEN(AccountId) > 0,
+ LEN(Contact__c) > 0,
+ AccountId <> Contact__r.AccountId )|AccountId=001o000000HmTcr , Contact__r.AccountId=001o000000HmTcr , Contact__c=003o000000IQ8m4
+08:38:16.096 (3096214768)|VALIDATION_PASS
+08:38:16.096 (3096217332)|VALIDATION_RULE|03do0000000IBpG|Organization_Donor_Proxy
+08:38:16.096 (3096450778)|VALIDATION_FORMULA|AND( 
+ISPICKVAL(Type, "Organization Gift"),
+LEN(AccountId) > 0,
+LEN(Contact__c) > 0,
+LEN(Account.Contact__c) > 0,
+Account.Contact__c <> Contact__c 
+)|AccountId=001o000000HmTcr , Type=Individual Gift , Contact__c=003o000000IQ8m4 , Account.Contact__c=null
+08:38:16.096 (3096459186)|VALIDATION_PASS
+08:38:16.096 (3096461515)|VALIDATION_RULE|03do0000000IBpH|Pledge_Reference
+08:38:16.096 (3096654191)|VALIDATION_FORMULA|'PledgeInstallment' = $RecordType.DeveloperName && LEN(Pledge__c )=0|Pledge__c=null , $RecordType.DeveloperName=PledgeInstallment
+08:38:16.096 (3096665272)|VALIDATION_FAIL
+08:38:16.096 (3096690475)|VALIDATION_RULE|03do0000000IBpK|Recurring_Gift_Reference
+08:38:16.096 (3096824588)|VALIDATION_FORMULA|'RecurringDonation'  =   $RecordType.DeveloperName  &&  LEN(Recurring_Gift__c )=0|$RecordType.DeveloperName=PledgeInstallment , Recurring_Gift__c=null
+08:38:16.096 (3096832342)|VALIDATION_PASS
+08:38:16.096 (3096834611)|VALIDATION_RULE|03do0000000IBpD|Campaign_Required
+08:38:16.097 (3097075336)|VALIDATION_FORMULA|(ISNULL(CampaignId) &#124;&#124; ISBLANK(CampaignId)) && (ISNULL(Segment__c) &#124;&#124; ISBLANK(Segment__c)) && (ISNULL(Segment_Code__c) &#124;&#124; ISBLANK(Segment_Code__c)) && (ISNULL(Source__c) &#124;&#124; ISBLANK(Source__c))
+&& (NOT(ISPICKVAL(StageName, 'Declined Credit Card')))|CampaignId=701o0000000NOt3 , StageName=Received , Segment__c=null , Segment_Code__c=null , Source__c=null
+08:38:16.097 (3097087535)|VALIDATION_PASS
+08:38:16.097 (3097089878)|VALIDATION_RULE|03do0000000IBpI|Prevent_Posted_Edits
+08:38:16.097 (3097241238)|VALIDATION_FORMULA|Posted__c &&  PRIORVALUE( Posted__c ) && ( ISCHANGED( Amount ) &#124;&#124;  ISCHANGED( CloseDate ) &#124;&#124; ISCHANGED( StageName ) )|Posted__c=0 , StageName=Received , Amount=20.0 , CloseDate=2015-12-09 00:00:00
+08:38:16.097 (3097250647)|VALIDATION_PASS
+08:38:16.097 (3097252716)|VALIDATION_RULE|03do0000000IBpJ|Prevent_Transaction_Type_Edit
+08:38:16.097 (3097392695)|VALIDATION_FORMULA|ISCHANGED(Transaction_Type__c ) && ( Posted__c &#124;&#124;  Reversed__c )|Posted__c=0 , Reversed__c=0 , Transaction_Type__c=Donation
+08:38:16.097 (3097400939)|VALIDATION_PASS
+08:38:16.097 (3097437210)|CODE_UNIT_FINISHED|Validation:Opportunity:new
+08:38:16.099 (3099547812)|DML_END|[622]
+08:38:16.100 (3100857654)|USER_DEBUG|[658]|INFO|No new Team for reg 1003.0
+08:38:16.100 (3100976567)|USER_DEBUG|[664]|INFO|New Opportunity=null
+08:38:16.105 (3105232436)|USER_DEBUG|[232]|INFO|Error: Status Code was FIELD_CUSTOM_VALIDATION_EXCEPTION
+08:38:16.106 (3106725109)|USER_DEBUG|[289]|INFO|(UniversalEndpointResponse:[DETAIL_ELEMENT_NAME=Detail, ENDPOINT_RESPONSE_ELEMENT_NAME=EndpointResponse, ENDPOINT_RESPONSE_NS=urn:endpoint.data.convio.com, ENDPOINT_RESPONSE_ROOT_NAME=EndpointResponse, FATAL_CODES={BAD_CUSTOM_ENTITY_PARENT_DOMAIN, CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, DELETE_FAILED, DEPENDENCY_EXISTS, DUPLICATE_EXTERNAL_ID, ENTITY_IS_ARCHIVED, ENTITY_IS_DELETED, ENTITY_IS_LOCKED, FIELD_CUSTOM_VALIDATION_EXCEPTION, FIELD_FILTER_VALIDATION_EXCEPTION, ...}, NAME_ELEMENT_NAME=Name, STATUS_ELEMENT_NAME=State, detail=You must specify the related Pledge for the Pledge Installment record type., name=FIELD_CUSTOM_VALIDATION_EXCEPTION, state=FATAL_ERROR])
+08:38:16.106 (3106752193)|SYSTEM_MODE_EXIT|false
+08:38:16.122 (3122161435)|CUMULATIVE_LIMIT_USAGE
+08:38:16.122 (3122161435)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 8 out of 100
+  Number of query rows: 39 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 129 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+08:38:16.122 (3122161435)|CUMULATIVE_LIMIT_USAGE_END
+
+08:38:16.122 (3122205906)|CODE_UNIT_FINISHED|CGServiceEndpoint.processMessages
+08:38:16.126 (3126457436)|EXECUTION_FINISHED
+08:38:16.131 (3131277462)|EXECUTION_STARTED
+08:38:16.131 (3131285431)|CODE_UNIT_STARTED|[EXTERNAL]|common.apex.soap.impl.ApexObjectSerializer
+08:38:16.131 (3131377622)|CODE_UNIT_STARTED|[EXTERNAL]|APEXSOAP
+08:38:16.131 (3131392904)|CODE_UNIT_FINISHED|APEXSOAP
+08:38:16.131 (3131406824)|CODE_UNIT_FINISHED|common.apex.soap.impl.ApexObjectSerializer
+08:38:16.132 (3132699031)|EXECUTION_FINISHED

@@ -1,0 +1,54 @@
+
+Questions:
+	- Can we create DSP in LCRM and expect it to sync?
+	- Do donations towards DSP registration have the TR Registration field filled or Pledge or both?
+		- does the donation record type say Pledge Installment
+
+
+DSP teamRaiser registration with fee
+	- donationMessageSender
+		-> isSendableDonationType()
+			* returns false for DSP since we want it to be a part of the registration message rather than donation
+	- registrationMessageSender
+		-> objectToMessage()
+			-> addTransactionFields()
+				* add DSP fields to the message
+
+
+
+DSP Registration (Pat $20 fee, goal $100) 
+	-> recurring_pledge message
+		- create Pledge
+			- # of installments - 2
+			- Pledge Installment - Pat $20 installment
+			- Total: $100
+		
+	-> Tr reg message
+		- create Tr Reg
+			- Pledge__c : Pat $100 Pledge
+		
+		- update Pat's Pledge
+			- Tr Reg : Pat registration
+			
+		- create donation
+			- Pledge__c: Pat $100 Pledge
+			- Donation Type: Pledge Installment
+			- Amount: $20
+			- Tr Reg: Pat's registration
+
+Donation towards Pat's (Aaron $20) 
+	-> donation message
+		- does not updates Pat's Pledge
+		
+		- creates Donation
+			- Aaron $20 donation
+			- Tr Reg__c : Pat's registration
+			-> this will add the donation to Pat's registration donation related list
+
+Process Pat's DSP registration 
+	-> recurring_pledge message comes over to change status from Delayed to Active
+
+	-> when the Recurring Pledge processor processes the pledge another pledge will come over the bus
+		- this will mark the pledge Completed with an installment of (goal - fee)
+
+

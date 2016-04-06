@@ -1,0 +1,31 @@
+Setup
+
+To interact with the service through the command line, you'll need curl or httpie. I recommend httpie, it's a bit more user friendly. To get it, run "sudo apt-get install httpie".
+
+To add your Salesforce org to Martell's database
+
+Enter your salesforce credentials in to the curl or httpie command. You can use any string for name
+
+    curl -k -H -v "Content-Type: application/json" -X POST -d '{"name":"","products":[{"type":"lcrm", "credentials": {"username":"", "password":"", "securityToken":"", "salesforceOrganizationId":"", "url":"<https://login OR test.salesforce.com>"}}]}' https://demo:123@giving-history-dev.app.pivotal.blackbaudcloud.com/organization
+or
+
+http POST demo:123@giving-history-dev.app.pivotal.blackbaudcloud.com/organization name=<any string> products:='[{ "type":"lcrm", "credentials":{ "username":"", "password":"", "securityToken":"", "salesforceOrganizationId":"", "url":"<https://login OR test.salesforce.com>"}}]'
+the response will have your analytics org id (different from your SF organization id)
+
+To start a seed replication.
+
+Use the orgId you got from previous step.
+
+curl -k -H -v  -X POST https://demo:123@giving-history-dev.app.pivotal.blackbaudcloud.com/organization/<orgId>/product/<orgId>/replication
+or
+
+http POST demo:123@giving-history-dev.app.pivotal.blackbaudcloud.com/organization/<orgId>/product/<orgId>/replication
+To monitor the replication job
+
+curl -k -H -v  -X GET https://demo:123@giving-history-dev.app.pivotal.blackbaudcloud.com/organization/<orgId>/product/<orgId>/replication
+or
+
+http GET demo:123@giving-history-dev.app.pivotal.blackbaudcloud.com/organization/5/product/5/replication
+Giving history endpoint:
+
+https://demo:123@giving-history-dev.app.pivotal.blackbaudcloud.com/rollingcalc/

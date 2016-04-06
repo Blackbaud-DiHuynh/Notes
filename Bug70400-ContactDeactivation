@@ -1,0 +1,96 @@
+Bug70400-ContactDeactivation
+
+TODO: 
+	- check with RELO
+	- MemberUpdateTask -> Groups -> Site Admins -> Select Action
+		-> check to see if this deactivateCons()
+	- 
+
+
+LCRM side
+	Delete user LCRM
+		- goes into the recycle bin
+		- FIX: null out Convio_Id and all External Revision Ids
+
+	Undelete user in LCRM
+		- FIX: null out Convio_Id and all External Revision ids
+
+	Active flag in LCRM
+		- when a user uncheck the box, the cons in LO is deactivated
+		- when a user re-check the box, the cons in LO is still deactivated
+			-> QPM error: "Constituent inactive, cannot make changes"
+		FIX: 
+		- if unchecked -> same as delete -> null out Convio_Id and all External Revision ids
+		- if checked -> same as undelete -> null out Convio_Id and all External Revision ids
+
+	Merge 2 contacts in LCRM
+		-> the dupe is deleted in LCRM, goes to the recycle bin
+		-> the dupe's cons record in LO is deactivated
+
+LO
+	0 = UNAPPROVED (registered but needs approval)
+	1 = ACTIVE
+	2 = REMOVED
+	3 = DENIED
+	4 = RESPONSE_AWAITED (opt-in pending)
+	5 = PROSPECT
+
+	Merge 2 contacts in LO - Does not work
+
+	Deactivate constituent in LO
+		- should this remove the contact in LCRM? Yes but right now it doesn't
+
+	Re-activate constituent in LO
+		- how to do this on the UI? 
+
+	Fix: 
+		- change ConsMgr.deactivateCons() to clear out member_id, individual_rel_link
+			- user action, "remove constituent" from UI
+			- won't affect direct database operations like mass delete
+			- can add logic to avoid changing RELO
+		- remove the cons_sync row in the trigger
+
+	
+Integration
+	Changes from LCRM 
+		1: A contact has the active flag unchecked
+		- LCRM: null out Convio_Id and all External Revision ids
+		- the service bus sends a message to LO, updates the cons in LO to DEACTIVATED
+		- LO: remove the cons_sync record for that SF id ********************************** Check to see if the upsertConsHandler calls deactivateCons
+			- has to remove member_id, individual_rel_link from the constituent record
+		- Make changes to the contact in LCRM (changes to fields != active__c)
+		- Contact syncs over as a new Constituent
+
+		2: A contact has the active flag checked
+		- LCRM: null out Convio_Id and all External Revision ids
+		- the service sends a message to
+
+		3: A contact is deleted and stay alive in the recycle bin
+
+		4: A contact is undeleted
+
+
+	Changes from LO
+		1: Remove a constituent through the UI
+		- LO: remove member_id and individual_rel_link
+		- LO: remove cons_sync record
+		- NOTHING WILL BE SENT ACROSS THE BUS
+		- Changes to the contact in LCRM
+		- QPM errors
+
+		2: Reactivate a constituent 
+		- LO: remove member_id and individual_rel_link
+		- LO: null out salesforce_crm_id and external ids in the cons_sync record
+		- the service bus sends a message to LCRM
+		- Updates the contact in LCRM with the same cons_id since we never remove that contact in LCRM
+
+		3: Reactivate a constituent and remove in LCRM - DON'T DO THIS
+		- LO: remove member_id and individual_rel_link
+		- LO: null out salesforce_crm_id and external ids in the cons_sync record
+		- the service bus sends a message to LCRM
+		- LCRM: manually delete the contact in LCRM
+			-> makes a callout to LO to deactivate it
+		- Creates a new contact in LCRM
+
+
+

@@ -1,11 +1,12 @@
+List<Opportunity> opps = [select Id from Opportunity];
+delete opps;
+
 List<TeamRaiser_Registration__c> regs = [select Id from TeamRaiser_Registration__c];
 delete regs;
 
 List<TeamRaiser_Team__c> teams = [select Id from TeamRaiser_Team__c];
 delete teams;
 
-List<Opportunity> opps = [select Id from Opportunity];
-delete opps;
 
 List<Recurring_Gift__c> recgifts = [select Id, Convio_ID__c from Recurring_Gift__c];
 for (Recurring_Gift__c recgift : recgifts) {

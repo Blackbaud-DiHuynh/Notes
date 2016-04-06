@@ -1,0 +1,311 @@
+Dreamforce notes: 
+
+Visualize Data with D3 and Analytics API
+	javascript remoting + VF component + d3 + analytics api
+	make pretty components
+
+Leveraging jsForce, Bulk API, HTML5 fileReader, JS promise
+	external callouts to webservices
+	process large volumes of data
+	long running process
+	JS promises
+	avoid "callback hell"
+	easy to handle errors even when chaining
+	jsforce
+	all the APIs in the world
+	create a connection, then job
+	HTML5 FileReader
+	allow browser to read files
+	canIuse.com
+	fileReader.onprogress for large file progresses
+	use case
+	import data but no data loader
+	use fileReader to read file from browser
+	get data from files with jsForce
+	process data async-ly with JS Promises
+
+Angular-fying VisualForce
+	ionicframework - mobile dev framework, swiping gestures
+	remoteTK component
+	use Mavensmate ResourceBundle to manage files
+	put all css, js, html of an angular app into a static resource
+	similar organization as a standard angular app
+	Aside.io has similar resource bundle as mavensmate (apparenty way faster)
+
+Reliable Async Code with Queueable Apex (Dan Appleman)
+	@future calls downsides
+		exceeds number of max future calls
+		future in trigger calling future -> no no
+		validation rules
+		system flakes
+		fail silently
+	store async request in the database
+		status of the request
+		separate async request object
+		reliable async architecture
+	take a request (query)
+		-> process the request
+		-> success - do stuff, delete request
+		-> failed - do something else, update request
+
+	AsyncRequest object: type, and error message
+		in Reliable class implements Queueable
+		each request represent a bulk operation
+		allow chaining
+		can check Async Request objects to see error message
+		ability to report
+	
+	in startjob, if exception is thrown -> @future startjobFuture()
+		crazy future and queueable chain calls
+		cannot trap limit exceptions
+		look at failures after the fact
+		check recent AsyncApexJob after 2 failed to avoid infinite loop of limit exceptions
+	dml lock errors
+	have an on/off switch with queueable apex
+	Queueable is really fast for async
+
+Interactive Debugger
+	only in Eclipse right now, sandboxes
+	2 threads stopped in a session, the rest will ignore the breakpoints
+	breakpoints will stop for ALL users, doesn't matter where or who initiated the action
+	Trigger.trigger.list (list of all triggers being run)
+	trigger.trigger.index (the one active) 
+	trigger vars are available throughout the execution context
+
+Create a physical dashboard with SF
+	http://corycowgill.blogspot.com/2014/12/create-real-life-dashboard-with.html
+
+Dependency injection
+	through interface
+
+	why?
+	modularized code
+	mocks
+
+	how?
+	create beans
+	BeanDefinition: isActive, contractType, uniqueName, classType
+	use Custom Settings to store the BeanRegistry - same four fields as above
+	define beanregistry singleton
+	dealing with cached memory
+	empty constructor, getInstance()
+	registering and unregistering beans
+	a factory
+	empty constructor
+	methods to getBeans
+	by definition, unique name, contract
+	getInstance method
+	private instance
+	limitations
+		custom setting limits
+		debugging across managed packages
+	enhancements
+		pass parameters dynamically
+		add new instance var, map string to objecttype
+		serialize the params, beanregistry deserialize
+		cached bean instances
+		github.com/mikebernard/dependency-injection-framework
+		use data installer to register all beans into memory
+
+Enhanced web service testing, a better mock structure
+	out of the box
+		WebServiceMock for WSDL based SOAP callouts
+		HttpCalloutMock for testing http callouts
+		StaticResourceCalloutMock - getting response from a static resource - bad, do not do
+		MultiStaticResourceCalloutMock
+		playlist structure
+		response generator
+			'count playlist'
+			'data playlist'
+
+	responseGenerator implements HttpCalloutMock
+	// map<method(get/post/delete), map<endpoint, list<responses>>>
+	private map<String, map<string, list<response>>>> responses
+
+	public static getResponseMap(){}
+
+	public HttpResponse respond(){
+	// validate request
+	// check to see if method and endpoint are in our map
+	// set up Response
+	//  
+	}
+
+	inner class Response{
+		body
+		status code
+		discard // false for reusability, ie keep this response in the list/map == keep giving me this response
+	}
+	blog.crmscience.com
+
+Microservices
+	Characteristics of microservices ecosystems
+	distribution of responsibility
+	fire-and-forget (signal a need, at some point the need is fulfilled)
+	independent operations
+	RabbitMQ
+	3 stages: 
+	exchange (post office) - publish messages here (fire and forget)
+	queue - zero or more queues can be bound to an exchange with binding rules (keys), if this key, go to this queue
+	consumer - zero or more consumers can subscribe to the queue, if multiple, the queue dispatches messages in round robin order
+	out of the box load balancer, scalable
+	https://github.com/hunterloftis/df-micro-web
+
+Microservices in SF1
+	Pattern 1: gateway 
+		microservices <-> message queue <-> Gateway microservice <-> salesforce
+		bit.ly/SFmicro1
+
+		microservices
+		publish message (request)
+		callbacks
+		gateway microservice
+		watches the queue, does stuff
+		talk to salesforce
+		SF
+		has a @Resource listening for requests
+		reply to the gateway
+
+	Pattern 2: Salesforce Broker
+		microservices <-> message queue <-> Broker service in SF
+		microservices
+		call methods with params
+		publish to the queu
+		broker
+		take the message, route messages to queues
+		post to SF
+		listen -> create an interface
+		message handler contact
+
+	Pattern 3: salesforce broker asynchronous
+		microservices -> message queue -> broker microservice -> SF broker endpoint -> apex code
+		good for batch apex jobs from a microservice
+		query stuff back later to see the results after a long process time
+
+	Microservices on SF1
+		apex class = microservice
+		sobject = message queue
+		apex class = broker
+
+		github.com/seanhharrison/df15-microservices
+
+Beyond batch jobs
+	governor limits
+	CPU, heap, DML record count, SOQL, callouts
+	number of async apex, dml statements, soql statements
+	limit scope, run more frequently or longer - bad
+	optimize code with Database.Stateful, preprocess in start
+		implements Database.Stateful
+		private List<news> allNews
+
+		start(){
+			allNews = transformed data
+		}
+	chain batch jobs
+	save deferred objects (stuff we couldn't get to because of limits)
+	in finish, do executeBatch. 
+	watch out for limits
+		private nearLimit(){
+			return whatever limits we're hitting
+		}
+	get data in chunks, check limits along the way
+	garbage collection tips
+	null out variables when you're done with them (avoid heap limit)
+	put SOQL in for loops (SF will load data in chunks)
+	selective queries (server will be faster)
+	approaches for scale and reliability behaviors
+	custom objects and custom settings to manage stuff
+	base class to standardize 
+	empty or lean constructor
+	executes in the context of calling code - included in resources currently used
+	start() executes in its own context with its own limits
+	refresh your scope 
+	records in scope reflect a snapshot 
+	ie, requery in execute() for all sobjects with ids in scope
+	trade offs between CPU and Heap
+	batching over protected custom settings
+	bug, fixed in winter 16
+	use SetupOwnerId
+	dummy scope
+	batchable < 7MB size
+	only member variable count against batchable instance size
+	stash in the "cache"
+	persist to database
+	platform cache (winter 16)
+
+LittleBits - Internet of Things
+	Salesforce -> LittleBits Cloud and REST APIs -> device (then flow backwards)
+
+
+Story telling with Pixar
+	Goal, conflict, passion, change
+	resonate with audience, survival
+	humor 
+	honesty
+	power to explain, entertain
+	telling stories to connect
+	identify with the hero in the story
+	unifying theory of two plus two
+	
+	7 Steps to telling a story
+		--- act 1 --- get your character up a tree
+		1. once upon a time
+		establish the settings
+		2. and every day
+		routines (taking nemo to school)
+		reveal flaws (overprotective marlin)
+		3. until one day
+		inciting indicent (nemo gets taken away)
+		worst fear happen (marlin losing his son)
+		setting up to change the character's belief system
+
+		--- act 2 --- throw rocks at them
+		4. and because of this
+		conflicts (sharks)
+		making characters more desperate
+		5. and because of this
+		making them face their fears alone
+		lose their buddies
+		adding weight to the camel's back
+
+		--- act 3 --- get them down
+		6. until finally
+		crisis and climax 
+		prove that the character has changed (let nemo do something alone)
+		symbolism in the fins (distance = respect)
+
+		7. and since that day
+		resolution (marlin trusts nemo to be independent)
+
+	Storyboards
+		analyze every scene
+		blueprint of the story
+		draw roughly what your mind pictures while reading the script
+		put cards on the board
+		redraw, use acting, scripting, other tools
+		pitch to director, do sound effects, trying to bring the storyboard to life
+		team tearing your work apart
+		rebuild the storyboard
+	Tips
+		the audience is on your side, they emphathize with you
+		commit 
+		make it come alive
+		face the audience
+		include the audience
+		find the connection in whatever you pitch
+
+
+	Git in the Heroku Flow
+
+Winter 16
+	interactive debugger
+	running individual tests
+	rerun failed tests
+
+Stuff to learn
+	callbacks, js promises
+	jsforce
+	node
+	jade
+	Streaming API
+	jamesward connecting webhooks

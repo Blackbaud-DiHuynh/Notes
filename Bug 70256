@@ -1,0 +1,49 @@
+Bug 70256-RGsIntegration
+
+
+Repro: 
+- Create a RG
+- Seed gift and donation flows to LCRM successfully
+- Refund the gift in LO
+- Message from LCRM throws transient error: "MissingSuccessfulTransactionId"
+- Status in LCRM is NOT updated
+
+Problem:
+- refunded transactions move from valued_transaction to refund_transaction
+- in RecurringPledgeSyncStatusDao.getProcessorIdsLastSuccessfulPaymentInfo(), we only look in valued_transaction
+
+Fix: 
+- Join refund_transaction in the query and see what happens
+	- new query 
+		SELECT
+			vt2.reference_number,
+			vt2.transaction_id,
+			vt2.value_transacted,
+			vt2.orig_value_transacted,
+			ts.opportunity_id
+		FROM
+			(SELECT vt.reference_number, MAX(vt.payment_number) AS max_payment_number
+			 FROM dhuynh1.VALUED_TRANSACTION vt
+			 WHERE vt.reference_number IN ('T1001')
+			 AND site_id = 1
+			 GROUP BY vt.reference_number) max_payment
+		INNER JOIN
+			dhuynh1.valued_transaction vt2 ON
+			   vt2.reference_number = max_payment.reference_number AND
+			   vt2.payment_number = max_payment.max_payment_number
+		INNER JOIN
+			dhuynh1.transaction_sync ts ON vt2.transaction_id = ts.transaction_id
+		
+		UNION
+
+		SELECT rt.reference_number, rt.transaction_id, rt.value_transacted, rt.orig_value_transacted, ts.opportunity_id
+		FROM refund_transaction rt
+		INNER JOIN
+			dhuynh1.transaction_sync ts ON rt.transaction_id = ts.transaction_id
+			 WHERE rt.reference_number IN ('T1001')
+
+
+	- for refunded transactions, the opportunity_id is null -> when the message gets to LCRM (BusRecurringPledgeProcessor.buildSkeletonTransactions())
+		creates a stub donation (assuming that the donation hasn't come over the bus yet)
+
+	

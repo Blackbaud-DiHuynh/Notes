@@ -1,20 +1,18 @@
 Creating Mirror Events
 
-On LCRM
+In LCRM
 1. Create a new Gala event (goft event won't work)
 2. Enter a start date that's in the future
 3. Link to a primary campaign
 4. Create a level with 1 attendees included
   * all event levels with > 1 attendees included will be ignored 
 
-
-On LO
+In LO
 1. Setup -> Site Option
 2. Make sure EVENT_COMMON_GROUND_MIRRORING_ENABLED = TRUE
 3. Content -> Events
 4. There should be a "Mirror a Luminate CRM Event" button
 5. If you did everything correctly, you should be able to see the LCRM event you created earlier
-
 
 Other notes:
 - mirroring takes care of xrefs
@@ -27,3 +25,7 @@ Other notes:
 Relevant code: 
 LO - OrgEventCreateFromCommonGroundHandler.java
 
+AbstractOrgEventHandler
+	-> AbstractOrgEventRecurringHandler
+		-> OrgEventEditHandler
+	-> OrgEventCreateFromCommonGroundHandler

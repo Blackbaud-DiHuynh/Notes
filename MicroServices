@@ -1,5 +1,7 @@
 Building Microservices
 
+other resources: 
+Sam Newman - https://vimeo.com/99531595
 
 Chapter 1: Microservices
 
@@ -54,4 +56,39 @@ Turtles all the way down
   - nested boundaries might not be necessary, can lead to complication for testing
 
 The Technical Boundary
-  - 
+  - use technology as a way to split services isn't always wrong
+  - consider performance
+
+Chapter 4: Integration
+
+Looking for the Ideal Integration Technology
+  - avoid changes that causes consumers to change
+  - keep APIs technology-agnostic - technology changes all the time
+  - make service simple for consumers
+  - hide internal implementation details - decrease coupling, consumers should not be bounded to the internal implementation details
+
+Shared database
+  - difficult to change schemas
+  - large regression testing
+  - only 1 type of database
+  - logic to deal with the database (editing Constituent info in the Constituent db) has be to replicated across services - no cohesion
+ 
+Sync vs async
+  - sync - predictable, slow
+  - async - unpredictable, complex, fast
+  - event-based collaboration, publisher publishes "hey this action is done", the subscribers do something with that data
+
+Orchestration vs choreography
+  - orchestration = one centralized code to do several things, ie a conductor telling musicians what to play
+    - single point of failure
+    - can become brittle
+    - difficult to change
+    - a small monolith
+  - choreography = several things subscribed to the same event, when the event happens, the "things" know what to do, ie
+    like dancers waiting for a a queue then go off by themselves
+    - loosely coupled
+    - more flexible
+
+
+  
+

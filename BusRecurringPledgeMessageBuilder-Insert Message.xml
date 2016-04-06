@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<m:Message xmlns:m="urn:message.data.convio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<m:Version>1.0</m:Version> 
+<m:ObjectType>recurring_pledge</m:ObjectType> 
+<m:Action>CREATE</m:Action> 
+<m:Origin>    
+<m:System>COM</m:System>    
+<m:Version>6.5</m:Version> 
+</m:Origin> 
+<m:Client>    
+<m:Id>testclient</m:Id> 
+</m:Client> 
+<m:LocalId>   
+<m:Id>1001</m:Id>   
+<m:Version>0</m:Version> 
+</m:LocalId> 
+<m:Data> 
+<Field name="ConvioSiteId">1</Field>    
+<Field name="CampaignId">701o0000000ii8MAAQ</Field>    
+<Field name="ContactUniversalId">
+</Field>    
+<Field name="ContactLocalId">1001001</Field> 
+<Field name="StartDate">2014-4-03</Field>    
+<Field name="LastPaymentDate">2014-4-03</Field>    
+<Field name="NextPaymentDate">2014-5-03</Field>    
+<Field name="Frequency">Monthly</Field>    
+<Field name="Status">Active</Field>    
+<Field name="PaymentDay">3</Field>    
+<Field name="PaymentMonth">4</Field>    
+<Field name="TotalPaymentsProcessed">1</Field>    
+<Field name="TotalPayments">12</Field> 
+<m:Field name="InstallmentAmount">15.20</m:Field>    
+<m:Field name="TotalAmountProcessed">15.20</m:Field>    
+<m:Field name="LastPaymentAmount">15.20</m:Field> 
+</m:Data>
+</m:Message>

@@ -1,0 +1,5 @@
+Building LO notes
+
+ERROR: Build failed because create-changes-txt has compile errors
+WHY: can't parse because the file has windows EOL
+FIX: dos2unix create-changes-txt

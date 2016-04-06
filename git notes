@@ -38,3 +38,6 @@ git rev-list --all --grep='whateveryouwannasearchfor' --pretty=oneline
 
 #remove untracked files from git status
 git clean -fd *
+
+#use correct line endings 
+git config core.autocrlf input

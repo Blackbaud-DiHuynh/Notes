@@ -1,0 +1,28 @@
+Bug 70912
+Questions to answer: 
+	Does RELO use mirrored events? 
+		Yes, it works for them. We can't enable mirrored fields because they specifically want the fields disabled.
+
+	Does CGE use mirrored events?
+		Yes. It works the same way as LCRM.
+
+	How can we make mirrored events fields editable in LO? 
+		Change process_cg_mirrored_fields_row.tpt from
+		   get_observable_component('[[A0]]').disable(true, false);
+		to
+		   get_observable_component('[[A0]]').disable(false, false);
+
+		In BeanCGMirroredFieldsComponent.java
+			renderViewMode()
+				* check for mirrored fields from CG or RE and call process_cg..._row.tpt
+
+	Why are we able to make callouts with a valid convio id but not with a null convio id? 
+		Event_Detail_EditController.shouldCallApi() returns true if we have a convio id and false otherwise.	
+
+	What is the impact of a null convio id for an event?
+		Can't talk to LO. No bueno. 
+
+	What is the right fix for this issue? 
+		Change LCRM to not break with the convio_id
+		Add a button in LO "Refresh details from LCRM"
+

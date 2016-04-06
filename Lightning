@@ -1,0 +1,73 @@
+Lightning
+
+Visualforce - page-centric
+Lightning - app-centric
+
+Comparison
+	UI Generation
+		Classic SF: server-side
+		Visualforce as JS container: client-side
+		Lightning: client-side
+
+	Workflow:
+		Classic SF:
+			page sends request
+			server renders page
+			sends HTML to browser
+
+		Visualforce as JS container:
+			user requests VF page with only JS includes
+			browser loads js app
+
+		Lightning
+			user requests an app/component
+			browser loads the bundle
+			JS app generates the UI
+
+	Pros:
+		Classic SF:
+			easy to implement
+			built-in metadata integration
+
+		Visualforce as JS container
+			highly interactive
+
+		Lightning:
+			highly interactive
+			built on metadata from the foundation
+			dev console support
+
+	Cons:
+		Classic SF:
+			limited interactivity
+			slow
+
+		Visualforce as JS container:
+			complex
+			no built-in metadata integration
+			lack dev experience
+
+		Lightning:
+			high learning curve
+			higher complexity
+			limited out of the box components
+
+Transitioning
+	What still works
+		Creating custom tabs and apps with Visualforce pages.
+		Creating custom buttons and links that lead to Visualforce pages.
+		Creating custom actions that open with a Visualforce page.
+		Overriding standard actions with Visualforce pages (with one exception that we’ll get to later).
+		Creating flows that use Visualforce pages.
+		Packaging Visualforce pages and components.
+
+	What works but needs updating
+		In a nutshell, VF are iframed-in in Lightning. 
+		Can't use window.location due to the fact that there are no windows
+		might need to fix authentication code for SF api's to adjust to new env
+
+What is broken in LCRM:
+	S-controls that pre-populate a form
+		potential fixes: 
+			Quick Action on an object
+			overriding standard buttons/links

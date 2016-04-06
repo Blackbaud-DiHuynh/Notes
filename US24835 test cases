@@ -1,0 +1,45 @@
+US24835 - implementing DSP in LCRM
+
+Test cases:
+
+DSP campaigns (fee: 10, min-goal: 100)
+
+	no addl gift
+		- Aaron	Brrooks
+
+	refund
+		- fee
+		- fee + addl gift
+		- gifts
+		- last payment (after process is clicked)
+			additional gift + fee is > minimum goal
+				- no recurring pledge is created
+				- tr reg will sync as usual
+				- gift and fee sync to LCRM as one donation, listed under Related Transaction in TR reg
+
+			additional gift + fee is = minimum goal
+				- no recurring pledge is created
+				- tr reg will sync as usual
+				- gift and fee sync to LCRM as one donation, listed under Related Transaction in TR reg
+		
+	additional gift + fee is < minimum goal
+		- delayed self pledge is created
+		- sync to LCRM as a pledge with 2 installments, 
+		- donation has tr reg, pledges
+		- pledge has tr reg
+		- tr reg has pledge + donation
+
+	donations + fee = minimum goal
+		- nothing to process for dsp
+		- status stays Delayed forever
+		- pledge in LCRM is untouched
+
+	donations + fee < minimum goal
+		- sync to LCRM as a pledge with 2 installments, 
+		- donation has tr reg, pledges
+		- pledge has tr reg
+		- tr reg has pledge + donation
+
+	donations + fee > minimum goal
+
+normal TR campaigns works as expected

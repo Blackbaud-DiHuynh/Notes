@@ -1,0 +1,35 @@
+MergeApi.mergeContacts()
+-> mergeContactsWithSalesforceFieldsToInitialize
+	* add fields to be initialized
+	-> mergeContactsWithRequiredFields
+		* check for revision id fields being changed
+
+		**************** Maybe check here for related objects ********
+
+		-> DCO.doRealMerge
+			-> doComMerge (LO merge)
+				* add merge fields
+				* in LO, MergeConstituentsMethod.java
+					-> executeMethod()
+						-> parseRequest()
+							* for each of the cons, check for these errors
+								- duplicate master cons
+								- cons out of sync
+								- sustaining receipts present
+								- missing master
+								- missing dupes
+								- cons not found
+						-> mergeConstituents()
+							* does the merge
+							* remove the dup
+
+			-> doMerge
+				-> checkMergeEligible() * only checks for Do_Not_Synchronize__c
+				-> mergeContactsCheckAccount()
+					-> mergeContacts()
+						* mergeRelatedRecords()
+							-> removeReflectiveAndDuplicateRelationships()
+							-> removeDuplicateTrRegs()
+								* remove all TR regs associated with the duplicate contacts
+						* does the merge in LCRM
+						* create audit trail

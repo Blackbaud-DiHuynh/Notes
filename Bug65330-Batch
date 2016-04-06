@@ -53,8 +53,6 @@ BatchController.getDonationFormUrl() - get the URL for the iframe donation form
     ->ConvioForceApi.getParamsForDonation
       -> ConvioForceApi.setDonorData
 
-
-
 LO
 
 UpsertConsHandler.processSyncMessage()

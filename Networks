@@ -1,0 +1,43 @@
+Networks
+
+REST - REpresentational State Transfer
+
+What is it?
+	- architecture style for networked applications
+	- requires stateless, client-server, cacheable communications protocol -> HTTP
+	- platform-independent
+	- language-independent
+	- standards-based
+	- easy to use with firewall
+
+Example: 
+	- phone book application with user id
+	- REST: http://www.acme.com/phonebook/UserDetails/12345
+	- SOAP: 
+		<?xml version="1.0"?>
+		<soap:Envelope
+			xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+			soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+			<soap:body pb="http://www.acme.com/phonebook">
+				<pb:GetUserDetails>
+				<pb:UserID>12345</pb:UserID>
+				</pb:GetUserDetails>
+			</soap:Body>
+		</soap:Envelope>
+
+Letter analogy:
+	- SOAP: sending an envelope
+	- REST: sending a postcard
+
+REST Design Guidelines
+1. Do not use physical URLs.
+	- use logical urls http://www.acme.com/inventory/product/003
+	- not physical urls: http://www.acme.com/inventory/product/003.xml
+2. Query should return data for a paging mechanism
+	- the first n items
+3. Do not change output format without informing the clients
+4. Include actual URLs with REST responses.
+	- http://www.acme.com/product/001263 with product with id 001263
+	NOT http://www.acme.com/product/PRODUCT_ID
+	- makes client code simpler
+5. GET requests do not cause a state change
