@@ -1,0 +1,50 @@
+Next Gen Reference
+
+Environment
+  Sandbox
+  Dev
+  Int
+  UAT
+  Prod
+
+Services
+  Nginx - open-source, high performance HTTP server and reverse proxy
+    -> load balancer
+
+  Lombok - use of annotations to autogenerate boiler plate code
+  
+
+Data pipeline
+  ZooKeeper - (apache) centralized service for configuration
+    -> distributed, highly reliable
+    -> allows distributed systems to coordinate with each other
+  
+  Kafka - (apache) high load messaging system
+    -> publish-subscribe messaging rethought as a distributed commit log
+    -> scalable, distributed, durable
+
+  BDGlue
+
+  GoldenGate - 
+
+Platform
+  Splunk
+  AppDynamics
+  CloudFoundry
+
+
+
+Deployment
+  
+Backend services:
+  1. Checkout conan-the-deployer from github
+  2. Run `gw deployService` with artifactId and version parameters
+    - conan will download its dependencies, one of which is cloud-foundry-tools
+    - conan deploys with cloud-foundry-tools Deployer class
+      a. initialize a descriptor based on the type of the backend service (basic-service, basic-service-broker, basic-static-files)
+      b. combine the project-specific configs with the basic-*.yml
+      c. cf login to the right env
+      d. cf push --no-start to push the new (green) version of the artifact without starting while the old (blue) version is still running
+      e. bind new app to app.pivotal-*.blackbaudcloud.com, now blue and green are mapped to main url
+      f. unbind the blue app, then delete it
+
