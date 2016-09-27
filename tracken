@@ -1,0 +1,26 @@
+GET 		/release-plan/current	
+GET			/release-plan/id
+
+POST 		/release-plan - returns id
+
+PUT 		/release-plan/id/notes
+PUT			/release-plan/id/activate
+DELETE 		/release-plan/id/d 
+
+POST		/release-plan/id/artifacts/ with ArtifactInfo
+			
+
+ArtifactInfo
+	artifact id
+	build version
+	git sha
+
+Release Plan
+	id
+	created date
+	activated date
+	closed date
+	notes
+
+Question:
+	- activate an activated release plan

@@ -1,0 +1,77 @@
+Raft consensus algorithm
+
+Background:
+    - old fashion consensus algorithm - paxos
+
+1. Leader election
+    - Server states, each server is one of the following state:
+        leader - handles all client interactions, log replications, only 1 at a time
+        follower - passive, only respond to incoming RPC
+        candidate - try to be elected as leader
+    - start as follower, candidate, then leader
+
+    - Terms, numerical number to keep track of leaders
+        - at most 1 leader per term
+        - ends with leader crashing
+    - heartbeats and timeouts
+        - leader sends heartbeats to maintain authority
+        - election timeouts finishes and no heartbeats from leader -> new election
+    - Election:
+        - term++
+        - change to candidate state
+        - each server can only vote once
+        - vote for self
+        - send RequestVote RPCs to other servers (first come first serve), also sends its log, wait until
+                * other followers compare their logs with the candidate, vote for the candidate if:
+                    * it hasn't voted
+                    * the candidate's log is more updated
+            - receive votes from majority of servers - you win
+                - become leader
+                - send heartbeats to all other servers
+            - receive RPC from valid leader - someone else wins
+                - go back to being a follower
+            - no one wins (election timeout, tied votes)
+                - increment term, start again
+        - safe - only 1 winner per term
+        - liveness - always has 1 leader, someone eventually wins
+            - pick random timeout after split votes
+    
+    - Log structure
+        - Log entry = index, term, client command
+        - log stores on disk
+        - leader has authoritative log
+
+2. Normal operation (happy path, log replication)
+    - client sends command to leader
+    - leader appends command to log
+    - sends appendEntries to followers
+    - once new entry committed:
+        - apply command
+        - returns output to client
+    - catch up followers in background
+        - notify followers results with subsequent RPCs
+        - followers update their logs, so that when they become leader, their logs are up-to-date, acked to leader
+    - performant
+    - log consistency
+        - high level of coherency between logs
+            - if log entry on different server have same index and term 
+                -> same command
+                -> the logs are identical in preceding log entries
+                -> why? when append, check that the previous entry is the same, induction -> any nth entry can ensure order for entries 1..n-1  
+    - log INconsistency - missing log entries, or extraneous entries, due to servers going down, or leader changes
+        - new leader forces all followers to replicate its logs
+        - repairing follower logs:
+            - leader keeps nextIndex for each follower
+            - when AppendEntries consistency check fails, decrement nextIndex and try again
+            - when nextIndex is legit, overwrite the inconsistent entry, remove the rest of logs (extraneous) 
+
+3. Safety Requirements
+    - any two committed entries at the same index must be the same
+        - leader marks entry committed -> entry present in every future leaders' log
+    -  what if log of a new leader didn't contain all previously committed entries?
+        - conditions on new leaders
+    - how to commit entires from previous term?
+        - tune commit mechanism
+    - pick up-to-date leaders
+        
+

@@ -1,0 +1,12 @@
+Producer send: 
+	- serialization error -> no retries -> external retries
+		- configure retry number, if failed -> log, move on
+	- error with kafka (already serialized, sent to kafka proper): some are retry-able, some are not
+		- use kafka retries (default is 0)
+		- in producer API
+		- backoff number
+
+		send(message, callback) returns with failure/success
+			- callback has error message
+
+Acknowledgement (acks default is 1)

@@ -1,0 +1,82 @@
+Kafka
+-----------------------
+Producer
+-----------------------
+Basic usage
+	constructor
+		Map<K, V> properties = new Map<K,V>{
+			bootstrap.servers = local.docker, // host and port of kafka server/cluster we're using
+			other options = other values
+		};
+		KafkaProducer producer = new KafkaProducer(properties);
+	send
+		producer.send(ProducerRecord)
+
+	close
+		blocks the process until all of the messages are sent to the server
+		producer.close()
+
+ProducerRecord
+	data structure to hold <Topic, Message>
+	producer.send(new ProducerRecord("topic", "message"));
+
+------------------------
+Consumer
+------------------------
+Basic usage
+	constructor
+		KafkaConsumer consumer = new KafkaConsumer(properties);
+	subscribe to a topic
+		consumer.subscribe(List<Topics> {"topic 1", "topic 2"});
+	consumption
+		consumer can poll the messages from the topics
+		while (true){
+			ConsumerRecords records = consumer.poll(200);
+		}
+		for (ConsumerRecord record : records){
+			if (record.topic().equals("topic 1")){
+				...
+			}
+		}
+	done consuming
+		consumer.close()
+
+Consumer groups
+    for scalability - allow multiple consumers to consume from the same topic	
+    one consumer per thread	- consumers are not thread safe
+    if one crashes or added, kafka will trigger a rebalance of partition assignment
+        - each consumer will pick up the latest offset committed for the partitions it's assigned to
+
+Committing offsets	
+	automatic commits - enable.auto.commit = true
+		default is every 5 secs
+        will trigger reprocessing of records if rebalance happens
+    commit current offset
+        more control to devs
+        set auto.commit.offset = false
+        commitSync() - commit latest offset returned by poll(), return when offset is committed
+            only called after you're done
+            application is blocked   
+            will retry until it succeeds or non-retriable errors happen
+        asyncCommit
+           improve throughput
+           won't retry - due to async nature, stuff might happened already
+        combining sync and async commit
+           use async in the main loop, use sync in finally()
+    commit specific offset
+        for batch processing, if we want to commit regularly, commitSync() and commitAsync() will commit the latest one
+
+Rebalance listeners
+    ConsumerRebalanceListener - allows us to do stuff before the consumer loses partition assignment (due to rebalancing) or exiting
+    onPartitionRevoked([partitions])
+        - called before rebalance starts and after the consumer stop consuming
+        - commit offsets here, so next consumer knows where to start
+    onPartitionAssigned([partitions])
+        - after partitions are re-assigned but before consuming
+
+Seek
+    seekToBegining, seekToEnd
+    seek(specificOffset) helps ensure atomic operations
+
+Deserializer
+    

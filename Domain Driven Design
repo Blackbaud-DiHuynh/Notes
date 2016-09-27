@@ -1,0 +1,69 @@
+Domain Driven Design
+
+Layers
+	- separating application, UI, db, ...
+		- User Interface
+		- Application
+		- Domain
+		- Infrastructure
+	- Strict and Loose Layer Architecture
+
+Dependency Inversion
+	- Infrastructure
+	- UI
+	- Application
+	- Domain
+
+Hexagonal Design (or Ports and Adapters)
+	- application at the core, everything else connects to it via an adapter
+		- db connects to the application through a db adapter
+		- if someone wants to use the application, they can create an adapter to transform their data to use the application's exposed api
+	- change of mindsets from Layers to all around
+
+Service-oriented
+	- principles:
+		- contract
+		- loose coupling
+		- abstraction
+		- reusability
+		- autonomy
+		- statelessness
+		- discoverability
+		- composability
+	- Business value over technical strategy
+	- strategic goals over project-specific benefits
+
+REST
+	- REST server
+		- resource oriented
+		- stateless communication - no sessions
+		- fixed set of methods
+	- REST client
+		- start at an entry point, then follow links
+			- GET /dogs -> { name: "Max", imageId:"1"}
+			- GET image/1 -> { name: "Max", date: "7/1/10"}
+	- REST and DDD
+		- don't directly expose domain model via REST -> focus on use case
+			- easy if need to change the domain objects (entities)
+		- how to avoid
+			- separate bounded context for interface, which maps to core domain
+	- advantages
+		- loose coupling
+		- easy to understand
+		- easy to test
+		- scaleable - caching
+
+Command-query responsibility segregation, CQRS
+	- creates a view model
+	- separates query model and command model
+	- helps with performance when everybody is trying to hit the same table, most of the time it's just for viewing and not "doing"
+
+Event-driven architecture
+	- pipes and filters
+		- pipes = message channels
+		- filter = processes messages
+		- ports = connects Filters to pipes
+		- loose coupling
+	- long running processes
+		- 
+

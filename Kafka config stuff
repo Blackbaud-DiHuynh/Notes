@@ -1,0 +1,3 @@
+application.properties
+	kafka.topic.lonxtUser
+	kafka.topic.lonxtTenant

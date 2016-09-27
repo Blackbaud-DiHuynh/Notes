@@ -1,0 +1,12 @@
+REST API design resource modeling
+
+Fine-grained vs coarse-grained
+	fine-grained: more chatty api, more requests to get the thing you want
+		/blogPost
+		/tag with postId
+		/picture
+	coarse-grained: not as chatty, more complicated
+		/post with tag, picture in body
+
+Prevent migration of business logic to API consumer
+		

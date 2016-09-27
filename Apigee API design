@@ -1,0 +1,24 @@
+Apigee API design
+
+
+Nouns, not verbs
+
+associations, keep them simple
+	- /resource/identifier/resource
+
+versioning
+partial response
+	- allow devs to pick what fields to get back
+	- /dogs?fields=name,size
+	- no need to do work to fill in unneeded fields (might take a while to calculate)
+pagination
+	- allow devs to page the db
+	- limit and offset
+	- include metadata
+
+exception handling
+
+provide an SDK
+	- if you don't, your customers will create one and they might do it wrong
+	- reduce bad or inefficient code
+	- 

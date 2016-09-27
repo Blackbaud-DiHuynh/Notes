@@ -1,0 +1,27 @@
+Priority
+
+Release Summary Page
+
+Individual env pages
+
+dragable release plan
+
+
+Tasks
+	- have basic angular app running in the appdashboard box
+	- recreate the release summary page
+	-
+
+
+Why are we doing this?
+	- more flexibility in the future if we want to add more front end functionality
+	- same tech stack as the rest of our applications -> easier to maintain
+	- PHP...
+	- sky components - eat our own dog food
+	- easier to test
+
+What's next? 
+	- make it more awesome
+
+
+"When Angular was in bed wetting the sheets, PHP was actually doing something" - Chad Sailer
