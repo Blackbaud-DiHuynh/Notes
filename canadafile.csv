@@ -1,3 +1,0 @@
-id, next_ask_amount__c, suggested_donor_type__c, total_identified_assets__c, wealth_rating__c, sources
-1, "$251-$500", A, "$100,000-$499,999", A, Target Analytics
-2, "$501-$1000", G, "$100,000-$499,999", B, Target Analytics
